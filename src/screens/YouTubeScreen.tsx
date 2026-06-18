@@ -65,13 +65,15 @@ function saveLrcCache(id: string, lines: LrcLine[]) {
   } catch {}
 }
 
-export default function YouTubeScreen({ navigation }: any) {
+export default function YouTubeScreen({ navigation, route }: any) {
+  // A song can be passed in from the home screen (videoId/artist/track).
+  const params = route?.params || {};
   const [link, setLink] = useState('');
-  const [videoId, setVideoId] = useState<string | null>(null);
+  const [videoId, setVideoId] = useState<string | null>(params.videoId ?? null);
   const [error, setError] = useState('');
 
-  const [artist, setArtist] = useState('');
-  const [track, setTrack] = useState('');
+  const [artist, setArtist] = useState(params.artist ?? '');
+  const [track, setTrack] = useState(params.track ?? '');
   const [lines, setLines] = useState<LrcLine[]>([]);
   const [loading, setLoading] = useState(false);
   const [lrcError, setLrcError] = useState('');
@@ -309,8 +311,8 @@ export default function YouTubeScreen({ navigation }: any) {
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
         {lines.length === 0 && <Text style={styles.title}>🎬 YouTube Karaoke</Text>}
 
-        {/* Link input (setup only) */}
-        {lines.length === 0 && (
+        {/* Link input (only when no song chosen yet) */}
+        {!videoId && (
           <View style={styles.inputRow}>
             <TextInput
               style={styles.input}

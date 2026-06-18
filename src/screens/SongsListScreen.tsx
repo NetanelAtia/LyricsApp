@@ -1,57 +1,58 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, difficultyColor, radius, spacing } from '../theme';
-import { songs, Song } from '../data/songs';
+import { colors, radius, spacing } from '../theme';
+import { library, LibrarySong } from '../data/library';
 
-// The first screen: a scrollable list of songs to choose from.
+// Home screen: the list of songs. Tapping one opens it straight in karaoke.
 export default function SongsListScreen({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-        <Text style={styles.greeting}>Let&apos;s learn 🎵</Text>
-        <Text style={styles.title}>Choose a song</Text>
-
-        <TouchableOpacity
-          style={styles.ytButton}
-          onPress={() => navigation.navigate('YouTube')}
-          activeOpacity={0.85}
-        >
-          <Text style={styles.ytButtonText}>🎬  YouTube Karaoke</Text>
-        </TouchableOpacity>
+        <Text style={styles.greeting}>Learn English with songs 🎵</Text>
+        <Text style={styles.title}>Your Songs</Text>
       </View>
 
       <FlatList
-        data={songs}
-        keyExtractor={(item) => item.id}
+        data={library}
+        keyExtractor={(s) => s.videoId}
         contentContainerStyle={{ padding: spacing.md, paddingTop: 0 }}
         renderItem={({ item }) => (
-          <SongCard song={item} onPress={() => navigation.navigate('Song', { songId: item.id })} />
+          <SongCard
+            song={item}
+            onPress={() =>
+              navigation.navigate('YouTube', {
+                videoId: item.videoId,
+                artist: item.artist,
+                track: item.track,
+              })
+            }
+          />
         )}
+        ListFooterComponent={
+          <TouchableOpacity
+            style={styles.addBtn}
+            onPress={() => navigation.navigate('YouTube', {})}
+            activeOpacity={0.85}
+          >
+            <Text style={styles.addBtnText}>➕  שיר אחר מיוטיוב</Text>
+          </TouchableOpacity>
+        }
       />
     </SafeAreaView>
   );
 }
 
-function SongCard({ song, onPress }: { song: Song; onPress: () => void }) {
+function SongCard({ song, onPress }: { song: LibrarySong; onPress: () => void }) {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.8}>
       <View style={[styles.cover, { backgroundColor: song.accent }]}>
         <Text style={styles.coverEmoji}>{song.emoji}</Text>
       </View>
-
       <View style={styles.cardBody}>
-        <Text style={styles.songTitle}>{song.title}</Text>
+        <Text style={styles.songTitle}>{song.track}</Text>
         <Text style={styles.songArtist}>{song.artist}</Text>
-
-        <View style={[styles.badge, { backgroundColor: difficultyColor[song.difficulty] + '22' }]}>
-          <View style={[styles.dot, { backgroundColor: difficultyColor[song.difficulty] }]} />
-          <Text style={[styles.badgeText, { color: difficultyColor[song.difficulty] }]}>
-            {song.difficulty}
-          </Text>
-        </View>
       </View>
-
-      <Text style={styles.chevron}>›</Text>
+      <Text style={styles.play}>▶</Text>
     </TouchableOpacity>
   );
 }
@@ -61,16 +62,6 @@ const styles = StyleSheet.create({
   header: { padding: spacing.lg, paddingBottom: spacing.md },
   greeting: { color: colors.textMuted, fontSize: 15, marginBottom: 4 },
   title: { color: colors.text, fontSize: 30, fontWeight: '800' },
-  ytButton: {
-    marginTop: spacing.md,
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    paddingVertical: 12,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.surfaceLight,
-  },
-  ytButtonText: { color: colors.text, fontSize: 15, fontWeight: '700' },
 
   card: {
     flexDirection: 'row',
@@ -91,16 +82,16 @@ const styles = StyleSheet.create({
   cardBody: { flex: 1, marginLeft: spacing.md },
   songTitle: { color: colors.text, fontSize: 17, fontWeight: '700' },
   songArtist: { color: colors.textMuted, fontSize: 13, marginTop: 2 },
-  badge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'flex-start',
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: radius.pill,
+  play: { color: colors.primarySoft, fontSize: 20, paddingHorizontal: spacing.md },
+
+  addBtn: {
     marginTop: spacing.sm,
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+    paddingVertical: 14,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.surfaceLight,
   },
-  dot: { width: 6, height: 6, borderRadius: 3, marginRight: 6 },
-  badgeText: { fontSize: 12, fontWeight: '600' },
-  chevron: { color: colors.textFaint, fontSize: 28, paddingHorizontal: spacing.sm },
+  addBtnText: { color: colors.text, fontSize: 15, fontWeight: '700' },
 });
