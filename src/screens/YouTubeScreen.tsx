@@ -110,6 +110,16 @@ export default function YouTubeScreen({ navigation, route }: any) {
     if (videoId) saveOffset(videoId, o);
   }
 
+  // One-tap calibration: press exactly when the first line is sung, and we
+  // align the whole song to that moment.
+  function calibrate() {
+    const fi = lines.findIndex((l) => l.text);
+    if (fi < 0) return;
+    const o = +(lines[fi].time - getTime() - LOOKAHEAD).toFixed(1);
+    setSyncOffset(o);
+    if (videoId) saveOffset(videoId, o);
+  }
+
   // Tapped word -> translation bubble.
   const [selected, setSelected] = useState<string | null>(null); // "line-word" key
   const [wordTranslation, setWordTranslation] = useState('');
@@ -558,9 +568,12 @@ export default function YouTubeScreen({ navigation, route }: any) {
               </TouchableOpacity>
             </View>
 
-            {/* Sync correction — fixes songs where the lyrics timing is off. Saved per song. */}
+            {/* Sync: one-tap calibrate + fine-tune. Saved per song. */}
+            <Text style={styles.syncHint}>סנכרון לא מדויק? לחץ "כייל" בדיוק כשהמילה הראשונה נשמעת</Text>
             <View style={styles.offsetRow}>
-              <Text style={styles.offsetLabel}>סנכרון מילים:</Text>
+              <TouchableOpacity style={styles.calBtn} onPress={calibrate} activeOpacity={0.85}>
+                <Text style={styles.calBtnText}>🎯 כייל</Text>
+              </TouchableOpacity>
               <TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(-0.5)} hitSlop={6}>
                 <Text style={styles.offsetBtnText}>−</Text>
               </TouchableOpacity>
@@ -636,6 +649,9 @@ const styles = StyleSheet.create({
     gap: spacing.md,
     marginTop: spacing.lg,
   },
+  syncHint: { color: colors.textFaint, fontSize: 12, textAlign: 'center', marginTop: spacing.md },
+  calBtn: { backgroundColor: colors.primary, borderRadius: radius.pill, paddingHorizontal: spacing.lg, paddingVertical: 8 },
+  calBtnText: { color: '#fff', fontSize: 14, fontWeight: '700' },
   offsetLabel: { color: colors.textMuted, fontSize: 14 },
   offsetBtn: {
     width: 36,
