@@ -12,6 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import YouTubePlayer from '../components/YouTubePlayer';
 import { translateToHebrew, cachedTranslation } from '../translate';
+import { fetchJson } from '../net';
 import { colors, radius, spacing } from '../theme';
 
 const cleanWord = (w: string) => w.replace(/[^a-zA-Z']/g, '').toLowerCase();
@@ -229,8 +230,7 @@ export default function YouTubeScreen({ navigation }: any) {
     // 2) Fetch from LRCLIB and save for next time.
     try {
       const q = encodeURIComponent(`${t} ${a}`.trim());
-      const res = await fetch(`https://lrclib.net/api/search?q=${q}`);
-      const data = await res.json();
+      const data = await fetchJson(`https://lrclib.net/api/search?q=${q}`);
       const hit = Array.isArray(data) ? data.find((d: any) => d.syncedLyrics) : null;
       if (!hit) {
         setLrcError('לא נמצאו מילים מסונכרנות לשיר הזה. נסה לתקן את שם השיר/האמן.');
@@ -348,7 +348,7 @@ export default function YouTubeScreen({ navigation }: any) {
                 onChangeText={setTrack}
               />
             </View>
-            <TouchableOpacity style={styles.bigBtn} onPress={fetchLyrics} activeOpacity={0.85}>
+            <TouchableOpacity style={styles.bigBtn} onPress={() => fetchLyrics()} activeOpacity={0.85}>
               <Text style={styles.bigBtnText}>🔍 חפש מילים מסונכרנות</Text>
             </TouchableOpacity>
             {loading && <ActivityIndicator color={colors.primarySoft} style={{ marginTop: spacing.md }} />}
