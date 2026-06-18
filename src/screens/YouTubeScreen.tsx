@@ -401,21 +401,6 @@ export default function YouTubeScreen({ navigation, route }: any) {
           </View>
         )}
 
-        {/* Playback controls: rewind 10s, pause/play, forward 10s */}
-        {videoId && lines.length > 0 && (
-          <View style={styles.controlsRow}>
-            <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-10)} activeOpacity={0.8}>
-              <Text style={styles.ctrlText}>⏪ 10</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
-              <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(10)} activeOpacity={0.8}>
-              <Text style={styles.ctrlText}>10 ⏩</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-
         {/* Find synced lyrics (setup only) */}
         {videoId && lines.length === 0 && (
           <View style={styles.section}>
@@ -442,19 +427,6 @@ export default function YouTubeScreen({ navigation, route }: any) {
             {loading && <ActivityIndicator color={colors.primarySoft} style={{ marginTop: spacing.md }} />}
             {lrcError ? <Text style={styles.error}>{lrcError}</Text> : null}
           </View>
-        )}
-
-        {/* Always-on translation toggle */}
-        {lines.length > 0 && (
-          <TouchableOpacity
-            style={[styles.translateToggle, alwaysTranslate && styles.translateToggleActive]}
-            onPress={() => setAlwaysTranslate((v) => !v)}
-            activeOpacity={0.85}
-          >
-            <Text style={[styles.translateToggleText, alwaysTranslate && styles.translateToggleTextActive]}>
-              {alwaysTranslate ? '✓ מציג תרגום' : 'הצג תרגום'}
-            </Text>
-          </TouchableOpacity>
         )}
 
         {/* Focused karaoke: only the current line (+ a peek at prev/next) */}
@@ -529,6 +501,33 @@ export default function YouTubeScreen({ navigation, route }: any) {
               </View>
             );
           })()}
+
+        {/* Controls — below the lyrics & translation */}
+        {videoId && lines.length > 0 && (
+          <>
+            <View style={styles.controlsRow}>
+              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-10)} activeOpacity={0.8}>
+                <Text style={styles.ctrlText}>⏪ 10</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
+                <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(10)} activeOpacity={0.8}>
+                <Text style={styles.ctrlText}>10 ⏩</Text>
+              </TouchableOpacity>
+            </View>
+
+            <TouchableOpacity
+              style={[styles.translateToggle, alwaysTranslate && styles.translateToggleActive]}
+              onPress={() => setAlwaysTranslate((v) => !v)}
+              activeOpacity={0.85}
+            >
+              <Text style={[styles.translateToggleText, alwaysTranslate && styles.translateToggleTextActive]}>
+                {alwaysTranslate ? '✓ מציג תרגום' : 'הצג תרגום'}
+              </Text>
+            </TouchableOpacity>
+          </>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -560,7 +559,7 @@ const styles = StyleSheet.create({
   smallBtnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
   error: { color: colors.danger, paddingHorizontal: spacing.lg, marginTop: spacing.sm },
   playerWrap: { padding: spacing.lg, paddingBottom: spacing.sm },
-  controlsRow: { flexDirection: 'row', justifyContent: 'center', gap: spacing.md },
+  controlsRow: { flexDirection: 'row', justifyContent: 'center', gap: spacing.md, marginTop: spacing.lg, paddingHorizontal: spacing.lg },
   ctrlBtn: {
     backgroundColor: colors.surface,
     paddingHorizontal: spacing.lg,
