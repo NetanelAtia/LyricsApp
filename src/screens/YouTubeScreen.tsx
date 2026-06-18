@@ -568,20 +568,28 @@ export default function YouTubeScreen({ navigation, route }: any) {
               </TouchableOpacity>
             </View>
 
-            {/* Sync: one-tap calibrate + fine-tune. Saved per song. */}
-            <Text style={styles.syncHint}>סנכרון לא מדויק? לחץ "כייל" בדיוק כשהמילה הראשונה נשמעת</Text>
-            <View style={styles.offsetRow}>
-              <TouchableOpacity style={styles.calBtn} onPress={calibrate} activeOpacity={0.85}>
-                <Text style={styles.calBtnText}>🎯 כייל</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(-0.5)} hitSlop={6}>
-                <Text style={styles.offsetBtnText}>−</Text>
-              </TouchableOpacity>
-              <Text style={styles.offsetValue}>{syncOffset > 0 ? '+' : ''}{syncOffset.toFixed(1)}s</Text>
-              <TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(0.5)} hitSlop={6}>
-                <Text style={styles.offsetBtnText}>+</Text>
-              </TouchableOpacity>
-            </View>
+            {/* Calibration tools — shown ONLY in development (npm start), so
+                you can find the right offset and bake it into defaultOffsets.
+                Hidden for users in the published app. */}
+            {__DEV__ && (
+              <>
+                <Text style={styles.syncHint}>
+                  [DEV] סנכרון: לחץ "כייל" כשהמילה הראשונה נשמעת — ערך: {syncOffset.toFixed(1)}s
+                </Text>
+                <View style={styles.offsetRow}>
+                  <TouchableOpacity style={styles.calBtn} onPress={calibrate} activeOpacity={0.85}>
+                    <Text style={styles.calBtnText}>🎯 כייל</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(-0.5)} hitSlop={6}>
+                    <Text style={styles.offsetBtnText}>−</Text>
+                  </TouchableOpacity>
+                  <Text style={styles.offsetValue}>{syncOffset > 0 ? '+' : ''}{syncOffset.toFixed(1)}s</Text>
+                  <TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(0.5)} hitSlop={6}>
+                    <Text style={styles.offsetBtnText}>+</Text>
+                  </TouchableOpacity>
+                </View>
+              </>
+            )}
           </>
         )}
       </ScrollView>
