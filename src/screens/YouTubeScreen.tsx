@@ -429,6 +429,19 @@ export default function YouTubeScreen({ navigation, route }: any) {
           </View>
         )}
 
+        {/* Translation toggle — above the lyrics */}
+        {lines.length > 0 && (
+          <TouchableOpacity
+            style={[styles.translateToggle, alwaysTranslate && styles.translateToggleActive]}
+            onPress={() => setAlwaysTranslate((v) => !v)}
+            activeOpacity={0.85}
+          >
+            <Text style={[styles.translateToggleText, alwaysTranslate && styles.translateToggleTextActive]}>
+              {alwaysTranslate ? '✓ מציג תרגום' : 'הצג תרגום'}
+            </Text>
+          </TouchableOpacity>
+        )}
+
         {/* Focused karaoke: only the current line (+ a peek at prev/next) */}
         {lines.length > 0 &&
           (() => {
@@ -502,31 +515,19 @@ export default function YouTubeScreen({ navigation, route }: any) {
             );
           })()}
 
-        {/* Controls — below the lyrics & translation */}
+        {/* Playback controls — below the lyrics */}
         {videoId && lines.length > 0 && (
-          <>
-            <View style={styles.controlsRow}>
-              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-10)} activeOpacity={0.8}>
-                <Text style={styles.ctrlText}>⏪ 10</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
-                <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(10)} activeOpacity={0.8}>
-                <Text style={styles.ctrlText}>10 ⏩</Text>
-              </TouchableOpacity>
-            </View>
-
-            <TouchableOpacity
-              style={[styles.translateToggle, alwaysTranslate && styles.translateToggleActive]}
-              onPress={() => setAlwaysTranslate((v) => !v)}
-              activeOpacity={0.85}
-            >
-              <Text style={[styles.translateToggleText, alwaysTranslate && styles.translateToggleTextActive]}>
-                {alwaysTranslate ? '✓ מציג תרגום' : 'הצג תרגום'}
-              </Text>
+          <View style={styles.controlsRow}>
+            <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-10)} activeOpacity={0.8}>
+              <Text style={styles.ctrlText}>⏪ 10</Text>
             </TouchableOpacity>
-          </>
+            <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
+              <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(10)} activeOpacity={0.8}>
+              <Text style={styles.ctrlText}>10 ⏩</Text>
+            </TouchableOpacity>
+          </View>
         )}
       </ScrollView>
     </SafeAreaView>
