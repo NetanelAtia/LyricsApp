@@ -1,20 +1,53 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import SongsListScreen from './src/screens/SongsListScreen';
+import SongScreen from './src/screens/SongScreen';
+import YouTubeScreen from './src/screens/YouTubeScreen';
+import { colors } from './src/theme';
 
-export default function App() {
+// The Stack lets us move between screens (list -> song -> back).
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <StatusBar style="light" />
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="SongsList" component={SongsListScreen} />
+          <Stack.Screen name="Song" component={SongScreen} />
+          <Stack.Screen name="YouTube" component={YouTubeScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// On the web preview we center the app inside a phone-sized frame,
+// so it looks just like it will on a real phone. On a real device
+// it fills the screen normally.
+export default function Root() {
+  if (Platform.OS === 'web') {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#000' }}>
+        <View
+          style={{
+            flex: 1,
+            width: '100%',
+            maxWidth: 420,
+            backgroundColor: colors.background,
+            shadowColor: '#000',
+            shadowOpacity: 0.4,
+            shadowRadius: 24,
+          }}
+        >
+          <App />
+        </View>
+      </View>
+    );
+  }
+  return <App />;
+}

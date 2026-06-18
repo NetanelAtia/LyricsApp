@@ -1,0 +1,10 @@
+# Tells Netlify how to build and serve the app.
+[build]
+  command = "npx expo export -p web"
+  publish = "dist"
+
+# Single-page app: send all routes to index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
