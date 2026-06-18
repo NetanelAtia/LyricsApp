@@ -3,7 +3,7 @@
 
 const KEY = 'lyricsapp:vocab';
 
-export type VocabWord = { word: string; translation: string; addedAt: number };
+export type VocabWord = { word: string; translation: string; addedAt: number; song?: string };
 
 export function getVocab(): VocabWord[] {
   try {
@@ -33,14 +33,14 @@ export function removeWord(word: string) {
 }
 
 // Add or remove a word; returns the new saved state (true = now saved).
-export function toggleWord(word: string, translation: string): boolean {
+export function toggleWord(word: string, translation: string, song?: string): boolean {
   const w = word.toLowerCase();
   const list = getVocab();
   if (list.some((x) => x.word === w)) {
     saveAll(list.filter((x) => x.word !== w));
     return false;
   }
-  list.push({ word: w, translation, addedAt: Date.now() });
+  list.push({ word: w, translation, addedAt: Date.now(), song });
   saveAll(list);
   return true;
 }

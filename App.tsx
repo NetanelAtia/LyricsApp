@@ -7,6 +7,7 @@ import SongsListScreen from './src/screens/SongsListScreen';
 import SongScreen from './src/screens/SongScreen';
 import YouTubeScreen from './src/screens/YouTubeScreen';
 import VocabScreen from './src/screens/VocabScreen';
+import ProgressScreen from './src/screens/ProgressScreen';
 import { colors } from './src/theme';
 
 // The Stack lets us move between screens (list -> song -> back).
@@ -22,6 +23,7 @@ function App() {
           <Stack.Screen name="Song" component={SongScreen} />
           <Stack.Screen name="YouTube" component={YouTubeScreen} />
           <Stack.Screen name="Vocab" component={VocabScreen} />
+          <Stack.Screen name="Progress" component={ProgressScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

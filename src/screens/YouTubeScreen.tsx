@@ -172,7 +172,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
   async function toggleSaveWord() {
     let tr = glossary[selectedWord] || wordTranslation;
     if (!tr || tr === '...') tr = await translateToHebrew(selectedWord);
-    setSelectedSaved(toggleWord(selectedWord, tr));
+    setSelectedSaved(toggleWord(selectedWord, tr, track || undefined));
   }
 
   // Toggle the full-line translation. Opening pauses the song; closing resumes.

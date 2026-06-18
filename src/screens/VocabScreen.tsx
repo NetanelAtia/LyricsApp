@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getVocab, removeWord, VocabWord } from '../vocab';
+import { award } from '../progress';
 import { colors, radius, spacing } from '../theme';
 
 function shuffle<T>(arr: T[]): T[] {
@@ -77,6 +78,7 @@ function ListView({
               <View style={{ flex: 1 }}>
                 <Text style={styles.rowWord}>{item.word}</Text>
                 <Text style={styles.rowTr}>{item.translation}</Text>
+                {item.song ? <Text style={styles.rowSong}>🎵 {item.song}</Text> : null}
               </View>
             </View>
           )}
@@ -135,9 +137,11 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
     if (sel.word === word) {
       setMatched((m) => [...m, word]);
       setSel(null);
+      award(true, 10, word);
     } else {
       setWrong(word);
       setSel(null);
+      award(false, 0);
       setTimeout(() => setWrong(null), 600);
     }
   }
@@ -220,9 +224,11 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
       const ok = blanks.every((bi, k) => clean[k] === card.word[bi].toLowerCase());
       if (ok) {
         setStatus('right');
+        award(true, 15, card.word);
         setTimeout(() => setPos((p) => p + 1), 700);
       } else {
         setStatus('wrong');
+        award(false, 0);
         setTimeout(() => { setTyped(''); setStatus('typing'); inputRef.current?.focus(); }, 700);
       }
     }
@@ -314,6 +320,7 @@ const styles = StyleSheet.create({
   },
   rowWord: { color: colors.text, fontSize: 18, fontWeight: '700', textTransform: 'capitalize', textAlign: 'right' },
   rowTr: { color: colors.primarySoft, fontSize: 15, marginTop: 2, textAlign: 'right' },
+  rowSong: { color: colors.textFaint, fontSize: 12, marginTop: 4, textAlign: 'right' },
   remove: { color: colors.textFaint, fontSize: 18, paddingHorizontal: spacing.sm },
 
   practiceBar: { position: 'absolute', left: spacing.lg, right: spacing.lg, bottom: spacing.lg, gap: spacing.sm },

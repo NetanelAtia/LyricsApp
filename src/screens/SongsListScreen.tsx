@@ -1,10 +1,16 @@
+import { useState, useEffect } from 'react';
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, radius, spacing } from '../theme';
 import { library, LibrarySong } from '../data/library';
+import { getProgress, getLevel, xpIntoLevel } from '../progress';
 
 // Home screen: the list of songs. Tapping one opens it straight in karaoke.
 export default function SongsListScreen({ navigation }: any) {
+  const [prog, setProg] = useState(getProgress());
+  // Refresh stats whenever we return to this screen.
+  useEffect(() => navigation.addListener('focus', () => setProg(getProgress())), [navigation]);
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
@@ -22,6 +28,25 @@ export default function SongsListScreen({ navigation }: any) {
             <Text style={styles.vocabLabel}>מילים</Text>
           </TouchableOpacity>
         </View>
+
+        {/* Progress banner */}
+        <TouchableOpacity
+          style={styles.statsBanner}
+          onPress={() => navigation.navigate('Progress')}
+          activeOpacity={0.85}
+        >
+          <Text style={styles.statsStreak}>🔥 {prog.streak}</Text>
+          <View style={{ flex: 1 }}>
+            <View style={styles.statsTopRow}>
+              <Text style={styles.statsLevel}>רמה {getLevel(prog.xp)}</Text>
+              <Text style={styles.statsXp}>{prog.xp} XP</Text>
+            </View>
+            <View style={styles.barTrack}>
+              <View style={[styles.barFill, { width: `${xpIntoLevel(prog.xp)}%` }]} />
+            </View>
+          </View>
+          <Text style={styles.chev}>›</Text>
+        </TouchableOpacity>
       </View>
 
       <FlatList
@@ -86,6 +111,23 @@ const styles = StyleSheet.create({
   },
   vocabIcon: { fontSize: 22 },
   vocabLabel: { color: colors.textMuted, fontSize: 11, marginTop: 2, fontWeight: '600' },
+
+  statsBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+    padding: spacing.md,
+    marginTop: spacing.md,
+  },
+  statsStreak: { color: colors.text, fontSize: 18, fontWeight: '800' },
+  statsTopRow: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 6 },
+  statsLevel: { color: colors.text, fontSize: 14, fontWeight: '700' },
+  statsXp: { color: colors.primarySoft, fontSize: 13, fontWeight: '700' },
+  barTrack: { height: 8, borderRadius: 4, backgroundColor: colors.surfaceLight, overflow: 'hidden' },
+  barFill: { height: '100%', borderRadius: 4, backgroundColor: colors.primary },
+  chev: { color: colors.textFaint, fontSize: 22 },
 
   card: {
     flexDirection: 'row',
