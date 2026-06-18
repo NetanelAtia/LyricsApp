@@ -9,6 +9,16 @@ export type LibrarySong = {
   accent: string;
 };
 
+// Built-in sync corrections (seconds) for songs whose YouTube video timing
+// differs from the lyrics file — so everyone gets them aligned by default.
+// A user's own calibration (saved locally) overrides these.
+export const defaultOffsets: Record<string, number> = {
+  '2Vv-BfVoq4g': -18.8, // Ed Sheeran – Perfect
+  'EkHTsc9PU2A': -7.0, // Jason Mraz – I'm Yours
+  'LjhCEhWiKXk': -15.7, // Bruno Mars – Just the Way You Are
+  'fLexgOxsZu0': -3.0, // Bruno Mars – The Lazy Song
+};
+
 export const library: LibrarySong[] = [
   { videoId: 'RBumgq5yVrA', artist: 'Passenger', track: 'Let Her Go', emoji: '🎸', accent: '#6c5ce7' },
   { videoId: 'GBSu_ltDu1w', artist: 'The Beatles', track: 'Blackbird', emoji: '🐦', accent: '#0984e3' },

@@ -14,22 +14,22 @@ import YouTubePlayer from '../components/YouTubePlayer';
 import { translateToHebrew, cachedTranslation } from '../translate';
 import { fetchJson } from '../net';
 import { isSaved, toggleWord } from '../vocab';
+import { defaultOffsets } from '../data/library';
 import { colors, radius, spacing } from '../theme';
 
 const cleanWord = (w: string) => w.replace(/[^a-zA-Z']/g, '').toLowerCase();
 
 // Show each line/translation slightly BEFORE it's sung, so it's easy to read ahead.
-const LOOKAHEAD = 0.2; // seconds
+const LOOKAHEAD = 0.4; // seconds
 
-// Per-song sync offset (saved in the browser) — fixes songs whose lyrics
-// timing doesn't match the YouTube version.
+// Per-song sync offset. A user's own saved calibration (localStorage) wins;
+// otherwise we use the built-in default so everyone gets it aligned.
 function loadOffset(id: string): number {
   try {
     const v = window.localStorage?.getItem('lyricsapp:offset:' + id);
-    return v ? parseFloat(v) : 0;
-  } catch {
-    return 0;
-  }
+    if (v != null) return parseFloat(v);
+  } catch {}
+  return defaultOffsets[id] ?? 0;
 }
 function saveOffset(id: string, o: number) {
   try {
