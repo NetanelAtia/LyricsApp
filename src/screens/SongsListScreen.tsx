@@ -13,9 +13,10 @@ export default function SongsListScreen({ navigation }: any) {
   useEffect(() => navigation.addListener('focus', () => setProg(getProgress())), [navigation]);
 
   const q = query.trim().toLowerCase();
-  const songs = q
-    ? library.filter((s) => s.track.toLowerCase().includes(q) || s.artist.toLowerCase().includes(q))
-    : library;
+  const songs = library
+    .filter((s) => !q || s.track.toLowerCase().includes(q) || s.artist.toLowerCase().includes(q))
+    .slice()
+    .sort((a, b) => a.artist.localeCompare(b.artist) || a.track.localeCompare(b.track));
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
