@@ -67,9 +67,10 @@ function ListView({
         </View>
       ) : (
         <FlatList
+          style={{ flex: 1 }}
           data={words}
           keyExtractor={(w) => w.word}
-          contentContainerStyle={{ padding: spacing.md, paddingBottom: 150 }}
+          contentContainerStyle={{ padding: spacing.md }}
           renderItem={({ item }) => (
             <View style={styles.row}>
               <TouchableOpacity onPress={() => onRemove(item.word)} hitSlop={10}>
@@ -87,16 +88,19 @@ function ListView({
 
       {words.length > 0 && (
         <View style={styles.practiceBar}>
-          <TouchableOpacity
-            style={[styles.practiceBtn, words.length < 3 && styles.btnDisabled]}
-            onPress={words.length < 3 ? undefined : onMemory}
-            activeOpacity={0.85}
-          >
-            <Text style={styles.practiceBtnText}>🧠  משחק הזכרון</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.practiceBtnAlt} onPress={onSpell} activeOpacity={0.85}>
-            <Text style={styles.practiceBtnAltText}>✏️  השלמת מילה</Text>
-          </TouchableOpacity>
+          <Text style={styles.practiceTitle}>תרגול</Text>
+          <View style={styles.practiceRow}>
+            <TouchableOpacity
+              style={[styles.gameBtn, words.length < 3 && styles.btnDisabled]}
+              onPress={words.length < 3 ? undefined : onMemory}
+              activeOpacity={0.85}
+            >
+              <Text style={styles.gameBtnText}>🧠  משחק הזכרון</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.gameBtn} onPress={onSpell} activeOpacity={0.85}>
+              <Text style={styles.gameBtnText}>✏️  השלמת מילה</Text>
+            </TouchableOpacity>
+          </View>
           {words.length < 3 && <Text style={styles.hintSmall}>למשחק הזכרון צריך לפחות 3 מילים</Text>}
         </View>
       )}
@@ -325,13 +329,23 @@ const styles = StyleSheet.create({
   rowSong: { color: colors.textFaint, fontSize: 12, marginTop: 4, textAlign: 'right' },
   remove: { color: colors.textFaint, fontSize: 18, paddingHorizontal: spacing.sm },
 
-  practiceBar: { position: 'absolute', left: spacing.lg, right: spacing.lg, bottom: spacing.lg, gap: spacing.sm },
+  // Framed bottom panel that holds the game buttons.
+  practiceBar: {
+    backgroundColor: colors.surface,
+    borderTopWidth: 1,
+    borderTopColor: colors.surfaceLight,
+    paddingHorizontal: spacing.md,
+    paddingTop: spacing.md,
+    paddingBottom: spacing.lg,
+  },
+  practiceTitle: { color: colors.textMuted, fontSize: 13, fontWeight: '700', marginBottom: spacing.sm, textAlign: 'center' },
+  practiceRow: { flexDirection: 'row', gap: spacing.sm },
+  gameBtn: { flex: 1, backgroundColor: colors.primary, borderRadius: radius.md, paddingVertical: 15, paddingHorizontal: 4, alignItems: 'center' },
+  gameBtnText: { color: '#fff', fontSize: 14, fontWeight: '800', textAlign: 'center' },
+  btnDisabled: { backgroundColor: colors.surfaceLight },
+  hintSmall: { color: colors.textFaint, fontSize: 12, textAlign: 'center', marginTop: spacing.sm },
   practiceBtn: { backgroundColor: colors.primary, borderRadius: radius.pill, paddingVertical: 15, alignItems: 'center' },
   practiceBtnText: { color: '#fff', fontSize: 16, fontWeight: '800' },
-  practiceBtnAlt: { backgroundColor: colors.surface, borderRadius: radius.pill, paddingVertical: 13, alignItems: 'center', borderWidth: 1, borderColor: colors.surfaceLight },
-  practiceBtnAltText: { color: colors.text, fontSize: 15, fontWeight: '700' },
-  btnDisabled: { backgroundColor: colors.surfaceLight },
-  hintSmall: { color: colors.textFaint, fontSize: 12, textAlign: 'center' },
 
   // Memory game
   matchWrap: { flex: 1, padding: spacing.lg },
