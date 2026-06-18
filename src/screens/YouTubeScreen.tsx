@@ -19,7 +19,23 @@ import { colors, radius, spacing } from '../theme';
 const cleanWord = (w: string) => w.replace(/[^a-zA-Z']/g, '').toLowerCase();
 
 // Show each line/translation slightly BEFORE it's sung, so it's easy to read ahead.
-const LOOKAHEAD = 0.4; // seconds
+const LOOKAHEAD = 0.2; // seconds
+
+// Per-song sync offset (saved in the browser) — fixes songs whose lyrics
+// timing doesn't match the YouTube version.
+function loadOffset(id: string): number {
+  try {
+    const v = window.localStorage?.getItem('lyricsapp:offset:' + id);
+    return v ? parseFloat(v) : 0;
+  } catch {
+    return 0;
+  }
+}
+function saveOffset(id: string, o: number) {
+  try {
+    window.localStorage?.setItem('lyricsapp:offset:' + id, String(o));
+  } catch {}
+}
 
 // Pull the 11-character video id out of any YouTube link (or a raw id).
 function extractVideoId(input: string): string | null {
@@ -81,6 +97,18 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [lrcError, setLrcError] = useState('');
   const [currentLine, setCurrentLine] = useState(-1);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [syncOffset, setSyncOffset] = useState(0); // per-song sync correction
+
+  // Load this song's saved sync offset.
+  useEffect(() => {
+    setSyncOffset(videoId ? loadOffset(videoId) : 0);
+  }, [videoId]);
+
+  function adjustOffset(delta: number) {
+    const o = +(syncOffset + delta).toFixed(1);
+    setSyncOffset(o);
+    if (videoId) saveOffset(videoId, o);
+  }
 
   // Tapped word -> translation bubble.
   const [selected, setSelected] = useState<string | null>(null); // "line-word" key
@@ -348,7 +376,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
   useEffect(() => {
     if (lines.length === 0) return;
     const id = setInterval(() => {
-      const t = getTime() + LOOKAHEAD;
+      const t = getTime() + LOOKAHEAD + syncOffset;
       let idx = -1;
       for (let i = 0; i < lines.length; i++) {
         if (lines[i].time <= t) idx = i;
@@ -357,7 +385,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
       setIsPlaying(playerRef.current?.getPlayerState?.() === 1);
     }, 120);
     return () => clearInterval(id);
-  }, [lines]);
+  }, [lines, syncOffset]);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -517,17 +545,31 @@ export default function YouTubeScreen({ navigation, route }: any) {
 
         {/* Playback controls — below the lyrics */}
         {videoId && lines.length > 0 && (
-          <View style={styles.controlsRow}>
-            <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-10)} activeOpacity={0.8}>
-              <Text style={styles.ctrlText}>⏪ 10</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
-              <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(10)} activeOpacity={0.8}>
-              <Text style={styles.ctrlText}>10 ⏩</Text>
-            </TouchableOpacity>
-          </View>
+          <>
+            <View style={styles.controlsRow}>
+              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-10)} activeOpacity={0.8}>
+                <Text style={styles.ctrlText}>⏪ 10</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
+                <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(10)} activeOpacity={0.8}>
+                <Text style={styles.ctrlText}>10 ⏩</Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* Sync correction — fixes songs where the lyrics timing is off. Saved per song. */}
+            <View style={styles.offsetRow}>
+              <Text style={styles.offsetLabel}>סנכרון מילים:</Text>
+              <TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(-0.5)} hitSlop={6}>
+                <Text style={styles.offsetBtnText}>−</Text>
+              </TouchableOpacity>
+              <Text style={styles.offsetValue}>{syncOffset > 0 ? '+' : ''}{syncOffset.toFixed(1)}s</Text>
+              <TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(0.5)} hitSlop={6}>
+                <Text style={styles.offsetBtnText}>+</Text>
+              </TouchableOpacity>
+            </View>
+          </>
         )}
       </ScrollView>
     </SafeAreaView>
