@@ -94,6 +94,20 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [alwaysTranslate, setAlwaysTranslate] = useState(false);
   // High-quality curated translations bundled with the app (time -> Hebrew).
   const [bundledTr, setBundledTr] = useState<Record<string, string>>({});
+  // Curated per-word dictionary (word -> accurate Hebrew) for tapped words.
+  const [glossary, setGlossary] = useState<Record<string, string>>({});
+
+  // Load the curated word dictionary once.
+  useEffect(() => {
+    let alive = true;
+    fetch('glossary.json')
+      .then((r) => (r.ok ? r.json() : {}))
+      .then((j) => alive && setGlossary(j || {}))
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   // The best Hebrew for a line: curated first, then live auto-translation.
   function lineHe(i: number): string {
@@ -141,7 +155,11 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setSelectedWord(w);
     setSelectedSaved(isSaved(w));
     playerRef.current?.pauseVideo?.();
-    // Show instantly if we already have it cached (offline); otherwise fetch.
+    // Accurate curated dictionary first; then cache; then live translation.
+    if (glossary[w]) {
+      setWordTranslation(glossary[w]);
+      return;
+    }
     const cached = cachedTranslation(w);
     setWordTranslation(cached ?? '...');
     if (!cached) {
@@ -152,7 +170,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
 
   // Save / remove the tapped word from the personal vocabulary.
   async function toggleSaveWord() {
-    let tr = wordTranslation;
+    let tr = glossary[selectedWord] || wordTranslation;
     if (!tr || tr === '...') tr = await translateToHebrew(selectedWord);
     setSelectedSaved(toggleWord(selectedWord, tr));
   }
