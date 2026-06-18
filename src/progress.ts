@@ -26,6 +26,14 @@ const DEFAULT: Progress = {
 export const DAILY_GOAL = 50; // XP per day to keep the streak alive
 export const XP_PER_LEVEL = 100;
 
+// Listeners notified whenever XP is gained (for the floating "+N XP" popup).
+type XpListener = (xp: number) => void;
+const xpListeners = new Set<XpListener>();
+export function onXpGain(l: XpListener): () => void {
+  xpListeners.add(l);
+  return () => xpListeners.delete(l);
+}
+
 function todayStr(): string {
   return new Date().toISOString().slice(0, 10);
 }
@@ -77,6 +85,7 @@ export function award(correct: boolean, xp: number, word?: string) {
     p.wrong += 1;
   }
   save(p);
+  if (correct && xp > 0) xpListeners.forEach((l) => l(xp));
 }
 
 export function getLevel(xp: number): number {

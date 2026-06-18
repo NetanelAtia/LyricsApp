@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, radius, spacing } from '../theme';
 import { library, LibrarySong } from '../data/library';
@@ -8,8 +8,14 @@ import { getProgress, getLevel, xpIntoLevel } from '../progress';
 // Home screen: the list of songs. Tapping one opens it straight in karaoke.
 export default function SongsListScreen({ navigation }: any) {
   const [prog, setProg] = useState(getProgress());
+  const [query, setQuery] = useState('');
   // Refresh stats whenever we return to this screen.
   useEffect(() => navigation.addListener('focus', () => setProg(getProgress())), [navigation]);
+
+  const q = query.trim().toLowerCase();
+  const songs = q
+    ? library.filter((s) => s.track.toLowerCase().includes(q) || s.artist.toLowerCase().includes(q))
+    : library;
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -47,10 +53,18 @@ export default function SongsListScreen({ navigation }: any) {
           </View>
           <Text style={styles.chev}>›</Text>
         </TouchableOpacity>
+
+        <TextInput
+          style={styles.search}
+          placeholder="🔍 חיפוש שיר..."
+          placeholderTextColor={colors.textFaint}
+          value={query}
+          onChangeText={setQuery}
+        />
       </View>
 
       <FlatList
-        data={library}
+        data={songs}
         keyExtractor={(s) => s.videoId}
         contentContainerStyle={{ padding: spacing.md, paddingTop: 0 }}
         renderItem={({ item }) => (
@@ -128,6 +142,16 @@ const styles = StyleSheet.create({
   barTrack: { height: 8, borderRadius: 4, backgroundColor: colors.surfaceLight, overflow: 'hidden' },
   barFill: { height: '100%', borderRadius: 4, backgroundColor: colors.primary },
   chev: { color: colors.textFaint, fontSize: 22 },
+  search: {
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 12,
+    color: colors.text,
+    fontSize: 15,
+    marginTop: spacing.md,
+    textAlign: 'right',
+  },
 
   card: {
     flexDirection: 'row',

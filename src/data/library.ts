@@ -15,4 +15,9 @@ export const library: LibrarySong[] = [
   { videoId: 'L3wKzyIN1yk', artist: "Rag'n'Bone Man", track: 'Human', emoji: '✊', accent: '#00b894' },
   { videoId: 'XXYlFuWEuKI', artist: 'The Weeknd', track: 'Save Your Tears', emoji: '🌙', accent: '#e17055' },
   { videoId: 'kPBzTxZQG5Q', artist: '3 Doors Down', track: 'Here Without You', emoji: '🚪', accent: '#e84393' },
+  { videoId: 'RgKAFK5djSk', artist: 'Wiz Khalifa ft. Charlie Puth', track: 'See You Again', emoji: '🚗', accent: '#00cec9' },
+  { videoId: 'hLQl3WQQoQ0', artist: 'Adele', track: 'Someone Like You', emoji: '💔', accent: '#d63031' },
+  { videoId: 'EkHTsc9PU2A', artist: 'Jason Mraz', track: "I'm Yours", emoji: '☀️', accent: '#fdcb6e' },
+  { videoId: 'JGwWNGJdvx8', artist: 'Ed Sheeran', track: 'Shape of You', emoji: '💃', accent: '#fd79a8' },
+  { videoId: 'fLexgOxsZu0', artist: 'Bruno Mars', track: 'The Lazy Song', emoji: '😎', accent: '#a29bfe' },
 ];

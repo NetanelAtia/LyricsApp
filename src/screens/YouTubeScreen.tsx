@@ -570,7 +570,7 @@ const styles = StyleSheet.create({
     borderColor: colors.surfaceLight,
   },
   ctrlText: { color: colors.text, fontWeight: '700', fontSize: 16 },
-  playBtn: { backgroundColor: colors.primary, borderColor: colors.primary },
+  playBtn: { backgroundColor: colors.primary, borderColor: colors.primary, minWidth: 110, alignItems: 'center' },
 
   section: { paddingHorizontal: spacing.lg },
   sectionTitle: { color: colors.text, fontSize: 16, fontWeight: '700', marginBottom: spacing.sm },

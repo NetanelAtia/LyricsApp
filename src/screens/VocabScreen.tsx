@@ -161,7 +161,7 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
             const m = matched.includes(w.word);
             const s = sel?.side === 'l' && sel.word === w.word;
             return (
-              <TouchableOpacity key={w.word} style={[styles.tile, s && styles.tileSel, m && styles.tileMatched]} onPress={() => tap('l', w.word)} disabled={m} activeOpacity={0.8}>
+              <TouchableOpacity key={w.word} style={[styles.tile, s && styles.tileSel, m && styles.tileGone]} onPress={() => tap('l', w.word)} disabled={m} activeOpacity={0.8}>
                 <Text style={[styles.tileText, m && styles.tileTextDim]}>{w.word}</Text>
               </TouchableOpacity>
             );
@@ -173,7 +173,7 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
             const s = sel?.side === 'r' && sel.word === w.word;
             const bad = wrong === w.word;
             return (
-              <TouchableOpacity key={w.word} style={[styles.tile, s && styles.tileSel, bad && styles.tileWrong, m && styles.tileMatched]} onPress={() => tap('r', w.word)} disabled={m} activeOpacity={0.8}>
+              <TouchableOpacity key={w.word} style={[styles.tile, s && styles.tileSel, bad && styles.tileWrong, m && styles.tileGone]} onPress={() => tap('r', w.word)} disabled={m} activeOpacity={0.8}>
                 <Text style={[styles.tileText, m && styles.tileTextDim]}>{w.translation}</Text>
               </TouchableOpacity>
             );
@@ -340,7 +340,7 @@ const styles = StyleSheet.create({
   matchCol: { flex: 1, gap: spacing.sm },
   tile: { backgroundColor: colors.surface, borderRadius: radius.md, paddingVertical: 16, paddingHorizontal: spacing.sm, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: 'transparent' },
   tileSel: { borderColor: colors.primary, backgroundColor: colors.surfaceLight },
-  tileMatched: { backgroundColor: colors.success + '33', borderColor: colors.success },
+  tileGone: { opacity: 0 },
   tileWrong: { borderColor: colors.danger, backgroundColor: colors.danger + '33' },
   tileText: { color: colors.text, fontSize: 16, fontWeight: '700', textAlign: 'center' },
   tileTextDim: { color: colors.textMuted },

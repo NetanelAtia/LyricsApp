@@ -8,6 +8,7 @@ import SongScreen from './src/screens/SongScreen';
 import YouTubeScreen from './src/screens/YouTubeScreen';
 import VocabScreen from './src/screens/VocabScreen';
 import ProgressScreen from './src/screens/ProgressScreen';
+import XpPopup from './src/components/XpPopup';
 import { colors } from './src/theme';
 
 // The Stack lets us move between screens (list -> song -> back).
@@ -16,16 +17,19 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        <StatusBar style="light" />
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="SongsList" component={SongsListScreen} />
-          <Stack.Screen name="Song" component={SongScreen} />
-          <Stack.Screen name="YouTube" component={YouTubeScreen} />
-          <Stack.Screen name="Vocab" component={VocabScreen} />
-          <Stack.Screen name="Progress" component={ProgressScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <View style={{ flex: 1 }}>
+        <NavigationContainer>
+          <StatusBar style="light" />
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="SongsList" component={SongsListScreen} />
+            <Stack.Screen name="Song" component={SongScreen} />
+            <Stack.Screen name="YouTube" component={YouTubeScreen} />
+            <Stack.Screen name="Vocab" component={VocabScreen} />
+            <Stack.Screen name="Progress" component={ProgressScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+        <XpPopup />
+      </View>
     </SafeAreaProvider>
   );
 }
