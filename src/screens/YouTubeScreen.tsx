@@ -32,9 +32,10 @@ function extractVideoId(input: string): string | null {
   return null;
 }
 
-type LrcLine = { time: number; text: string };
+type LrcLine = { time: number; text: string; tag: string };
 
 // Turn an LRC string ("[00:12.50] words") into timed lines.
+// `tag` is the exact "mm:ss.xx" string — used to key curated translations.
 function parseLrc(lrc: string): LrcLine[] {
   const out: LrcLine[] = [];
   for (const raw of lrc.split('\n')) {
@@ -42,7 +43,7 @@ function parseLrc(lrc: string): LrcLine[] {
     if (!m) continue;
     const time = parseInt(m[1], 10) * 60 + parseFloat(m[2]);
     const text = raw.replace(/\[.*?\]/g, '').trim();
-    out.push({ time, text });
+    out.push({ time, text, tag: `${m[1]}:${m[2]}` });
   }
   return out;
 }
@@ -88,6 +89,14 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [lineTranslations, setLineTranslations] = useState<Record<number, string>>({});
   // "Always show translation" mode — keeps Hebrew under every line.
   const [alwaysTranslate, setAlwaysTranslate] = useState(false);
+  // High-quality curated translations bundled with the app (time -> Hebrew).
+  const [bundledTr, setBundledTr] = useState<Record<string, string>>({});
+
+  // The best Hebrew for a line: curated first, then live auto-translation.
+  function lineHe(i: number): string {
+    const key = lines[i]?.tag;
+    return (key && bundledTr[key]) || lineTranslations[i] || '...';
+  }
 
   const playerRef = useRef<any>(null);
 
@@ -142,7 +151,8 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setOpenLines((prev) => ({ ...prev, [i]: willOpen }));
     if (willOpen) {
       playerRef.current?.pauseVideo?.();
-      if (!lineTranslations[i]) {
+      const key = lines[i]?.tag;
+      if (!(key && bundledTr[key]) && !lineTranslations[i]) {
         const tr = await translateToHebrew(text);
         setLineTranslations((prev) => ({ ...prev, [i]: tr }));
       }
@@ -274,12 +284,29 @@ export default function YouTubeScreen({ navigation, route }: any) {
     if (!alwaysTranslate) return;
     const idx = currentLine < 0 ? 0 : currentLine;
     const cur = lines[idx];
-    if (cur && cur.text && !lineTranslations[idx]) {
+    const key = cur?.tag;
+    if (cur && cur.text && !(key && bundledTr[key]) && !lineTranslations[idx]) {
       translateToHebrew(cur.text).then((tr) =>
         setLineTranslations((prev) => ({ ...prev, [idx]: tr }))
       );
     }
-  }, [alwaysTranslate, currentLine, lines]);
+  }, [alwaysTranslate, currentLine, lines, bundledTr]);
+
+  // Load the curated translations file for this song (if it exists).
+  useEffect(() => {
+    if (!videoId) {
+      setBundledTr({});
+      return;
+    }
+    let alive = true;
+    fetch(`translations/${videoId}.json`)
+      .then((r) => (r.ok ? r.json() : {}))
+      .then((j) => alive && setBundledTr(j || {}))
+      .catch(() => alive && setBundledTr({}));
+    return () => {
+      alive = false;
+    };
+  }, [videoId]);
 
   // Follow the video time and highlight the matching line.
   useEffect(() => {
@@ -461,7 +488,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                   </View>
 
                   {(openLines[idx] || alwaysTranslate) && cur.text ? (
-                    <Text style={styles.lineHe}>{lineTranslations[idx] || '...'}</Text>
+                    <Text style={styles.lineHe}>{lineHe(idx)}</Text>
                   ) : null}
                 </View>
 
