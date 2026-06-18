@@ -79,8 +79,8 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [lines, setLines] = useState<LrcLine[]>([]);
   const [loading, setLoading] = useState(false);
   const [lrcError, setLrcError] = useState('');
-  const [offset, setOffset] = useState(0); // seconds, to nudge sync vs the video
   const [currentLine, setCurrentLine] = useState(-1);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // Tapped word -> translation bubble.
   const [selected, setSelected] = useState<string | null>(null); // "line-word" key
@@ -123,6 +123,12 @@ export default function YouTubeScreen({ navigation, route }: any) {
   function seek(delta: number) {
     const t = getTime();
     playerRef.current?.seekTo?.(Math.max(0, t + delta), true);
+  }
+
+  // Pause / resume the song.
+  function togglePlay() {
+    if (isPlaying) playerRef.current?.pauseVideo?.();
+    else playerRef.current?.playVideo?.();
   }
 
   // Keyboard control on web: ← / → seek 5 seconds (ignored while typing).
@@ -342,15 +348,16 @@ export default function YouTubeScreen({ navigation, route }: any) {
   useEffect(() => {
     if (lines.length === 0) return;
     const id = setInterval(() => {
-      const t = getTime() - offset + LOOKAHEAD;
+      const t = getTime() + LOOKAHEAD;
       let idx = -1;
       for (let i = 0; i < lines.length; i++) {
         if (lines[i].time <= t) idx = i;
       }
       setCurrentLine(idx);
+      setIsPlaying(playerRef.current?.getPlayerState?.() === 1);
     }, 120);
     return () => clearInterval(id);
-  }, [lines, offset]);
+  }, [lines]);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -394,11 +401,14 @@ export default function YouTubeScreen({ navigation, route }: any) {
           </View>
         )}
 
-        {/* Seek controls (10s back / forward) — works on mobile too */}
-        {videoId && (
+        {/* Playback controls: rewind 10s, pause/play, forward 10s */}
+        {videoId && lines.length > 0 && (
           <View style={styles.controlsRow}>
             <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-10)} activeOpacity={0.8}>
               <Text style={styles.ctrlText}>⏪ 10</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
+              <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(10)} activeOpacity={0.8}>
               <Text style={styles.ctrlText}>10 ⏩</Text>
@@ -431,20 +441,6 @@ export default function YouTubeScreen({ navigation, route }: any) {
             </TouchableOpacity>
             {loading && <ActivityIndicator color={colors.primarySoft} style={{ marginTop: spacing.md }} />}
             {lrcError ? <Text style={styles.error}>{lrcError}</Text> : null}
-          </View>
-        )}
-
-        {/* Offset adjuster */}
-        {lines.length > 0 && (
-          <View style={styles.offsetRow}>
-            <Text style={styles.offsetLabel}>כיוונון סנכרון:</Text>
-            <TouchableOpacity style={styles.offsetBtn} onPress={() => setOffset((o) => +(o - 0.3).toFixed(1))}>
-              <Text style={styles.offsetBtnText}>−</Text>
-            </TouchableOpacity>
-            <Text style={styles.offsetValue}>{offset > 0 ? '+' : ''}{offset.toFixed(1)}s</Text>
-            <TouchableOpacity style={styles.offsetBtn} onPress={() => setOffset((o) => +(o + 0.3).toFixed(1))}>
-              <Text style={styles.offsetBtnText}>+</Text>
-            </TouchableOpacity>
           </View>
         )}
 
@@ -574,6 +570,7 @@ const styles = StyleSheet.create({
     borderColor: colors.surfaceLight,
   },
   ctrlText: { color: colors.text, fontWeight: '700', fontSize: 16 },
+  playBtn: { backgroundColor: colors.primary, borderColor: colors.primary },
 
   section: { paddingHorizontal: spacing.lg },
   sectionTitle: { color: colors.text, fontSize: 16, fontWeight: '700', marginBottom: spacing.sm },

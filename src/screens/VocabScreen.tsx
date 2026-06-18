@@ -239,40 +239,42 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
       <Text style={styles.progress}>{pos + 1} / {queue.length}</Text>
       <Text style={styles.spellClue}>{card.translation}</Text>
 
-      <View style={styles.boxes}>
-        {card.word.split('').map((ch, i) => {
-          const blankIndex = blanks.indexOf(i);
-          const isBlank = blankIndex !== -1;
-          const typedChar = isBlank ? typed[blankIndex] : '';
-          const show = isBlank ? (typedChar || '') : ch;
-          return (
-            <View
-              key={i}
-              style={[
-                styles.box,
-                isBlank && styles.boxBlank,
-                status === 'right' && styles.boxRight,
-                status === 'wrong' && isBlank && styles.boxWrong,
-              ]}
-            >
-              <Text style={styles.boxText}>{show.toUpperCase()}</Text>
-            </View>
-          );
-        })}
+      <View style={styles.boxesWrap}>
+        <View style={styles.boxes}>
+          {card.word.split('').map((ch, i) => {
+            const blankIndex = blanks.indexOf(i);
+            const isBlank = blankIndex !== -1;
+            const typedChar = isBlank ? typed[blankIndex] : '';
+            const isNext = isBlank && blankIndex === typed.length && status === 'typing';
+            const show = isBlank ? (typedChar || '') : ch;
+            return (
+              <View
+                key={i}
+                style={[
+                  styles.box,
+                  isBlank && styles.boxBlank,
+                  isNext && styles.boxNext,
+                  status === 'right' && styles.boxRight,
+                  status === 'wrong' && isBlank && styles.boxWrong,
+                ]}
+              >
+                <Text style={styles.boxText}>{show.toUpperCase()}</Text>
+              </View>
+            );
+          })}
+        </View>
+        {/* Invisible input over the boxes — captures typing straight into them */}
+        <TextInput
+          ref={inputRef}
+          style={styles.hiddenInput}
+          value={typed}
+          onChangeText={onType}
+          autoCapitalize="none"
+          autoCorrect={false}
+          autoFocus
+        />
       </View>
-
-      {/* Hidden-ish input that captures the keyboard */}
-      <TextInput
-        ref={inputRef}
-        style={styles.spellInput}
-        value={typed}
-        onChangeText={onType}
-        autoCapitalize="none"
-        autoCorrect={false}
-        autoFocus
-        placeholder="הקלד את האותיות החסרות"
-        placeholderTextColor={colors.textFaint}
-      />
+      <Text style={styles.spellHint}>הקלד את האותיות החסרות ⌨️</Text>
 
       <TouchableOpacity style={styles.exitBtn} onPress={onExit} hitSlop={10}>
         <Text style={styles.exitText}>סיום</Text>
@@ -347,13 +349,16 @@ const styles = StyleSheet.create({
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.lg },
   progress: { color: colors.textMuted, fontSize: 15, marginBottom: spacing.md },
   spellClue: { color: colors.primarySoft, fontSize: 26, fontWeight: '800', marginBottom: spacing.xl },
-  boxes: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8, marginBottom: spacing.xl },
+  boxesWrap: { position: 'relative', width: '100%', alignItems: 'center', marginBottom: spacing.md },
+  boxes: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8 },
   box: { width: 40, height: 48, borderRadius: radius.sm, backgroundColor: colors.surfaceLight, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: 'transparent' },
-  boxBlank: { backgroundColor: colors.surface, borderColor: colors.primary },
+  boxBlank: { backgroundColor: colors.surface, borderColor: colors.surfaceLight },
+  boxNext: { borderColor: colors.primary },
   boxRight: { borderColor: colors.success },
   boxWrong: { borderColor: colors.danger },
   boxText: { color: colors.text, fontSize: 22, fontWeight: '800' },
-  spellInput: { width: '100%', backgroundColor: colors.surface, borderRadius: radius.md, paddingHorizontal: spacing.md, paddingVertical: 14, color: colors.text, fontSize: 18, textAlign: 'center', letterSpacing: 4 },
+  hiddenInput: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0 },
+  spellHint: { color: colors.textMuted, fontSize: 14, marginBottom: spacing.xl },
 
   exitBtn: { marginTop: spacing.xl },
   exitText: { color: colors.textMuted, fontSize: 15 },
