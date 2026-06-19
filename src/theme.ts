@@ -38,12 +38,14 @@ export const radius = {
   pill: 999,
 };
 
-// Rubik — a clean, modern Google Font with proper Hebrew glyphs. Loaded via
-// expo-font in App.tsx; use these names on buttons/headings for a more
-// polished look than the system default font.
+// Rubik — a clean, modern Google Font with proper Hebrew glyphs — for
+// buttons and body text. Suez One — a distinctive Hebrew display/serif
+// font — for headings, so they stand out from the system default font.
+// Both are loaded via expo-font in App.tsx.
 export const fonts = {
   regular: 'Rubik_400Regular',
   medium: 'Rubik_500Medium',
   bold: 'Rubik_700Bold',
   extraBold: 'Rubik_800ExtraBold',
+  display: 'SuezOne_400Regular',
 };

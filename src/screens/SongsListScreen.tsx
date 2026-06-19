@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, radius, spacing } from '../theme';
+import { colors, fonts, radius, spacing } from '../theme';
 import { library, LibrarySong } from '../data/library';
 import { getProgress, getLevel, xpIntoLevel } from '../progress';
 import { getVocab } from '../vocab';
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
   },
   vocabBannerIcon: { fontSize: 26 },
-  vocabBannerTitle: { color: '#fff', fontSize: 17, fontWeight: '800' },
+  vocabBannerTitle: { color: '#fff', fontSize: 19, fontFamily: fonts.display },
   vocabBannerSub: { color: 'rgba(255,255,255,0.8)', fontSize: 13, marginTop: 2 },
   vocabBannerChev: { color: '#fff', fontSize: 22 },
 

@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   topBar: { paddingHorizontal: spacing.md, paddingVertical: spacing.sm },
   back: { color: colors.primarySoft, fontSize: 20, fontFamily: fonts.bold },
   body: { padding: spacing.lg },
-  title: { color: colors.text, fontSize: 28, fontWeight: '800', marginBottom: spacing.lg },
+  title: { color: colors.text, fontSize: 30, fontFamily: fonts.display, marginBottom: spacing.lg },
 
   card: {
     backgroundColor: colors.surface,

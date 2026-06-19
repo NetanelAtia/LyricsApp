@@ -360,6 +360,12 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
     setUsedIds([]);
   }, [pos]);
 
+  // Shrink the letter boxes for long words so the whole word always fits
+  // on one row instead of wrapping to a second line.
+  const wordLen = card?.word.length || 1;
+  const boxSize = Math.max(20, Math.min(40, Math.floor((300 - (wordLen - 1) * 6) / wordLen)));
+  const boxFontSize = boxSize < 28 ? 15 : 22;
+
   if (!card || pos >= queue.length) {
     return <Done text="סיימת את כל המילים!" onAgain={() => setPos(0)} onExit={onExit} againLabel="🔁  עוד פעם" />;
   }
@@ -425,13 +431,14 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
               activeOpacity={filled ? 0.6 : 1}
               style={[
                 styles.box,
+                { width: boxSize, height: boxSize + 8 },
                 isBlank && styles.boxBlank,
                 isNext && styles.boxNext,
                 status === 'right' && styles.boxRight,
                 status === 'wrong' && isBlank && styles.boxWrong,
               ]}
             >
-              <Text style={styles.boxText}>{show.toUpperCase()}</Text>
+              <Text style={[styles.boxText, { fontSize: boxFontSize }]}>{show.toUpperCase()}</Text>
             </TouchableOpacity>
           );
         })}
@@ -549,16 +556,26 @@ function TrueFalse({ words, onExit }: { words: VocabWord[]; onExit: () => void }
 
   const card = queue[pos];
 
-  // Decide once per card whether to show the real translation or swap in a
-  // wrong one borrowed from another saved word.
+  // Decide up front, for the whole round, exactly which half of the
+  // questions will show a wrong translation — then shuffle that pattern.
+  // (Flipping an independent coin per question can "feel" rigged when it
+  // happens to land true several times in a row, even though it's fair.)
+  const falsePattern = useMemo(() => {
+    const n = queue.length;
+    const pattern = Array.from({ length: n }, (_, i) => i < Math.floor(n / 2));
+    return shuffle(pattern);
+  }, [queue]);
+
+  // Pick this card's wrong translation once (stable per card+pattern), or
+  // fall back to true if there's no other distinct translation to borrow.
   const shown = useMemo(() => {
     if (!card) return { translation: '', isTrue: true };
+    const wantWrong = falsePattern[pos];
     const others = words.filter((w) => w.word !== card.word && w.translation !== card.translation);
-    const showTrue = others.length === 0 || Math.random() < 0.5;
-    if (showTrue) return { translation: card.translation, isTrue: true };
+    if (!wantWrong || others.length === 0) return { translation: card.translation, isTrue: true };
     const wrong = others[Math.floor(Math.random() * others.length)];
     return { translation: wrong.translation, isTrue: false };
-  }, [card]);
+  }, [card, pos, falsePattern]);
 
   useEffect(() => {
     setStatus('choosing');
@@ -650,7 +667,7 @@ const styles = StyleSheet.create({
   back: { color: colors.primarySoft, fontSize: 20, fontFamily: fonts.bold },
 
   header: { paddingHorizontal: spacing.lg, paddingBottom: spacing.md },
-  title: { color: colors.text, fontSize: 26, fontWeight: '800' },
+  title: { color: colors.text, fontSize: 28, fontFamily: fonts.display },
   subtitle: { color: colors.textMuted, fontSize: 14, marginTop: 4 },
 
   empty: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.xl },
@@ -680,7 +697,7 @@ const styles = StyleSheet.create({
     paddingTop: spacing.md,
     paddingBottom: spacing.lg,
   },
-  practiceTitle: { color: colors.textMuted, fontSize: 13, fontWeight: '700', marginBottom: spacing.sm, textAlign: 'center' },
+  practiceTitle: { color: colors.text, fontSize: 18, fontFamily: fonts.display, marginBottom: spacing.sm, textAlign: 'center' },
   practiceRow: { flexDirection: 'row', gap: spacing.sm },
   gameGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, justifyContent: 'space-between' },
   gameBtn: { flex: 1, backgroundColor: colors.primary, borderRadius: radius.md, paddingVertical: 15, paddingHorizontal: 4, alignItems: 'center' },
@@ -728,7 +745,7 @@ const styles = StyleSheet.create({
   spellClueRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.xl },
   spellClue: { color: colors.primarySoft, fontSize: 26, fontWeight: '800' },
   spellSpeak: { fontSize: 24 },
-  boxes: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8, marginBottom: spacing.md },
+  boxes: { flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'center', gap: 6, marginBottom: spacing.md },
   box: { width: 40, height: 48, borderRadius: radius.sm, backgroundColor: colors.surfaceLight, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: 'transparent' },
   boxBlank: { backgroundColor: colors.surface, borderColor: colors.surfaceLight },
   boxNext: { borderColor: colors.primary },
@@ -768,9 +785,17 @@ const styles = StyleSheet.create({
   tfBtn: { backgroundColor: colors.surface, borderRadius: radius.md, paddingVertical: 16, paddingHorizontal: spacing.lg, alignItems: 'center', borderWidth: 2, borderColor: 'transparent' },
   tfBtnText: { color: colors.text, fontSize: 17, fontFamily: fonts.bold },
 
-  exitBtn: { marginTop: spacing.xl },
-  exitText: { color: colors.textMuted, fontSize: 15 },
+  exitBtn: {
+    marginTop: spacing.xl,
+    paddingVertical: 12,
+    paddingHorizontal: spacing.xl,
+    borderRadius: radius.pill,
+    borderWidth: 1.5,
+    borderColor: colors.surfaceLight,
+    backgroundColor: colors.surface,
+  },
+  exitText: { color: colors.text, fontSize: 17, fontFamily: fonts.bold },
   bigEmoji: { fontSize: 64, marginBottom: spacing.md },
-  doneTitle: { color: colors.text, fontSize: 26, fontWeight: '800' },
+  doneTitle: { color: colors.text, fontSize: 28, fontFamily: fonts.display },
   doneText: { color: colors.textMuted, fontSize: 16, marginTop: spacing.sm, marginBottom: spacing.xl },
 });

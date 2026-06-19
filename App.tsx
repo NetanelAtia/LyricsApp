@@ -11,6 +11,7 @@ import {
   Rubik_700Bold,
   Rubik_800ExtraBold,
 } from '@expo-google-fonts/rubik';
+import { SuezOne_400Regular } from '@expo-google-fonts/suez-one';
 import SongsListScreen from './src/screens/SongsListScreen';
 import SongScreen from './src/screens/SongScreen';
 import YouTubeScreen from './src/screens/YouTubeScreen';
@@ -28,6 +29,7 @@ function App() {
     Rubik_500Medium,
     Rubik_700Bold,
     Rubik_800ExtraBold,
+    SuezOne_400Regular,
   });
 
   if (!fontsLoaded) {
