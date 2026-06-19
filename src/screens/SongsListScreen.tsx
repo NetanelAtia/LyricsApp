@@ -32,8 +32,8 @@ export default function SongsListScreen({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-        <Text style={styles.greeting}>Learn English with songs 🎵</Text>
-        <Text style={styles.title}>Your Songs</Text>
+        <Text style={styles.title}>השירים שלי</Text>
+        <Text style={styles.greeting}>לימוד אנגלית דרך שירים 🎵</Text>
 
         {/* Progress banner */}
         <TouchableOpacity
@@ -125,8 +125,8 @@ function SongCard({ song, onPress }: { song: LibrarySong; onPress: () => void })
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
   header: { padding: spacing.lg, paddingBottom: spacing.md },
-  greeting: { color: colors.textMuted, fontSize: 15, marginBottom: 4 },
-  title: { color: colors.text, fontSize: 30, fontWeight: '800' },
+  greeting: { color: colors.textMuted, fontSize: 15, marginBottom: 4, textAlign: 'center' },
+  title: { color: colors.text, fontSize: 30, fontWeight: '800', textAlign: 'center' },
 
   vocabBanner: {
     flexDirection: 'row',

@@ -30,7 +30,7 @@ export default function ProgressScreen({ navigation }: any) {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.topBar}>
         <TouchableOpacity onPress={() => navigation.goBack()} hitSlop={12}>
-          <Text style={styles.back}>‹ Back</Text>
+          <Text style={styles.back}>‹ חזור</Text>
         </TouchableOpacity>
       </View>
 

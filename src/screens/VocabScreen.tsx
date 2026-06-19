@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { getVocab, removeWord, VocabWord } from '../vocab';
 import { getSentences, removeSentence, SentenceItem } from '../sentences';
 import { award, getProgress, getLevel, xpIntoLevel, XP_PER_LEVEL, onXpGain } from '../progress';
-import { speakWord } from '../speech';
+import { speakLine, speakWord } from '../speech';
 import { recordResult, weightedSample, weightedQueue } from '../srs';
 import { playCorrect, playWrong } from '../sound';
 import { colors, fonts, radius, spacing } from '../theme';
@@ -48,7 +48,7 @@ export default function VocabScreen({ navigation }: any) {
       <View style={styles.topBar}>
         <TouchableOpacity onPress={() => (mode === 'list' ? navigation.goBack() : setMode('list'))} hitSlop={12}>
           <Text style={styles.back}>
-            ‹ {mode === 'list' ? 'Back' : tab === 'words' ? 'אוצר המילים' : 'משפטים שמורים'}
+            ‹ {mode === 'list' ? 'חזור' : tab === 'words' ? 'אוצר המילים' : 'משפטים שמורים'}
           </Text>
         </TouchableOpacity>
       </View>
@@ -823,7 +823,12 @@ function FillSentence({ sentences, onExit }: { sentences: SentenceItem[]; onExit
       <LiveXpBar />
       <View style={styles.center}>
         <Text style={styles.progress}>{pos + 1} / {queue.length}</Text>
-        <Text style={styles.sentenceClue}>{card.translation}</Text>
+        <View style={styles.spellClueRow}>
+          <Text style={styles.sentenceClue}>{card.translation}</Text>
+          <TouchableOpacity onPress={() => speakLine(card.text)} hitSlop={10}>
+            <Text style={styles.spellSpeak}>🔊</Text>
+          </TouchableOpacity>
+        </View>
         <View style={styles.sentenceCard}>
           <View style={styles.sentenceWrap}>
             {round.tokens.map((t, i) => {
@@ -1023,7 +1028,7 @@ const styles = StyleSheet.create({
   tfBtnText: { color: colors.text, fontSize: 17, fontFamily: fonts.bold },
 
   // Fill-in-the-sentence game
-  sentenceClue: { color: colors.primarySoft, fontSize: 20, fontWeight: '700', marginBottom: spacing.lg, textAlign: 'center' },
+  sentenceClue: { color: colors.primarySoft, fontSize: 20, fontWeight: '700', textAlign: 'center' },
   sentenceCard: { backgroundColor: colors.surface, borderRadius: radius.md, paddingVertical: 20, paddingHorizontal: spacing.lg, marginBottom: spacing.xl, alignItems: 'center' },
   sentenceText: { color: colors.text, fontSize: 19, fontWeight: '700', textAlign: 'center' },
   sentenceWrap: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 6 },

@@ -96,7 +96,10 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [artist, setArtist] = useState(params.artist ?? '');
   const [track, setTrack] = useState(params.track ?? '');
   const [lines, setLines] = useState<LrcLine[]>([]);
-  const [loading, setLoading] = useState(false);
+  // Starts true when we already know the track (came from the library),
+  // so the "search lyrics" form never flashes before the auto-fetch below
+  // has a chance to run.
+  const [loading, setLoading] = useState(!!params.track);
   const [lrcError, setLrcError] = useState('');
   const [currentLine, setCurrentLine] = useState(-1);
   const [currentWord, setCurrentWord] = useState(-1);
@@ -229,8 +232,13 @@ export default function YouTubeScreen({ navigation, route }: any) {
 
   // Reveal (or hide) just this one line's translation — used in
   // English-only mode, where the Hebrew slot is otherwise hidden.
+  // Opening it pauses the song (so you have time to read); closing it
+  // resumes playback.
   async function toggleLine(i: number, text: string) {
-    setOpenLines((prev) => ({ ...prev, [i]: !prev[i] }));
+    const willOpen = !openLines[i];
+    setOpenLines((prev) => ({ ...prev, [i]: willOpen }));
+    if (willOpen) playerRef.current?.pauseVideo?.();
+    else playerRef.current?.playVideo?.();
     const key = lines[i]?.tag;
     if (!(key && bundledTr[key]) && !lineTranslations[i]) {
       const tr = await translateToHebrew(text);
@@ -264,10 +272,17 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setLrcError('');
   }
 
-  // When the player is ready, read the video title, fill artist/track,
-  // and automatically search for the synced lyrics.
+  // We already auto-fetch immediately on mount when the track is known
+  // (came from the library); only derive it from the video title here for
+  // the paste-a-link flow, where it isn't known yet.
   function onPlayerReady(player: any) {
     playerRef.current = player;
+    if (track) {
+      // Lyrics were already fetched (or are in flight) by the mount effect
+      // below; the player just wasn't ready yet to actually start playing.
+      player.playVideo?.();
+      return;
+    }
     let artistVal = '';
     let trackVal = '';
     try {
@@ -288,6 +303,14 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setTrack(trackVal);
     if (trackVal) fetchLyrics(artistVal, trackVal);
   }
+
+  // Came from the library with a known track — fetch its lyrics right away
+  // instead of waiting for the YouTube player to report ready, so the
+  // "search lyrics" setup screen never flashes first.
+  useEffect(() => {
+    if (params.track) fetchLyrics(params.artist ?? '', params.track);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Translate every line in the background so translations are instant later.
   async function preTranslateLines(ls: LrcLine[]) {
@@ -434,7 +457,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.topBar}>
         <TouchableOpacity onPress={() => navigation.goBack()} hitSlop={12}>
-          <Text style={styles.back}>‹ Back</Text>
+          <Text style={styles.back}>‹ חזור</Text>
         </TouchableOpacity>
         {lines.length > 0 && (
           <TouchableOpacity onPress={resetSong} hitSlop={12}>
@@ -472,8 +495,15 @@ export default function YouTubeScreen({ navigation, route }: any) {
           </View>
         )}
 
+        {/* While the auto-fetch (for a song opened from the library) is
+            still in flight, show nothing rather than flashing the manual
+            search form first. */}
+        {videoId && lines.length === 0 && loading && (
+          <ActivityIndicator color={colors.primarySoft} style={{ marginTop: spacing.xl }} />
+        )}
+
         {/* Find synced lyrics (setup only) */}
-        {videoId && lines.length === 0 && (
+        {videoId && lines.length === 0 && !loading && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>מציאת מילים מסונכרנות אוטומטית</Text>
             <View style={styles.metaRow}>
