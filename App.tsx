@@ -19,7 +19,7 @@ function App() {
   return (
     <SafeAreaProvider>
       <View style={{ flex: 1 }}>
-        <NavigationContainer>
+        <NavigationContainer documentTitle={{ formatter: () => 'LyricsApp' }}>
           <StatusBar style="light" />
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="SongsList" component={SongsListScreen} />
@@ -73,16 +73,20 @@ export default function Root() {
     }
 
     return (
-      <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#000' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#000' }}>
         <View
           style={{
-            flex: 1,
+            flex: desktopMode ? undefined : 1,
+            height: desktopMode ? '92%' : '100%',
             width: '100%',
-            maxWidth: desktopMode ? undefined : 420,
+            maxWidth: desktopMode ? 640 : 420,
             backgroundColor: colors.background,
+            borderRadius: desktopMode ? 20 : 0,
+            overflow: 'hidden',
             shadowColor: '#000',
-            shadowOpacity: desktopMode ? 0 : 0.4,
-            shadowRadius: 24,
+            shadowOpacity: 0.5,
+            shadowRadius: 32,
+            ...(Platform.OS === 'web' ? { boxShadow: '0 24px 60px rgba(0,0,0,0.55)' } as any : {}),
           }}
         >
           <App />
