@@ -16,7 +16,7 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-type Mode = 'list' | 'memory' | 'spell' | 'listen' | 'scramble' | 'allGames';
+type Mode = 'list' | 'memory' | 'spell' | 'listen' | 'truefalse' | 'allGames';
 
 // Cross-platform "are you sure?" confirmation before a destructive action.
 function confirmAction(title: string, message: string, onConfirm: () => void) {
@@ -49,21 +49,21 @@ export default function VocabScreen({ navigation }: any) {
           onMemory={() => setMode('memory')}
           onSpell={() => setMode('spell')}
           onListen={() => setMode('listen')}
-          onScramble={() => setMode('scramble')}
+          onTrueFalse={() => setMode('truefalse')}
           onAllGames={() => setMode('allGames')}
         />
       )}
       {mode === 'memory' && <Memory words={words} onExit={() => setMode('list')} />}
       {mode === 'spell' && <Spell words={words} onExit={() => setMode('list')} />}
       {mode === 'listen' && <Listen words={words} onExit={() => setMode('list')} />}
-      {mode === 'scramble' && <Scramble words={words} onExit={() => setMode('list')} />}
+      {mode === 'truefalse' && <TrueFalse words={words} onExit={() => setMode('list')} />}
       {mode === 'allGames' && (
         <AllGames
           words={words}
           onMemory={() => setMode('memory')}
           onSpell={() => setMode('spell')}
           onListen={() => setMode('listen')}
-          onScramble={() => setMode('scramble')}
+          onTrueFalse={() => setMode('truefalse')}
         />
       )}
     </SafeAreaView>
@@ -76,7 +76,7 @@ function ListView({
   onMemory,
   onSpell,
   onListen,
-  onScramble,
+  onTrueFalse,
   onAllGames,
 }: {
   words: VocabWord[];
@@ -84,7 +84,7 @@ function ListView({
   onMemory: () => void;
   onSpell: () => void;
   onListen: () => void;
-  onScramble: () => void;
+  onTrueFalse: () => void;
   onAllGames: () => void;
 }) {
   return (
@@ -129,7 +129,7 @@ function ListView({
       {words.length > 0 && (
         <View style={styles.practiceBar}>
           <Text style={styles.practiceTitle}>תרגול</Text>
-          <GameGrid words={words} onMemory={onMemory} onSpell={onSpell} onListen={onListen} onScramble={onScramble} />
+          <GameGrid words={words} onMemory={onMemory} onSpell={onSpell} onListen={onListen} onTrueFalse={onTrueFalse} />
           {words.length < 4 && <Text style={styles.hintSmall}>למשחק הזכרון צריך 3+ מילים, למשחק ההאזנה 4+ מילים</Text>}
 
           <TouchableOpacity style={styles.allGamesBtn} onPress={onAllGames} activeOpacity={0.85}>
@@ -147,13 +147,13 @@ function GameGrid({
   onMemory,
   onSpell,
   onListen,
-  onScramble,
+  onTrueFalse,
 }: {
   words: VocabWord[];
   onMemory: () => void;
   onSpell: () => void;
   onListen: () => void;
-  onScramble: () => void;
+  onTrueFalse: () => void;
 }) {
   return (
     <View style={styles.gameGrid}>
@@ -174,8 +174,8 @@ function GameGrid({
       >
         <Text style={styles.gameBtnText}>🎧  משחק האזנה</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.gameBtn, styles.gameBtnGrid]} onPress={onScramble} activeOpacity={0.85}>
-        <Text style={styles.gameBtnText}>🔤  אותיות מבולבלות</Text>
+      <TouchableOpacity style={[styles.gameBtn, styles.gameBtnGrid]} onPress={onTrueFalse} activeOpacity={0.85}>
+        <Text style={styles.gameBtnText}>✅  נכון או לא נכון</Text>
       </TouchableOpacity>
     </View>
   );
@@ -187,20 +187,20 @@ function AllGames({
   onMemory,
   onSpell,
   onListen,
-  onScramble,
+  onTrueFalse,
 }: {
   words: VocabWord[];
   onMemory: () => void;
   onSpell: () => void;
   onListen: () => void;
-  onScramble: () => void;
+  onTrueFalse: () => void;
 }) {
   return (
     <View style={styles.allGamesPage}>
       <Text style={styles.title}>🎮 כל המשחקים</Text>
       <Text style={styles.subtitle}>תרגול אוצר המילים שלך</Text>
       <View style={{ marginTop: spacing.lg }}>
-        <GameGrid words={words} onMemory={onMemory} onSpell={onSpell} onListen={onListen} onScramble={onScramble} />
+        <GameGrid words={words} onMemory={onMemory} onSpell={onSpell} onListen={onListen} onTrueFalse={onTrueFalse} />
       </View>
       {words.length < 4 && <Text style={styles.hintSmall}>למשחק הזכרון צריך 3+ מילים, למשחק ההאזנה 4+ מילים</Text>}
     </View>
@@ -390,6 +390,14 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
     onType(typed + ch);
   }
 
+  // Tapping a filled box removes that letter (and any placed after it),
+  // freeing its tile back to the pool — an easy way to undo a wrong pick.
+  function removeFrom(blankIndex: number) {
+    if (status !== 'typing' || blankIndex >= typed.length) return;
+    setTyped((t) => t.slice(0, blankIndex));
+    setUsedIds((u) => u.slice(0, blankIndex));
+  }
+
   return (
     <View style={{ flex: 1 }}>
       <LiveXpBar />
@@ -409,10 +417,14 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
             const isBlank = blankIndex !== -1;
             const typedChar = isBlank ? typed[blankIndex] : '';
             const isNext = isBlank && blankIndex === typed.length && status === 'typing';
+            const filled = isBlank && blankIndex < typed.length;
             const show = isBlank ? (typedChar || '') : ch;
             return (
-              <View
+              <TouchableOpacity
                 key={i}
+                disabled={!filled || status !== 'typing'}
+                onPress={() => removeFrom(blankIndex)}
+                activeOpacity={filled ? 0.6 : 1}
                 style={[
                   styles.box,
                   isBlank && styles.boxBlank,
@@ -422,7 +434,7 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
                 ]}
               >
                 <Text style={styles.boxText}>{show.toUpperCase()}</Text>
-              </View>
+              </TouchableOpacity>
             );
           })}
         </View>
@@ -437,7 +449,7 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
           autoCorrect={false}
         />
       </View>
-      <Text style={styles.spellHint}>הקלד או לחץ על האותיות החסרות ⌨️</Text>
+      <Text style={styles.spellHint}>לחץ על האותיות החסרות (ולחיצה על אות שמולאה תמחק אותה) ⌨️</Text>
 
       <View style={styles.letterPool}>
         {pool.map(({ id, ch }) => {
@@ -540,45 +552,44 @@ function Listen({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
   );
 }
 
-// Scramble game: the word's letters are shuffled into tiles; tap them in
-// the right order to rebuild the word.
-function Scramble({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
+// True/false game: see the English word and a Hebrew translation that's
+// either correct or swapped with a wrong one — decide which.
+function TrueFalse({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
   const queue = useMemo(() => weightedQueue(words, (w) => w.word), [words]);
   const [pos, setPos] = useState(0);
-  const [answer, setAnswer] = useState<number[]>([]);
-  const [status, setStatus] = useState<'typing' | 'right' | 'wrong'>('typing');
+  const [status, setStatus] = useState<'choosing' | 'right' | 'wrong'>('choosing');
+  const [picked, setPicked] = useState<'yes' | 'no' | null>(null);
 
   const card = queue[pos];
 
-  const tiles = useMemo(() => {
-    if (!card) return [] as { id: number; ch: string }[];
-    return shuffle(card.word.split('').map((ch, id) => ({ id, ch })));
+  // Decide once per card whether to show the real translation or swap in a
+  // wrong one borrowed from another saved word.
+  const shown = useMemo(() => {
+    if (!card) return { translation: '', isTrue: true };
+    const others = words.filter((w) => w.word !== card.word && w.translation !== card.translation);
+    const showTrue = others.length === 0 || Math.random() < 0.5;
+    if (showTrue) return { translation: card.translation, isTrue: true };
+    const wrong = others[Math.floor(Math.random() * others.length)];
+    return { translation: wrong.translation, isTrue: false };
   }, [card]);
 
   useEffect(() => {
-    setAnswer([]);
-    setStatus('typing');
+    setStatus('choosing');
+    setPicked(null);
   }, [pos, card]);
 
   if (!card || pos >= queue.length) {
-    return <Done text="פתרת את כל המילים!" onAgain={() => setPos(0)} onExit={onExit} againLabel="🔁  עוד פעם" />;
+    return <Done text="סיימת את כל המילים!" onAgain={() => setPos(0)} onExit={onExit} againLabel="🔁  עוד פעם" />;
   }
 
-  function tapTile(id: number) {
-    if (status !== 'typing' || answer.includes(id)) return;
-    const next = [...answer, id];
-    setAnswer(next);
-    if (next.length === tiles.length) {
-      const word = next.map((tid) => tiles.find((t) => t.id === tid)!.ch).join('');
-      const ok = word === card.word.toLowerCase();
-      setStatus(ok ? 'right' : 'wrong');
-      award(ok, 15, card.word);
-      recordResult(card.word, ok);
-      setTimeout(() => {
-        if (ok) setPos((p) => p + 1);
-        else { setAnswer([]); setStatus('typing'); }
-      }, 800);
-    }
+  function answer(yes: boolean) {
+    if (status !== 'choosing') return;
+    setPicked(yes ? 'yes' : 'no');
+    const ok = yes === shown.isTrue;
+    setStatus(ok ? 'right' : 'wrong');
+    award(ok, 12, card.word);
+    recordResult(card.word, ok);
+    setTimeout(() => setPos((p) => p + 1), 800);
   }
 
   return (
@@ -587,49 +598,39 @@ function Scramble({ words, onExit }: { words: VocabWord[]; onExit: () => void })
       <View style={styles.center}>
         <Text style={styles.progress}>{pos + 1} / {queue.length}</Text>
         <View style={styles.spellClueRow}>
-          <Text style={styles.spellClue}>{card.translation}</Text>
+          <Text style={styles.tfWord}>{card.word}</Text>
           <TouchableOpacity onPress={() => speakWord(card.word)} hitSlop={10}>
             <Text style={styles.spellSpeak}>🔊</Text>
           </TouchableOpacity>
         </View>
-
-        <View style={styles.boxes}>
-          {tiles.map((_, i) => {
-            const filled = i < answer.length;
-            const ch = filled ? tiles.find((t) => t.id === answer[i])!.ch : '';
-            return (
-              <View
-                key={i}
-                style={[
-                  styles.box,
-                  !filled && styles.boxBlank,
-                  status === 'right' && styles.boxRight,
-                  status === 'wrong' && styles.boxWrong,
-                ]}
-              >
-                <Text style={styles.boxText}>{ch.toUpperCase()}</Text>
-              </View>
-            );
-          })}
+        <Text style={styles.tfHint}>האם התרגום הזה נכון?</Text>
+        <View style={styles.tfCard}>
+          <Text style={styles.tfTranslation}>{shown.translation}</Text>
         </View>
 
-        <Text style={styles.spellHint}>לחץ על האותיות בסדר הנכון 🔤</Text>
-
-        <View style={styles.letterPool}>
-          {tiles.map(({ id, ch }) => {
-            const used = answer.includes(id);
-            return (
-              <TouchableOpacity
-                key={id}
-                disabled={used || status !== 'typing'}
-                onPress={() => tapTile(id)}
-                style={[styles.letterTile, used && styles.letterTileUsed]}
-                activeOpacity={0.8}
-              >
-                <Text style={[styles.letterTileText, used && styles.letterTileTextUsed]}>{ch.toUpperCase()}</Text>
-              </TouchableOpacity>
-            );
-          })}
+        <View style={styles.tfRow}>
+          <TouchableOpacity
+            style={[
+              styles.tfBtn,
+              status !== 'choosing' && picked === 'yes' && (status === 'right' ? styles.tileCorrect : styles.tileWrong),
+            ]}
+            onPress={() => answer(true)}
+            disabled={status !== 'choosing'}
+            activeOpacity={0.85}
+          >
+            <Text style={styles.tfBtnText}>✅ נכון</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.tfBtn,
+              status !== 'choosing' && picked === 'no' && (status === 'right' ? styles.tileCorrect : styles.tileWrong),
+            ]}
+            onPress={() => answer(false)}
+            disabled={status !== 'choosing'}
+            activeOpacity={0.85}
+          >
+            <Text style={styles.tfBtnText}>❌ לא נכון</Text>
+          </TouchableOpacity>
         </View>
 
         <TouchableOpacity style={styles.exitBtn} onPress={onExit} hitSlop={10}>
@@ -701,13 +702,15 @@ const styles = StyleSheet.create({
   btnDisabled: { backgroundColor: colors.surfaceLight },
   hintSmall: { color: colors.textFaint, fontSize: 12, textAlign: 'center', marginTop: spacing.sm },
   allGamesBtn: {
-    backgroundColor: colors.warning,
+    backgroundColor: colors.primary,
     borderRadius: radius.pill,
     paddingVertical: 16,
     alignItems: 'center',
     marginTop: spacing.md,
+    borderWidth: 1.5,
+    borderColor: colors.primarySoft,
   },
-  allGamesBtnText: { color: '#1a1a2e', fontSize: 16, fontWeight: '800' },
+  allGamesBtnText: { color: '#fff', fontSize: 16, fontWeight: '800' },
   allGamesPage: { flex: 1, padding: spacing.lg },
   practiceBtn: { backgroundColor: colors.primary, borderRadius: radius.pill, paddingVertical: 15, alignItems: 'center' },
   practiceBtnText: { color: '#fff', fontSize: 16, fontWeight: '800' },
@@ -763,6 +766,15 @@ const styles = StyleSheet.create({
   listenOptions: { width: '100%', gap: spacing.sm },
   listenOption: { backgroundColor: colors.surface, borderRadius: radius.md, paddingVertical: 16, alignItems: 'center', borderWidth: 2, borderColor: 'transparent' },
   listenOptionText: { color: colors.text, fontSize: 18, fontWeight: '700' },
+
+  // True/false game
+  tfWord: { color: colors.text, fontSize: 28, fontWeight: '800', textTransform: 'capitalize' },
+  tfHint: { color: colors.textMuted, fontSize: 15, marginBottom: spacing.md },
+  tfCard: { backgroundColor: colors.surface, borderRadius: radius.md, paddingVertical: 20, paddingHorizontal: spacing.xl, marginBottom: spacing.xl, minWidth: 200, alignItems: 'center' },
+  tfTranslation: { color: colors.primarySoft, fontSize: 24, fontWeight: '800' },
+  tfRow: { flexDirection: 'row', gap: spacing.md },
+  tfBtn: { backgroundColor: colors.surface, borderRadius: radius.md, paddingVertical: 16, paddingHorizontal: spacing.lg, alignItems: 'center', borderWidth: 2, borderColor: 'transparent' },
+  tfBtnText: { color: colors.text, fontSize: 17, fontWeight: '700' },
 
   exitBtn: { marginTop: spacing.xl },
   exitText: { color: colors.textMuted, fontSize: 15 },

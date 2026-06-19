@@ -398,13 +398,18 @@ export default function YouTubeScreen({ navigation, route }: any) {
       setIsPlaying(playerRef.current?.getPlayerState?.() === 1);
 
       // Figure out which word inside the current line is being sung by
-      // dividing the line's duration evenly across its words.
+      // dividing the line's duration evenly across its words. On fast songs
+      // each word only gets a tiny slice of time, so cap the lookahead to a
+      // fraction of a single word's duration — otherwise it overshoots and
+      // the highlight races ahead of the singing.
       if (idx >= 0 && lines[idx].text) {
         const words = lines[idx].text.split(/\s+/);
         const lineStart = lines[idx].time;
         const lineEnd = lines[idx + 1]?.time ?? lineStart + 4;
-        const elapsed = (t + WORD_LOOKAHEAD) - lineStart;
         const duration = lineEnd - lineStart;
+        const wordDuration = duration / words.length;
+        const lookahead = Math.min(WORD_LOOKAHEAD, wordDuration * 0.8);
+        const elapsed = (t + lookahead) - lineStart;
         const wi = Math.min(
           Math.floor((elapsed / duration) * words.length),
           words.length - 1
