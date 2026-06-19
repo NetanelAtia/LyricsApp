@@ -760,7 +760,10 @@ const styles = StyleSheet.create({
     opacity: 0.6,
     maxWidth: '90%',
   },
-  currentBlock: { paddingHorizontal: 30, marginVertical: spacing.xs, alignItems: 'center' },
+  // width: '100%' keeps this a fixed-width box regardless of how long the
+  // line/translation is, so the action icons (positioned absolute relative
+  // to it) stay put instead of drifting right with longer sentences.
+  currentBlock: { width: '100%', paddingHorizontal: 30, marginVertical: spacing.xs, alignItems: 'center' },
   // Fixed-height area so single- vs double-row lines don't shift the layout.
   wordsArea: { minHeight: 88, justifyContent: 'center' },
   lineWords: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', position: 'relative' },
