@@ -6,6 +6,7 @@ import { getSentences, removeSentence, SentenceItem } from '../sentences';
 import { award, getProgress, getLevel, xpIntoLevel, XP_PER_LEVEL, onXpGain } from '../progress';
 import { speakWord } from '../speech';
 import { recordResult, weightedSample, weightedQueue } from '../srs';
+import { playCorrect, playWrong } from '../sound';
 import { colors, fonts, radius, spacing } from '../theme';
 
 // Padding words for the sentence game's multiple-choice when there aren't
@@ -356,6 +357,7 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
       setJustMatched((j) => [...j, word]);
       setSel(null);
       award(true, 10, word);
+      playCorrect();
       recordResult(word, true);
       setTimeout(() => {
         setJustMatched((j) => j.filter((w) => w !== word));
@@ -365,6 +367,7 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
       setWrong(word);
       setSel(null);
       award(false, 0);
+      playWrong();
       recordResult(word, false);
       if (sel.word !== word) recordResult(sel.word, false);
       setTimeout(() => setWrong(null), 600);
@@ -472,11 +475,13 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
       if (ok) {
         setStatus('right');
         award(true, 15, card.word);
+        playCorrect();
         recordResult(card.word, true);
         setTimeout(() => setPos((p) => p + 1), 700);
       } else {
         setStatus('wrong');
         award(false, 0);
+        playWrong();
         recordResult(card.word, false);
         setTimeout(() => { setTyped(''); setStatus('typing'); setUsedIds([]); }, 700);
       }
@@ -596,6 +601,7 @@ function Listen({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
     const ok = opt.word === card.word;
     setStatus(ok ? 'right' : 'wrong');
     award(ok, 12, card.word);
+    ok ? playCorrect() : playWrong();
     recordResult(card.word, ok);
     setTimeout(() => setPos((p) => p + 1), 900);
   }
@@ -686,6 +692,7 @@ function TrueFalse({ words, onExit }: { words: VocabWord[]; onExit: () => void }
     const ok = yes === shown.isTrue;
     setStatus(ok ? 'right' : 'wrong');
     award(ok, 12, card.word);
+    ok ? playCorrect() : playWrong();
     recordResult(card.word, ok);
     setTimeout(() => setPos((p) => p + 1), 800);
   }
@@ -745,54 +752,70 @@ function FillSentence({ sentences, onExit }: { sentences: SentenceItem[]; onExit
   const queue = useMemo(() => shuffle(sentences), [sentences]);
   const [pos, setPos] = useState(0);
   const [status, setStatus] = useState<'choosing' | 'right' | 'wrong'>('choosing');
-  const [picked, setPicked] = useState<string | null>(null);
+  const [filled, setFilled] = useState<string[]>([]);
+  const [usedIds, setUsedIds] = useState<number[]>([]);
 
   const card = queue[pos];
 
+  // Blank out a few words (not just one) and build a tappable word bank:
+  // the correct missing words mixed with decoys from other saved sentences.
   const round = useMemo(() => {
     if (!card) return null;
     const tokens = card.text.split(/\s+/);
-    const candidates = tokens
-      .map((t, i) => ({ t, i }))
-      .filter(({ t }) => t.replace(/[^a-zA-Z']/g, '').length >= 3);
-    const pick = candidates.length > 0 ? candidates[Math.floor(Math.random() * candidates.length)] : { t: tokens[0], i: 0 };
-    const answer = pick.t.replace(/[^a-zA-Z']/g, '');
-    const sentence = tokens.map((t, i) => (i === pick.i ? '_____' : t)).join(' ');
+    const candidates = tokens.map((t, i) => ({ t, i })).filter(({ t }) => t.replace(/[^a-zA-Z']/g, '').length >= 3);
+    if (candidates.length === 0) return null;
+    const blankCount = Math.min(3, Math.max(1, Math.round(candidates.length * 0.3)));
+    const blankIdxs = shuffle(candidates).slice(0, blankCount).map((c) => c.i).sort((a, b) => a - b);
+    const answers = blankIdxs.map((i) => tokens[i].replace(/[^a-zA-Z']/g, ''));
 
-    // Wrong options: words from other saved sentences, padded with a small
-    // fallback list if there aren't enough yet.
-    const pool = new Set<string>();
+    const decoyPool = new Set<string>();
     sentences.forEach((s) => {
       if (s.id === card.id) return;
       s.text.split(/\s+/).forEach((w) => {
         const clean = w.replace(/[^a-zA-Z']/g, '');
-        if (clean.length >= 3 && clean.toLowerCase() !== answer.toLowerCase()) pool.add(clean);
+        if (clean.length >= 3 && !answers.some((a) => a.toLowerCase() === clean.toLowerCase())) decoyPool.add(clean);
       });
     });
     FALLBACK_WORDS.forEach((w) => {
-      if (w.toLowerCase() !== answer.toLowerCase()) pool.add(w);
+      if (!answers.some((a) => a.toLowerCase() === w.toLowerCase())) decoyPool.add(w);
     });
-    const decoys = shuffle(Array.from(pool)).slice(0, 3);
-    const options = shuffle([answer, ...decoys]);
-    return { sentence, answer, options };
+    const decoys = shuffle(Array.from(decoyPool)).slice(0, Math.max(2, answers.length));
+    const pool = shuffle([...answers, ...decoys]).map((word, id) => ({ id, word }));
+    return { tokens, blankIdxs, answers, pool };
   }, [card]);
 
   useEffect(() => {
     setStatus('choosing');
-    setPicked(null);
+    setFilled([]);
+    setUsedIds([]);
   }, [pos, card]);
 
   if (!card || pos >= queue.length || !round) {
     return <Done text="סיימת את כל המשפטים!" onAgain={() => setPos(0)} onExit={onExit} againLabel="🔁  עוד פעם" />;
   }
 
-  function choose(opt: string) {
-    if (status !== 'choosing') return;
-    setPicked(opt);
-    const ok = opt.toLowerCase() === round!.answer.toLowerCase();
-    setStatus(ok ? 'right' : 'wrong');
-    award(ok, 15, round!.answer);
-    setTimeout(() => setPos((p) => p + 1), 900);
+  function tapTile(id: number, word: string) {
+    if (status !== 'choosing' || usedIds.includes(id) || filled.length >= round!.blankIdxs.length) return;
+    const next = [...filled, word];
+    setUsedIds((u) => [...u, id]);
+    setFilled(next);
+    if (next.length === round!.blankIdxs.length) {
+      const ok = next.every((w, k) => w.toLowerCase() === round!.answers[k].toLowerCase());
+      setStatus(ok ? 'right' : 'wrong');
+      award(ok, 15, round!.answers[0]);
+      ok ? playCorrect() : playWrong();
+      setTimeout(() => {
+        if (ok) setPos((p) => p + 1);
+        else { setFilled([]); setUsedIds([]); setStatus('choosing'); }
+      }, 900);
+    }
+  }
+
+  // Tapping a filled blank removes it (and any filled after it) — undo.
+  function removeFrom(blankPos: number) {
+    if (status !== 'choosing' || blankPos >= filled.length) return;
+    setFilled((f) => f.slice(0, blankPos));
+    setUsedIds((u) => u.slice(0, blankPos));
   }
 
   return (
@@ -802,26 +825,43 @@ function FillSentence({ sentences, onExit }: { sentences: SentenceItem[]; onExit
         <Text style={styles.progress}>{pos + 1} / {queue.length}</Text>
         <Text style={styles.sentenceClue}>{card.translation}</Text>
         <View style={styles.sentenceCard}>
-          <Text style={styles.sentenceText}>{round.sentence}</Text>
+          <View style={styles.sentenceWrap}>
+            {round.tokens.map((t, i) => {
+              const bpos = round.blankIdxs.indexOf(i);
+              if (bpos === -1) return <Text key={i} style={styles.sentenceWord}>{t} </Text>;
+              const word = filled[bpos];
+              const isNext = bpos === filled.length && status === 'choosing';
+              return (
+                <TouchableOpacity
+                  key={i}
+                  disabled={!word || status !== 'choosing'}
+                  onPress={() => removeFrom(bpos)}
+                  style={[
+                    styles.sentenceBlank,
+                    isNext && styles.boxNext,
+                    status === 'right' && styles.boxRight,
+                    status === 'wrong' && styles.boxWrong,
+                  ]}
+                >
+                  <Text style={styles.sentenceBlankText}>{word || '_____'}</Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
         </View>
 
-        <View style={styles.listenOptions}>
-          {round.options.map((opt) => {
-            const isPicked = picked === opt;
-            const isRight = opt.toLowerCase() === round.answer.toLowerCase();
+        <View style={styles.wordBank}>
+          {round.pool.map(({ id, word }) => {
+            const used = usedIds.includes(id);
             return (
               <TouchableOpacity
-                key={opt}
-                style={[
-                  styles.listenOption,
-                  status !== 'choosing' && isRight && styles.tileCorrect,
-                  status === 'wrong' && isPicked && styles.tileWrong,
-                ]}
-                onPress={() => choose(opt)}
-                disabled={status !== 'choosing'}
-                activeOpacity={0.85}
+                key={id}
+                disabled={used || status !== 'choosing' || filled.length >= round.blankIdxs.length}
+                onPress={() => tapTile(id, word)}
+                style={[styles.wordTile, used && styles.letterTileUsed]}
+                activeOpacity={0.8}
               >
-                <Text style={styles.listenOptionText}>{opt}</Text>
+                <Text style={[styles.wordTileText, used && styles.letterTileTextUsed]}>{word}</Text>
               </TouchableOpacity>
             );
           })}
@@ -986,6 +1026,13 @@ const styles = StyleSheet.create({
   sentenceClue: { color: colors.primarySoft, fontSize: 20, fontWeight: '700', marginBottom: spacing.lg, textAlign: 'center' },
   sentenceCard: { backgroundColor: colors.surface, borderRadius: radius.md, paddingVertical: 20, paddingHorizontal: spacing.lg, marginBottom: spacing.xl, alignItems: 'center' },
   sentenceText: { color: colors.text, fontSize: 19, fontWeight: '700', textAlign: 'center' },
+  sentenceWrap: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 6 },
+  sentenceWord: { color: colors.text, fontSize: 19, fontWeight: '700' },
+  sentenceBlank: { minWidth: 70, paddingHorizontal: 10, paddingVertical: 6, borderRadius: radius.sm, backgroundColor: colors.surfaceLight, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: 'transparent' },
+  sentenceBlankText: { color: colors.text, fontSize: 18, fontWeight: '800' },
+  wordBank: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8, marginBottom: spacing.lg, maxWidth: 340 },
+  wordTile: { backgroundColor: colors.primary, borderRadius: radius.md, paddingHorizontal: spacing.md, paddingVertical: 10 },
+  wordTileText: { color: '#fff', fontSize: 16, fontWeight: '800' },
 
   exitBtn: {
     marginTop: spacing.xl,

@@ -399,23 +399,31 @@ export default function YouTubeScreen({ navigation, route }: any) {
       setCurrentLine(idx);
       setIsPlaying(playerRef.current?.getPlayerState?.() === 1);
 
-      // Figure out which word inside the current line is being sung by
-      // dividing the line's duration evenly across its words. On fast songs
-      // each word only gets a tiny slice of time, so cap the lookahead to a
-      // fraction of a single word's duration — otherwise it overshoots and
-      // the highlight races ahead of the singing.
+      // Figure out which word inside the current line is being sung. We only
+      // know the line's start/end time (not each word's), so this is an
+      // estimate: give longer words a proportionally bigger time slice
+      // (singers tend to linger on them) instead of splitting the line
+      // evenly — that approximation is the main source of any residual lag
+      // when someone sings a line slower than usual; without real per-word
+      // timestamps there's no way to track that perfectly.
       if (idx >= 0 && lines[idx].text) {
         const words = lines[idx].text.split(/\s+/);
         const lineStart = lines[idx].time;
         const lineEnd = lines[idx + 1]?.time ?? lineStart + 4;
         const duration = lineEnd - lineStart;
-        const wordDuration = duration / words.length;
-        const lookahead = Math.min(WORD_LOOKAHEAD, wordDuration * 0.8);
+        const weights = words.map((w) => 140 + w.replace(/[^a-zA-Z']/g, '').length * 60);
+        const totalWeight = weights.reduce((a, b) => a + b, 0);
+        let acc = 0;
+        const boundaries = weights.map((w) => (acc += w, (acc / totalWeight) * duration));
+
+        // On fast songs each word only gets a tiny slice of time, so cap the
+        // lookahead to a fraction of a single word's duration — otherwise it
+        // overshoots and the highlight races ahead of the singing.
+        const avgWordDuration = duration / words.length;
+        const lookahead = Math.min(WORD_LOOKAHEAD, avgWordDuration * 0.8);
         const elapsed = (t + lookahead) - lineStart;
-        const wi = Math.min(
-          Math.floor((elapsed / duration) * words.length),
-          words.length - 1
-        );
+        let wi = boundaries.findIndex((b) => elapsed < b);
+        if (wi === -1) wi = words.length - 1;
         setCurrentWord(wi);
       } else {
         setCurrentWord(-1);
@@ -555,42 +563,58 @@ export default function YouTubeScreen({ navigation, route }: any) {
                     )}
 
                     {cur.text ? (
-                      <TouchableOpacity
-                        style={styles.lineTranslateBtn}
-                        onPress={() => toggleLine(idx, cur.text)}
-                        hitSlop={8}
-                        activeOpacity={0.7}
-                      >
-                        <MaterialIcons
-                          name="translate"
-                          size={18}
-                          color={openLines[idx] ? colors.primarySoft : colors.textFaint}
-                        />
-                      </TouchableOpacity>
-                    ) : null}
-                    {cur.text && videoId ? (
-                      <TouchableOpacity
-                        style={styles.lineTranslateBtn}
-                        onPress={() => {
-                          toggleSentence(`${videoId}:${cur.tag}`, cur.text, lineHe(idx), track || undefined);
-                          setSentenceTick((t) => t + 1);
-                        }}
-                        hitSlop={8}
-                        activeOpacity={0.7}
-                      >
-                        <Text style={{ fontSize: 16 }}>
-                          {isSentenceSaved(`${videoId}:${cur.tag}`) ? '★' : '☆'}
-                        </Text>
-                      </TouchableOpacity>
+                      <View style={styles.lineActions}>
+                        <TouchableOpacity onPress={() => toggleLine(idx, cur.text)} hitSlop={8} activeOpacity={0.7}>
+                          <MaterialIcons
+                            name="translate"
+                            size={18}
+                            color={openLines[idx] ? colors.primarySoft : colors.textFaint}
+                          />
+                        </TouchableOpacity>
+                        {videoId && (
+                          <TouchableOpacity
+                            onPress={() => {
+                              toggleSentence(`${videoId}:${cur.tag}`, cur.text, lineHe(idx), track || undefined);
+                              setSentenceTick((t) => t + 1);
+                            }}
+                            hitSlop={8}
+                            activeOpacity={0.7}
+                          >
+                            <Text style={styles.lineSaveStar}>
+                              {isSentenceSaved(`${videoId}:${cur.tag}`) ? '★' : '☆'}
+                            </Text>
+                          </TouchableOpacity>
+                        )}
+                      </View>
                     ) : null}
                   </View>
                   </View>
 
-                  {(alwaysTranslate || openLines[idx]) && (
-                    <View style={styles.heSlot}>
-                      {cur.text ? <Text style={styles.lineHe}>{lineHe(idx)}</Text> : null}
-                    </View>
-                  )}
+                  <View style={styles.heSlot}>
+                    {cur.text && (alwaysTranslate || openLines[idx])
+                      ? (() => {
+                          // Approximate: highlight the Hebrew word at the same
+                          // proportional position as the English word, since
+                          // translations aren't word-aligned with the original.
+                          const heWords = lineHe(idx).split(/\s+/);
+                          const enWordCount = cur.text.split(/\s+/).length;
+                          const activeHeIdx =
+                            currentWord >= 0 && enWordCount > 0
+                              ? Math.min(heWords.length - 1, Math.floor(((currentWord + 1) / enWordCount) * heWords.length))
+                              : -1;
+                          return (
+                            <View style={styles.lineHeRow}>
+                              {heWords.map((w, wi) => (
+                                <Text key={wi} style={[styles.lineHe, wi === activeHeIdx && styles.lineHeActive]}>
+                                  {w}
+                                  {wi < heWords.length - 1 ? ' ' : ''}
+                                </Text>
+                              ))}
+                            </View>
+                          );
+                        })()
+                      : null}
+                  </View>
                 </View>
 
                 <Text style={styles.contextLine} numberOfLines={1}>
@@ -752,20 +776,24 @@ const styles = StyleSheet.create({
   lineActive: { color: colors.primarySoft },
   // Fixed-height slot so showing/changing the translation doesn't move things.
   heSlot: { minHeight: 52, justifyContent: 'center', marginTop: spacing.sm },
+  lineHeRow: { flexDirection: 'row-reverse', flexWrap: 'wrap', justifyContent: 'center' },
   lineHe: { color: colors.text, fontSize: 21, fontWeight: '700', textAlign: 'center' },
+  lineHeActive: { color: colors.primary, fontWeight: '800' },
 
   wordWrap: { position: 'relative', alignItems: 'center', marginHorizontal: 4 },
   wordWrapActive: { zIndex: 20 },
 
-  lineTranslateBtn: {
+  lineActions: {
     position: 'absolute',
-    right: -28,
+    right: -32,
     top: 0,
     bottom: 0,
-    width: 26,
+    width: 30,
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 10,
   },
+  lineSaveStar: { fontSize: 22, color: colors.textFaint },
 
   // Translation bubble above a tapped word.
   bubbleContainer: {

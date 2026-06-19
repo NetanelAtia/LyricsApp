@@ -70,7 +70,7 @@ export default function SongsListScreen({ navigation }: any) {
 
         <TextInput
           style={styles.search}
-          placeholder="🔍 חיפוש שיר..."
+          placeholder="🔍 ...חיפוש שיר"
           placeholderTextColor={colors.textFaint}
           value={query}
           onChangeText={setQuery}
