@@ -19,9 +19,12 @@
       html,
       body {
         height: 100%;
-        /* Without this, the area below the app's own content — e.g. the
-           bottom home-indicator safe zone in standalone iOS — shows the
-           browser's default white instead of the app's own dark color. */
+        /* 100% alone stops short of the real screen height in standalone
+           iOS with viewport-fit=cover (it excludes the safe areas) —
+           100dvh is the actual visible viewport including them, so the
+           app's own content (e.g. a scrolling list) extends all the way
+           down instead of leaving a blank gap below it. */
+        height: 100dvh;
         background-color: #0f0f1a;
       }
       /* These styles disable body scrolling if you are using <ScrollView> */
@@ -32,6 +35,7 @@
       #root {
         display: flex;
         height: 100%;
+        height: 100dvh;
         flex: 1;
       }
     </style>

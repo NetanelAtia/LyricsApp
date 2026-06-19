@@ -411,7 +411,7 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
           })}
         </View>
       </View>
-      <TouchableOpacity style={styles.exitBtn} onPress={onExit} hitSlop={10}>
+      <TouchableOpacity style={[styles.exitBtn, { alignSelf: 'center' }]} onPress={onExit} hitSlop={10}>
         <Text style={styles.exitText}>סיום</Text>
       </TouchableOpacity>
     </View>
