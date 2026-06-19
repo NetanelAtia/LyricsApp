@@ -16,7 +16,7 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-type Mode = 'list' | 'memory' | 'spell' | 'listen';
+type Mode = 'list' | 'memory' | 'spell' | 'listen' | 'scramble' | 'allGames';
 
 // Cross-platform "are you sure?" confirmation before a destructive action.
 function confirmAction(title: string, message: string, onConfirm: () => void) {
@@ -49,11 +49,23 @@ export default function VocabScreen({ navigation }: any) {
           onMemory={() => setMode('memory')}
           onSpell={() => setMode('spell')}
           onListen={() => setMode('listen')}
+          onScramble={() => setMode('scramble')}
+          onAllGames={() => setMode('allGames')}
         />
       )}
       {mode === 'memory' && <Memory words={words} onExit={() => setMode('list')} />}
       {mode === 'spell' && <Spell words={words} onExit={() => setMode('list')} />}
       {mode === 'listen' && <Listen words={words} onExit={() => setMode('list')} />}
+      {mode === 'scramble' && <Scramble words={words} onExit={() => setMode('list')} />}
+      {mode === 'allGames' && (
+        <AllGames
+          words={words}
+          onMemory={() => setMode('memory')}
+          onSpell={() => setMode('spell')}
+          onListen={() => setMode('listen')}
+          onScramble={() => setMode('scramble')}
+        />
+      )}
     </SafeAreaView>
   );
 }
@@ -64,14 +76,17 @@ function ListView({
   onMemory,
   onSpell,
   onListen,
+  onScramble,
+  onAllGames,
 }: {
   words: VocabWord[];
   onRemove: (w: string) => void;
   onMemory: () => void;
   onSpell: () => void;
   onListen: () => void;
+  onScramble: () => void;
+  onAllGames: () => void;
 }) {
-  const [showMore, setShowMore] = useState(false);
   return (
     <>
       <View style={styles.header}>
@@ -114,39 +129,81 @@ function ListView({
       {words.length > 0 && (
         <View style={styles.practiceBar}>
           <Text style={styles.practiceTitle}>תרגול</Text>
-          <View style={styles.practiceRow}>
-            <TouchableOpacity
-              style={[styles.gameBtn, words.length < 3 && styles.btnDisabled]}
-              onPress={words.length < 3 ? undefined : onMemory}
-              activeOpacity={0.85}
-            >
-              <Text style={styles.gameBtnText}>🧠  משחק הזכרון</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.gameBtn} onPress={onSpell} activeOpacity={0.85}>
-              <Text style={styles.gameBtnText}>✏️  השלמת מילה</Text>
-            </TouchableOpacity>
-          </View>
-          {words.length < 3 && <Text style={styles.hintSmall}>למשחק הזכרון צריך לפחות 3 מילים</Text>}
+          <GameGrid words={words} onMemory={onMemory} onSpell={onSpell} onListen={onListen} onScramble={onScramble} />
+          {words.length < 4 && <Text style={styles.hintSmall}>למשחק הזכרון צריך 3+ מילים, למשחק ההאזנה 4+ מילים</Text>}
 
-          <TouchableOpacity style={styles.moreBtn} onPress={() => setShowMore((s) => !s)} activeOpacity={0.7}>
-            <Text style={styles.moreBtnText}>{showMore ? '‹ פחות משחקים' : 'עוד משחקים +'}</Text>
+          <TouchableOpacity style={styles.allGamesBtn} onPress={onAllGames} activeOpacity={0.85}>
+            <Text style={styles.allGamesBtnText}>🎮  עוד משחקים</Text>
           </TouchableOpacity>
-
-          {showMore && (
-            <View style={styles.practiceRow}>
-              <TouchableOpacity
-                style={[styles.gameBtn, words.length < 4 && styles.btnDisabled]}
-                onPress={words.length < 4 ? undefined : onListen}
-                activeOpacity={0.85}
-              >
-                <Text style={styles.gameBtnText}>🎧  משחק האזנה</Text>
-              </TouchableOpacity>
-            </View>
-          )}
-          {showMore && words.length < 4 && <Text style={styles.hintSmall}>למשחק ההאזנה צריך לפחות 4 מילים</Text>}
         </View>
       )}
     </>
+  );
+}
+
+// The 4 main practice games, shown both on the vocab list and the "all games" page.
+function GameGrid({
+  words,
+  onMemory,
+  onSpell,
+  onListen,
+  onScramble,
+}: {
+  words: VocabWord[];
+  onMemory: () => void;
+  onSpell: () => void;
+  onListen: () => void;
+  onScramble: () => void;
+}) {
+  return (
+    <View style={styles.gameGrid}>
+      <TouchableOpacity
+        style={[styles.gameBtn, styles.gameBtnGrid, words.length < 3 && styles.btnDisabled]}
+        onPress={words.length < 3 ? undefined : onMemory}
+        activeOpacity={0.85}
+      >
+        <Text style={styles.gameBtnText}>🧠  משחק הזכרון</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.gameBtn, styles.gameBtnGrid]} onPress={onSpell} activeOpacity={0.85}>
+        <Text style={styles.gameBtnText}>✏️  השלמת מילה</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.gameBtn, styles.gameBtnGrid, words.length < 4 && styles.btnDisabled]}
+        onPress={words.length < 4 ? undefined : onListen}
+        activeOpacity={0.85}
+      >
+        <Text style={styles.gameBtnText}>🎧  משחק האזנה</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.gameBtn, styles.gameBtnGrid]} onPress={onScramble} activeOpacity={0.85}>
+        <Text style={styles.gameBtnText}>🔤  אותיות מבולבלות</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+// Dedicated page for all the games, opened from the prominent "more games" button.
+function AllGames({
+  words,
+  onMemory,
+  onSpell,
+  onListen,
+  onScramble,
+}: {
+  words: VocabWord[];
+  onMemory: () => void;
+  onSpell: () => void;
+  onListen: () => void;
+  onScramble: () => void;
+}) {
+  return (
+    <View style={styles.allGamesPage}>
+      <Text style={styles.title}>🎮 כל המשחקים</Text>
+      <Text style={styles.subtitle}>תרגול אוצר המילים שלך</Text>
+      <View style={{ marginTop: spacing.lg }}>
+        <GameGrid words={words} onMemory={onMemory} onSpell={onSpell} onListen={onListen} onScramble={onScramble} />
+      </View>
+      {words.length < 4 && <Text style={styles.hintSmall}>למשחק הזכרון צריך 3+ מילים, למשחק ההאזנה 4+ מילים</Text>}
+    </View>
   );
 }
 
@@ -483,6 +540,106 @@ function Listen({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
   );
 }
 
+// Scramble game: the word's letters are shuffled into tiles; tap them in
+// the right order to rebuild the word.
+function Scramble({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
+  const queue = useMemo(() => weightedQueue(words, (w) => w.word), [words]);
+  const [pos, setPos] = useState(0);
+  const [answer, setAnswer] = useState<number[]>([]);
+  const [status, setStatus] = useState<'typing' | 'right' | 'wrong'>('typing');
+
+  const card = queue[pos];
+
+  const tiles = useMemo(() => {
+    if (!card) return [] as { id: number; ch: string }[];
+    return shuffle(card.word.split('').map((ch, id) => ({ id, ch })));
+  }, [card]);
+
+  useEffect(() => {
+    setAnswer([]);
+    setStatus('typing');
+  }, [pos, card]);
+
+  if (!card || pos >= queue.length) {
+    return <Done text="פתרת את כל המילים!" onAgain={() => setPos(0)} onExit={onExit} againLabel="🔁  עוד פעם" />;
+  }
+
+  function tapTile(id: number) {
+    if (status !== 'typing' || answer.includes(id)) return;
+    const next = [...answer, id];
+    setAnswer(next);
+    if (next.length === tiles.length) {
+      const word = next.map((tid) => tiles.find((t) => t.id === tid)!.ch).join('');
+      const ok = word === card.word.toLowerCase();
+      setStatus(ok ? 'right' : 'wrong');
+      award(ok, 15, card.word);
+      recordResult(card.word, ok);
+      setTimeout(() => {
+        if (ok) setPos((p) => p + 1);
+        else { setAnswer([]); setStatus('typing'); }
+      }, 800);
+    }
+  }
+
+  return (
+    <View style={{ flex: 1 }}>
+      <LiveXpBar />
+      <View style={styles.center}>
+        <Text style={styles.progress}>{pos + 1} / {queue.length}</Text>
+        <View style={styles.spellClueRow}>
+          <Text style={styles.spellClue}>{card.translation}</Text>
+          <TouchableOpacity onPress={() => speakWord(card.word)} hitSlop={10}>
+            <Text style={styles.spellSpeak}>🔊</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.boxes}>
+          {tiles.map((_, i) => {
+            const filled = i < answer.length;
+            const ch = filled ? tiles.find((t) => t.id === answer[i])!.ch : '';
+            return (
+              <View
+                key={i}
+                style={[
+                  styles.box,
+                  !filled && styles.boxBlank,
+                  status === 'right' && styles.boxRight,
+                  status === 'wrong' && styles.boxWrong,
+                ]}
+              >
+                <Text style={styles.boxText}>{ch.toUpperCase()}</Text>
+              </View>
+            );
+          })}
+        </View>
+
+        <Text style={styles.spellHint}>לחץ על האותיות בסדר הנכון 🔤</Text>
+
+        <View style={styles.letterPool}>
+          {tiles.map(({ id, ch }) => {
+            const used = answer.includes(id);
+            return (
+              <TouchableOpacity
+                key={id}
+                disabled={used || status !== 'typing'}
+                onPress={() => tapTile(id)}
+                style={[styles.letterTile, used && styles.letterTileUsed]}
+                activeOpacity={0.8}
+              >
+                <Text style={[styles.letterTileText, used && styles.letterTileTextUsed]}>{ch.toUpperCase()}</Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+
+        <TouchableOpacity style={styles.exitBtn} onPress={onExit} hitSlop={10}>
+          <Text style={styles.exitText}>סיום</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
 function Done({ text, onAgain, onExit, againLabel }: { text: string; onAgain: () => void; onExit: () => void; againLabel: string }) {
   return (
     <View style={styles.center}>
@@ -537,12 +694,21 @@ const styles = StyleSheet.create({
   },
   practiceTitle: { color: colors.textMuted, fontSize: 13, fontWeight: '700', marginBottom: spacing.sm, textAlign: 'center' },
   practiceRow: { flexDirection: 'row', gap: spacing.sm },
+  gameGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, justifyContent: 'space-between' },
   gameBtn: { flex: 1, backgroundColor: colors.primary, borderRadius: radius.md, paddingVertical: 15, paddingHorizontal: 4, alignItems: 'center' },
+  gameBtnGrid: { flexBasis: '47%', flexGrow: 0 },
   gameBtnText: { color: '#fff', fontSize: 14, fontWeight: '800', textAlign: 'center' },
   btnDisabled: { backgroundColor: colors.surfaceLight },
   hintSmall: { color: colors.textFaint, fontSize: 12, textAlign: 'center', marginTop: spacing.sm },
-  moreBtn: { alignSelf: 'center', marginTop: spacing.md, paddingVertical: spacing.xs, paddingHorizontal: spacing.md },
-  moreBtnText: { color: colors.primarySoft, fontSize: 14, fontWeight: '700' },
+  allGamesBtn: {
+    backgroundColor: colors.warning,
+    borderRadius: radius.pill,
+    paddingVertical: 16,
+    alignItems: 'center',
+    marginTop: spacing.md,
+  },
+  allGamesBtnText: { color: '#1a1a2e', fontSize: 16, fontWeight: '800' },
+  allGamesPage: { flex: 1, padding: spacing.lg },
   practiceBtn: { backgroundColor: colors.primary, borderRadius: radius.pill, paddingVertical: 15, alignItems: 'center' },
   practiceBtnText: { color: '#fff', fontSize: 16, fontWeight: '800' },
 

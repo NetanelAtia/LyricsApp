@@ -4,13 +4,18 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, radius, spacing } from '../theme';
 import { library, LibrarySong } from '../data/library';
 import { getProgress, getLevel, xpIntoLevel } from '../progress';
+import { getVocab } from '../vocab';
 
 // Home screen: the list of songs. Tapping one opens it straight in karaoke.
 export default function SongsListScreen({ navigation }: any) {
   const [prog, setProg] = useState(getProgress());
+  const [vocabCount, setVocabCount] = useState(getVocab().length);
   const [query, setQuery] = useState('');
   // Refresh stats whenever we return to this screen.
-  useEffect(() => navigation.addListener('focus', () => setProg(getProgress())), [navigation]);
+  useEffect(
+    () => navigation.addListener('focus', () => { setProg(getProgress()); setVocabCount(getVocab().length); }),
+    [navigation]
+  );
 
   const q = query.trim().toLowerCase();
   // Sort by artist A→Z (ignoring a leading "The", case-insensitive), then by song.
@@ -27,20 +32,8 @@ export default function SongsListScreen({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-        <View style={styles.headerRow}>
-          <View style={{ flex: 1 }}>
-            <Text style={styles.greeting}>Learn English with songs 🎵</Text>
-            <Text style={styles.title}>Your Songs</Text>
-          </View>
-          <TouchableOpacity
-            style={styles.vocabBtn}
-            onPress={() => navigation.navigate('Vocab')}
-            activeOpacity={0.85}
-          >
-            <Text style={styles.vocabIcon}>📚</Text>
-            <Text style={styles.vocabLabel}>מילים</Text>
-          </TouchableOpacity>
-        </View>
+        <Text style={styles.greeting}>Learn English with songs 🎵</Text>
+        <Text style={styles.title}>Your Songs</Text>
 
         {/* Progress banner */}
         <TouchableOpacity
@@ -59,6 +52,20 @@ export default function SongsListScreen({ navigation }: any) {
             </View>
           </View>
           <Text style={styles.chev}>›</Text>
+        </TouchableOpacity>
+
+        {/* Vocab banner — equally prominent, leads to the saved word list + games. */}
+        <TouchableOpacity
+          style={styles.vocabBanner}
+          onPress={() => navigation.navigate('Vocab')}
+          activeOpacity={0.85}
+        >
+          <Text style={styles.vocabBannerIcon}>📚</Text>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.vocabBannerTitle}>אוצר מילים</Text>
+            <Text style={styles.vocabBannerSub}>{vocabCount} מילים שמורות</Text>
+          </View>
+          <Text style={styles.vocabBannerChev}>›</Text>
         </TouchableOpacity>
 
         <TextInput
@@ -118,20 +125,22 @@ function SongCard({ song, onPress }: { song: LibrarySong; onPress: () => void })
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
   header: { padding: spacing.lg, paddingBottom: spacing.md },
-  headerRow: { flexDirection: 'row', alignItems: 'center' },
   greeting: { color: colors.textMuted, fontSize: 15, marginBottom: 4 },
   title: { color: colors.text, fontSize: 30, fontWeight: '800' },
-  vocabBtn: {
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+
+  vocabBanner: {
+    flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.surfaceLight,
+    gap: spacing.md,
+    backgroundColor: colors.primary,
+    borderRadius: radius.md,
+    padding: spacing.md,
+    marginTop: spacing.sm,
   },
-  vocabIcon: { fontSize: 22 },
-  vocabLabel: { color: colors.textMuted, fontSize: 11, marginTop: 2, fontWeight: '600' },
+  vocabBannerIcon: { fontSize: 26 },
+  vocabBannerTitle: { color: '#fff', fontSize: 17, fontWeight: '800' },
+  vocabBannerSub: { color: 'rgba(255,255,255,0.8)', fontSize: 13, marginTop: 2 },
+  vocabBannerChev: { color: '#fff', fontSize: 22 },
 
   statsBanner: {
     flexDirection: 'row',
