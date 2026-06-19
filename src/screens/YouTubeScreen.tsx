@@ -473,8 +473,11 @@ export default function YouTubeScreen({ navigation, route }: any) {
         const exact = wordTiming[lines[idx].tag];
         if (exact && exact.length === words.length) {
           // Real per-word timestamps from forced alignment (scripts/align)
-          // — the last word whose start has already passed.
-          const wi = exact.reduce((best, w, i) => (now >= w.start ? i : best), 0);
+          // — the last word whose start has already passed, with a small
+          // lead so the highlight lights up just before it's sung rather
+          // than exactly on it.
+          const exactLookahead = 0.4;
+          const wi = exact.reduce((best, w, i) => (now + exactLookahead >= w.start ? i : best), 0);
           setCurrentWord(wi);
           return;
         }
