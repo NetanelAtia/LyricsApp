@@ -42,3 +42,7 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Local forced-alignment tooling (Python venv, downloaded models)
+scripts/align/venv/
+scripts/align/__pycache__/

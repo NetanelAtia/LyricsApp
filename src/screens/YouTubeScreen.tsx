@@ -142,6 +142,9 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [displayMode, setDisplayMode] = useState<'both' | 'en' | 'he'>('both');
   // High-quality curated translations bundled with the app (time -> Hebrew).
   const [bundledTr, setBundledTr] = useState<Record<string, string>>({});
+  // Real per-word timestamps from offline forced alignment, keyed by LRC
+  // tag, when available for this song (see scripts/align).
+  const [wordTiming, setWordTiming] = useState<Record<string, { word: string; start: number; end: number }[]>>({});
   // Curated per-word dictionary (word -> accurate Hebrew) for tapped words.
   const [glossary, setGlossary] = useState<Record<string, string>>({});
 
@@ -422,6 +425,25 @@ export default function YouTubeScreen({ navigation, route }: any) {
     };
   }, [videoId]);
 
+  // Exact, force-aligned word timestamps for this song, if we have them
+  // (public/wordtiming/<videoId>.json) — generated offline from a real
+  // audio file via scripts/align. When present, these replace the
+  // estimated per-word timing below for a perfectly synced highlight.
+  useEffect(() => {
+    if (!videoId) {
+      setWordTiming({});
+      return;
+    }
+    let alive = true;
+    fetch(`wordtiming/${videoId}.json`)
+      .then((r) => (r.ok ? r.json() : {}))
+      .then((j) => alive && setWordTiming(j || {}))
+      .catch(() => alive && setWordTiming({}));
+    return () => {
+      alive = false;
+    };
+  }, [videoId]);
+
   // Follow the video time and highlight the matching line.
   useEffect(() => {
     if (lines.length === 0) return;
@@ -446,6 +468,21 @@ export default function YouTubeScreen({ navigation, route }: any) {
         const lineStart = lines[idx].time;
         const lineEnd = lines[idx + 1]?.time ?? lineStart + 4;
         const duration = lineEnd - lineStart;
+        const now = getTime() + syncOffset;
+
+        const exact = wordTiming[lines[idx].tag];
+        if (exact && exact.length === words.length) {
+          // Real per-word timestamps from forced alignment (scripts/align)
+          // — the last word whose start has already passed.
+          const wi = exact.reduce((best, w, i) => (now >= w.start ? i : best), 0);
+          setCurrentWord(wi);
+          return;
+        }
+
+        // Fallback estimate: divide the line's duration across its words,
+        // weighting longer words with proportionally more time (singers
+        // tend to linger on them). This is the main source of any residual
+        // lag/overshoot when there's no exact alignment data for a song.
         const weights = words.map((w) => 140 + w.replace(/[^a-zA-Z']/g, '').length * 60);
         const totalWeight = weights.reduce((a, b) => a + b, 0);
         let acc = 0;
@@ -460,7 +497,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
         // both was the main reason fast songs overshot so badly.
         const avgWordDuration = duration / words.length;
         const lookahead = Math.min(1.3, avgWordDuration * 1.1);
-        const elapsed = (getTime() + syncOffset + lookahead) - lineStart;
+        const elapsed = now + lookahead - lineStart;
         let wi = boundaries.findIndex((b) => elapsed < b);
         if (wi === -1) wi = words.length - 1;
         setCurrentWord(wi);
@@ -469,7 +506,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
       }
     }, 120);
     return () => clearInterval(id);
-  }, [lines, syncOffset]);
+  }, [lines, syncOffset, wordTiming]);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
