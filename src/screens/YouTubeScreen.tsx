@@ -9,7 +9,6 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { MaterialIcons } from '@expo/vector-icons';
 import YouTubePlayer from '../components/YouTubePlayer';
 import { translateToHebrew, cachedTranslation } from '../translate';
 import { fetchJson } from '../net';
@@ -130,11 +129,8 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [selectedWord, setSelectedWord] = useState(''); // clean tapped word
   const [selectedSaved, setSelectedSaved] = useState(false); // is it in vocab
   const [sentenceTick, setSentenceTick] = useState(0); // bumped to re-render after saving a sentence
-  // Per-line "translate whole line" toggle + cached results.
-  const [openLines, setOpenLines] = useState<Record<number, boolean>>({});
+  // Live-translated lines (lazily fetched), keyed by line index.
   const [lineTranslations, setLineTranslations] = useState<Record<number, string>>({});
-  // "Always show translation" mode — keeps Hebrew under every line.
-  const [alwaysTranslate, setAlwaysTranslate] = useState(false);
   // 'both' keeps the existing English-with-optional-translation behavior;
   // 'en'/'he' show only one language.
   const [displayMode, setDisplayMode] = useState<'both' | 'en' | 'he'>('both');
@@ -227,22 +223,6 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setSelectedSaved(toggleWord(selectedWord, tr, track || undefined));
   }
 
-  // Toggle the full-line translation. Opening pauses the song; closing resumes.
-  async function toggleLine(i: number, text: string) {
-    const willOpen = !openLines[i];
-    setOpenLines((prev) => ({ ...prev, [i]: willOpen }));
-    if (willOpen) {
-      playerRef.current?.pauseVideo?.();
-      const key = lines[i]?.tag;
-      if (!(key && bundledTr[key]) && !lineTranslations[i]) {
-        const tr = await translateToHebrew(text);
-        setLineTranslations((prev) => ({ ...prev, [i]: tr }));
-      }
-    } else {
-      playerRef.current?.playVideo?.();
-    }
-  }
-
   function loadVideo() {
     const id = extractVideoId(link);
     if (!id) {
@@ -263,7 +243,6 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setLink('');
     setArtist('');
     setTrack('');
-    setOpenLines({});
     setSelected(null);
     setCurrentLine(-1);
     setLrcError('');
@@ -360,10 +339,10 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setLoading(false);
   }
 
-  // In "always translate" mode (or Hebrew-only display), fetch the current
-  // line's translation automatically as the song moves from line to line.
+  // Whenever the translation is visible ("both" or "he" mode), fetch the
+  // current line's translation automatically as the song moves along.
   useEffect(() => {
-    if (!alwaysTranslate && displayMode !== 'he') return;
+    if (displayMode === 'en') return;
     const idx = currentLine < 0 ? 0 : currentLine;
     const cur = lines[idx];
     const key = cur?.tag;
@@ -372,7 +351,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
         setLineTranslations((prev) => ({ ...prev, [idx]: tr }))
       );
     }
-  }, [alwaysTranslate, displayMode, currentLine, lines, bundledTr]);
+  }, [displayMode, currentLine, lines, bundledTr]);
 
   // Load the curated translations file for this song (if it exists).
   useEffect(() => {
@@ -531,19 +510,6 @@ export default function YouTubeScreen({ navigation, route }: any) {
             </TouchableOpacity>
           </View>
         )}
-        {/* Per-line translate toggle only matters in "both" mode */}
-        {lines.length > 0 && displayMode === 'both' && (
-          <TouchableOpacity
-            style={[styles.translateToggle, alwaysTranslate && styles.translateToggleActive]}
-            onPress={() => setAlwaysTranslate((v) => !v)}
-            activeOpacity={0.85}
-          >
-            <Text style={[styles.translateToggleText, alwaysTranslate && styles.translateToggleTextActive]}>
-              {alwaysTranslate ? '✓ מציג תרגום' : 'הצג תרגום'}
-            </Text>
-          </TouchableOpacity>
-        )}
-
         {/* Focused karaoke: only the current line (+ a peek at prev/next) */}
         {lines.length > 0 &&
           (() => {
@@ -595,7 +561,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                     </View>
                   )}
 
-                  {(displayMode === 'he' || (displayMode === 'both' && (alwaysTranslate || openLines[idx]))) && (
+                  {displayMode !== 'en' && (
                     <View style={styles.heSlot}>
                       {cur.text
                         ? (() => {
@@ -625,15 +591,6 @@ export default function YouTubeScreen({ navigation, route }: any) {
 
                   {cur.text && (
                     <View style={styles.lineActions}>
-                      {displayMode === 'both' && (
-                        <TouchableOpacity onPress={() => toggleLine(idx, cur.text)} hitSlop={8} activeOpacity={0.7}>
-                          <MaterialIcons
-                            name="translate"
-                            size={18}
-                            color={openLines[idx] ? colors.primarySoft : colors.textFaint}
-                          />
-                        </TouchableOpacity>
-                      )}
                       {videoId && (
                         <TouchableOpacity
                           onPress={() => {
@@ -792,19 +749,6 @@ const styles = StyleSheet.create({
   langModeBtnActive: { backgroundColor: colors.primary },
   langModeText: { color: colors.textMuted, fontSize: 14, fontFamily: fonts.bold },
   langModeTextActive: { color: '#fff' },
-
-  translateToggle: {
-    alignSelf: 'center',
-    marginTop: spacing.md,
-    paddingHorizontal: spacing.lg,
-    paddingVertical: 10,
-    borderRadius: radius.pill,
-    borderWidth: 1.5,
-    borderColor: colors.surfaceLight,
-  },
-  translateToggleActive: { backgroundColor: colors.surfaceLight, borderColor: colors.primary },
-  translateToggleText: { color: colors.text, fontFamily: fonts.extraBold, fontSize: 17 },
-  translateToggleTextActive: { color: colors.primarySoft },
 
   // Focused karaoke view
   karaoke: { paddingHorizontal: spacing.lg, paddingTop: spacing.md, alignItems: 'center' },
