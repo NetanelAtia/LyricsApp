@@ -771,6 +771,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
     marginTop: spacing.xs,
+    marginBottom: spacing.sm,
     backgroundColor: colors.surface,
     borderRadius: radius.pill,
     padding: 4,
