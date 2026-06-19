@@ -19,6 +19,10 @@
       html,
       body {
         height: 100%;
+        /* Without this, the area below the app's own content — e.g. the
+           bottom home-indicator safe zone in standalone iOS — shows the
+           browser's default white instead of the app's own dark color. */
+        background-color: #0f0f1a;
       }
       /* These styles disable body scrolling if you are using <ScrollView> */
       body {
