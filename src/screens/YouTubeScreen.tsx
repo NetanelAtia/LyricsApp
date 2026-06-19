@@ -694,8 +694,8 @@ const styles = StyleSheet.create({
   smallBtn: { backgroundColor: colors.primary, borderRadius: radius.md, paddingHorizontal: spacing.lg, justifyContent: 'center' },
   smallBtnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
   error: { color: colors.danger, paddingHorizontal: spacing.lg, marginTop: spacing.sm },
-  playerWrap: { padding: spacing.lg, paddingBottom: spacing.sm },
-  controlsRow: { flexDirection: 'row', justifyContent: 'center', gap: spacing.md, marginTop: spacing.lg, paddingHorizontal: spacing.lg },
+  playerWrap: { padding: spacing.md, paddingBottom: spacing.xs },
+  controlsRow: { flexDirection: 'row', justifyContent: 'center', gap: spacing.md, marginTop: spacing.sm, paddingHorizontal: spacing.lg },
   ctrlBtn: {
     backgroundColor: colors.surface,
     paddingHorizontal: spacing.lg,
@@ -758,16 +758,16 @@ const styles = StyleSheet.create({
   translateToggleTextActive: { color: colors.primarySoft },
 
   // Focused karaoke view
-  karaoke: { paddingHorizontal: spacing.lg, paddingTop: spacing.xl, alignItems: 'center' },
+  karaoke: { paddingHorizontal: spacing.lg, paddingTop: spacing.md, alignItems: 'center' },
   contextLine: {
     color: colors.textFaint,
     fontSize: 15,
     textAlign: 'center',
-    marginVertical: spacing.md,
+    marginVertical: spacing.xs,
     opacity: 0.6,
     maxWidth: '90%',
   },
-  currentBlock: { paddingHorizontal: 30, marginVertical: spacing.sm, alignItems: 'center' },
+  currentBlock: { paddingHorizontal: 30, marginVertical: spacing.xs, alignItems: 'center' },
   // Fixed-height area so single- vs double-row lines don't shift the layout.
   wordsArea: { minHeight: 88, justifyContent: 'center' },
   lineWords: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', position: 'relative' },
@@ -775,10 +775,21 @@ const styles = StyleSheet.create({
   activeWord: { color: '#ffffff', fontSize: 27 },
   lineActive: { color: colors.primarySoft },
   // Fixed-height slot so showing/changing the translation doesn't move things.
-  heSlot: { minHeight: 52, justifyContent: 'center', marginTop: spacing.sm },
-  lineHeRow: { flexDirection: 'row-reverse', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'baseline' },
-  lineHe: { color: colors.text, fontSize: 21, fontWeight: '700', textAlign: 'center' },
-  lineHeActive: { color: colors.primary, fontWeight: '800', fontSize: 25 },
+  heSlot: { minHeight: 52, justifyContent: 'center', marginTop: spacing.xs },
+  lineHeRow: { flexDirection: 'row-reverse', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' },
+  // Every word shares the exact same box (padding/radius/font size) — only
+  // color/background differ — so highlighting the active word never
+  // resizes or reflows the sentence.
+  lineHe: {
+    color: colors.textMuted,
+    fontSize: 21,
+    fontWeight: '700',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: radius.sm,
+    backgroundColor: 'transparent',
+  },
+  lineHeActive: { color: '#ffffff', backgroundColor: colors.primary },
 
   wordWrap: { position: 'relative', alignItems: 'center', marginHorizontal: 4 },
   wordWrapActive: { zIndex: 20 },

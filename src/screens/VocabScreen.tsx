@@ -764,7 +764,7 @@ function FillSentence({ sentences, onExit }: { sentences: SentenceItem[]; onExit
     const tokens = card.text.split(/\s+/);
     const candidates = tokens.map((t, i) => ({ t, i })).filter(({ t }) => t.replace(/[^a-zA-Z']/g, '').length >= 3);
     if (candidates.length === 0) return null;
-    const blankCount = Math.min(3, Math.max(1, Math.round(candidates.length * 0.3)));
+    const blankCount = Math.min(5, candidates.length, Math.max(2, Math.round(candidates.length * 0.5)));
     const blankIdxs = shuffle(candidates).slice(0, blankCount).map((c) => c.i).sort((a, b) => a - b);
     const answers = blankIdxs.map((i) => tokens[i].replace(/[^a-zA-Z']/g, ''));
 
