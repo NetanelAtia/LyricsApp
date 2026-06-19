@@ -96,6 +96,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [loading, setLoading] = useState(false);
   const [lrcError, setLrcError] = useState('');
   const [currentLine, setCurrentLine] = useState(-1);
+  const [currentWord, setCurrentWord] = useState(-1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [syncOffset, setSyncOffset] = useState(0); // per-song sync correction
 
@@ -393,6 +394,23 @@ export default function YouTubeScreen({ navigation, route }: any) {
       }
       setCurrentLine(idx);
       setIsPlaying(playerRef.current?.getPlayerState?.() === 1);
+
+      // Figure out which word inside the current line is being sung by
+      // dividing the line's duration evenly across its words.
+      if (idx >= 0 && lines[idx].text) {
+        const words = lines[idx].text.split(/\s+/);
+        const lineStart = lines[idx].time;
+        const lineEnd = lines[idx + 1]?.time ?? lineStart + 4;
+        const elapsed = t - lineStart;
+        const duration = lineEnd - lineStart;
+        const wi = Math.min(
+          Math.floor((elapsed / duration) * words.length),
+          words.length - 1
+        );
+        setCurrentWord(wi);
+      } else {
+        setCurrentWord(-1);
+      }
     }, 120);
     return () => clearInterval(id);
   }, [lines, syncOffset]);
@@ -501,6 +519,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       cur.text.split(/\s+/).map((w, wi) => {
                         const key = `${idx}-${wi}`;
                         const isSel = selected === key;
+                        const isActiveWord = wi === currentWord;
                         return (
                           <View key={wi} style={[styles.wordWrap, isSel && styles.wordWrapActive]}>
                             {isSel && (
@@ -517,7 +536,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                               </View>
                             )}
                             <TouchableOpacity onPress={() => onWordPress(key, w)} activeOpacity={0.7}>
-                              <Text style={styles.currentWord}>{w}</Text>
+                              <Text style={[styles.currentWord, isActiveWord && styles.activeWord]}>{w}</Text>
                             </TouchableOpacity>
                           </View>
                         );
@@ -704,6 +723,7 @@ const styles = StyleSheet.create({
   wordsArea: { minHeight: 88, justifyContent: 'center' },
   lineWords: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', position: 'relative' },
   currentWord: { color: colors.primarySoft, fontSize: 25, lineHeight: 40, fontWeight: '700' },
+  activeWord: { color: '#ffffff', fontSize: 27 },
   lineActive: { color: colors.primarySoft },
   // Fixed-height slot so showing/changing the translation doesn't move things.
   heSlot: { minHeight: 52, justifyContent: 'center', marginTop: spacing.sm },
