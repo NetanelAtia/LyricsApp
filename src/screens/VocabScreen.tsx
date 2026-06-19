@@ -2,7 +2,8 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getVocab, removeWord, VocabWord } from '../vocab';
-import { award } from '../progress';
+import { award, getProgress, getLevel, xpIntoLevel, XP_PER_LEVEL, onXpGain } from '../progress';
+import { speakWord } from '../speech';
 import { colors, radius, spacing } from '../theme';
 
 function shuffle<T>(arr: T[]): T[] {
@@ -81,6 +82,9 @@ function ListView({
                 <Text style={styles.rowTr}>{item.translation}</Text>
                 {item.song ? <Text style={styles.rowSong}>🎵 {item.song}</Text> : null}
               </View>
+              <TouchableOpacity onPress={() => speakWord(item.word)} hitSlop={10}>
+                <Text style={styles.speak}>🔊</Text>
+              </TouchableOpacity>
             </View>
           )}
         />
@@ -108,6 +112,25 @@ function ListView({
   );
 }
 
+// Small live XP bar shown above games, so progress fills visibly as you play.
+function LiveXpBar() {
+  const [p, setP] = useState(getProgress());
+  useEffect(() => onXpGain(() => setP(getProgress())), []);
+  const level = getLevel(p.xp);
+  const inLevel = xpIntoLevel(p.xp);
+  return (
+    <View style={styles.xpBarWrap}>
+      <View style={styles.xpBarRow}>
+        <Text style={styles.xpBarLevel}>רמה {level}</Text>
+        <Text style={styles.xpBarXp}>{inLevel} / {XP_PER_LEVEL} XP</Text>
+      </View>
+      <View style={styles.xpBarTrack}>
+        <View style={[styles.xpBarFill, { width: `${(inLevel / XP_PER_LEVEL) * 100}%` }]} />
+      </View>
+    </View>
+  );
+}
+
 // Memory game: tap a word on one side, then its match on the other — either side first.
 function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
   const BATCH = 6;
@@ -121,6 +144,7 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
   const [right, setRight] = useState<VocabWord[]>([]);
   const [sel, setSel] = useState<{ side: 'l' | 'r'; word: string } | null>(null);
   const [matched, setMatched] = useState<string[]>([]);
+  const [justMatched, setJustMatched] = useState<string[]>([]);
   const [wrong, setWrong] = useState<string | null>(null);
 
   useEffect(() => {
@@ -128,20 +152,25 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
     setRight(shuffle(roundWords));
     setSel(null);
     setMatched([]);
+    setJustMatched([]);
     setWrong(null);
   }, [roundWords]);
 
   const allMatched = roundWords.length > 0 && matched.length === roundWords.length;
 
   function tap(side: 'l' | 'r', word: string) {
-    if (matched.includes(word)) return;
+    if (matched.includes(word) || justMatched.includes(word)) return;
     setWrong(null);
     if (!sel) { setSel({ side, word }); return; }
     if (sel.side === side) { setSel({ side, word }); return; } // reselect on same side
     if (sel.word === word) {
-      setMatched((m) => [...m, word]);
+      setJustMatched((j) => [...j, word]);
       setSel(null);
       award(true, 10, word);
+      setTimeout(() => {
+        setJustMatched((j) => j.filter((w) => w !== word));
+        setMatched((m) => [...m, word]);
+      }, 500);
     } else {
       setWrong(word);
       setSel(null);
@@ -158,14 +187,16 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
 
   return (
     <View style={styles.matchWrap}>
+      <LiveXpBar />
       <Text style={styles.matchHint}>התאם כל מילה לתרגום שלה (אפשר להתחיל מכל צד)</Text>
       <View style={styles.matchCols}>
         <View style={styles.matchCol}>
           {left.map((w) => {
             const m = matched.includes(w.word);
+            const jm = justMatched.includes(w.word);
             const s = sel?.side === 'l' && sel.word === w.word;
             return (
-              <TouchableOpacity key={w.word} style={[styles.tile, s && styles.tileSel, m && styles.tileGone]} onPress={() => tap('l', w.word)} disabled={m} activeOpacity={0.8}>
+              <TouchableOpacity key={w.word} style={[styles.tile, s && styles.tileSel, jm && styles.tileCorrect, m && styles.tileGone]} onPress={() => tap('l', w.word)} disabled={m || jm} activeOpacity={0.8}>
                 <Text style={[styles.tileText, m && styles.tileTextDim]}>{w.word}</Text>
               </TouchableOpacity>
             );
@@ -174,10 +205,11 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
         <View style={styles.matchCol}>
           {right.map((w) => {
             const m = matched.includes(w.word);
+            const jm = justMatched.includes(w.word);
             const s = sel?.side === 'r' && sel.word === w.word;
             const bad = wrong === w.word;
             return (
-              <TouchableOpacity key={w.word} style={[styles.tile, s && styles.tileSel, bad && styles.tileWrong, m && styles.tileGone]} onPress={() => tap('r', w.word)} disabled={m} activeOpacity={0.8}>
+              <TouchableOpacity key={w.word} style={[styles.tile, s && styles.tileSel, bad && styles.tileWrong, jm && styles.tileCorrect, m && styles.tileGone]} onPress={() => tap('r', w.word)} disabled={m || jm} activeOpacity={0.8}>
                 <Text style={[styles.tileText, m && styles.tileTextDim]}>{w.translation}</Text>
               </TouchableOpacity>
             );
@@ -239,7 +271,9 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
   }
 
   return (
-    <View style={styles.center}>
+    <View style={{ flex: 1 }}>
+      <LiveXpBar />
+      <View style={styles.center}>
       <Text style={styles.progress}>{pos + 1} / {queue.length}</Text>
       <Text style={styles.spellClue}>{card.translation}</Text>
 
@@ -283,6 +317,7 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
       <TouchableOpacity style={styles.exitBtn} onPress={onExit} hitSlop={10}>
         <Text style={styles.exitText}>סיום</Text>
       </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -328,6 +363,7 @@ const styles = StyleSheet.create({
   rowTr: { color: colors.primarySoft, fontSize: 15, marginTop: 2, textAlign: 'right' },
   rowSong: { color: colors.textFaint, fontSize: 12, marginTop: 4, textAlign: 'right' },
   remove: { color: colors.textFaint, fontSize: 18, paddingHorizontal: spacing.sm },
+  speak: { fontSize: 20, paddingHorizontal: spacing.sm },
 
   // Framed bottom panel that holds the game buttons.
   practiceBar: {
@@ -356,6 +392,7 @@ const styles = StyleSheet.create({
   tileSel: { borderColor: colors.primary, backgroundColor: colors.surfaceLight },
   tileGone: { opacity: 0 },
   tileWrong: { borderColor: colors.danger, backgroundColor: colors.danger + '33' },
+  tileCorrect: { borderColor: colors.success, backgroundColor: colors.success + '33' },
   tileText: { color: colors.text, fontSize: 16, fontWeight: '700', textAlign: 'center' },
   tileTextDim: { color: colors.textMuted },
 
@@ -373,6 +410,14 @@ const styles = StyleSheet.create({
   boxText: { color: colors.text, fontSize: 22, fontWeight: '800' },
   hiddenInput: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0 },
   spellHint: { color: colors.textMuted, fontSize: 14, marginBottom: spacing.xl },
+
+  // Live XP bar shown during games
+  xpBarWrap: { paddingHorizontal: spacing.lg, paddingTop: spacing.sm, paddingBottom: spacing.xs },
+  xpBarRow: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 4 },
+  xpBarLevel: { color: colors.text, fontSize: 13, fontWeight: '700' },
+  xpBarXp: { color: colors.primarySoft, fontSize: 13, fontWeight: '600' },
+  xpBarTrack: { height: 8, borderRadius: 4, backgroundColor: colors.surfaceLight, overflow: 'hidden' },
+  xpBarFill: { height: '100%', borderRadius: 4, backgroundColor: colors.primary },
 
   exitBtn: { marginTop: spacing.xl },
   exitText: { color: colors.textMuted, fontSize: 15 },
