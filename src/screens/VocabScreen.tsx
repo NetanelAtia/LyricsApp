@@ -303,7 +303,12 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
       <LiveXpBar />
       <View style={styles.center}>
       <Text style={styles.progress}>{pos + 1} / {queue.length}</Text>
-      <Text style={styles.spellClue}>{card.translation}</Text>
+      <View style={styles.spellClueRow}>
+        <Text style={styles.spellClue}>{card.translation}</Text>
+        <TouchableOpacity onPress={() => speakWord(card.word)} hitSlop={10}>
+          <Text style={styles.spellSpeak}>🔊</Text>
+        </TouchableOpacity>
+      </View>
 
       <View style={styles.boxesWrap}>
         <View style={styles.boxes}>
@@ -444,7 +449,9 @@ const styles = StyleSheet.create({
   // Spell game
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.lg },
   progress: { color: colors.textMuted, fontSize: 15, marginBottom: spacing.md },
-  spellClue: { color: colors.primarySoft, fontSize: 26, fontWeight: '800', marginBottom: spacing.xl },
+  spellClueRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.xl },
+  spellClue: { color: colors.primarySoft, fontSize: 26, fontWeight: '800' },
+  spellSpeak: { fontSize: 24 },
   boxesWrap: { position: 'relative', width: '100%', alignItems: 'center', marginBottom: spacing.md },
   boxes: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8 },
   box: { width: 40, height: 48, borderRadius: radius.sm, backgroundColor: colors.surfaceLight, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: 'transparent' },
