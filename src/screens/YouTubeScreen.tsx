@@ -606,37 +606,38 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       : null}
                   </View>
 
-                  {cur.text && (
-                    <View style={styles.lineActionsRow}>
-                      {displayMode === 'en' && (
-                        <TouchableOpacity
-                          style={styles.lineActionBtn}
-                          onPress={() => toggleLine(idx, cur.text)}
-                          activeOpacity={0.7}
-                        >
-                          <MaterialIcons
-                            name="translate"
-                            size={22}
-                            color={openLines[idx] ? colors.primary : colors.textFaint}
-                          />
-                        </TouchableOpacity>
-                      )}
-                      {videoId && (
-                        <TouchableOpacity
-                          style={styles.lineActionBtn}
-                          onPress={() => {
-                            toggleSentence(`${videoId}:${cur.tag}`, cur.text, lineHe(idx), track || undefined);
-                            setSentenceTick((t) => t + 1);
-                          }}
-                          activeOpacity={0.7}
-                        >
-                          <Text style={styles.lineActionIcon}>
-                            {isSentenceSaved(`${videoId}:${cur.tag}`) ? '★' : '☆'}
-                          </Text>
-                        </TouchableOpacity>
-                      )}
-                    </View>
-                  )}
+                  {/* Always mounted at a fixed height, lyrics or not, so the
+                      controls below never shift between sung lines and
+                      instrumental (♪) gaps. */}
+                  <View style={styles.lineActionsRow}>
+                    {cur.text && displayMode === 'en' && (
+                      <TouchableOpacity
+                        style={styles.lineActionBtn}
+                        onPress={() => toggleLine(idx, cur.text)}
+                        activeOpacity={0.7}
+                      >
+                        <MaterialIcons
+                          name="translate"
+                          size={22}
+                          color={openLines[idx] ? colors.primary : colors.textFaint}
+                        />
+                      </TouchableOpacity>
+                    )}
+                    {cur.text && videoId && (
+                      <TouchableOpacity
+                        style={styles.lineActionBtn}
+                        onPress={() => {
+                          toggleSentence(`${videoId}:${cur.tag}`, cur.text, lineHe(idx), track || undefined);
+                          setSentenceTick((t) => t + 1);
+                        }}
+                        activeOpacity={0.7}
+                      >
+                        <Text style={styles.lineActionIcon}>
+                          {isSentenceSaved(`${videoId}:${cur.tag}`) ? '★' : '☆'}
+                        </Text>
+                      </TouchableOpacity>
+                    )}
+                  </View>
                 </View>
 
                 <Text style={styles.contextLine} numberOfLines={1}>
@@ -795,7 +796,7 @@ const styles = StyleSheet.create({
   // to it) stay put instead of drifting right with longer sentences.
   currentBlock: { width: '100%', paddingHorizontal: 30, marginVertical: spacing.xs, alignItems: 'center' },
   // Fixed-height area so single- vs double-row lines don't shift the layout.
-  wordsArea: { minHeight: 88, justifyContent: 'center' },
+  wordsArea: { height: 100, justifyContent: 'center', overflow: 'hidden' },
   lineWords: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', position: 'relative' },
   currentWord: { color: colors.primarySoft, fontSize: 25, lineHeight: 40, fontWeight: '700' },
   activeWord: { color: '#ffffff', fontSize: 27 },
@@ -803,7 +804,7 @@ const styles = StyleSheet.create({
   // Fixed-height slot so showing/changing the translation doesn't move things.
   // Fixed height (not minHeight) so a 1-line vs 2-line translation never
   // changes the box size — keeps the buttons below it from jumping.
-  heSlot: { height: 60, justifyContent: 'center', marginTop: spacing.xs, overflow: 'hidden' },
+  heSlot: { height: 70, justifyContent: 'center', marginTop: spacing.xs, overflow: 'hidden' },
   lineHeRow: { flexDirection: 'row-reverse', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' },
   // Every word shares the exact same font size/weight — only the text color
   // changes — so highlighting the active word never resizes or reflows
@@ -816,7 +817,9 @@ const styles = StyleSheet.create({
 
   // Normal-flow row (not absolutely positioned), so it always sits in the
   // same place under the line regardless of how long the text is.
-  lineActionsRow: { flexDirection: 'row', justifyContent: 'center', gap: spacing.lg, marginTop: spacing.sm },
+  // Fixed height and always mounted (even with no line/icons to show) so
+  // nothing below it ever shifts up or down.
+  lineActionsRow: { height: 40, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.lg, marginTop: spacing.sm },
   lineActionBtn: { padding: 6 },
   lineActionIcon: { fontSize: 22, color: colors.textFaint },
   lineActionIconActive: { color: colors.primarySoft },
