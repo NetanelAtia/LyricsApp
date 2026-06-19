@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { MaterialIcons } from '@expo/vector-icons';
 import YouTubePlayer from '../components/YouTubePlayer';
 import { translateToHebrew, cachedTranslation } from '../translate';
 import { fetchJson } from '../net';
@@ -576,33 +577,34 @@ export default function YouTubeScreen({ navigation, route }: any) {
                     </View>
                   )}
 
-                  {(displayMode !== 'en' || openLines[idx]) && (
-                    <View style={styles.heSlot}>
-                      {cur.text
-                        ? (() => {
-                            // Approximate: highlight the Hebrew word at the same
-                            // proportional position as the English word, since
-                            // translations aren't word-aligned with the original.
-                            const heWords = lineHe(idx).split(/\s+/);
-                            const enWordCount = cur.text.split(/\s+/).length;
-                            const activeHeIdx =
-                              currentWord >= 0 && enWordCount > 0
-                                ? Math.min(heWords.length - 1, Math.floor(((currentWord + 1) / enWordCount) * heWords.length))
-                                : -1;
-                            return (
-                              <View style={styles.lineHeRow}>
-                                {heWords.map((w, wi) => (
-                                  <Text key={wi} style={[styles.lineHe, wi === activeHeIdx && styles.lineHeActive]}>
-                                    {w}
-                                    {wi < heWords.length - 1 ? ' ' : ''}
-                                  </Text>
-                                ))}
-                              </View>
-                            );
-                          })()
-                        : null}
-                    </View>
-                  )}
+                  {/* Always mounted at a fixed height — even when empty — so the
+                      buttons below it never jump as the translation shows,
+                      hides, or changes length. */}
+                  <View style={styles.heSlot}>
+                    {cur.text && (displayMode !== 'en' || openLines[idx])
+                      ? (() => {
+                          // Approximate: highlight the Hebrew word at the same
+                          // proportional position as the English word, since
+                          // translations aren't word-aligned with the original.
+                          const heWords = lineHe(idx).split(/\s+/);
+                          const enWordCount = cur.text.split(/\s+/).length;
+                          const activeHeIdx =
+                            currentWord >= 0 && enWordCount > 0
+                              ? Math.min(heWords.length - 1, Math.floor(((currentWord + 1) / enWordCount) * heWords.length))
+                              : -1;
+                          return (
+                            <View style={styles.lineHeRow}>
+                              {heWords.map((w, wi) => (
+                                <Text key={wi} style={[styles.lineHe, wi === activeHeIdx && styles.lineHeActive]}>
+                                  {w}
+                                  {wi < heWords.length - 1 ? ' ' : ''}
+                                </Text>
+                              ))}
+                            </View>
+                          );
+                        })()
+                      : null}
+                  </View>
 
                   {cur.text && (
                     <View style={styles.lineActionsRow}>
@@ -612,9 +614,11 @@ export default function YouTubeScreen({ navigation, route }: any) {
                           onPress={() => toggleLine(idx, cur.text)}
                           activeOpacity={0.7}
                         >
-                          <Text style={[styles.lineActionIcon, openLines[idx] && styles.lineActionIconActive]}>
-                            🌐
-                          </Text>
+                          <MaterialIcons
+                            name="translate"
+                            size={22}
+                            color={openLines[idx] ? colors.primary : colors.textFaint}
+                          />
                         </TouchableOpacity>
                       )}
                       {videoId && (
@@ -797,7 +801,9 @@ const styles = StyleSheet.create({
   activeWord: { color: '#ffffff', fontSize: 27 },
   lineActive: { color: colors.primarySoft },
   // Fixed-height slot so showing/changing the translation doesn't move things.
-  heSlot: { minHeight: 52, justifyContent: 'center', marginTop: spacing.xs },
+  // Fixed height (not minHeight) so a 1-line vs 2-line translation never
+  // changes the box size — keeps the buttons below it from jumping.
+  heSlot: { height: 60, justifyContent: 'center', marginTop: spacing.xs, overflow: 'hidden' },
   lineHeRow: { flexDirection: 'row-reverse', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' },
   // Every word shares the exact same font size/weight — only the text color
   // changes — so highlighting the active word never resizes or reflows
