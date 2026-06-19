@@ -265,8 +265,6 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
     setTyped('');
     setStatus('typing');
     setUsedIds([]);
-    const t = setTimeout(() => inputRef.current?.focus(), 100);
-    return () => clearTimeout(t);
   }, [pos]);
 
   if (!card || pos >= queue.length) {
@@ -287,7 +285,7 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
         setStatus('wrong');
         award(false, 0);
         recordResult(card.word, false);
-        setTimeout(() => { setTyped(''); setStatus('typing'); setUsedIds([]); inputRef.current?.focus(); }, 700);
+        setTimeout(() => { setTyped(''); setStatus('typing'); setUsedIds([]); }, 700);
       }
     }
   }
@@ -334,7 +332,8 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
             );
           })}
         </View>
-        {/* Invisible input over the boxes — captures typing straight into them */}
+        {/* Invisible input over the boxes — lets you type instead of tapping letters,
+            but never grabs focus on its own so the keyboard doesn't pop up by default. */}
         <TextInput
           ref={inputRef}
           style={styles.hiddenInput}
@@ -342,7 +341,6 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
           onChangeText={onType}
           autoCapitalize="none"
           autoCorrect={false}
-          autoFocus
         />
       </View>
       <Text style={styles.spellHint}>הקלד או לחץ על האותיות החסרות ⌨️</Text>
