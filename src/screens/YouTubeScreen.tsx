@@ -776,9 +776,9 @@ const styles = StyleSheet.create({
   lineActive: { color: colors.primarySoft },
   // Fixed-height slot so showing/changing the translation doesn't move things.
   heSlot: { minHeight: 52, justifyContent: 'center', marginTop: spacing.sm },
-  lineHeRow: { flexDirection: 'row-reverse', flexWrap: 'wrap', justifyContent: 'center' },
+  lineHeRow: { flexDirection: 'row-reverse', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'baseline' },
   lineHe: { color: colors.text, fontSize: 21, fontWeight: '700', textAlign: 'center' },
-  lineHeActive: { color: colors.primary, fontWeight: '800' },
+  lineHeActive: { color: colors.primary, fontWeight: '800', fontSize: 25 },
 
   wordWrap: { position: 'relative', alignItems: 'center', marginHorizontal: 4 },
   wordWrapActive: { zIndex: 20 },
