@@ -443,7 +443,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
         )}
       </View>
 
-      <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 12 }}>
         {lines.length === 0 && <Text style={styles.title}>🎬 YouTube Karaoke</Text>}
 
         {/* Link input (only when no song chosen yet) */}
@@ -618,7 +618,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       >
                         <MaterialIcons
                           name="translate"
-                          size={22}
+                          size={19}
                           color={openLines[idx] ? colors.primary : colors.textFaint}
                         />
                       </TouchableOpacity>
@@ -717,8 +717,8 @@ const styles = StyleSheet.create({
   smallBtn: { backgroundColor: colors.primary, borderRadius: radius.md, paddingHorizontal: spacing.lg, justifyContent: 'center' },
   smallBtnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
   error: { color: colors.danger, paddingHorizontal: spacing.lg, marginTop: spacing.sm },
-  playerWrap: { padding: spacing.md, paddingBottom: spacing.xs },
-  controlsRow: { flexDirection: 'row', justifyContent: 'center', gap: spacing.md, marginTop: spacing.sm, paddingHorizontal: spacing.lg },
+  playerWrap: { padding: spacing.sm, paddingBottom: spacing.xs },
+  controlsRow: { flexDirection: 'row', justifyContent: 'center', gap: spacing.md, marginTop: spacing.xs, paddingHorizontal: spacing.lg },
   ctrlBtn: {
     backgroundColor: colors.surface,
     paddingHorizontal: spacing.lg,
@@ -770,46 +770,46 @@ const styles = StyleSheet.create({
   langModeRow: {
     flexDirection: 'row',
     alignSelf: 'center',
-    marginTop: spacing.md,
+    marginTop: spacing.xs,
     backgroundColor: colors.surface,
     borderRadius: radius.pill,
     padding: 4,
     gap: 4,
   },
-  langModeBtn: { paddingHorizontal: spacing.md, paddingVertical: 8, borderRadius: radius.pill },
+  langModeBtn: { paddingHorizontal: spacing.md, paddingVertical: 6, borderRadius: radius.pill },
   langModeBtnActive: { backgroundColor: colors.primary },
   langModeText: { color: colors.textMuted, fontSize: 14, fontFamily: fonts.bold },
   langModeTextActive: { color: '#fff' },
 
   // Focused karaoke view
-  karaoke: { paddingHorizontal: spacing.lg, paddingTop: spacing.md, alignItems: 'center' },
+  karaoke: { paddingHorizontal: spacing.lg, paddingTop: spacing.xs, alignItems: 'center' },
   contextLine: {
     color: colors.textFaint,
-    fontSize: 15,
+    fontSize: 13,
     textAlign: 'center',
-    marginVertical: spacing.xs,
+    marginVertical: 2,
     opacity: 0.6,
     maxWidth: '90%',
   },
   // width: '100%' keeps this a fixed-width box regardless of how long the
   // line/translation is, so the action icons (positioned absolute relative
   // to it) stay put instead of drifting right with longer sentences.
-  currentBlock: { width: '100%', paddingHorizontal: 30, marginVertical: spacing.xs, alignItems: 'center' },
+  currentBlock: { width: '100%', paddingHorizontal: 30, marginVertical: 2, alignItems: 'center' },
   // Fixed-height area so single- vs double-row lines don't shift the layout.
-  wordsArea: { height: 100, justifyContent: 'center', overflow: 'hidden' },
+  wordsArea: { height: 76, justifyContent: 'center', overflow: 'hidden' },
   lineWords: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', position: 'relative' },
-  currentWord: { color: colors.primarySoft, fontSize: 25, lineHeight: 40, fontWeight: '700' },
-  activeWord: { color: '#ffffff', fontSize: 27 },
+  currentWord: { color: colors.primarySoft, fontSize: 22, lineHeight: 32, fontWeight: '700' },
+  activeWord: { color: '#ffffff', fontSize: 24 },
   lineActive: { color: colors.primarySoft },
   // Fixed-height slot so showing/changing the translation doesn't move things.
   // Fixed height (not minHeight) so a 1-line vs 2-line translation never
   // changes the box size — keeps the buttons below it from jumping.
-  heSlot: { height: 70, justifyContent: 'center', marginTop: spacing.xs, overflow: 'hidden' },
+  heSlot: { height: 54, justifyContent: 'center', marginTop: 2, overflow: 'hidden' },
   lineHeRow: { flexDirection: 'row-reverse', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' },
   // Every word shares the exact same font size/weight — only the text color
   // changes — so highlighting the active word never resizes or reflows
   // the sentence.
-  lineHe: { color: colors.primarySoft, fontSize: 21, fontWeight: '700' },
+  lineHe: { color: colors.primarySoft, fontSize: 18, lineHeight: 24, fontWeight: '700' },
   lineHeActive: { color: '#ffffff' },
 
   wordWrap: { position: 'relative', alignItems: 'center', marginHorizontal: 4 },
@@ -819,9 +819,9 @@ const styles = StyleSheet.create({
   // same place under the line regardless of how long the text is.
   // Fixed height and always mounted (even with no line/icons to show) so
   // nothing below it ever shifts up or down.
-  lineActionsRow: { height: 40, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.lg, marginTop: spacing.sm },
-  lineActionBtn: { padding: 6 },
-  lineActionIcon: { fontSize: 22, color: colors.textFaint },
+  lineActionsRow: { height: 30, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.lg, marginTop: 2 },
+  lineActionBtn: { padding: 4 },
+  lineActionIcon: { fontSize: 19, color: colors.textFaint },
   lineActionIconActive: { color: colors.primarySoft },
 
   // Translation bubble above a tapped word.

@@ -45,7 +45,7 @@ export default function YouTubePlayer({ videoId, onReady }: Props) {
       playerRef.current = new YT.Player(containerRef.current, {
         videoId,
         width: '100%',
-        height: '220',
+        height: '180',
         playerVars: { playsinline: 1, rel: 0 },
         events: { onReady: () => onReady?.(playerRef.current) },
       });
