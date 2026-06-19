@@ -73,7 +73,15 @@ export default function Root() {
     }
 
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#000' }}>
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: '#0d0d18',
+          ...({ backgroundImage: 'radial-gradient(circle at 50% -10%, #2a2150 0%, #14101f 45%, #0a0a12 100%)' } as any),
+        }}
+      >
         <View
           style={{
             flex: desktopMode ? undefined : 1,
