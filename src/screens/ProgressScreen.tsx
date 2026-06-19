@@ -81,7 +81,7 @@ function Stat({ value, label }: { value: number | string; label: string }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
-  topBar: { paddingHorizontal: spacing.md, paddingVertical: spacing.sm },
+  topBar: { paddingHorizontal: spacing.md, paddingTop: spacing.lg, paddingBottom: spacing.sm },
   back: { color: colors.primarySoft, fontSize: 20, fontFamily: fonts.bold },
   body: { padding: spacing.lg },
   title: { color: colors.text, fontSize: 30, fontFamily: fonts.display, marginBottom: spacing.lg },

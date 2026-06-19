@@ -2,10 +2,15 @@ import { useState, useEffect, useMemo } from 'react';
 import { Alert, FlatList, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getVocab, removeWord, VocabWord } from '../vocab';
+import { getSentences, removeSentence, SentenceItem } from '../sentences';
 import { award, getProgress, getLevel, xpIntoLevel, XP_PER_LEVEL, onXpGain } from '../progress';
 import { speakWord } from '../speech';
 import { recordResult, weightedSample, weightedQueue } from '../srs';
 import { colors, fonts, radius, spacing } from '../theme';
+
+// Padding words for the sentence game's multiple-choice when there aren't
+// enough other saved sentences yet to draw wrong options from.
+const FALLBACK_WORDS = ['happy', 'light', 'water', 'people', 'music', 'house', 'place', 'world', 'friend', 'night'];
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -16,7 +21,8 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-type Mode = 'list' | 'memory' | 'spell' | 'listen' | 'truefalse' | 'allGames';
+type Mode = 'list' | 'memory' | 'spell' | 'listen' | 'truefalse' | 'allGames' | 'fillSentence';
+type Tab = 'words' | 'sentences';
 
 // Cross-platform "are you sure?" confirmation before a destructive action.
 function confirmAction(title: string, message: string, onConfirm: () => void) {
@@ -32,26 +38,41 @@ function confirmAction(title: string, message: string, onConfirm: () => void) {
 
 export default function VocabScreen({ navigation }: any) {
   const [words, setWords] = useState<VocabWord[]>(getVocab());
+  const [sentences, setSentences] = useState<SentenceItem[]>(getSentences());
   const [mode, setMode] = useState<Mode>('list');
+  const [tab, setTab] = useState<Tab>('words');
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.topBar}>
         <TouchableOpacity onPress={() => (mode === 'list' ? navigation.goBack() : setMode('list'))} hitSlop={12}>
-          <Text style={styles.back}>‹ {mode === 'list' ? 'Back' : 'אוצר המילים'}</Text>
+          <Text style={styles.back}>
+            ‹ {mode === 'list' ? 'Back' : tab === 'words' ? 'אוצר המילים' : 'משפטים שמורים'}
+          </Text>
         </TouchableOpacity>
       </View>
 
       {mode === 'list' && (
-        <ListView
-          words={words}
-          onRemove={(w) => { removeWord(w); setWords(getVocab()); }}
-          onMemory={() => setMode('memory')}
-          onSpell={() => setMode('spell')}
-          onListen={() => setMode('listen')}
-          onTrueFalse={() => setMode('truefalse')}
-          onAllGames={() => setMode('allGames')}
-        />
+        <>
+          <TabBar tab={tab} setTab={setTab} />
+          {tab === 'words' ? (
+            <ListView
+              words={words}
+              onRemove={(w) => { removeWord(w); setWords(getVocab()); }}
+              onMemory={() => setMode('memory')}
+              onSpell={() => setMode('spell')}
+              onListen={() => setMode('listen')}
+              onTrueFalse={() => setMode('truefalse')}
+              onAllGames={() => setMode('allGames')}
+            />
+          ) : (
+            <SentenceListView
+              sentences={sentences}
+              onRemove={(id) => { removeSentence(id); setSentences(getSentences()); }}
+              onFillSentence={() => setMode('fillSentence')}
+            />
+          )}
+        </>
       )}
       {mode === 'memory' && <Memory words={words} onExit={() => setMode('list')} />}
       {mode === 'spell' && <Spell words={words} onExit={() => setMode('list')} />}
@@ -66,7 +87,21 @@ export default function VocabScreen({ navigation }: any) {
           onTrueFalse={() => setMode('truefalse')}
         />
       )}
+      {mode === 'fillSentence' && <FillSentence sentences={sentences} onExit={() => setMode('list')} />}
     </SafeAreaView>
+  );
+}
+
+function TabBar({ tab, setTab }: { tab: Tab; setTab: (t: Tab) => void }) {
+  return (
+    <View style={styles.tabBar}>
+      <TouchableOpacity style={[styles.tabBtn, tab === 'words' && styles.tabBtnActive]} onPress={() => setTab('words')} activeOpacity={0.8}>
+        <Text style={[styles.tabBtnText, tab === 'words' && styles.tabBtnTextActive]}>📚 מילים</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.tabBtn, tab === 'sentences' && styles.tabBtnActive]} onPress={() => setTab('sentences')} activeOpacity={0.8}>
+        <Text style={[styles.tabBtnText, tab === 'sentences' && styles.tabBtnTextActive]}>📝 משפטים</Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 
@@ -134,6 +169,65 @@ function ListView({
 
           <TouchableOpacity style={styles.allGamesBtn} onPress={onAllGames} activeOpacity={0.85}>
             <Text style={styles.allGamesBtnText}>🎮  עוד משחקים</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+    </>
+  );
+}
+
+// Saved full sentences/lines from songs — a parallel vocabulary to single
+// words, for memorizing whole phrases instead of just one word at a time.
+function SentenceListView({
+  sentences,
+  onRemove,
+  onFillSentence,
+}: {
+  sentences: SentenceItem[];
+  onRemove: (id: string) => void;
+  onFillSentence: () => void;
+}) {
+  return (
+    <>
+      <View style={styles.header}>
+        <Text style={styles.title}>📝 משפטים שמורים</Text>
+        <Text style={styles.subtitle}>{sentences.length} משפטים שמורים</Text>
+      </View>
+
+      {sentences.length === 0 ? (
+        <View style={styles.empty}>
+          <Text style={styles.emptyText}>עוד לא שמרת משפטים.</Text>
+          <Text style={styles.emptyHint}>בתוך שיר, לחץ על הכוכב ☆ ליד שורה כדי לשמור את כל המשפט כאן.</Text>
+        </View>
+      ) : (
+        <FlatList
+          style={{ flex: 1 }}
+          data={sentences}
+          keyExtractor={(s) => s.id}
+          contentContainerStyle={{ padding: spacing.md }}
+          renderItem={({ item }) => (
+            <View style={styles.row}>
+              <TouchableOpacity
+                onPress={() => confirmAction('מחיקת משפט', 'למחוק את המשפט הזה מהרשימה?', () => onRemove(item.id))}
+                hitSlop={10}
+              >
+                <Text style={styles.remove}>✕</Text>
+              </TouchableOpacity>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.sentenceRowText}>{item.text}</Text>
+                <Text style={styles.rowTr}>{item.translation}</Text>
+                {item.song ? <Text style={styles.rowSong}>🎵 {item.song}</Text> : null}
+              </View>
+            </View>
+          )}
+        />
+      )}
+
+      {sentences.length > 0 && (
+        <View style={styles.practiceBar}>
+          <Text style={styles.practiceTitle}>תרגול</Text>
+          <TouchableOpacity style={styles.gameBtn} onPress={onFillSentence} activeOpacity={0.85}>
+            <Text style={styles.gameBtnText}>✍️  השלם את המשפט</Text>
           </TouchableOpacity>
         </View>
       )}
@@ -645,6 +739,102 @@ function TrueFalse({ words, onExit }: { words: VocabWord[]; onExit: () => void }
   );
 }
 
+// Fill-in-the-blank game: a saved song sentence with one word blanked out;
+// pick the missing word from a few options.
+function FillSentence({ sentences, onExit }: { sentences: SentenceItem[]; onExit: () => void }) {
+  const queue = useMemo(() => shuffle(sentences), [sentences]);
+  const [pos, setPos] = useState(0);
+  const [status, setStatus] = useState<'choosing' | 'right' | 'wrong'>('choosing');
+  const [picked, setPicked] = useState<string | null>(null);
+
+  const card = queue[pos];
+
+  const round = useMemo(() => {
+    if (!card) return null;
+    const tokens = card.text.split(/\s+/);
+    const candidates = tokens
+      .map((t, i) => ({ t, i }))
+      .filter(({ t }) => t.replace(/[^a-zA-Z']/g, '').length >= 3);
+    const pick = candidates.length > 0 ? candidates[Math.floor(Math.random() * candidates.length)] : { t: tokens[0], i: 0 };
+    const answer = pick.t.replace(/[^a-zA-Z']/g, '');
+    const sentence = tokens.map((t, i) => (i === pick.i ? '_____' : t)).join(' ');
+
+    // Wrong options: words from other saved sentences, padded with a small
+    // fallback list if there aren't enough yet.
+    const pool = new Set<string>();
+    sentences.forEach((s) => {
+      if (s.id === card.id) return;
+      s.text.split(/\s+/).forEach((w) => {
+        const clean = w.replace(/[^a-zA-Z']/g, '');
+        if (clean.length >= 3 && clean.toLowerCase() !== answer.toLowerCase()) pool.add(clean);
+      });
+    });
+    FALLBACK_WORDS.forEach((w) => {
+      if (w.toLowerCase() !== answer.toLowerCase()) pool.add(w);
+    });
+    const decoys = shuffle(Array.from(pool)).slice(0, 3);
+    const options = shuffle([answer, ...decoys]);
+    return { sentence, answer, options };
+  }, [card]);
+
+  useEffect(() => {
+    setStatus('choosing');
+    setPicked(null);
+  }, [pos, card]);
+
+  if (!card || pos >= queue.length || !round) {
+    return <Done text="סיימת את כל המשפטים!" onAgain={() => setPos(0)} onExit={onExit} againLabel="🔁  עוד פעם" />;
+  }
+
+  function choose(opt: string) {
+    if (status !== 'choosing') return;
+    setPicked(opt);
+    const ok = opt.toLowerCase() === round!.answer.toLowerCase();
+    setStatus(ok ? 'right' : 'wrong');
+    award(ok, 15, round!.answer);
+    setTimeout(() => setPos((p) => p + 1), 900);
+  }
+
+  return (
+    <View style={{ flex: 1 }}>
+      <LiveXpBar />
+      <View style={styles.center}>
+        <Text style={styles.progress}>{pos + 1} / {queue.length}</Text>
+        <Text style={styles.sentenceClue}>{card.translation}</Text>
+        <View style={styles.sentenceCard}>
+          <Text style={styles.sentenceText}>{round.sentence}</Text>
+        </View>
+
+        <View style={styles.listenOptions}>
+          {round.options.map((opt) => {
+            const isPicked = picked === opt;
+            const isRight = opt.toLowerCase() === round.answer.toLowerCase();
+            return (
+              <TouchableOpacity
+                key={opt}
+                style={[
+                  styles.listenOption,
+                  status !== 'choosing' && isRight && styles.tileCorrect,
+                  status === 'wrong' && isPicked && styles.tileWrong,
+                ]}
+                onPress={() => choose(opt)}
+                disabled={status !== 'choosing'}
+                activeOpacity={0.85}
+              >
+                <Text style={styles.listenOptionText}>{opt}</Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+
+        <TouchableOpacity style={styles.exitBtn} onPress={onExit} hitSlop={10}>
+          <Text style={styles.exitText}>סיום</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
 function Done({ text, onAgain, onExit, againLabel }: { text: string; onAgain: () => void; onExit: () => void; againLabel: string }) {
   return (
     <View style={styles.center}>
@@ -663,8 +853,14 @@ function Done({ text, onAgain, onExit, againLabel }: { text: string; onAgain: ()
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
-  topBar: { paddingHorizontal: spacing.md, paddingVertical: spacing.sm },
+  topBar: { paddingHorizontal: spacing.md, paddingTop: spacing.lg, paddingBottom: spacing.sm },
   back: { color: colors.primarySoft, fontSize: 20, fontFamily: fonts.bold },
+
+  tabBar: { flexDirection: 'row', gap: spacing.sm, paddingHorizontal: spacing.lg, marginBottom: spacing.sm },
+  tabBtn: { flex: 1, paddingVertical: 10, borderRadius: radius.md, alignItems: 'center', backgroundColor: colors.surface },
+  tabBtnActive: { backgroundColor: colors.primary },
+  tabBtnText: { color: colors.textMuted, fontSize: 15, fontFamily: fonts.bold },
+  tabBtnTextActive: { color: '#fff' },
 
   header: { paddingHorizontal: spacing.lg, paddingBottom: spacing.md },
   title: { color: colors.text, fontSize: 28, fontFamily: fonts.display },
@@ -683,6 +879,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.sm,
   },
   rowWord: { color: colors.text, fontSize: 18, fontWeight: '700', textTransform: 'capitalize', textAlign: 'right' },
+  sentenceRowText: { color: colors.text, fontSize: 16, fontWeight: '700', textAlign: 'right' },
   rowTr: { color: colors.primarySoft, fontSize: 15, marginTop: 2, textAlign: 'right' },
   rowSong: { color: colors.textFaint, fontSize: 12, marginTop: 4, textAlign: 'right' },
   remove: { color: colors.textFaint, fontSize: 18, paddingHorizontal: spacing.sm },
@@ -785,16 +982,21 @@ const styles = StyleSheet.create({
   tfBtn: { backgroundColor: colors.surface, borderRadius: radius.md, paddingVertical: 16, paddingHorizontal: spacing.lg, alignItems: 'center', borderWidth: 2, borderColor: 'transparent' },
   tfBtnText: { color: colors.text, fontSize: 17, fontFamily: fonts.bold },
 
+  // Fill-in-the-sentence game
+  sentenceClue: { color: colors.primarySoft, fontSize: 20, fontWeight: '700', marginBottom: spacing.lg, textAlign: 'center' },
+  sentenceCard: { backgroundColor: colors.surface, borderRadius: radius.md, paddingVertical: 20, paddingHorizontal: spacing.lg, marginBottom: spacing.xl, alignItems: 'center' },
+  sentenceText: { color: colors.text, fontSize: 19, fontWeight: '700', textAlign: 'center' },
+
   exitBtn: {
     marginTop: spacing.xl,
-    paddingVertical: 12,
-    paddingHorizontal: spacing.xl,
+    paddingVertical: 8,
+    paddingHorizontal: spacing.lg,
     borderRadius: radius.pill,
     borderWidth: 1.5,
     borderColor: colors.surfaceLight,
     backgroundColor: colors.surface,
   },
-  exitText: { color: colors.text, fontSize: 17, fontFamily: fonts.bold },
+  exitText: { color: colors.text, fontSize: 14, fontFamily: fonts.bold },
   bigEmoji: { fontSize: 64, marginBottom: spacing.md },
   doneTitle: { color: colors.text, fontSize: 28, fontFamily: fonts.display },
   doneText: { color: colors.textMuted, fontSize: 16, marginTop: spacing.sm, marginBottom: spacing.xl },

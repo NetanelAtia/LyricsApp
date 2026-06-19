@@ -181,7 +181,7 @@ export default function SongScreen({ route, navigation }: any) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
-  topBar: { paddingHorizontal: spacing.md, paddingVertical: spacing.sm },
+  topBar: { paddingHorizontal: spacing.md, paddingTop: spacing.lg, paddingBottom: spacing.sm },
   back: { color: colors.primarySoft, fontSize: 20, fontFamily: fonts.bold },
 
   songHeader: { alignItems: 'center', paddingHorizontal: spacing.lg, paddingBottom: spacing.md },

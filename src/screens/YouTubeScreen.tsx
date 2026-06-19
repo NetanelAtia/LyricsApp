@@ -14,6 +14,7 @@ import YouTubePlayer from '../components/YouTubePlayer';
 import { translateToHebrew, cachedTranslation } from '../translate';
 import { fetchJson } from '../net';
 import { isSaved, toggleWord } from '../vocab';
+import { isSentenceSaved, toggleSentence } from '../sentences';
 import { defaultOffsets } from '../data/library';
 import { colors, fonts, radius, spacing } from '../theme';
 
@@ -128,6 +129,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [wordTranslation, setWordTranslation] = useState('');
   const [selectedWord, setSelectedWord] = useState(''); // clean tapped word
   const [selectedSaved, setSelectedSaved] = useState(false); // is it in vocab
+  const [sentenceTick, setSentenceTick] = useState(0); // bumped to re-render after saving a sentence
   // Per-line "translate whole line" toggle + cached results.
   const [openLines, setOpenLines] = useState<Record<number, boolean>>({});
   const [lineTranslations, setLineTranslations] = useState<Record<number, string>>({});
@@ -566,6 +568,21 @@ export default function YouTubeScreen({ navigation, route }: any) {
                         />
                       </TouchableOpacity>
                     ) : null}
+                    {cur.text && videoId ? (
+                      <TouchableOpacity
+                        style={styles.lineTranslateBtn}
+                        onPress={() => {
+                          toggleSentence(`${videoId}:${cur.tag}`, cur.text, lineHe(idx), track || undefined);
+                          setSentenceTick((t) => t + 1);
+                        }}
+                        hitSlop={8}
+                        activeOpacity={0.7}
+                      >
+                        <Text style={{ fontSize: 16 }}>
+                          {isSentenceSaved(`${videoId}:${cur.tag}`) ? '★' : '☆'}
+                        </Text>
+                      </TouchableOpacity>
+                    ) : null}
                   </View>
                   </View>
 
@@ -634,7 +651,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+    paddingTop: spacing.lg,
+    paddingBottom: spacing.sm,
   },
   back: { color: colors.primarySoft, fontSize: 20, fontFamily: fonts.bold },
   title: { color: colors.text, fontSize: 24, fontWeight: '800', paddingHorizontal: spacing.lg, marginBottom: spacing.md },
