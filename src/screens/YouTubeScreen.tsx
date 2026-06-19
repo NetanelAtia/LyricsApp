@@ -777,19 +777,11 @@ const styles = StyleSheet.create({
   // Fixed-height slot so showing/changing the translation doesn't move things.
   heSlot: { minHeight: 52, justifyContent: 'center', marginTop: spacing.xs },
   lineHeRow: { flexDirection: 'row-reverse', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' },
-  // Every word shares the exact same box (padding/radius/font size) — only
-  // color/background differ — so highlighting the active word never
-  // resizes or reflows the sentence.
-  lineHe: {
-    color: colors.textMuted,
-    fontSize: 21,
-    fontWeight: '700',
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: radius.sm,
-    backgroundColor: 'transparent',
-  },
-  lineHeActive: { color: '#ffffff', backgroundColor: colors.primary },
+  // Every word shares the exact same font size/weight — only the text color
+  // changes — so highlighting the active word never resizes or reflows
+  // the sentence.
+  lineHe: { color: colors.text, fontSize: 21, fontWeight: '700' },
+  lineHeActive: { color: colors.primary },
 
   wordWrap: { position: 'relative', alignItems: 'center', marginHorizontal: 4 },
   wordWrapActive: { zIndex: 20 },
