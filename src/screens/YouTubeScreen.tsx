@@ -780,8 +780,8 @@ const styles = StyleSheet.create({
   // Every word shares the exact same font size/weight — only the text color
   // changes — so highlighting the active word never resizes or reflows
   // the sentence.
-  lineHe: { color: colors.text, fontSize: 21, fontWeight: '700' },
-  lineHeActive: { color: colors.primary },
+  lineHe: { color: colors.primarySoft, fontSize: 21, fontWeight: '700' },
+  lineHeActive: { color: '#ffffff' },
 
   wordWrap: { position: 'relative', alignItems: 'center', marginHorizontal: 4 },
   wordWrapActive: { zIndex: 20 },
