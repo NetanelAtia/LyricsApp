@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, FlatList, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getVocab, removeWord, VocabWord } from '../vocab';
 import { award, getProgress, getLevel, xpIntoLevel, XP_PER_LEVEL, onXpGain } from '../progress';
@@ -16,7 +16,19 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-type Mode = 'list' | 'memory' | 'spell';
+type Mode = 'list' | 'memory' | 'spell' | 'listen';
+
+// Cross-platform "are you sure?" confirmation before a destructive action.
+function confirmAction(title: string, message: string, onConfirm: () => void) {
+  if (Platform.OS === 'web') {
+    if (window.confirm(message)) onConfirm();
+  } else {
+    Alert.alert(title, message, [
+      { text: 'ביטול', style: 'cancel' },
+      { text: 'מחק', style: 'destructive', onPress: onConfirm },
+    ]);
+  }
+}
 
 export default function VocabScreen({ navigation }: any) {
   const [words, setWords] = useState<VocabWord[]>(getVocab());
@@ -36,10 +48,12 @@ export default function VocabScreen({ navigation }: any) {
           onRemove={(w) => { removeWord(w); setWords(getVocab()); }}
           onMemory={() => setMode('memory')}
           onSpell={() => setMode('spell')}
+          onListen={() => setMode('listen')}
         />
       )}
       {mode === 'memory' && <Memory words={words} onExit={() => setMode('list')} />}
       {mode === 'spell' && <Spell words={words} onExit={() => setMode('list')} />}
+      {mode === 'listen' && <Listen words={words} onExit={() => setMode('list')} />}
     </SafeAreaView>
   );
 }
@@ -49,12 +63,15 @@ function ListView({
   onRemove,
   onMemory,
   onSpell,
+  onListen,
 }: {
   words: VocabWord[];
   onRemove: (w: string) => void;
   onMemory: () => void;
   onSpell: () => void;
+  onListen: () => void;
 }) {
+  const [showMore, setShowMore] = useState(false);
   return (
     <>
       <View style={styles.header}>
@@ -75,7 +92,10 @@ function ListView({
           contentContainerStyle={{ padding: spacing.md }}
           renderItem={({ item }) => (
             <View style={styles.row}>
-              <TouchableOpacity onPress={() => onRemove(item.word)} hitSlop={10}>
+              <TouchableOpacity
+                onPress={() => confirmAction('מחיקת מילה', `למחוק את המילה "${item.word}" מאוצר המילים?`, () => onRemove(item.word))}
+                hitSlop={10}
+              >
                 <Text style={styles.remove}>✕</Text>
               </TouchableOpacity>
               <View style={{ flex: 1 }}>
@@ -107,6 +127,23 @@ function ListView({
             </TouchableOpacity>
           </View>
           {words.length < 3 && <Text style={styles.hintSmall}>למשחק הזכרון צריך לפחות 3 מילים</Text>}
+
+          <TouchableOpacity style={styles.moreBtn} onPress={() => setShowMore((s) => !s)} activeOpacity={0.7}>
+            <Text style={styles.moreBtnText}>{showMore ? '‹ פחות משחקים' : 'עוד משחקים +'}</Text>
+          </TouchableOpacity>
+
+          {showMore && (
+            <View style={styles.practiceRow}>
+              <TouchableOpacity
+                style={[styles.gameBtn, words.length < 4 && styles.btnDisabled]}
+                onPress={words.length < 4 ? undefined : onListen}
+                activeOpacity={0.85}
+              >
+                <Text style={styles.gameBtnText}>🎧  משחק האזנה</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+          {showMore && words.length < 4 && <Text style={styles.hintSmall}>למשחק ההאזנה צריך לפחות 4 מילים</Text>}
         </View>
       )}
     </>
@@ -370,6 +407,82 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
   );
 }
 
+// Listening game: hear the word spoken, then pick its translation among
+// a few decoys.
+function Listen({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
+  const queue = useMemo(() => weightedQueue(words, (w) => w.word), [words]);
+  const [pos, setPos] = useState(0);
+  const [status, setStatus] = useState<'choosing' | 'right' | 'wrong'>('choosing');
+  const [picked, setPicked] = useState<string | null>(null);
+
+  const card = queue[pos];
+
+  const options = useMemo(() => {
+    if (!card) return [] as VocabWord[];
+    const others = shuffle(words.filter((w) => w.word !== card.word)).slice(0, 3);
+    return shuffle([card, ...others]);
+  }, [card]);
+
+  useEffect(() => {
+    setStatus('choosing');
+    setPicked(null);
+    if (card) speakWord(card.word);
+  }, [pos, card]);
+
+  if (!card || pos >= queue.length) {
+    return <Done text="סיימת את משחק ההאזנה!" onAgain={() => setPos(0)} onExit={onExit} againLabel="🔁  עוד פעם" />;
+  }
+
+  function choose(opt: VocabWord) {
+    if (status !== 'choosing') return;
+    setPicked(opt.word);
+    const ok = opt.word === card.word;
+    setStatus(ok ? 'right' : 'wrong');
+    award(ok, 12, card.word);
+    recordResult(card.word, ok);
+    setTimeout(() => setPos((p) => p + 1), 900);
+  }
+
+  return (
+    <View style={{ flex: 1 }}>
+      <LiveXpBar />
+      <View style={styles.center}>
+        <Text style={styles.progress}>{pos + 1} / {queue.length}</Text>
+        <Text style={styles.listenHint}>איזו מילה שמעת?</Text>
+        <TouchableOpacity style={styles.listenBtn} onPress={() => speakWord(card.word)} activeOpacity={0.8}>
+          <Text style={styles.listenBtnText}>🔊  השמע שוב</Text>
+        </TouchableOpacity>
+
+        <View style={styles.listenOptions}>
+          {options.map((opt) => {
+            const isPicked = picked === opt.word;
+            const isRight = opt.word === card.word;
+            return (
+              <TouchableOpacity
+                key={opt.word}
+                style={[
+                  styles.listenOption,
+                  status !== 'choosing' && isRight && styles.tileCorrect,
+                  status === 'wrong' && isPicked && styles.tileWrong,
+                ]}
+                onPress={() => choose(opt)}
+                disabled={status !== 'choosing'}
+                activeOpacity={0.85}
+              >
+                <Text style={styles.listenOptionText}>{opt.translation}</Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+
+        <TouchableOpacity style={styles.exitBtn} onPress={onExit} hitSlop={10}>
+          <Text style={styles.exitText}>סיום</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
 function Done({ text, onAgain, onExit, againLabel }: { text: string; onAgain: () => void; onExit: () => void; againLabel: string }) {
   return (
     <View style={styles.center}>
@@ -428,6 +541,8 @@ const styles = StyleSheet.create({
   gameBtnText: { color: '#fff', fontSize: 14, fontWeight: '800', textAlign: 'center' },
   btnDisabled: { backgroundColor: colors.surfaceLight },
   hintSmall: { color: colors.textFaint, fontSize: 12, textAlign: 'center', marginTop: spacing.sm },
+  moreBtn: { alignSelf: 'center', marginTop: spacing.md, paddingVertical: spacing.xs, paddingHorizontal: spacing.md },
+  moreBtnText: { color: colors.primarySoft, fontSize: 14, fontWeight: '700' },
   practiceBtn: { backgroundColor: colors.primary, borderRadius: radius.pill, paddingVertical: 15, alignItems: 'center' },
   practiceBtnText: { color: '#fff', fontSize: 16, fontWeight: '800' },
 
@@ -474,6 +589,14 @@ const styles = StyleSheet.create({
   xpBarXp: { color: colors.primarySoft, fontSize: 13, fontWeight: '600' },
   xpBarTrack: { height: 8, borderRadius: 4, backgroundColor: colors.surfaceLight, overflow: 'hidden' },
   xpBarFill: { height: '100%', borderRadius: 4, backgroundColor: colors.primary },
+
+  // Listening game
+  listenHint: { color: colors.textMuted, fontSize: 16, marginBottom: spacing.lg },
+  listenBtn: { backgroundColor: colors.primary, borderRadius: radius.pill, paddingVertical: 14, paddingHorizontal: spacing.xl, marginBottom: spacing.xl },
+  listenBtnText: { color: '#fff', fontSize: 16, fontWeight: '800' },
+  listenOptions: { width: '100%', gap: spacing.sm },
+  listenOption: { backgroundColor: colors.surface, borderRadius: radius.md, paddingVertical: 16, alignItems: 'center', borderWidth: 2, borderColor: 'transparent' },
+  listenOptionText: { color: colors.text, fontSize: 18, fontWeight: '700' },
 
   exitBtn: { marginTop: spacing.xl },
   exitText: { color: colors.textMuted, fontSize: 15 },
