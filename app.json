@@ -22,12 +22,7 @@
       "favicon": "./assets/favicon.png",
       "themeColor": "#6c5ce7",
       "backgroundColor": "#0f0f1a",
-      "display": "standalone",
-      "config": {
-        "statusBar": {
-          "barStyle": "black-translucent"
-        }
-      }
+      "display": "standalone"
     },
     "plugins": [
       "expo-audio",
