@@ -19,7 +19,14 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "themeColor": "#6c5ce7",
+      "backgroundColor": "#0f0f1a",
+      "config": {
+        "statusBar": {
+          "barStyle": "black-translucent"
+        }
+      }
     },
     "plugins": [
       "expo-audio",

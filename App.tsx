@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ActivityIndicator, Platform, Text, TouchableOpacity, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   useFonts,
   Rubik_400Regular,
@@ -22,6 +22,20 @@ import { colors } from './src/theme';
 
 // The Stack lets us move between screens (list -> song -> back).
 const Stack = createNativeStackNavigator();
+
+// A solid purple band exactly as tall as the safe-area top inset, painted
+// behind the status bar on every screen — otherwise it shows through as
+// the OS's default white/black instead of matching the app's theme.
+function StatusBarBackground() {
+  const insets = useSafeAreaInsets();
+  if (insets.top <= 0) return null;
+  return (
+    <View
+      pointerEvents="none"
+      style={{ position: 'absolute', top: 0, left: 0, right: 0, height: insets.top, backgroundColor: colors.primary, zIndex: 100 }}
+    />
+  );
+}
 
 function App() {
   const [fontsLoaded] = useFonts({
@@ -53,6 +67,7 @@ function App() {
             <Stack.Screen name="Progress" component={ProgressScreen} />
           </Stack.Navigator>
         </NavigationContainer>
+        <StatusBarBackground />
         <XpPopup />
       </View>
     </SafeAreaProvider>
