@@ -495,6 +495,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
 
                 {/* Current line — interactive */}
                 <View style={styles.currentBlock}>
+                  <View style={styles.wordsArea}>
                   <View style={styles.lineWords}>
                     {cur.text ? (
                       cur.text.split(/\s+/).map((w, wi) => {
@@ -540,10 +541,13 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       </TouchableOpacity>
                     ) : null}
                   </View>
+                  </View>
 
-                  {(openLines[idx] || alwaysTranslate) && cur.text ? (
-                    <Text style={styles.lineHe}>{lineHe(idx)}</Text>
-                  ) : null}
+                  {(alwaysTranslate || openLines[idx]) && (
+                    <View style={styles.heSlot}>
+                      {cur.text ? <Text style={styles.lineHe}>{lineHe(idx)}</Text> : null}
+                    </View>
+                  )}
                 </View>
 
                 <Text style={styles.contextLine} numberOfLines={1}>
@@ -695,11 +699,15 @@ const styles = StyleSheet.create({
     opacity: 0.6,
     maxWidth: '90%',
   },
-  currentBlock: { paddingHorizontal: 30, marginVertical: spacing.sm },
+  currentBlock: { paddingHorizontal: 30, marginVertical: spacing.sm, alignItems: 'center' },
+  // Fixed-height area so single- vs double-row lines don't shift the layout.
+  wordsArea: { minHeight: 88, justifyContent: 'center' },
   lineWords: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', position: 'relative' },
   currentWord: { color: colors.primarySoft, fontSize: 25, lineHeight: 40, fontWeight: '700' },
   lineActive: { color: colors.primarySoft },
-  lineHe: { color: colors.text, fontSize: 21, fontWeight: '700', textAlign: 'center', marginTop: spacing.md },
+  // Fixed-height slot so showing/changing the translation doesn't move things.
+  heSlot: { minHeight: 52, justifyContent: 'center', marginTop: spacing.sm },
+  lineHe: { color: colors.text, fontSize: 21, fontWeight: '700', textAlign: 'center' },
 
   wordWrap: { position: 'relative', alignItems: 'center', marginHorizontal: 4 },
   wordWrapActive: { zIndex: 20 },
