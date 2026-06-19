@@ -774,7 +774,7 @@ const styles = StyleSheet.create({
   smallBtnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
   error: { color: colors.danger, paddingHorizontal: spacing.lg, marginTop: spacing.sm },
   playerWrap: { padding: spacing.sm, paddingBottom: spacing.xs },
-  nowPlaying: { color: colors.text, fontSize: 16, fontWeight: '800', textAlign: 'center', marginBottom: spacing.xs },
+  nowPlaying: { color: colors.text, fontSize: 16, fontWeight: '800', textAlign: 'center', marginBottom: spacing.md },
   controlsRow: { flexDirection: 'row', justifyContent: 'center', gap: spacing.md, marginTop: spacing.xs, paddingHorizontal: spacing.lg },
   ctrlBtn: {
     backgroundColor: colors.surface,

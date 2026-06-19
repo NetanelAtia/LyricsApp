@@ -17,14 +17,22 @@ function getCtx(): AudioContext | null {
   }
 }
 
-function tone(freq: number, startOffset: number, duration: number, peak: number) {
+function tone(
+  freq: number,
+  startOffset: number,
+  duration: number,
+  peak: number,
+  type: OscillatorType = 'sine',
+  endFreq?: number
+) {
   const ac = getCtx();
   if (!ac) return;
   const start = ac.currentTime + startOffset;
   const osc = ac.createOscillator();
   const gain = ac.createGain();
-  osc.type = 'sine';
+  osc.type = type;
   osc.frequency.value = freq;
+  if (endFreq != null) osc.frequency.exponentialRampToValueAtTime(endFreq, start + duration);
   gain.gain.setValueAtTime(0.0001, start);
   gain.gain.exponentialRampToValueAtTime(peak, start + 0.02);
   gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
@@ -34,13 +42,17 @@ function tone(freq: number, startOffset: number, duration: number, peak: number)
   osc.stop(start + duration + 0.02);
 }
 
-// A short, cheerful two-note "ding" for a correct answer.
+// A bright, punchy three-note rising "ta-da" for a correct answer — louder
+// and shinier than a plain two-note ding.
 export function playCorrect() {
-  tone(660, 0, 0.16, 0.25);
-  tone(880, 0.09, 0.2, 0.25);
+  tone(523, 0, 0.12, 0.32, 'triangle'); // C5
+  tone(659, 0.08, 0.12, 0.34, 'triangle'); // E5
+  tone(880, 0.16, 0.28, 0.36, 'triangle'); // A5
 }
 
-// A short, low "thud" for a wrong answer.
+// A buzzy, descending "error" honk for a wrong answer — louder and more
+// attention-grabbing than a plain low thud.
 export function playWrong() {
-  tone(180, 0, 0.25, 0.2);
+  tone(300, 0, 0.22, 0.3, 'sawtooth', 120);
+  tone(220, 0.16, 0.24, 0.28, 'sawtooth', 90);
 }
