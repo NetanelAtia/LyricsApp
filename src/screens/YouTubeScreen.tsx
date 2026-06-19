@@ -796,7 +796,10 @@ const styles = StyleSheet.create({
   // to it) stay put instead of drifting right with longer sentences.
   currentBlock: { width: '100%', paddingHorizontal: 30, marginVertical: 2, alignItems: 'center' },
   // Fixed-height area so single- vs double-row lines don't shift the layout.
-  wordsArea: { height: 76, justifyContent: 'center', overflow: 'hidden' },
+  // No overflow:hidden here — the tap-a-word translation bubble is
+  // absolutely positioned above the word (bottom: '100%') and needs to
+  // escape this box upward, or it gets clipped off.
+  wordsArea: { height: 76, justifyContent: 'center' },
   lineWords: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', position: 'relative' },
   currentWord: { color: colors.primarySoft, fontSize: 22, lineHeight: 32, fontWeight: '700' },
   activeWord: { color: '#ffffff', fontSize: 24 },
