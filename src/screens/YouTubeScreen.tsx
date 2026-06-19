@@ -135,6 +135,9 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [lineTranslations, setLineTranslations] = useState<Record<number, string>>({});
   // "Always show translation" mode — keeps Hebrew under every line.
   const [alwaysTranslate, setAlwaysTranslate] = useState(false);
+  // 'both' keeps the existing English-with-optional-translation behavior;
+  // 'en'/'he' show only one language.
+  const [displayMode, setDisplayMode] = useState<'both' | 'en' | 'he'>('both');
   // High-quality curated translations bundled with the app (time -> Hebrew).
   const [bundledTr, setBundledTr] = useState<Record<string, string>>({});
   // Curated per-word dictionary (word -> accurate Hebrew) for tapped words.
@@ -357,10 +360,10 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setLoading(false);
   }
 
-  // In "always translate" mode, fetch the current line's translation
-  // automatically as the song moves from line to line.
+  // In "always translate" mode (or Hebrew-only display), fetch the current
+  // line's translation automatically as the song moves from line to line.
   useEffect(() => {
-    if (!alwaysTranslate) return;
+    if (!alwaysTranslate && displayMode !== 'he') return;
     const idx = currentLine < 0 ? 0 : currentLine;
     const cur = lines[idx];
     const key = cur?.tag;
@@ -369,7 +372,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
         setLineTranslations((prev) => ({ ...prev, [idx]: tr }))
       );
     }
-  }, [alwaysTranslate, currentLine, lines, bundledTr]);
+  }, [alwaysTranslate, displayMode, currentLine, lines, bundledTr]);
 
   // Load the curated translations file for this song (if it exists).
   useEffect(() => {
@@ -502,8 +505,34 @@ export default function YouTubeScreen({ navigation, route }: any) {
           </View>
         )}
 
-        {/* Translation toggle — above the lyrics */}
+        {/* Language display mode — English only / both / Hebrew only */}
         {lines.length > 0 && (
+          <View style={styles.langModeRow}>
+            <TouchableOpacity
+              style={[styles.langModeBtn, displayMode === 'en' && styles.langModeBtnActive]}
+              onPress={() => setDisplayMode('en')}
+              activeOpacity={0.85}
+            >
+              <Text style={[styles.langModeText, displayMode === 'en' && styles.langModeTextActive]}>English</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.langModeBtn, displayMode === 'both' && styles.langModeBtnActive]}
+              onPress={() => setDisplayMode('both')}
+              activeOpacity={0.85}
+            >
+              <Text style={[styles.langModeText, displayMode === 'both' && styles.langModeTextActive]}>שניהם</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.langModeBtn, displayMode === 'he' && styles.langModeBtnActive]}
+              onPress={() => setDisplayMode('he')}
+              activeOpacity={0.85}
+            >
+              <Text style={[styles.langModeText, displayMode === 'he' && styles.langModeTextActive]}>עברית</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+        {/* Per-line translate toggle only matters in "both" mode */}
+        {lines.length > 0 && displayMode === 'both' && (
           <TouchableOpacity
             style={[styles.translateToggle, alwaysTranslate && styles.translateToggleActive]}
             onPress={() => setAlwaysTranslate((v) => !v)}
@@ -530,40 +559,73 @@ export default function YouTubeScreen({ navigation, route }: any) {
 
                 {/* Current line — interactive */}
                 <View style={styles.currentBlock}>
-                  <View style={styles.wordsArea}>
-                  <View style={styles.lineWords}>
-                    {cur.text ? (
-                      cur.text.split(/\s+/).map((w, wi) => {
-                        const key = `${idx}-${wi}`;
-                        const isSel = selected === key;
-                        const isActiveWord = wi === currentWord;
-                        return (
-                          <View key={wi} style={[styles.wordWrap, isSel && styles.wordWrapActive]}>
-                            {isSel && (
-                              <View style={styles.bubbleContainer} pointerEvents="box-none">
-                                <View style={styles.bubble}>
-                                  <TouchableOpacity onPress={closeBubble} activeOpacity={0.85}>
-                                    <Text style={styles.bubbleText}>{wordTranslation}</Text>
-                                  </TouchableOpacity>
-                                  <TouchableOpacity onPress={toggleSaveWord} hitSlop={8}>
-                                    <Text style={styles.bubbleStar}>{selectedSaved ? '★' : '☆'}</Text>
-                                  </TouchableOpacity>
-                                </View>
-                                <View style={styles.bubbleArrow} />
+                  {displayMode !== 'he' && (
+                    <View style={styles.wordsArea}>
+                      <View style={styles.lineWords}>
+                        {cur.text ? (
+                          cur.text.split(/\s+/).map((w, wi) => {
+                            const key = `${idx}-${wi}`;
+                            const isSel = selected === key;
+                            const isActiveWord = wi === currentWord;
+                            return (
+                              <View key={wi} style={[styles.wordWrap, isSel && styles.wordWrapActive]}>
+                                {isSel && (
+                                  <View style={styles.bubbleContainer} pointerEvents="box-none">
+                                    <View style={styles.bubble}>
+                                      <TouchableOpacity onPress={closeBubble} activeOpacity={0.85}>
+                                        <Text style={styles.bubbleText}>{wordTranslation}</Text>
+                                      </TouchableOpacity>
+                                      <TouchableOpacity onPress={toggleSaveWord} hitSlop={8}>
+                                        <Text style={styles.bubbleStar}>{selectedSaved ? '★' : '☆'}</Text>
+                                      </TouchableOpacity>
+                                    </View>
+                                    <View style={styles.bubbleArrow} />
+                                  </View>
+                                )}
+                                <TouchableOpacity onPress={() => onWordPress(key, w)} activeOpacity={0.7}>
+                                  <Text style={[styles.currentWord, isActiveWord && styles.activeWord]}>{w}</Text>
+                                </TouchableOpacity>
                               </View>
-                            )}
-                            <TouchableOpacity onPress={() => onWordPress(key, w)} activeOpacity={0.7}>
-                              <Text style={[styles.currentWord, isActiveWord && styles.activeWord]}>{w}</Text>
-                            </TouchableOpacity>
-                          </View>
-                        );
-                      })
-                    ) : (
-                      <Text style={styles.currentWord}>♪</Text>
-                    )}
+                            );
+                          })
+                        ) : (
+                          <Text style={styles.currentWord}>♪</Text>
+                        )}
+                      </View>
+                    </View>
+                  )}
 
-                    {cur.text ? (
-                      <View style={styles.lineActions}>
+                  {(displayMode === 'he' || (displayMode === 'both' && (alwaysTranslate || openLines[idx]))) && (
+                    <View style={styles.heSlot}>
+                      {cur.text
+                        ? (() => {
+                            // Approximate: highlight the Hebrew word at the same
+                            // proportional position as the English word, since
+                            // translations aren't word-aligned with the original.
+                            const heWords = lineHe(idx).split(/\s+/);
+                            const enWordCount = cur.text.split(/\s+/).length;
+                            const activeHeIdx =
+                              currentWord >= 0 && enWordCount > 0
+                                ? Math.min(heWords.length - 1, Math.floor(((currentWord + 1) / enWordCount) * heWords.length))
+                                : -1;
+                            return (
+                              <View style={styles.lineHeRow}>
+                                {heWords.map((w, wi) => (
+                                  <Text key={wi} style={[styles.lineHe, wi === activeHeIdx && styles.lineHeActive]}>
+                                    {w}
+                                    {wi < heWords.length - 1 ? ' ' : ''}
+                                  </Text>
+                                ))}
+                              </View>
+                            );
+                          })()
+                        : null}
+                    </View>
+                  )}
+
+                  {cur.text && (
+                    <View style={styles.lineActions}>
+                      {displayMode === 'both' && (
                         <TouchableOpacity onPress={() => toggleLine(idx, cur.text)} hitSlop={8} activeOpacity={0.7}>
                           <MaterialIcons
                             name="translate"
@@ -571,50 +633,23 @@ export default function YouTubeScreen({ navigation, route }: any) {
                             color={openLines[idx] ? colors.primarySoft : colors.textFaint}
                           />
                         </TouchableOpacity>
-                        {videoId && (
-                          <TouchableOpacity
-                            onPress={() => {
-                              toggleSentence(`${videoId}:${cur.tag}`, cur.text, lineHe(idx), track || undefined);
-                              setSentenceTick((t) => t + 1);
-                            }}
-                            hitSlop={8}
-                            activeOpacity={0.7}
-                          >
-                            <Text style={styles.lineSaveStar}>
-                              {isSentenceSaved(`${videoId}:${cur.tag}`) ? '★' : '☆'}
-                            </Text>
-                          </TouchableOpacity>
-                        )}
-                      </View>
-                    ) : null}
-                  </View>
-                  </View>
-
-                  <View style={styles.heSlot}>
-                    {cur.text && (alwaysTranslate || openLines[idx])
-                      ? (() => {
-                          // Approximate: highlight the Hebrew word at the same
-                          // proportional position as the English word, since
-                          // translations aren't word-aligned with the original.
-                          const heWords = lineHe(idx).split(/\s+/);
-                          const enWordCount = cur.text.split(/\s+/).length;
-                          const activeHeIdx =
-                            currentWord >= 0 && enWordCount > 0
-                              ? Math.min(heWords.length - 1, Math.floor(((currentWord + 1) / enWordCount) * heWords.length))
-                              : -1;
-                          return (
-                            <View style={styles.lineHeRow}>
-                              {heWords.map((w, wi) => (
-                                <Text key={wi} style={[styles.lineHe, wi === activeHeIdx && styles.lineHeActive]}>
-                                  {w}
-                                  {wi < heWords.length - 1 ? ' ' : ''}
-                                </Text>
-                              ))}
-                            </View>
-                          );
-                        })()
-                      : null}
-                  </View>
+                      )}
+                      {videoId && (
+                        <TouchableOpacity
+                          onPress={() => {
+                            toggleSentence(`${videoId}:${cur.tag}`, cur.text, lineHe(idx), track || undefined);
+                            setSentenceTick((t) => t + 1);
+                          }}
+                          hitSlop={8}
+                          activeOpacity={0.7}
+                        >
+                          <Text style={styles.lineSaveStar}>
+                            {isSentenceSaved(`${videoId}:${cur.tag}`) ? '★' : '☆'}
+                          </Text>
+                        </TouchableOpacity>
+                      )}
+                    </View>
+                  )}
                 </View>
 
                 <Text style={styles.contextLine} numberOfLines={1}>
@@ -743,6 +778,20 @@ const styles = StyleSheet.create({
   },
   offsetBtnText: { color: colors.text, fontSize: 22, fontWeight: '700' },
   offsetValue: { color: colors.text, fontSize: 15, fontWeight: '700', minWidth: 48, textAlign: 'center' },
+
+  langModeRow: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+    marginTop: spacing.md,
+    backgroundColor: colors.surface,
+    borderRadius: radius.pill,
+    padding: 4,
+    gap: 4,
+  },
+  langModeBtn: { paddingHorizontal: spacing.md, paddingVertical: 8, borderRadius: radius.pill },
+  langModeBtnActive: { backgroundColor: colors.primary },
+  langModeText: { color: colors.textMuted, fontSize: 14, fontFamily: fonts.bold },
+  langModeTextActive: { color: '#fff' },
 
   translateToggle: {
     alignSelf: 'center',
