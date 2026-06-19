@@ -242,9 +242,25 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
     return shuffle([...Array(len).keys()]).slice(0, count).sort((a, b) => a - b);
   }, [card]);
 
+  // A row of tappable letters to fill the blanks: the right letters mixed
+  // with a few wrong decoys, so you can complete the word by tapping too.
+  const pool = useMemo(() => {
+    if (!card) return [] as { id: number; ch: string }[];
+    const correct = blanks.map((bi) => card.word[bi].toLowerCase());
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    const decoyCount = Math.max(3, blanks.length);
+    const decoys: string[] = [];
+    while (decoys.length < decoyCount) {
+      decoys.push(alphabet[Math.floor(Math.random() * alphabet.length)]);
+    }
+    return shuffle([...correct, ...decoys].map((ch, id) => ({ id, ch })));
+  }, [card]);
+  const [usedIds, setUsedIds] = useState<number[]>([]);
+
   useEffect(() => {
     setTyped('');
     setStatus('typing');
+    setUsedIds([]);
     const t = setTimeout(() => inputRef.current?.focus(), 100);
     return () => clearTimeout(t);
   }, [pos]);
@@ -265,9 +281,15 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
       } else {
         setStatus('wrong');
         award(false, 0);
-        setTimeout(() => { setTyped(''); setStatus('typing'); inputRef.current?.focus(); }, 700);
+        setTimeout(() => { setTyped(''); setStatus('typing'); setUsedIds([]); inputRef.current?.focus(); }, 700);
       }
     }
+  }
+
+  function tapLetter(id: number, ch: string) {
+    if (status !== 'typing' || usedIds.includes(id)) return;
+    setUsedIds((u) => [...u, id]);
+    onType(typed + ch);
   }
 
   return (
@@ -312,7 +334,24 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
           autoFocus
         />
       </View>
-      <Text style={styles.spellHint}>הקלד את האותיות החסרות ⌨️</Text>
+      <Text style={styles.spellHint}>הקלד או לחץ על האותיות החסרות ⌨️</Text>
+
+      <View style={styles.letterPool}>
+        {pool.map(({ id, ch }) => {
+          const used = usedIds.includes(id);
+          return (
+            <TouchableOpacity
+              key={id}
+              disabled={used || status !== 'typing'}
+              onPress={() => tapLetter(id, ch)}
+              style={[styles.letterTile, used && styles.letterTileUsed]}
+              activeOpacity={0.8}
+            >
+              <Text style={[styles.letterTileText, used && styles.letterTileTextUsed]}>{ch.toUpperCase()}</Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
 
       <TouchableOpacity style={styles.exitBtn} onPress={onExit} hitSlop={10}>
         <Text style={styles.exitText}>סיום</Text>
@@ -409,7 +448,13 @@ const styles = StyleSheet.create({
   boxWrong: { borderColor: colors.danger },
   boxText: { color: colors.text, fontSize: 22, fontWeight: '800' },
   hiddenInput: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0 },
-  spellHint: { color: colors.textMuted, fontSize: 14, marginBottom: spacing.xl },
+  spellHint: { color: colors.textMuted, fontSize: 14, marginBottom: spacing.md },
+
+  letterPool: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8, marginBottom: spacing.lg, maxWidth: 320 },
+  letterTile: { width: 42, height: 42, borderRadius: radius.sm, backgroundColor: colors.primary, alignItems: 'center', justifyContent: 'center' },
+  letterTileUsed: { backgroundColor: colors.surfaceLight, opacity: 0.35 },
+  letterTileText: { color: '#fff', fontSize: 18, fontWeight: '800' },
+  letterTileTextUsed: { color: colors.textFaint },
 
   // Live XP bar shown during games
   xpBarWrap: { paddingHorizontal: spacing.lg, paddingTop: spacing.sm, paddingBottom: spacing.xs },
