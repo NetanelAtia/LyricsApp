@@ -45,6 +45,13 @@ def main():
     parser.add_argument("--audio", required=True, help="Path to the audio file you downloaded")
     parser.add_argument("--video-id", required=True, help="The song's YouTube video id (matches the .lrc filename)")
     parser.add_argument("--language", default="en")
+    parser.add_argument(
+        "--interpolate",
+        default="nearest",
+        choices=["nearest", "linear", "ignore"],
+        help="How to fill in timing for words the model couldn't confidently place "
+        "(common on a held/sustained note) — try 'linear' if 'nearest' looks off for a song.",
+    )
     args = parser.parse_args()
 
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -72,18 +79,27 @@ def main():
     print("Loading alignment model (downloads once, then cached)...")
     align_model, metadata = whisperx.load_align_model(language_code=args.language, device="cpu")
 
-    print(f"Aligning {len(segments)} lines against the audio...")
-    result = whisperx.align(segments, align_model, metadata, audio, "cpu", return_char_alignments=False)
+    print(f"Aligning {len(segments)} lines against the audio (interpolate={args.interpolate})...")
+    result = whisperx.align(
+        segments, align_model, metadata, audio, "cpu",
+        interpolate_method=args.interpolate, return_char_alignments=False,
+    )
 
-    # Map the aligned words back onto our LRC tags, in order.
+    # Map the aligned words back onto our LRC tags, in order. Also keep each
+    # word's confidence score (not used by the app, but useful for spotting
+    # which words were guessed/interpolated rather than confidently placed —
+    # singing sustained/held notes is the main thing that trips this up,
+    # since the alignment model is trained on read speech, not singing).
     out = {}
-    word_segments = iter(result.get("word_segments", []))
     for seg, line in zip(result["segments"], sung_lines):
         words = []
         for w in seg.get("words", []):
             if "start" not in w or "end" not in w:
-                continue  # whisperx leaves timing off words it couldn't align confidently
-            words.append({"word": w["word"], "start": round(w["start"], 3), "end": round(w["end"], 3)})
+                continue  # whisperx leaves timing off words it couldn't align at all
+            entry = {"word": w["word"], "start": round(w["start"], 3), "end": round(w["end"], 3)}
+            if "score" in w:
+                entry["score"] = round(w["score"], 3)
+            words.append(entry)
         out[line["tag"]] = words
 
     out_dir = os.path.join(project_root, "public", "wordtiming")

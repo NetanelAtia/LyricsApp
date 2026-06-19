@@ -38,3 +38,18 @@ re-transcribe, so the output always matches our lyrics word-for-word).
 
 The first run downloads the alignment model (a few hundred MB); it's cached
 under your user profile afterwards, so later runs are much faster.
+
+## If one word looks off (held/sustained notes)
+
+The alignment model is trained on ordinary read speech, not singing — its
+weak spot is a word stretched over a long held/sustained note, where it
+sometimes can't confidently place the boundary and falls back to guessing
+from the nearest confidently-placed neighbors. Try re-running with:
+
+```
+... --interpolate linear
+```
+
+instead of the default `nearest`. It won't fix every case (this is close to
+the practical ceiling for a speech-trained model on singing), but it's
+worth trying per-song if a specific held word bothers you.
