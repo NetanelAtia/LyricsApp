@@ -91,9 +91,10 @@ export default function SongsListScreen({ navigation }: any) {
         data={songs}
         keyExtractor={(s) => s.videoId}
         contentContainerStyle={{ padding: spacing.md, paddingTop: 0 }}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <SongCard
             song={item}
+            number={currentPage * PAGE_SIZE + index + 1}
             onPress={() =>
               navigation.navigate('YouTube', {
                 videoId: item.videoId,
@@ -131,6 +132,9 @@ export default function SongsListScreen({ navigation }: any) {
             >
               <Text style={styles.addBtnText}>➕  שיר אחר מיוטיוב</Text>
             </TouchableOpacity>
+            <Text style={styles.countLabel}>
+              {allSongs.length} {allSongs.length === 1 ? 'שיר' : 'שירים'} בספרייה
+            </Text>
           </>
         }
       />
@@ -138,9 +142,10 @@ export default function SongsListScreen({ navigation }: any) {
   );
 }
 
-function SongCard({ song, onPress }: { song: LibrarySong; onPress: () => void }) {
+function SongCard({ song, number, onPress }: { song: LibrarySong; number: number; onPress: () => void }) {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.8}>
+      <Text style={styles.cardNumber}>{number}</Text>
       <Image
         source={{ uri: `https://img.youtube.com/vi/${song.videoId}/mqdefault.jpg` }}
         style={styles.cover}
@@ -209,6 +214,7 @@ const styles = StyleSheet.create({
     padding: spacing.sm,
     marginBottom: spacing.md,
   },
+  cardNumber: { color: colors.textFaint, fontSize: 13, fontWeight: '700', width: 22, textAlign: 'center' },
   cover: {
     width: 64,
     height: 64,
@@ -246,4 +252,5 @@ const styles = StyleSheet.create({
     borderColor: colors.surfaceLight,
   },
   addBtnText: { color: colors.text, fontSize: 15, fontWeight: '700' },
+  countLabel: { color: colors.textFaint, fontSize: 13, textAlign: 'center', marginTop: spacing.md },
 });

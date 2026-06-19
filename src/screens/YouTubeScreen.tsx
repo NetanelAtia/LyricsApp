@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
+import * as Clipboard from 'expo-clipboard';
 import YouTubePlayer from '../components/YouTubePlayer';
 import { translateToHebrew, cachedTranslation } from '../translate';
 import { fetchJson } from '../net';
@@ -256,6 +257,21 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setVideoId(id);
   }
 
+  // Paste the clipboard straight into the link field — and if it's already
+  // a valid YouTube link, load it right away.
+  async function pasteLink() {
+    const text = await Clipboard.getStringAsync();
+    if (!text) return;
+    setLink(text);
+    const id = extractVideoId(text);
+    if (id) {
+      setError('');
+      setLines([]);
+      setLrcError('');
+      setVideoId(id);
+    }
+  }
+
   // Go back to the setup screen to pick a different song.
   function resetSong() {
     playerRef.current?.pauseVideo?.();
@@ -483,6 +499,9 @@ export default function YouTubeScreen({ navigation, route }: any) {
               autoCapitalize="none"
               autoCorrect={false}
             />
+            <TouchableOpacity style={styles.smallBtn} onPress={pasteLink} activeOpacity={0.85}>
+              <Text style={styles.smallBtnText}>הדבק</Text>
+            </TouchableOpacity>
             <TouchableOpacity style={styles.smallBtn} onPress={loadVideo} activeOpacity={0.85}>
               <Text style={styles.smallBtnText}>טען</Text>
             </TouchableOpacity>
@@ -493,6 +512,11 @@ export default function YouTubeScreen({ navigation, route }: any) {
         {/* Player */}
         {videoId && (
           <View style={styles.playerWrap}>
+            {(artist || track) && (
+              <Text style={styles.nowPlaying} numberOfLines={1}>
+                {track}{artist ? ` — ${artist}` : ''}
+              </Text>
+            )}
             <YouTubePlayer videoId={videoId} onReady={onPlayerReady} />
           </View>
         )}
@@ -750,6 +774,7 @@ const styles = StyleSheet.create({
   smallBtnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
   error: { color: colors.danger, paddingHorizontal: spacing.lg, marginTop: spacing.sm },
   playerWrap: { padding: spacing.sm, paddingBottom: spacing.xs },
+  nowPlaying: { color: colors.text, fontSize: 16, fontWeight: '800', textAlign: 'center', marginBottom: spacing.xs },
   controlsRow: { flexDirection: 'row', justifyContent: 'center', gap: spacing.md, marginTop: spacing.xs, paddingHorizontal: spacing.lg },
   ctrlBtn: {
     backgroundColor: colors.surface,
@@ -815,11 +840,13 @@ const styles = StyleSheet.create({
   langModeTextActive: { color: '#fff' },
 
   // Focused karaoke view
-  karaoke: { paddingHorizontal: spacing.lg, paddingTop: spacing.xs, alignItems: 'center' },
+  karaoke: { paddingHorizontal: spacing.lg, paddingTop: spacing.md, alignItems: 'center' },
   // Fixed height (an empty peek line — at the very start/end of a song —
   // would otherwise collapse to ~0 height and shift everything below it).
+  // Also gives the tap-a-word bubble (which pops up above the word) room
+  // to clear the language selector above it instead of overlapping it.
   contextLine: {
-    height: 20,
+    height: 28,
     color: colors.textFaint,
     fontSize: 13,
     textAlign: 'center',
@@ -835,7 +862,10 @@ const styles = StyleSheet.create({
   // No overflow:hidden here — the tap-a-word translation bubble is
   // absolutely positioned above the word (bottom: '100%') and needs to
   // escape this box upward, or it gets clipped off.
-  wordsArea: { height: 76, justifyContent: 'center' },
+  // Tall enough for a 3-line wrapped sentence (3 * 32 lineHeight) — a
+  // shorter fixed height let long lines spill into (overlap) the
+  // translation slot below them.
+  wordsArea: { height: 104, justifyContent: 'center' },
   lineWords: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', position: 'relative' },
   currentWord: { color: colors.primarySoft, fontSize: 22, lineHeight: 32, fontWeight: '700' },
   activeWord: { color: '#ffffff', fontSize: 24 },
