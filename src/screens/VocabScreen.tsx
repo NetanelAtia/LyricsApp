@@ -1,5 +1,5 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
-import { Alert, FlatList, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useState, useEffect, useMemo } from 'react';
+import { Alert, FlatList, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getVocab, removeWord, VocabWord } from '../vocab';
 import { award, getProgress, getLevel, xpIntoLevel, XP_PER_LEVEL, onXpGain } from '../progress';
@@ -328,7 +328,6 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
   const [pos, setPos] = useState(0);
   const [typed, setTyped] = useState('');
   const [status, setStatus] = useState<'typing' | 'right' | 'wrong'>('typing');
-  const inputRef = useRef<TextInput>(null);
 
   const card = queue[pos];
 
@@ -410,44 +409,32 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.boxesWrap}>
-        <View style={styles.boxes}>
-          {card.word.split('').map((ch, i) => {
-            const blankIndex = blanks.indexOf(i);
-            const isBlank = blankIndex !== -1;
-            const typedChar = isBlank ? typed[blankIndex] : '';
-            const isNext = isBlank && blankIndex === typed.length && status === 'typing';
-            const filled = isBlank && blankIndex < typed.length;
-            const show = isBlank ? (typedChar || '') : ch;
-            return (
-              <TouchableOpacity
-                key={i}
-                disabled={!filled || status !== 'typing'}
-                onPress={() => removeFrom(blankIndex)}
-                activeOpacity={filled ? 0.6 : 1}
-                style={[
-                  styles.box,
-                  isBlank && styles.boxBlank,
-                  isNext && styles.boxNext,
-                  status === 'right' && styles.boxRight,
-                  status === 'wrong' && isBlank && styles.boxWrong,
-                ]}
-              >
-                <Text style={styles.boxText}>{show.toUpperCase()}</Text>
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-        {/* Invisible input over the boxes — lets you type instead of tapping letters,
-            but never grabs focus on its own so the keyboard doesn't pop up by default. */}
-        <TextInput
-          ref={inputRef}
-          style={styles.hiddenInput}
-          value={typed}
-          onChangeText={onType}
-          autoCapitalize="none"
-          autoCorrect={false}
-        />
+      <View style={styles.boxes}>
+        {card.word.split('').map((ch, i) => {
+          const blankIndex = blanks.indexOf(i);
+          const isBlank = blankIndex !== -1;
+          const typedChar = isBlank ? typed[blankIndex] : '';
+          const isNext = isBlank && blankIndex === typed.length && status === 'typing';
+          const filled = isBlank && blankIndex < typed.length;
+          const show = isBlank ? (typedChar || '') : ch;
+          return (
+            <TouchableOpacity
+              key={i}
+              disabled={!filled || status !== 'typing'}
+              onPress={() => removeFrom(blankIndex)}
+              activeOpacity={filled ? 0.6 : 1}
+              style={[
+                styles.box,
+                isBlank && styles.boxBlank,
+                isNext && styles.boxNext,
+                status === 'right' && styles.boxRight,
+                status === 'wrong' && isBlank && styles.boxWrong,
+              ]}
+            >
+              <Text style={styles.boxText}>{show.toUpperCase()}</Text>
+            </TouchableOpacity>
+          );
+        })}
       </View>
       <Text style={styles.spellHint}>לחץ על האותיות החסרות (ולחיצה על אות שמולאה תמחק אותה) ⌨️</Text>
 
@@ -734,15 +721,13 @@ const styles = StyleSheet.create({
   spellClueRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.xl },
   spellClue: { color: colors.primarySoft, fontSize: 26, fontWeight: '800' },
   spellSpeak: { fontSize: 24 },
-  boxesWrap: { position: 'relative', width: '100%', alignItems: 'center', marginBottom: spacing.md },
-  boxes: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8 },
+  boxes: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8, marginBottom: spacing.md },
   box: { width: 40, height: 48, borderRadius: radius.sm, backgroundColor: colors.surfaceLight, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: 'transparent' },
   boxBlank: { backgroundColor: colors.surface, borderColor: colors.surfaceLight },
   boxNext: { borderColor: colors.primary },
   boxRight: { borderColor: colors.success },
   boxWrong: { borderColor: colors.danger },
   boxText: { color: colors.text, fontSize: 22, fontWeight: '800' },
-  hiddenInput: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0 },
   spellHint: { color: colors.textMuted, fontSize: 14, marginBottom: spacing.md },
 
   letterPool: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8, marginBottom: spacing.lg, maxWidth: 320 },

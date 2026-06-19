@@ -35,20 +35,33 @@ function App() {
   );
 }
 
-function loadDesktopMode(): boolean {
+// A wide window means this is a real desktop browser, not a phone's mobile
+// browser (which is also Platform.OS === 'web' but has a narrow viewport).
+const DESKTOP_BREAKPOINT = 700;
+function isWideViewport(): boolean {
   try {
-    return window.localStorage?.getItem('lyricsapp:desktopMode') === '1';
+    return typeof window !== 'undefined' && window.innerWidth >= DESKTOP_BREAKPOINT;
   } catch {
     return false;
   }
 }
 
+function loadDesktopMode(): boolean {
+  if (!isWideViewport()) return false; // always the phone-sized frame on narrow/mobile screens
+  try {
+    const v = window.localStorage?.getItem('lyricsapp:desktopMode');
+    if (v != null) return v === '1';
+  } catch {}
+  return true; // default to the full desktop layout on a wide screen
+}
+
 // On the web preview we normally center the app inside a phone-sized frame,
-// so it looks just like it will on a real phone. A toggle lets you switch to
-// a full-width desktop layout instead — handy when using the web app on a
-// computer rather than a phone.
+// so it looks just like it will on a real phone. On a wide (desktop) browser
+// window it defaults to filling the screen instead, with a toggle to switch
+// back to the phone-sized frame if you want to preview that look.
 export default function Root() {
   const [desktopMode, setDesktopMode] = useState(loadDesktopMode);
+  const [wide] = useState(isWideViewport);
 
   if (Platform.OS === 'web') {
     function toggle() {
@@ -74,24 +87,26 @@ export default function Root() {
         >
           <App />
         </View>
-        <TouchableOpacity
-          onPress={toggle}
-          style={{
-            position: 'absolute',
-            top: 12,
-            right: 12,
-            backgroundColor: colors.surface,
-            borderRadius: 999,
-            paddingHorizontal: 14,
-            paddingVertical: 8,
-            borderWidth: 1,
-            borderColor: colors.surfaceLight,
-          }}
-        >
-          <Text style={{ color: colors.text, fontSize: 13, fontWeight: '700' }}>
-            {desktopMode ? '📱 תצוגת טלפון' : '🖥️ תצוגת מחשב'}
-          </Text>
-        </TouchableOpacity>
+        {wide && (
+          <TouchableOpacity
+            onPress={toggle}
+            style={{
+              position: 'absolute',
+              top: 12,
+              right: 12,
+              backgroundColor: colors.surface,
+              borderRadius: 999,
+              paddingHorizontal: 14,
+              paddingVertical: 8,
+              borderWidth: 1,
+              borderColor: colors.surfaceLight,
+            }}
+          >
+            <Text style={{ color: colors.text, fontSize: 13, fontWeight: '700' }}>
+              {desktopMode ? '📱 תצוגת טלפון' : '🖥️ תצוגת מחשב'}
+            </Text>
+          </TouchableOpacity>
+        )}
       </View>
     );
   }
