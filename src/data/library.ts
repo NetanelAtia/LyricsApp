@@ -19,6 +19,9 @@ export const defaultOffsets: Record<string, number> = {
   'fLexgOxsZu0': -3.0, // Bruno Mars – The Lazy Song
   'Xg72z08aTXY': -0.5, // Måneskin – Beggin'
   'Zi_XLOBDo_Y': -0.6, // Michael Jackson – Billie Jean
+  'YQHsXMglC9A': -63.4, // Adele – Hello
+  'oyEuk8j8imI': -9.9, // Justin Bieber – Love Yourself
+  'CaCSuzR4DwM': -1.7, // Louis Armstrong – What A Wonderful World
 };
 
 export const library: LibrarySong[] = [
