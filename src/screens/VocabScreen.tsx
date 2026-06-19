@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { getVocab, removeWord, VocabWord } from '../vocab';
 import { award, getProgress, getLevel, xpIntoLevel, XP_PER_LEVEL, onXpGain } from '../progress';
 import { speakWord } from '../speech';
+import { recordResult, weightedSample, weightedQueue } from '../srs';
 import { colors, radius, spacing } from '../theme';
 
 function shuffle<T>(arr: T[]): T[] {
@@ -136,7 +137,7 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
   const BATCH = 6;
   const [round, setRound] = useState(0);
   const roundWords = useMemo(
-    () => shuffle(words).slice(0, Math.min(BATCH, words.length)),
+    () => weightedSample(words, Math.min(BATCH, words.length), (w) => w.word),
     [round, words]
   );
 
@@ -167,6 +168,7 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
       setJustMatched((j) => [...j, word]);
       setSel(null);
       award(true, 10, word);
+      recordResult(word, true);
       setTimeout(() => {
         setJustMatched((j) => j.filter((w) => w !== word));
         setMatched((m) => [...m, word]);
@@ -175,6 +177,8 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
       setWrong(word);
       setSel(null);
       award(false, 0);
+      recordResult(word, false);
+      if (sel.word !== word) recordResult(sel.word, false);
       setTimeout(() => setWrong(null), 600);
     }
   }
@@ -226,7 +230,7 @@ function Memory({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
 // Spell game: the Hebrew is the clue; the English word shows with some letters
 // missing as empty boxes, and you type the missing letters to complete it.
 function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
-  const queue = useMemo(() => shuffle(words), [words]);
+  const queue = useMemo(() => weightedQueue(words, (w) => w.word), [words]);
   const [pos, setPos] = useState(0);
   const [typed, setTyped] = useState('');
   const [status, setStatus] = useState<'typing' | 'right' | 'wrong'>('typing');
@@ -277,10 +281,12 @@ function Spell({ words, onExit }: { words: VocabWord[]; onExit: () => void }) {
       if (ok) {
         setStatus('right');
         award(true, 15, card.word);
+        recordResult(card.word, true);
         setTimeout(() => setPos((p) => p + 1), 700);
       } else {
         setStatus('wrong');
         award(false, 0);
+        recordResult(card.word, false);
         setTimeout(() => { setTyped(''); setStatus('typing'); setUsedIds([]); inputRef.current?.focus(); }, 700);
       }
     }
