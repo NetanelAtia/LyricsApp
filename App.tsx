@@ -23,16 +23,16 @@ import { colors } from './src/theme';
 // The Stack lets us move between screens (list -> song -> back).
 const Stack = createNativeStackNavigator();
 
-// A solid purple band exactly as tall as the safe-area top inset, painted
-// behind the status bar on every screen — otherwise it shows through as
-// the OS's default white/black instead of matching the app's theme.
+// A band exactly as tall as the safe-area top inset, painted behind the
+// status bar on every screen — otherwise it shows through as the OS's
+// default white/black instead of matching the app's own background.
 function StatusBarBackground() {
   const insets = useSafeAreaInsets();
   if (insets.top <= 0) return null;
   return (
     <View
       pointerEvents="none"
-      style={{ position: 'absolute', top: 0, left: 0, right: 0, height: insets.top, backgroundColor: colors.primary, zIndex: 100 }}
+      style={{ position: 'absolute', top: 0, left: 0, right: 0, height: insets.top, backgroundColor: colors.background, zIndex: 100 }}
     />
   );
 }
