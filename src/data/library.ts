@@ -17,6 +17,8 @@ export const defaultOffsets: Record<string, number> = {
   'EkHTsc9PU2A': -7.0, // Jason Mraz – I'm Yours
   'LjhCEhWiKXk': -15.7, // Bruno Mars – Just the Way You Are
   'fLexgOxsZu0': -3.0, // Bruno Mars – The Lazy Song
+  'Xg72z08aTXY': -0.5, // Måneskin – Beggin'
+  'Zi_XLOBDo_Y': -0.6, // Michael Jackson – Billie Jean
 };
 
 export const library: LibrarySong[] = [

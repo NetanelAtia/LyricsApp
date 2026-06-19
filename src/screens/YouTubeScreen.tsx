@@ -443,7 +443,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
         // already carries the separate line-level LOOKAHEAD) — stacking
         // both was the main reason fast songs overshot so badly.
         const avgWordDuration = duration / words.length;
-        const lookahead = Math.min(0.8, avgWordDuration * 0.9);
+        const lookahead = Math.min(1.3, avgWordDuration * 1.1);
         const elapsed = (getTime() + syncOffset + lookahead) - lineStart;
         let wi = boundaries.findIndex((b) => elapsed < b);
         if (wi === -1) wi = words.length - 1;

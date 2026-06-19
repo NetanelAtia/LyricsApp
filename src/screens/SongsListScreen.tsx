@@ -7,10 +7,13 @@ import { getProgress, getLevel, xpIntoLevel } from '../progress';
 import { getVocab } from '../vocab';
 
 // Home screen: the list of songs. Tapping one opens it straight in karaoke.
+const PAGE_SIZE = 20;
+
 export default function SongsListScreen({ navigation }: any) {
   const [prog, setProg] = useState(getProgress());
   const [vocabCount, setVocabCount] = useState(getVocab().length);
   const [query, setQuery] = useState('');
+  const [page, setPage] = useState(0);
   // Refresh stats whenever we return to this screen.
   useEffect(
     () => navigation.addListener('focus', () => { setProg(getProgress()); setVocabCount(getVocab().length); }),
@@ -20,7 +23,7 @@ export default function SongsListScreen({ navigation }: any) {
   const q = query.trim().toLowerCase();
   // Sort by artist A→Z (ignoring a leading "The", case-insensitive), then by song.
   const sortKey = (s: string) => s.replace(/^the\s+/i, '').toLowerCase().trim();
-  const songs = library
+  const allSongs = library
     .filter((s) => !q || s.track.toLowerCase().includes(q) || s.artist.toLowerCase().includes(q))
     .slice()
     .sort(
@@ -28,6 +31,13 @@ export default function SongsListScreen({ navigation }: any) {
         sortKey(a.artist).localeCompare(sortKey(b.artist)) ||
         sortKey(a.track).localeCompare(sortKey(b.track))
     );
+
+  const pageCount = Math.max(1, Math.ceil(allSongs.length / PAGE_SIZE));
+  const currentPage = Math.min(page, pageCount - 1);
+  const songs = allSongs.slice(currentPage * PAGE_SIZE, currentPage * PAGE_SIZE + PAGE_SIZE);
+
+  // Reset to page 1 whenever the search narrows/changes the results.
+  useEffect(() => setPage(0), [q]);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -94,13 +104,34 @@ export default function SongsListScreen({ navigation }: any) {
           />
         )}
         ListFooterComponent={
-          <TouchableOpacity
-            style={styles.addBtn}
-            onPress={() => navigation.navigate('YouTube', {})}
-            activeOpacity={0.85}
-          >
-            <Text style={styles.addBtnText}>➕  שיר אחר מיוטיוב</Text>
-          </TouchableOpacity>
+          <>
+            {pageCount > 1 && (
+              <View style={styles.pager}>
+                <TouchableOpacity
+                  style={[styles.pagerBtn, currentPage === 0 && styles.pagerBtnDisabled]}
+                  onPress={() => setPage((p) => Math.max(0, p - 1))}
+                  disabled={currentPage === 0}
+                >
+                  <Text style={styles.pagerBtnText}>‹ הקודם</Text>
+                </TouchableOpacity>
+                <Text style={styles.pagerLabel}>עמוד {currentPage + 1} מתוך {pageCount}</Text>
+                <TouchableOpacity
+                  style={[styles.pagerBtn, currentPage === pageCount - 1 && styles.pagerBtnDisabled]}
+                  onPress={() => setPage((p) => Math.min(pageCount - 1, p + 1))}
+                  disabled={currentPage === pageCount - 1}
+                >
+                  <Text style={styles.pagerBtnText}>הבא ›</Text>
+                </TouchableOpacity>
+              </View>
+            )}
+            <TouchableOpacity
+              style={styles.addBtn}
+              onPress={() => navigation.navigate('YouTube', {})}
+              activeOpacity={0.85}
+            >
+              <Text style={styles.addBtnText}>➕  שיר אחר מיוטיוב</Text>
+            </TouchableOpacity>
+          </>
         }
       />
     </SafeAreaView>
@@ -188,6 +219,22 @@ const styles = StyleSheet.create({
   songTitle: { color: colors.text, fontSize: 17, fontWeight: '700' },
   songArtist: { color: colors.textMuted, fontSize: 13, marginTop: 2 },
   play: { color: colors.primarySoft, fontSize: 20, paddingHorizontal: spacing.md },
+
+  pager: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: spacing.sm,
+  },
+  pagerBtn: {
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+    paddingVertical: 10,
+    paddingHorizontal: spacing.md,
+  },
+  pagerBtnDisabled: { opacity: 0.4 },
+  pagerBtnText: { color: colors.text, fontSize: 14, fontWeight: '700' },
+  pagerLabel: { color: colors.textMuted, fontSize: 13 },
 
   addBtn: {
     marginTop: spacing.sm,
