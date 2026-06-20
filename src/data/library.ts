@@ -20,6 +20,7 @@ export const defaultOffsets: Record<string, number> = {
   'Zi_XLOBDo_Y': -0.6, // Michael Jackson – Billie Jean
   'oyEuk8j8imI': -9.9, // Justin Bieber – Love Yourself
   'C7dPqrmDWxs': -0.3, // Pharrell Williams – Happy
+  'WDaNJW_jEBo': -0.5, // Busta Rhymes ft. Mariah Carey – I Know What You Want
 };
 
 // videoIds whose lyrics + word-timing were pulled straight from that exact
