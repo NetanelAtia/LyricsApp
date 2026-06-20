@@ -116,6 +116,19 @@ export default function YouTubeScreen({ navigation, route }: any) {
     if (videoId) saveOffset(videoId, o);
   }
 
+  // Manual numeric entry for the offset (typed value while editing).
+  const [offsetText, setOffsetText] = useState('0.0');
+  useEffect(() => {
+    setOffsetText(syncOffset.toFixed(1));
+  }, [syncOffset]);
+  function applyOffsetText(text: string) {
+    const n = parseFloat(text.replace(',', '.'));
+    const o = Number.isFinite(n) ? +n.toFixed(1) : 0;
+    setSyncOffset(o);
+    setOffsetText(o.toFixed(1));
+    if (videoId) saveOffset(videoId, o);
+  }
+
   // One-tap calibration: press exactly when the first line is sung, and we
   // align the whole song to that moment.
   function calibrate() {
@@ -807,7 +820,17 @@ export default function YouTubeScreen({ navigation, route }: any) {
                   <TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(-0.5)} hitSlop={6}>
                     <Text style={styles.offsetBtnText}>−</Text>
                   </TouchableOpacity>
-                  <Text style={styles.offsetValue}>{syncOffset > 0 ? '+' : ''}{syncOffset.toFixed(1)}s</Text>
+                  <TextInput
+                    style={styles.offsetInput}
+                    value={offsetText}
+                    onChangeText={setOffsetText}
+                    onBlur={() => applyOffsetText(offsetText)}
+                    onSubmitEditing={() => applyOffsetText(offsetText)}
+                    keyboardType="numbers-and-punctuation"
+                    inputMode="decimal"
+                    textAlign="center"
+                  />
+                  <Text style={styles.offsetLabel}>s</Text>
                   <TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(0.5)} hitSlop={6}>
                     <Text style={styles.offsetBtnText}>+</Text>
                   </TouchableOpacity>
@@ -897,6 +920,16 @@ const styles = StyleSheet.create({
   },
   offsetBtnText: { color: colors.text, fontSize: 22, fontWeight: '700' },
   offsetValue: { color: colors.text, fontSize: 15, fontWeight: '700', minWidth: 48, textAlign: 'center' },
+  offsetInput: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '700',
+    minWidth: 56,
+    paddingVertical: 6,
+    paddingHorizontal: 8,
+    borderRadius: radius.sm,
+    backgroundColor: colors.surfaceLight,
+  },
 
   langModeRow: {
     flexDirection: 'row',
