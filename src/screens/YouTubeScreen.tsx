@@ -937,7 +937,10 @@ const styles = StyleSheet.create({
   wordsArea: { height: 104, justifyContent: 'center' },
   lineWords: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', position: 'relative' },
   currentWord: { color: colors.primarySoft, fontSize: 22, lineHeight: 32, fontWeight: '700' },
-  activeWord: { color: '#ffffff', fontSize: 24 },
+  // Color only — no size change, so highlighting a word never reflows the
+  // line (which could push a sentence from one line to two and shift
+  // everything below it).
+  activeWord: { color: '#ffffff' },
   lineActive: { color: colors.primarySoft },
   // Fixed-height slot so showing/changing the translation doesn't move things.
   // Fixed height (not minHeight) so a 1-line vs 2-line translation never
