@@ -18,7 +18,6 @@ export const defaultOffsets: Record<string, number> = {
   'fLexgOxsZu0': -3.0, // Bruno Mars – The Lazy Song
   'Xg72z08aTXY': -0.5, // Måneskin – Beggin'
   'Zi_XLOBDo_Y': -0.6, // Michael Jackson – Billie Jean
-  'YQHsXMglC9A': -63.4, // Adele – Hello
   'oyEuk8j8imI': -9.9, // Justin Bieber – Love Yourself
   'WDaNJW_jEBo': -32.2, // Busta Rhymes ft. Mariah Carey – I Know What You Want
   'C7dPqrmDWxs': -0.3, // Pharrell Williams – Happy
@@ -31,6 +30,9 @@ export const defaultOffsets: Record<string, number> = {
 export const youtubeSourcedLyrics = new Set<string>([
   'UXWFqxKU2qA', // Snoop Dogg – Vato
   'CaCSuzR4DwM', // Louis Armstrong – What A Wonderful World
+  'kXYiU_JCYtU', // Linkin Park – Numb
+  'YQHsXMglC9A', // Adele – Hello
+  'hLQl3WQQoQ0', // Adele – Someone Like You
   'EkHTsc9PU2A', // Jason Mraz – I'm Yours
 ]);
 
