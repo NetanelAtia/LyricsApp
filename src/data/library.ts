@@ -38,6 +38,7 @@ export const youtubeSourcedLyrics = new Set<string>([
   'WDaNJW_jEBo', // Busta Rhymes ft. Mariah Carey – I Know What You Want
   'pfxyk1glEq4', // Chris Brown – Under The Influence
   '8gyLR4NfMiI', // Chris Brown ft. Lil Wayne, Busta Rhymes – Look At Me Now
+  'QVXE1EzMrfw', // Ja Rule ft. R. Kelly, Ashanti – Wonderful
 ]);
 
 export const library: LibrarySong[] = [
@@ -78,4 +79,5 @@ export const library: LibrarySong[] = [
   { videoId: 'WDaNJW_jEBo', artist: 'Busta Rhymes ft. Mariah Carey', track: 'I Know What You Want', emoji: '💋', accent: '#e84393' },
   { videoId: 'pfxyk1glEq4', artist: 'Chris Brown', track: 'Under The Influence', emoji: '🌀', accent: '#6c5ce7' },
   { videoId: '8gyLR4NfMiI', artist: 'Chris Brown ft. Lil Wayne, Busta Rhymes', track: 'Look At Me Now', emoji: '🔥', accent: '#ff7675' },
+  { videoId: 'QVXE1EzMrfw', artist: 'Ja Rule ft. R. Kelly, Ashanti', track: 'Wonderful', emoji: '✨', accent: '#fdcb6e' },
 ];
