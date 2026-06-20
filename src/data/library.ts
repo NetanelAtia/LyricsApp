@@ -55,4 +55,9 @@ export const library: LibrarySong[] = [
   { videoId: 'H5v3kku4y6Q', artist: 'Harry Styles', track: 'As It Was', emoji: '🌪️', accent: '#a29bfe' },
   { videoId: 'YaEG2aWJnZ8', artist: 'Sia', track: 'Unstoppable', emoji: '🦋', accent: '#fd79a8' },
   { videoId: 'fHI8X4OXluQ', artist: 'The Weeknd', track: 'Blinding Lights', emoji: '🌃', accent: '#e17055' },
+  { videoId: 'r7qovpFAGrQ', artist: 'Lil Nas X', track: 'Old Town Road', emoji: '🤠', accent: '#fdcb6e' },
+  { videoId: 'xFYQQPAOz7Y', artist: 'Eminem', track: 'Lose Yourself', emoji: '🎤', accent: '#636e72' },
+  { videoId: 'C7dPqrmDWxs', artist: 'Pharrell Williams', track: 'Happy', emoji: '😄', accent: '#fdcb6e' },
+  { videoId: 'UXWFqxKU2qA', artist: 'Snoop Dogg', track: 'Vato', emoji: '😎', accent: '#00b894' },
+  { videoId: 'WDaNJW_jEBo', artist: 'Busta Rhymes ft. Mariah Carey', track: 'I Know What You Want', emoji: '💋', accent: '#e84393' },
 ];
