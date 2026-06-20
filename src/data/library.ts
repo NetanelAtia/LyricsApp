@@ -14,7 +14,6 @@ export type LibrarySong = {
 // A user's own calibration (saved locally) overrides these.
 export const defaultOffsets: Record<string, number> = {
   '2Vv-BfVoq4g': -18.8, // Ed Sheeran – Perfect
-  'EkHTsc9PU2A': -7.0, // Jason Mraz – I'm Yours
   'LjhCEhWiKXk': -15.7, // Bruno Mars – Just the Way You Are
   'fLexgOxsZu0': -3.0, // Bruno Mars – The Lazy Song
   'Xg72z08aTXY': -0.5, // Måneskin – Beggin'
