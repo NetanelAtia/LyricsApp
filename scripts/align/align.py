@@ -64,14 +64,13 @@ def main():
     if not sung_lines:
         sys.exit("No non-instrumental lines found in that .lrc file.")
 
-    # Build alignment input segments: known text + a rough start/end window
-    # per line (end = next line's start, or +6s for the last line). The
-    # alignment model only needs an approximate window — it finds the exact
-    # word boundaries itself.
-    segments = []
+    # Each line's start/end window (end = next line's start, or +6s for the
+    # last line). The alignment model only needs an approximate window — it
+    # finds the exact word boundaries itself.
+    windows = []
     for i, l in enumerate(sung_lines):
         end = sung_lines[i + 1]["start"] if i + 1 < len(sung_lines) else l["start"] + 6.0
-        segments.append({"start": l["start"], "end": end, "text": l["text"]})
+        windows.append((l["start"], end))
 
     print(f"Loading audio: {args.audio}")
     audio = whisperx.load_audio(args.audio)
@@ -79,28 +78,33 @@ def main():
     print("Loading alignment model (downloads once, then cached)...")
     align_model, metadata = whisperx.load_align_model(language_code=args.language, device="cpu")
 
-    print(f"Aligning {len(segments)} lines against the audio (interpolate={args.interpolate})...")
-    result = whisperx.align(
-        segments, align_model, metadata, audio, "cpu",
-        interpolate_method=args.interpolate, return_char_alignments=False,
-    )
-
-    # Map the aligned words back onto our LRC tags, in order. Also keep each
-    # word's confidence score (not used by the app, but useful for spotting
-    # which words were guessed/interpolated rather than confidently placed —
-    # singing sustained/held notes is the main thing that trips this up,
-    # since the alignment model is trained on read speech, not singing).
+    # Align ONE line at a time, not the whole song in a single call.
+    # whisperx internally groups its output by (start, end) timestamp —
+    # if two different lines happen to land on the same aligned timestamp
+    # (common with short, repeated phrases), it silently MERGES them into
+    # one entry, which shifts every following line's pairing by one and
+    # quietly corrupts the rest of the song. Aligning line-by-line makes
+    # that impossible, since there's never more than one segment to merge.
+    print(f"Aligning {len(sung_lines)} lines against the audio, one at a time (interpolate={args.interpolate})...")
     out = {}
-    for seg, line in zip(result["segments"], sung_lines):
+    for i, (line, (start, end)) in enumerate(zip(sung_lines, windows)):
+        result = whisperx.align(
+            [{"start": start, "end": end, "text": line["text"]}],
+            align_model, metadata, audio, "cpu",
+            interpolate_method=args.interpolate, return_char_alignments=False,
+        )
         words = []
-        for w in seg.get("words", []):
-            if "start" not in w or "end" not in w:
-                continue  # whisperx leaves timing off words it couldn't align at all
-            entry = {"word": w["word"], "start": round(w["start"], 3), "end": round(w["end"], 3)}
-            if "score" in w:
-                entry["score"] = round(w["score"], 3)
-            words.append(entry)
+        for seg in result["segments"]:
+            for w in seg.get("words", []):
+                if "start" not in w or "end" not in w:
+                    continue  # whisperx leaves timing off words it couldn't align at all
+                entry = {"word": w["word"], "start": round(w["start"], 3), "end": round(w["end"], 3)}
+                if "score" in w:
+                    entry["score"] = round(w["score"], 3)
+                words.append(entry)
         out[line["tag"]] = words
+        if (i + 1) % 10 == 0 or i + 1 == len(sung_lines):
+            print(f"  {i + 1}/{len(sung_lines)} lines aligned")
 
     out_dir = os.path.join(project_root, "public", "wordtiming")
     os.makedirs(out_dir, exist_ok=True)
