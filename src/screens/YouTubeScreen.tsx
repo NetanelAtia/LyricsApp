@@ -140,6 +140,9 @@ export default function YouTubeScreen({ navigation, route }: any) {
   // 'both' keeps the existing English-with-optional-translation behavior;
   // 'en'/'he' show only one language.
   const [displayMode, setDisplayMode] = useState<'both' | 'en' | 'he'>('both');
+  // Karaoke word-by-word highlight — on by default, can be turned off if
+  // you'd rather just read the lyrics without the follow-along marking.
+  const [karaokeOn, setKaraokeOn] = useState(true);
   // High-quality curated translations bundled with the app (time -> Hebrew).
   const [bundledTr, setBundledTr] = useState<Record<string, string>>({});
   // Real per-word timestamps from offline forced alignment, keyed by LRC
@@ -622,6 +625,19 @@ export default function YouTubeScreen({ navigation, route }: any) {
             </TouchableOpacity>
           </View>
         )}
+
+        {/* Karaoke word-by-word highlight on/off */}
+        {lines.length > 0 && (
+          <TouchableOpacity
+            style={[styles.karaokeToggle, karaokeOn && styles.karaokeToggleActive]}
+            onPress={() => setKaraokeOn((v) => !v)}
+            activeOpacity={0.85}
+          >
+            <Text style={[styles.karaokeToggleText, karaokeOn && styles.karaokeToggleTextActive]}>
+              {karaokeOn ? '🎤 מצב קריוקי פעיל' : '🎤 מצב קריוקי כבוי'}
+            </Text>
+          </TouchableOpacity>
+        )}
         {/* Focused karaoke: only the current line (+ a peek at prev/next) */}
         {lines.length > 0 &&
           (() => {
@@ -644,7 +660,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                           cur.text.split(/\s+/).map((w, wi) => {
                             const key = `${idx}-${wi}`;
                             const isSel = selected === key;
-                            const isActiveWord = wi === currentWord;
+                            const isActiveWord = karaokeOn && wi === currentWord;
                             return (
                               <View key={wi} style={[styles.wordWrap, isSel && styles.wordWrapActive]}>
                                 {isSel && (
@@ -685,7 +701,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                           const heWords = lineHe(idx).split(/\s+/);
                           const enWordCount = cur.text.split(/\s+/).length;
                           const activeHeIdx =
-                            currentWord >= 0 && enWordCount > 0
+                            karaokeOn && currentWord >= 0 && enWordCount > 0
                               ? Math.min(heWords.length - 1, Math.floor(((currentWord + 1) / enWordCount) * heWords.length))
                               : -1;
                           return (
@@ -747,14 +763,14 @@ export default function YouTubeScreen({ navigation, route }: any) {
         {videoId && lines.length > 0 && (
           <>
             <View style={styles.controlsRow}>
-              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-10)} activeOpacity={0.8}>
-                <Text style={styles.ctrlText}>⏪ 10</Text>
+              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-5)} activeOpacity={0.8}>
+                <Text style={styles.ctrlText}>⏪ 5</Text>
               </TouchableOpacity>
               <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
                 <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(10)} activeOpacity={0.8}>
-                <Text style={styles.ctrlText}>10 ⏩</Text>
+              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(5)} activeOpacity={0.8}>
+                <Text style={styles.ctrlText}>5 ⏩</Text>
               </TouchableOpacity>
             </View>
 
@@ -878,6 +894,19 @@ const styles = StyleSheet.create({
   langModeBtnActive: { backgroundColor: colors.primary },
   langModeText: { color: colors.textMuted, fontSize: 14, fontFamily: fonts.bold },
   langModeTextActive: { color: '#fff' },
+
+  karaokeToggle: {
+    alignSelf: 'center',
+    marginTop: spacing.xs,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 6,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.surfaceLight,
+  },
+  karaokeToggleActive: { borderColor: colors.primary, backgroundColor: colors.surfaceLight },
+  karaokeToggleText: { color: colors.textFaint, fontSize: 12, fontWeight: '700' },
+  karaokeToggleTextActive: { color: colors.primarySoft },
 
   // Focused karaoke view
   karaoke: { paddingHorizontal: spacing.lg, paddingTop: spacing.md, alignItems: 'center' },
