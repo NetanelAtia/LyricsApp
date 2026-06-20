@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const ids = ['r7qovpFAGrQ','xFYQQPAOz7Y','C7dPqrmDWxs','UXWFqxKU2qA','WDaNJW_jEBo'];
+const ids = [];
 
 function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
 
