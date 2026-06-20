@@ -163,32 +163,27 @@
     {
       "word": "And",
       "start": 30.552,
-      "end": 31.715,
-      "score": 0.482
+      "end": 31.715
     },
     {
       "word": "I",
-      "start": 32.777,
-      "end": 32.917,
-      "score": 0.779
+      "start": 31.735,
+      "end": 32.396
     },
     {
       "word": "tell",
-      "start": 32.997,
-      "end": 33.418,
-      "score": 0.741
+      "start": 32.436,
+      "end": 33.097
     },
     {
       "word": "her",
-      "start": 33.598,
-      "end": 33.759,
-      "score": 0.473
+      "start": 33.138,
+      "end": 33.799
     },
     {
       "word": "everyday",
-      "start": 33.779,
-      "end": 34.28,
-      "score": 0.355
+      "start": 33.839,
+      "end": 34.5
     }
   ],
   "00:34.52": [
