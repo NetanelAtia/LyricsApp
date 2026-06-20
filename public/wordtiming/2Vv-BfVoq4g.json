@@ -1,0 +1,1826 @@
+{
+  "00:02.98": [
+    {
+      "word": "I",
+      "start": 3.0,
+      "end": 3.261,
+      "score": 0.829
+    },
+    {
+      "word": "found",
+      "start": 3.301,
+      "end": 3.562,
+      "score": 0.38
+    },
+    {
+      "word": "a",
+      "start": 3.842,
+      "end": 4.043,
+      "score": 0.848
+    },
+    {
+      "word": "love,",
+      "start": 5.126,
+      "end": 5.687,
+      "score": 0.512
+    },
+    {
+      "word": "for",
+      "start": 5.727,
+      "end": 6.55,
+      "score": 0.72
+    },
+    {
+      "word": "me",
+      "start": 6.59,
+      "end": 6.77,
+      "score": 0.424
+    }
+  ],
+  "00:10.36": [
+    {
+      "word": "Darling,",
+      "start": 10.56,
+      "end": 10.981,
+      "score": 0.348
+    },
+    {
+      "word": "just",
+      "start": 11.041,
+      "end": 11.241,
+      "score": 0.45
+    },
+    {
+      "word": "dive",
+      "start": 11.301,
+      "end": 11.381,
+      "score": 0.003
+    },
+    {
+      "word": "right",
+      "start": 11.441,
+      "end": 11.642,
+      "score": 0.333
+    },
+    {
+      "word": "in",
+      "start": 11.682,
+      "end": 11.802,
+      "score": 0.578
+    },
+    {
+      "word": "and",
+      "start": 12.002,
+      "end": 12.122,
+      "score": 0.467
+    },
+    {
+      "word": "follow",
+      "start": 12.223,
+      "end": 12.503,
+      "score": 0.387
+    },
+    {
+      "word": "my",
+      "start": 12.583,
+      "end": 12.663,
+      "score": 0.31
+    },
+    {
+      "word": "lead",
+      "start": 12.783,
+      "end": 12.944,
+      "score": 0.293
+    }
+  ],
+  "00:17.69": [
+    {
+      "word": "Well,",
+      "start": 20.437,
+      "end": 20.578,
+      "score": 0.14
+    },
+    {
+      "word": "I",
+      "start": 20.598,
+      "end": 20.618,
+      "score": 0.0
+    },
+    {
+      "word": "found",
+      "start": 20.658,
+      "end": 20.979,
+      "score": 0.912
+    },
+    {
+      "word": "a",
+      "start": 21.059,
+      "end": 21.099,
+      "score": 0.861
+    },
+    {
+      "word": "girl,",
+      "start": 21.58,
+      "end": 22.182,
+      "score": 0.762
+    },
+    {
+      "word": "beautiful",
+      "start": 22.202,
+      "end": 24.428,
+      "score": 0.681
+    },
+    {
+      "word": "and",
+      "start": 24.508,
+      "end": 24.608,
+      "score": 0.323
+    },
+    {
+      "word": "sweet",
+      "start": 24.648,
+      "end": 25.37,
+      "score": 0.598
+    }
+  ],
+  "00:25.37": [
+    {
+      "word": "Oh,",
+      "start": 25.41,
+      "end": 25.631,
+      "score": 0.636
+    },
+    {
+      "word": "I",
+      "start": 25.912,
+      "end": 25.952,
+      "score": 0.487
+    },
+    {
+      "word": "never",
+      "start": 26.012,
+      "end": 26.273,
+      "score": 0.422
+    },
+    {
+      "word": "knew",
+      "start": 26.333,
+      "end": 26.473,
+      "score": 0.364
+    },
+    {
+      "word": "you",
+      "start": 26.493,
+      "end": 26.895,
+      "score": 0.737
+    },
+    {
+      "word": "were",
+      "start": 26.955,
+      "end": 27.256,
+      "score": 0.674
+    },
+    {
+      "word": "the",
+      "start": 27.737,
+      "end": 27.838,
+      "score": 0.243
+    },
+    {
+      "word": "someone",
+      "start": 27.898,
+      "end": 28.48,
+      "score": 0.639
+    },
+    {
+      "word": "waiting",
+      "start": 28.56,
+      "end": 29.402,
+      "score": 0.545
+    },
+    {
+      "word": "for",
+      "start": 29.423,
+      "end": 29.743,
+      "score": 0.537
+    },
+    {
+      "word": "me",
+      "start": 29.804,
+      "end": 29.844,
+      "score": 0.302
+    }
+  ],
+  "00:31.85": [
+    {
+      "word": "'Cause",
+      "start": 31.89,
+      "end": 32.251,
+      "score": 0.43
+    },
+    {
+      "word": "we",
+      "start": 32.291,
+      "end": 32.491,
+      "score": 0.454
+    },
+    {
+      "word": "were",
+      "start": 32.511,
+      "end": 33.373,
+      "score": 0.714
+    },
+    {
+      "word": "just",
+      "start": 33.393,
+      "end": 33.513,
+      "score": 0.16
+    },
+    {
+      "word": "kids",
+      "start": 33.573,
+      "end": 33.874,
+      "score": 0.532
+    },
+    {
+      "word": "when",
+      "start": 33.914,
+      "end": 34.014,
+      "score": 0.166
+    },
+    {
+      "word": "we",
+      "start": 34.034,
+      "end": 34.155,
+      "score": 0.591
+    },
+    {
+      "word": "fell",
+      "start": 34.235,
+      "end": 34.555,
+      "score": 0.532
+    },
+    {
+      "word": "in",
+      "start": 34.676,
+      "end": 34.876,
+      "score": 0.49
+    },
+    {
+      "word": "love",
+      "start": 35.517,
+      "end": 35.758,
+      "score": 0.449
+    }
+  ],
+  "00:36.78": [
+    {
+      "word": "Not",
+      "start": 37.061,
+      "end": 37.343,
+      "score": 0.25
+    },
+    {
+      "word": "knowing",
+      "start": 37.403,
+      "end": 38.67,
+      "score": 0.637
+    },
+    {
+      "word": "what",
+      "start": 39.273,
+      "end": 39.835,
+      "score": 0.496
+    },
+    {
+      "word": "it",
+      "start": 39.876,
+      "end": 39.936,
+      "score": 0.449
+    },
+    {
+      "word": "was",
+      "start": 39.956,
+      "end": 40.077,
+      "score": 0.605
+    }
+  ],
+  "00:40.74": [
+    {
+      "word": "I",
+      "start": 40.76,
+      "end": 40.88,
+      "score": 0.252
+    },
+    {
+      "word": "will",
+      "start": 41.121,
+      "end": 41.362,
+      "score": 0.439
+    },
+    {
+      "word": "not",
+      "start": 41.382,
+      "end": 41.442,
+      "score": 0.097
+    },
+    {
+      "word": "give",
+      "start": 42.104,
+      "end": 42.184,
+      "score": 0.002
+    },
+    {
+      "word": "you",
+      "start": 42.224,
+      "end": 42.384,
+      "score": 0.268
+    },
+    {
+      "word": "up",
+      "start": 42.886,
+      "end": 42.966,
+      "score": 0.337
+    },
+    {
+      "word": "this",
+      "start": 42.986,
+      "end": 43.247,
+      "score": 0.466
+    },
+    {
+      "word": "time",
+      "start": 43.347,
+      "end": 43.728,
+      "score": 0.86
+    }
+  ],
+  "00:48.12": [
+    {
+      "word": "But",
+      "start": 48.12,
+      "end": 49.548,
+      "score": 0.475
+    },
+    {
+      "word": "darling,",
+      "start": 49.688,
+      "end": 50.312,
+      "score": 0.693
+    },
+    {
+      "word": "just",
+      "start": 50.352,
+      "end": 50.573,
+      "score": 0.918
+    },
+    {
+      "word": "kiss",
+      "start": 50.653,
+      "end": 50.834,
+      "score": 0.308
+    },
+    {
+      "word": "me",
+      "start": 50.854,
+      "end": 50.915,
+      "score": 0.344
+    },
+    {
+      "word": "slow",
+      "start": 50.935,
+      "end": 51.055,
+      "score": 0.584
+    }
+  ],
+  "00:51.92": [
+    {
+      "word": "Your",
+      "start": 52.021,
+      "end": 52.503,
+      "score": 0.586
+    },
+    {
+      "word": "heart",
+      "start": 52.865,
+      "end": 53.166,
+      "score": 0.388
+    },
+    {
+      "word": "is",
+      "start": 53.227,
+      "end": 53.388,
+      "score": 0.626
+    },
+    {
+      "word": "all",
+      "start": 53.408,
+      "end": 53.609,
+      "score": 0.778
+    },
+    {
+      "word": "I",
+      "start": 53.649,
+      "end": 53.83,
+      "score": 0.725
+    },
+    {
+      "word": "own",
+      "start": 54.594,
+      "end": 54.694,
+      "score": 0.55
+    }
+  ],
+  "00:55.78": [
+    {
+      "word": "And",
+      "start": 56.221,
+      "end": 56.321,
+      "score": 0.299
+    },
+    {
+      "word": "in",
+      "start": 56.341,
+      "end": 56.701,
+      "score": 0.828
+    },
+    {
+      "word": "your",
+      "start": 56.962,
+      "end": 57.122,
+      "score": 0.226
+    },
+    {
+      "word": "eyes,",
+      "start": 57.523,
+      "end": 57.723,
+      "score": 0.274
+    },
+    {
+      "word": "you're",
+      "start": 58.364,
+      "end": 58.484,
+      "score": 0.002
+    },
+    {
+      "word": "holding",
+      "start": 58.564,
+      "end": 58.905,
+      "score": 0.632
+    },
+    {
+      "word": "mine",
+      "start": 58.925,
+      "end": 59.085,
+      "score": 0.412
+    }
+  ],
+  "01:02.37": [
+    {
+      "word": "Baby,",
+      "start": 62.39,
+      "end": 62.791,
+      "score": 0.46
+    },
+    {
+      "word": "I'm",
+      "start": 64.953,
+      "end": 65.294,
+      "score": 0.635
+    },
+    {
+      "word": "dancing",
+      "start": 65.314,
+      "end": 66.175,
+      "score": 0.627
+    },
+    {
+      "word": "in",
+      "start": 66.255,
+      "end": 66.596,
+      "score": 0.751
+    },
+    {
+      "word": "the",
+      "start": 66.716,
+      "end": 66.976,
+      "score": 0.645
+    },
+    {
+      "word": "dark",
+      "start": 67.116,
+      "end": 67.417,
+      "score": 0.401
+    }
+  ],
+  "01:09.84": [
+    {
+      "word": "With",
+      "start": 70.121,
+      "end": 70.282,
+      "score": 0.283
+    },
+    {
+      "word": "you",
+      "start": 70.302,
+      "end": 70.443,
+      "score": 0.494
+    },
+    {
+      "word": "between",
+      "start": 70.483,
+      "end": 71.348,
+      "score": 0.256
+    },
+    {
+      "word": "my",
+      "start": 71.448,
+      "end": 72.353,
+      "score": 0.849
+    },
+    {
+      "word": "arms",
+      "start": 72.534,
+      "end": 72.695,
+      "score": 0.402
+    }
+  ],
+  "01:13.76": [
+    {
+      "word": "Barefoot",
+      "start": 74.301,
+      "end": 75.966,
+      "score": 0.759
+    },
+    {
+      "word": "on",
+      "start": 76.407,
+      "end": 76.608,
+      "score": 0.794
+    },
+    {
+      "word": "the",
+      "start": 77.109,
+      "end": 77.31,
+      "score": 0.721
+    },
+    {
+      "word": "grass",
+      "start": 77.33,
+      "end": 77.43,
+      "score": 0.044
+    }
+  ],
+  "01:17.45": [
+    {
+      "word": "Listening",
+      "start": 77.47,
+      "end": 78.799,
+      "score": 0.697
+    },
+    {
+      "word": "to",
+      "start": 79.061,
+      "end": 79.121,
+      "score": 0.248
+    },
+    {
+      "word": "our",
+      "start": 79.141,
+      "end": 79.504,
+      "score": 0.471
+    },
+    {
+      "word": "favourite",
+      "start": 79.705,
+      "end": 80.229,
+      "score": 0.28
+    },
+    {
+      "word": "song",
+      "start": 80.249,
+      "end": 80.329,
+      "score": 0.002
+    }
+  ],
+  "01:20.45": [
+    {
+      "word": "When",
+      "start": 80.971,
+      "end": 81.753,
+      "score": 0.62
+    },
+    {
+      "word": "you",
+      "start": 82.054,
+      "end": 82.796,
+      "score": 0.837
+    },
+    {
+      "word": "said",
+      "start": 82.876,
+      "end": 83.197,
+      "score": 0.65
+    },
+    {
+      "word": "you",
+      "start": 83.217,
+      "end": 83.298,
+      "score": 0.171
+    },
+    {
+      "word": "looked",
+      "start": 83.318,
+      "end": 83.498,
+      "score": 0.21
+    },
+    {
+      "word": "a",
+      "start": 83.518,
+      "end": 83.538,
+      "score": 0.001
+    },
+    {
+      "word": "mess",
+      "start": 83.578,
+      "end": 83.779,
+      "score": 0.329
+    }
+  ],
+  "01:24.20": [
+    {
+      "word": "I",
+      "start": 84.2,
+      "end": 84.24,
+      "score": 0.497
+    },
+    {
+      "word": "whispered",
+      "start": 84.381,
+      "end": 84.642,
+      "score": 0.167
+    },
+    {
+      "word": "underneath",
+      "start": 84.663,
+      "end": 85.608,
+      "score": 0.659
+    },
+    {
+      "word": "my",
+      "start": 85.648,
+      "end": 86.111,
+      "score": 0.805
+    },
+    {
+      "word": "breath",
+      "start": 86.654,
+      "end": 87.398,
+      "score": 0.568
+    }
+  ],
+  "01:27.76": [
+    {
+      "word": "But",
+      "start": 88.222,
+      "end": 88.362,
+      "score": 0.961
+    },
+    {
+      "word": "you",
+      "start": 88.523,
+      "end": 89.145,
+      "score": 0.732
+    },
+    {
+      "word": "heard",
+      "start": 89.205,
+      "end": 89.346,
+      "score": 0.29
+    },
+    {
+      "word": "it",
+      "start": 89.787,
+      "end": 89.908,
+      "score": 0.402
+    }
+  ],
+  "01:30.51": [
+    {
+      "word": "Darling,",
+      "start": 91.372,
+      "end": 91.933,
+      "score": 0.369
+    },
+    {
+      "word": "you",
+      "start": 91.993,
+      "end": 92.273,
+      "score": 0.775
+    },
+    {
+      "word": "look",
+      "start": 92.313,
+      "end": 92.895,
+      "score": 0.695
+    },
+    {
+      "word": "perfect",
+      "start": 92.955,
+      "end": 94.077,
+      "score": 0.683
+    },
+    {
+      "word": "tonight",
+      "start": 94.237,
+      "end": 95.179,
+      "score": 0.542
+    }
+  ],
+  "01:41.07": [
+    {
+      "word": "Well,",
+      "start": 101.09,
+      "end": 101.25,
+      "score": 0.323
+    },
+    {
+      "word": "I",
+      "start": 101.311,
+      "end": 101.391,
+      "score": 0.519
+    },
+    {
+      "word": "found",
+      "start": 101.812,
+      "end": 102.032,
+      "score": 0.352
+    },
+    {
+      "word": "a",
+      "start": 102.053,
+      "end": 102.073,
+      "score": 0.002
+    },
+    {
+      "word": "woman,",
+      "start": 102.113,
+      "end": 102.714,
+      "score": 0.654
+    },
+    {
+      "word": "stronger",
+      "start": 102.734,
+      "end": 103.356,
+      "score": 0.379
+    },
+    {
+      "word": "than",
+      "start": 103.376,
+      "end": 103.597,
+      "score": 0.643
+    },
+    {
+      "word": "anyone",
+      "start": 103.617,
+      "end": 104.158,
+      "score": 0.529
+    },
+    {
+      "word": "I",
+      "start": 104.218,
+      "end": 104.298,
+      "score": 0.553
+    },
+    {
+      "word": "know",
+      "start": 104.318,
+      "end": 104.479,
+      "score": 0.206
+    }
+  ],
+  "01:48.83": [
+    {
+      "word": "She",
+      "start": 108.97,
+      "end": 109.331,
+      "score": 0.816
+    },
+    {
+      "word": "shares",
+      "start": 109.411,
+      "end": 110.232,
+      "score": 0.669
+    },
+    {
+      "word": "my",
+      "start": 110.873,
+      "end": 111.113,
+      "score": 0.677
+    },
+    {
+      "word": "dreams,",
+      "start": 111.233,
+      "end": 112.074,
+      "score": 0.659
+    },
+    {
+      "word": "I",
+      "start": 112.174,
+      "end": 112.294,
+      "score": 0.797
+    },
+    {
+      "word": "hope",
+      "start": 112.515,
+      "end": 112.775,
+      "score": 0.629
+    },
+    {
+      "word": "that",
+      "start": 112.855,
+      "end": 113.015,
+      "score": 0.328
+    },
+    {
+      "word": "someday",
+      "start": 113.116,
+      "end": 113.656,
+      "score": 0.48
+    },
+    {
+      "word": "I'll",
+      "start": 113.877,
+      "end": 114.057,
+      "score": 0.33
+    },
+    {
+      "word": "share",
+      "start": 114.177,
+      "end": 114.678,
+      "score": 0.587
+    },
+    {
+      "word": "her",
+      "start": 114.758,
+      "end": 114.958,
+      "score": 0.491
+    },
+    {
+      "word": "home",
+      "start": 115.098,
+      "end": 115.238,
+      "score": 0.311
+    }
+  ],
+  "01:56.58": [
+    {
+      "word": "I",
+      "start": 116.7,
+      "end": 116.8,
+      "score": 0.74
+    },
+    {
+      "word": "found",
+      "start": 116.88,
+      "end": 117.461,
+      "score": 0.429
+    },
+    {
+      "word": "a",
+      "start": 117.641,
+      "end": 117.822,
+      "score": 0.811
+    },
+    {
+      "word": "lover,",
+      "start": 117.962,
+      "end": 118.422,
+      "score": 0.604
+    },
+    {
+      "word": "to",
+      "start": 118.683,
+      "end": 118.863,
+      "score": 0.496
+    },
+    {
+      "word": "carry",
+      "start": 118.883,
+      "end": 119.043,
+      "score": 0.271
+    },
+    {
+      "word": "more",
+      "start": 119.123,
+      "end": 119.484,
+      "score": 0.649
+    },
+    {
+      "word": "than",
+      "start": 119.524,
+      "end": 119.684,
+      "score": 0.467
+    },
+    {
+      "word": "just",
+      "start": 119.804,
+      "end": 120.725,
+      "score": 0.837
+    },
+    {
+      "word": "my",
+      "start": 122.107,
+      "end": 122.147,
+      "score": 0.004
+    },
+    {
+      "word": "secrets",
+      "start": 122.287,
+      "end": 122.507,
+      "score": 0.189
+    }
+  ],
+  "02:04.51": [
+    {
+      "word": "To",
+      "start": 124.57,
+      "end": 124.63,
+      "score": 0.25
+    },
+    {
+      "word": "carry",
+      "start": 124.65,
+      "end": 124.81,
+      "score": 0.356
+    },
+    {
+      "word": "love,",
+      "start": 124.851,
+      "end": 125.071,
+      "score": 0.563
+    },
+    {
+      "word": "to",
+      "start": 125.472,
+      "end": 125.612,
+      "score": 0.443
+    },
+    {
+      "word": "carry",
+      "start": 125.632,
+      "end": 125.732,
+      "score": 0.006
+    },
+    {
+      "word": "children",
+      "start": 125.752,
+      "end": 126.053,
+      "score": 0.289
+    },
+    {
+      "word": "of",
+      "start": 126.073,
+      "end": 126.113,
+      "score": 0.002
+    },
+    {
+      "word": "our",
+      "start": 126.153,
+      "end": 126.353,
+      "score": 0.548
+    },
+    {
+      "word": "own",
+      "start": 126.413,
+      "end": 126.493,
+      "score": 0.168
+    }
+  ],
+  "02:10.64": [
+    {
+      "word": "We",
+      "start": 130.761,
+      "end": 130.861,
+      "score": 0.364
+    },
+    {
+      "word": "are",
+      "start": 130.901,
+      "end": 131.102,
+      "score": 0.708
+    },
+    {
+      "word": "still",
+      "start": 131.122,
+      "end": 132.046,
+      "score": 0.711
+    },
+    {
+      "word": "kids,",
+      "start": 132.146,
+      "end": 132.95,
+      "score": 0.461
+    },
+    {
+      "word": "but",
+      "start": 133.01,
+      "end": 133.231,
+      "score": 0.45
+    },
+    {
+      "word": "we're",
+      "start": 133.251,
+      "end": 133.753,
+      "score": 0.492
+    },
+    {
+      "word": "so",
+      "start": 133.874,
+      "end": 134.175,
+      "score": 0.77
+    },
+    {
+      "word": "in",
+      "start": 134.416,
+      "end": 134.577,
+      "score": 0.739
+    },
+    {
+      "word": "love",
+      "start": 134.637,
+      "end": 134.858,
+      "score": 0.444
+    }
+  ],
+  "02:15.32": [
+    {
+      "word": "Fighting",
+      "start": 135.521,
+      "end": 137.766,
+      "score": 0.587
+    },
+    {
+      "word": "against",
+      "start": 137.786,
+      "end": 138.508,
+      "score": 0.666
+    },
+    {
+      "word": "all",
+      "start": 138.528,
+      "end": 138.809,
+      "score": 0.64
+    },
+    {
+      "word": "odds",
+      "start": 139.17,
+      "end": 139.31,
+      "score": 0.173
+    }
+  ],
+  "02:19.31": [
+    {
+      "word": "I",
+      "start": 139.49,
+      "end": 139.65,
+      "score": 0.758
+    },
+    {
+      "word": "know",
+      "start": 139.731,
+      "end": 140.271,
+      "score": 0.702
+    },
+    {
+      "word": "we'll",
+      "start": 140.331,
+      "end": 140.532,
+      "score": 0.246
+    },
+    {
+      "word": "be",
+      "start": 140.592,
+      "end": 140.812,
+      "score": 0.866
+    },
+    {
+      "word": "alright",
+      "start": 140.852,
+      "end": 141.193,
+      "score": 0.413
+    },
+    {
+      "word": "this",
+      "start": 141.253,
+      "end": 141.513,
+      "score": 0.401
+    },
+    {
+      "word": "time",
+      "start": 141.613,
+      "end": 142.134,
+      "score": 0.485
+    }
+  ],
+  "02:26.76": [
+    {
+      "word": "Darling,",
+      "start": 147.323,
+      "end": 148.51,
+      "score": 0.752
+    },
+    {
+      "word": "just",
+      "start": 148.55,
+      "end": 148.751,
+      "score": 0.418
+    },
+    {
+      "word": "hold",
+      "start": 148.832,
+      "end": 148.993,
+      "score": 0.472
+    },
+    {
+      "word": "my",
+      "start": 149.013,
+      "end": 149.053,
+      "score": 0.001
+    },
+    {
+      "word": "hand",
+      "start": 149.134,
+      "end": 149.415,
+      "score": 0.545
+    }
+  ],
+  "02:30.26": [
+    {
+      "word": "Be",
+      "start": 151.082,
+      "end": 151.403,
+      "score": 0.829
+    },
+    {
+      "word": "my",
+      "start": 151.423,
+      "end": 151.663,
+      "score": 0.782
+    },
+    {
+      "word": "girl,",
+      "start": 151.683,
+      "end": 151.924,
+      "score": 0.573
+    },
+    {
+      "word": "I'll",
+      "start": 151.944,
+      "end": 152.205,
+      "score": 0.594
+    },
+    {
+      "word": "be",
+      "start": 152.265,
+      "end": 152.365,
+      "score": 0.654
+    },
+    {
+      "word": "your",
+      "start": 152.947,
+      "end": 153.508,
+      "score": 0.618
+    },
+    {
+      "word": "man",
+      "start": 153.528,
+      "end": 153.608,
+      "score": 0.565
+    }
+  ],
+  "02:34.35": [
+    {
+      "word": "I",
+      "start": 154.41,
+      "end": 154.551,
+      "score": 0.66
+    },
+    {
+      "word": "see",
+      "start": 154.591,
+      "end": 154.711,
+      "score": 0.401
+    },
+    {
+      "word": "my",
+      "start": 154.932,
+      "end": 155.774,
+      "score": 0.704
+    },
+    {
+      "word": "future",
+      "start": 155.794,
+      "end": 156.236,
+      "score": 0.488
+    },
+    {
+      "word": "in",
+      "start": 156.938,
+      "end": 157.058,
+      "score": 0.587
+    },
+    {
+      "word": "your",
+      "start": 157.078,
+      "end": 157.54,
+      "score": 0.762
+    },
+    {
+      "word": "eyes",
+      "start": 157.921,
+      "end": 158.543,
+      "score": 0.653
+    }
+  ],
+  "02:41.01": [
+    {
+      "word": "Baby,",
+      "start": 161.491,
+      "end": 163.216,
+      "score": 0.792
+    },
+    {
+      "word": "I'm",
+      "start": 163.577,
+      "end": 163.697,
+      "score": 0.479
+    },
+    {
+      "word": "dancing",
+      "start": 164.018,
+      "end": 164.961,
+      "score": 0.782
+    },
+    {
+      "word": "in",
+      "start": 165.001,
+      "end": 165.081,
+      "score": 0.302
+    },
+    {
+      "word": "the",
+      "start": 165.302,
+      "end": 166.204,
+      "score": 0.726
+    },
+    {
+      "word": "dark",
+      "start": 166.285,
+      "end": 166.906,
+      "score": 0.383
+    }
+  ],
+  "02:48.27": [
+    {
+      "word": "With",
+      "start": 168.27,
+      "end": 168.511,
+      "score": 0.498
+    },
+    {
+      "word": "you",
+      "start": 168.571,
+      "end": 169.012,
+      "score": 0.743
+    },
+    {
+      "word": "between",
+      "start": 169.132,
+      "end": 170.836,
+      "score": 0.696
+    },
+    {
+      "word": "my",
+      "start": 170.937,
+      "end": 171.277,
+      "score": 0.76
+    },
+    {
+      "word": "arms",
+      "start": 172.039,
+      "end": 172.22,
+      "score": 0.373
+    }
+  ],
+  "02:52.32": [
+    {
+      "word": "Barefoot",
+      "start": 172.32,
+      "end": 172.761,
+      "score": 0.522
+    },
+    {
+      "word": "on",
+      "start": 173.403,
+      "end": 173.664,
+      "score": 0.671
+    },
+    {
+      "word": "the",
+      "start": 173.824,
+      "end": 174.446,
+      "score": 0.758
+    },
+    {
+      "word": "grass",
+      "start": 174.466,
+      "end": 175.669,
+      "score": 0.55
+    }
+  ],
+  "02:55.99": [
+    {
+      "word": "Listening",
+      "start": 177.077,
+      "end": 177.338,
+      "score": 0.17
+    },
+    {
+      "word": "to",
+      "start": 178.224,
+      "end": 178.324,
+      "score": 0.376
+    },
+    {
+      "word": "our",
+      "start": 178.405,
+      "end": 178.465,
+      "score": 0.005
+    },
+    {
+      "word": "favorite",
+      "start": 178.506,
+      "end": 179.009,
+      "score": 0.355
+    },
+    {
+      "word": "song",
+      "start": 179.029,
+      "end": 179.109,
+      "score": 0.003
+    }
+  ],
+  "02:59.23": [
+    {
+      "word": "When",
+      "start": 179.51,
+      "end": 179.811,
+      "score": 0.393
+    },
+    {
+      "word": "I",
+      "start": 179.831,
+      "end": 179.851,
+      "score": 0.001
+    },
+    {
+      "word": "saw",
+      "start": 179.871,
+      "end": 179.991,
+      "score": 0.371
+    },
+    {
+      "word": "you",
+      "start": 180.031,
+      "end": 180.232,
+      "score": 0.278
+    },
+    {
+      "word": "in",
+      "start": 180.512,
+      "end": 180.692,
+      "score": 0.727
+    },
+    {
+      "word": "that",
+      "start": 182.315,
+      "end": 182.656,
+      "score": 0.281
+    },
+    {
+      "word": "dress,",
+      "start": 182.676,
+      "end": 182.816,
+      "score": 0.352
+    },
+    {
+      "word": "looking",
+      "start": 182.936,
+      "end": 183.297,
+      "score": 0.517
+    },
+    {
+      "word": "so",
+      "start": 183.317,
+      "end": 183.878,
+      "score": 0.78
+    },
+    {
+      "word": "beautiful",
+      "start": 183.938,
+      "end": 184.679,
+      "score": 0.443
+    }
+  ],
+  "03:05.32": [
+    {
+      "word": "I",
+      "start": 185.641,
+      "end": 185.701,
+      "score": 0.642
+    },
+    {
+      "word": "don't",
+      "start": 185.741,
+      "end": 186.042,
+      "score": 0.323
+    },
+    {
+      "word": "deserve",
+      "start": 186.082,
+      "end": 186.684,
+      "score": 0.403
+    },
+    {
+      "word": "this",
+      "start": 186.764,
+      "end": 186.964,
+      "score": 0.691
+    }
+  ],
+  "03:09.07": [
+    {
+      "word": "Darling,",
+      "start": 189.892,
+      "end": 190.433,
+      "score": 0.362
+    },
+    {
+      "word": "you",
+      "start": 190.513,
+      "end": 190.733,
+      "score": 0.622
+    },
+    {
+      "word": "look",
+      "start": 190.753,
+      "end": 190.893,
+      "score": 0.339
+    },
+    {
+      "word": "perfect",
+      "start": 190.954,
+      "end": 191.435,
+      "score": 0.399
+    },
+    {
+      "word": "tonight",
+      "start": 191.495,
+      "end": 191.835,
+      "score": 0.336
+    }
+  ],
+  "03:19.49": [
+    {
+      "word": "(No,",
+      "start": 199.65,
+      "end": 199.931,
+      "score": 0.533
+    },
+    {
+      "word": "no,",
+      "start": 200.512,
+      "end": 200.832,
+      "score": 0.555
+    },
+    {
+      "word": "no)",
+      "start": 200.912,
+      "end": 201.253,
+      "score": 0.777
+    }
+  ],
+  "03:26.30": [
+    {
+      "word": "Baby,",
+      "start": 206.48,
+      "end": 206.881,
+      "score": 0.747
+    },
+    {
+      "word": "I'm",
+      "start": 206.941,
+      "end": 207.021,
+      "score": 0.165
+    },
+    {
+      "word": "dancing",
+      "start": 207.101,
+      "end": 209.925,
+      "score": 0.548
+    },
+    {
+      "word": "in",
+      "start": 210.005,
+      "end": 210.085,
+      "score": 0.426
+    },
+    {
+      "word": "the",
+      "start": 210.125,
+      "end": 210.386,
+      "score": 0.564
+    },
+    {
+      "word": "dark",
+      "start": 210.446,
+      "end": 210.626,
+      "score": 0.422
+    }
+  ],
+  "03:33.61": [
+    {
+      "word": "With",
+      "start": 213.77,
+      "end": 214.272,
+      "score": 0.495
+    },
+    {
+      "word": "you",
+      "start": 214.292,
+      "end": 214.472,
+      "score": 0.382
+    },
+    {
+      "word": "between",
+      "start": 214.552,
+      "end": 215.495,
+      "score": 0.775
+    },
+    {
+      "word": "my",
+      "start": 216.477,
+      "end": 216.858,
+      "score": 0.434
+    },
+    {
+      "word": "arms",
+      "start": 217.179,
+      "end": 217.319,
+      "score": 0.294
+    }
+  ],
+  "03:37.72": [
+    {
+      "word": "Barefoot",
+      "start": 217.74,
+      "end": 218.263,
+      "score": 0.534
+    },
+    {
+      "word": "on",
+      "start": 218.544,
+      "end": 218.906,
+      "score": 0.775
+    },
+    {
+      "word": "the",
+      "start": 219.932,
+      "end": 220.153,
+      "score": 0.579
+    },
+    {
+      "word": "grass",
+      "start": 220.254,
+      "end": 221.199,
+      "score": 0.597
+    }
+  ],
+  "03:41.42": [
+    {
+      "word": "Listening",
+      "start": 221.521,
+      "end": 222.064,
+      "score": 0.476
+    },
+    {
+      "word": "to",
+      "start": 222.124,
+      "end": 222.265,
+      "score": 0.67
+    },
+    {
+      "word": "our",
+      "start": 222.305,
+      "end": 222.406,
+      "score": 0.243
+    },
+    {
+      "word": "favorite",
+      "start": 222.446,
+      "end": 223.03,
+      "score": 0.581
+    },
+    {
+      "word": "song",
+      "start": 223.11,
+      "end": 223.412,
+      "score": 0.488
+    }
+  ],
+  "03:44.70": [
+    {
+      "word": "I",
+      "start": 224.76,
+      "end": 224.78,
+      "score": 0.055
+    },
+    {
+      "word": "have",
+      "start": 224.82,
+      "end": 225.903,
+      "score": 0.753
+    },
+    {
+      "word": "faith",
+      "start": 225.943,
+      "end": 226.906,
+      "score": 0.658
+    },
+    {
+      "word": "in",
+      "start": 227.187,
+      "end": 227.387,
+      "score": 0.822
+    },
+    {
+      "word": "what",
+      "start": 227.788,
+      "end": 228.189,
+      "score": 0.545
+    },
+    {
+      "word": "I",
+      "start": 228.209,
+      "end": 228.269,
+      "score": 0.565
+    },
+    {
+      "word": "see",
+      "start": 228.37,
+      "end": 228.49,
+      "score": 0.259
+    }
+  ],
+  "03:48.49": [
+    {
+      "word": "Now",
+      "start": 228.59,
+      "end": 228.71,
+      "score": 0.281
+    },
+    {
+      "word": "I",
+      "start": 228.75,
+      "end": 228.791,
+      "score": 0.445
+    },
+    {
+      "word": "know",
+      "start": 228.831,
+      "end": 229.311,
+      "score": 0.528
+    },
+    {
+      "word": "I",
+      "start": 229.331,
+      "end": 229.351,
+      "score": 0.001
+    },
+    {
+      "word": "have",
+      "start": 229.432,
+      "end": 229.612,
+      "score": 0.597
+    },
+    {
+      "word": "met",
+      "start": 229.692,
+      "end": 230.173,
+      "score": 0.748
+    },
+    {
+      "word": "an",
+      "start": 230.533,
+      "end": 230.654,
+      "score": 0.589
+    },
+    {
+      "word": "angel",
+      "start": 230.814,
+      "end": 230.974,
+      "score": 0.263
+    },
+    {
+      "word": "in",
+      "start": 231.054,
+      "end": 231.174,
+      "score": 0.413
+    },
+    {
+      "word": "person",
+      "start": 231.215,
+      "end": 231.475,
+      "score": 0.308
+    }
+  ],
+  "03:54.46": [
+    {
+      "word": "And",
+      "start": 235.284,
+      "end": 235.686,
+      "score": 0.623
+    },
+    {
+      "word": "she",
+      "start": 235.807,
+      "end": 235.908,
+      "score": 0.272
+    },
+    {
+      "word": "looks",
+      "start": 236.008,
+      "end": 236.37,
+      "score": 0.418
+    },
+    {
+      "word": "perfect",
+      "start": 236.45,
+      "end": 236.993,
+      "score": 0.537
+    }
+  ],
+  "03:58.26": [
+    {
+      "word": "I",
+      "start": 238.602,
+      "end": 238.682,
+      "score": 0.73
+    },
+    {
+      "word": "don't",
+      "start": 238.823,
+      "end": 239.124,
+      "score": 0.389
+    },
+    {
+      "word": "deserve",
+      "start": 239.144,
+      "end": 240.008,
+      "score": 0.748
+    },
+    {
+      "word": "this",
+      "start": 240.129,
+      "end": 240.41,
+      "score": 0.566
+    }
+  ],
+  "04:02.44": [
+    {
+      "word": "You",
+      "start": 242.58,
+      "end": 242.841,
+      "score": 0.43
+    },
+    {
+      "word": "look",
+      "start": 242.962,
+      "end": 243.463,
+      "score": 0.529
+    },
+    {
+      "word": "perfect",
+      "start": 243.544,
+      "end": 243.845,
+      "score": 0.292
+    },
+    {
+      "word": "tonight",
+      "start": 243.985,
+      "end": 244.366,
+      "score": 0.391
+    }
+  ]
+}
