@@ -1,28 +1,40 @@
 {
   "00:00.66": [
     {
-      "word": "has",
+      "word": "Your",
       "start": 0.76,
       "end": 0.86,
-      "score": 0.339
+      "score": 0.441
+    },
+    {
+      "word": "addiction",
+      "start": 0.941,
+      "end": 1.742,
+      "score": 0.49
+    },
+    {
+      "word": "has",
+      "start": 1.923,
+      "end": 2.183,
+      "score": 0.69
     },
     {
       "word": "altered",
-      "start": 0.941,
-      "end": 1.261,
-      "score": 0.434
+      "start": 2.945,
+      "end": 3.285,
+      "score": 0.306
     },
     {
       "word": "your",
-      "start": 1.321,
-      "end": 1.542,
-      "score": 0.395
+      "start": 3.305,
+      "end": 3.726,
+      "score": 0.615
     },
     {
       "word": "mind.",
-      "start": 1.582,
-      "end": 2.203,
-      "score": 0.718
+      "start": 4.428,
+      "end": 4.588,
+      "score": 0.376
     }
   ],
   "00:05.67": [

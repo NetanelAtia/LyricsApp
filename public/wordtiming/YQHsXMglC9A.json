@@ -1,30 +1,4 @@
 {
-  "00:19.44": [
-    {
-      "word": "I'm",
-      "start": 19.44,
-      "end": 19.521,
-      "score": 0.166
-    },
-    {
-      "word": "loosing",
-      "start": 19.541,
-      "end": 19.682,
-      "score": 0.071
-    },
-    {
-      "word": "signal",
-      "start": 19.702,
-      "end": 19.903,
-      "score": 0.293
-    },
-    {
-      "word": "already.",
-      "start": 19.984,
-      "end": 20.205,
-      "score": 0.584
-    }
-  ],
   "00:22.32": [
     {
       "word": "Hello?",
