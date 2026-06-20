@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const ids = ['C7dPqrmDWxs','UXWFqxKU2qA'];
+const ids = [];
 const glossary = JSON.parse(fs.readFileSync('public/glossary.json', 'utf8'));
 
 const words = new Set();
