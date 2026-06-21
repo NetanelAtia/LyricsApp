@@ -34,6 +34,16 @@ const server = http.createServer((req, res) => {
     send(res, 204, {});
     return;
   }
+  if (req.method === 'POST' && req.url === '/push') {
+    execFile('git', ['push', 'origin', 'main'], { cwd: ROOT }, (pushErr, stdout, stderr) => {
+      if (pushErr) {
+        send(res, 200, { pushed: false, error: String(stderr || pushErr) });
+        return;
+      }
+      send(res, 200, { pushed: true });
+    });
+    return;
+  }
   if (req.method !== 'POST' || req.url !== '/save-translation') {
     send(res, 404, { error: 'not found' });
     return;

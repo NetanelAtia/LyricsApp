@@ -135,9 +135,22 @@ export default function YouTubeScreen({ navigation, route }: any) {
   // the change locally (never pushes — that stays a manual, reviewed step).
   // See scripts/dev-edit-server.mjs.
   const canEditTranslations = __DEV__ && Platform.OS === 'web';
-  const [editingLine, setEditingLine] = useState(false);
+  const [editingTag, setEditingTag] = useState<string | null>(null); // locks which line is being edited, so it can't drift if the song keeps playing
   const [editText, setEditText] = useState('');
   const [editStatus, setEditStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
+  const [pushStatus, setPushStatus] = useState<'idle' | 'pushing' | 'pushed' | 'error'>('idle');
+
+  function startEditingLine(tag: string, currentText: string) {
+    playerRef.current?.pauseVideo?.();
+    setEditingTag(tag);
+    setEditText(currentText);
+    setEditStatus('idle');
+  }
+
+  function stopEditingLine() {
+    setEditingTag(null);
+    playerRef.current?.playVideo?.();
+  }
 
   async function saveLineTranslation(tag: string, text: string) {
     setEditStatus('saving');
@@ -152,6 +165,17 @@ export default function YouTubeScreen({ navigation, route }: any) {
       setEditStatus('saved');
     } catch {
       setEditStatus('error');
+    }
+  }
+
+  async function pushAllChanges() {
+    setPushStatus('pushing');
+    try {
+      const res = await fetch('http://localhost:5174/push', { method: 'POST' });
+      if (!res.ok) throw new Error('push failed');
+      setPushStatus('pushed');
+    } catch {
+      setPushStatus('error');
     }
   }
 
@@ -732,7 +756,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       buttons below it never jump as the translation shows,
                       hides, or changes length. */}
                   <View style={styles.heSlot}>
-                    {canEditTranslations && cur.text && editingLine ? (
+                    {canEditTranslations && cur.text && editingTag === cur.tag ? (
                       <View style={styles.editRow}>
                         <TextInput
                           style={styles.editInput}
@@ -747,12 +771,12 @@ export default function YouTubeScreen({ navigation, route }: any) {
                             style={styles.editBtn}
                             onPress={async () => {
                               await saveLineTranslation(cur.tag, editText);
-                              setEditingLine(false);
+                              stopEditingLine();
                             }}
                           >
                             <MaterialIcons name="check" size={20} color={colors.success} />
                           </TouchableOpacity>
-                          <TouchableOpacity style={styles.editBtn} onPress={() => setEditingLine(false)}>
+                          <TouchableOpacity style={styles.editBtn} onPress={stopEditingLine}>
                             <MaterialIcons name="close" size={20} color={colors.textFaint} />
                           </TouchableOpacity>
                         </View>
@@ -792,14 +816,10 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       controls below never shift between sung lines and
                       instrumental (♪) gaps. */}
                   <View style={styles.lineActionsRow}>
-                    {canEditTranslations && cur.text && !editingLine && (
+                    {canEditTranslations && cur.text && editingTag !== cur.tag && (
                       <TouchableOpacity
                         style={styles.lineActionBtn}
-                        onPress={() => {
-                          setEditText(lineHe(idx));
-                          setEditStatus('idle');
-                          setEditingLine(true);
-                        }}
+                        onPress={() => startEditingLine(cur.tag, lineHe(idx))}
                         activeOpacity={0.7}
                       >
                         <MaterialIcons name="edit" size={20} color={colors.warning} />
@@ -905,6 +925,20 @@ export default function YouTubeScreen({ navigation, route }: any) {
                     <Text style={styles.offsetBtnText}>+</Text>
                   </TouchableOpacity>
                 </View>
+                {canEditTranslations && (
+                  <View style={styles.offsetRow}>
+                    <TouchableOpacity style={styles.calBtn} onPress={pushAllChanges} activeOpacity={0.85}>
+                      <Text style={styles.calBtnText}>⬆ Push לגיט</Text>
+                    </TouchableOpacity>
+                    {pushStatus === 'pushing' && <Text style={styles.syncHint}>דוחף…</Text>}
+                    {pushStatus === 'pushed' && (
+                      <Text style={[styles.syncHint, { color: colors.success }]}>נדחף בהצלחה</Text>
+                    )}
+                    {pushStatus === 'error' && (
+                      <Text style={[styles.syncHint, { color: colors.danger }]}>שגיאה בדחיפה</Text>
+                    )}
+                  </View>
+                )}
               </>
             )}
           </>
