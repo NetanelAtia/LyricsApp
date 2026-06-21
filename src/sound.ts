@@ -46,42 +46,6 @@ function tone(
   osc.stop(start + duration + 0.02);
 }
 
-// A classic harsh "game show error" buzzer: a low square-wave tone
-// amplitude-modulated by a fast LFO, which is what actually gives a buzzer
-// its rattling texture (a plain tone just sounds like a horn).
-function buzzer() {
-  const ac = getCtx();
-  if (!ac) return;
-  const start = ac.currentTime;
-  const duration = 0.5;
-
-  const carrier = ac.createOscillator();
-  carrier.type = 'square';
-  carrier.frequency.setValueAtTime(150, start);
-  carrier.frequency.exponentialRampToValueAtTime(90, start + duration);
-
-  const gain = ac.createGain();
-  gain.gain.setValueAtTime(0.0001, start);
-  gain.gain.exponentialRampToValueAtTime(0.35, start + 0.03);
-  gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
-
-  // Tremolo: a fast LFO modulating the gain to create the buzzing texture.
-  const lfo = ac.createOscillator();
-  lfo.type = 'square';
-  lfo.frequency.value = 45;
-  const lfoGain = ac.createGain();
-  lfoGain.gain.value = 0.5;
-  lfo.connect(lfoGain);
-  lfoGain.connect(gain.gain);
-
-  carrier.connect(gain);
-  gain.connect(ac.destination);
-  carrier.start(start);
-  lfo.start(start);
-  carrier.stop(start + duration + 0.02);
-  lfo.stop(start + duration + 0.02);
-}
-
 // Haptic buzz on native; falls back to the Vibration API on web (only
 // Android Chrome actually vibrates — iOS Safari silently ignores it).
 function haptic(kind: 'success' | 'error') {
@@ -107,8 +71,11 @@ export function playCorrect() {
   haptic('success');
 }
 
-// A harsh game-show-style error buzzer for a wrong answer.
+// A soft, low two-note descending tone for a wrong answer — clearly
+// distinct from the correct-answer chime, but gentle rather than a harsh
+// game-show buzzer.
 export function playWrong() {
-  buzzer();
+  tone(330, 0, 0.16, 0.22, 'sine'); // E4
+  tone(247, 0.12, 0.22, 0.2, 'sine'); // B3
   haptic('error');
 }
