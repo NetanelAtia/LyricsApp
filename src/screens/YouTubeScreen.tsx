@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import {
   ActivityIndicator,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -127,6 +128,31 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setSyncOffset(o);
     setOffsetText(o.toFixed(1));
     if (videoId) saveOffset(videoId, o);
+  }
+
+  // Dev-only (desktop web) manual fix-up for a mistranslated line: edits the
+  // bundled translation JSON on disk via a local helper server and commits
+  // the change locally (never pushes — that stays a manual, reviewed step).
+  // See scripts/dev-edit-server.mjs.
+  const canEditTranslations = __DEV__ && Platform.OS === 'web';
+  const [editingLine, setEditingLine] = useState(false);
+  const [editText, setEditText] = useState('');
+  const [editStatus, setEditStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
+
+  async function saveLineTranslation(tag: string, text: string) {
+    setEditStatus('saving');
+    try {
+      const res = await fetch('http://localhost:5174/save-translation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ videoId, tag, text, track }),
+      });
+      if (!res.ok) throw new Error('save failed');
+      setBundledTr((prev) => ({ ...prev, [tag]: text }));
+      setEditStatus('saved');
+    } catch {
+      setEditStatus('error');
+    }
   }
 
   // One-tap calibration: press exactly when the first line is sung, and we
@@ -706,7 +732,38 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       buttons below it never jump as the translation shows,
                       hides, or changes length. */}
                   <View style={styles.heSlot}>
-                    {cur.text && (displayMode !== 'en' || openLines[idx])
+                    {canEditTranslations && cur.text && editingLine ? (
+                      <View style={styles.editRow}>
+                        <TextInput
+                          style={styles.editInput}
+                          value={editText}
+                          onChangeText={setEditText}
+                          multiline
+                          autoFocus
+                          textAlign="right"
+                        />
+                        <View style={styles.editBtnRow}>
+                          <TouchableOpacity
+                            style={styles.editBtn}
+                            onPress={async () => {
+                              await saveLineTranslation(cur.tag, editText);
+                              setEditingLine(false);
+                            }}
+                          >
+                            <MaterialIcons name="check" size={20} color={colors.success} />
+                          </TouchableOpacity>
+                          <TouchableOpacity style={styles.editBtn} onPress={() => setEditingLine(false)}>
+                            <MaterialIcons name="close" size={20} color={colors.textFaint} />
+                          </TouchableOpacity>
+                        </View>
+                        {editStatus === 'saving' && <Text style={styles.editStatus}>שומר…</Text>}
+                        {editStatus === 'error' && (
+                          <Text style={[styles.editStatus, { color: colors.danger }]}>
+                            שגיאה — ה-edit server רץ?
+                          </Text>
+                        )}
+                      </View>
+                    ) : cur.text && (displayMode !== 'en' || openLines[idx])
                       ? (() => {
                           // Approximate: highlight the Hebrew word at the same
                           // proportional position as the English word, since
@@ -735,6 +792,19 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       controls below never shift between sung lines and
                       instrumental (♪) gaps. */}
                   <View style={styles.lineActionsRow}>
+                    {canEditTranslations && cur.text && !editingLine && (
+                      <TouchableOpacity
+                        style={styles.lineActionBtn}
+                        onPress={() => {
+                          setEditText(lineHe(idx));
+                          setEditStatus('idle');
+                          setEditingLine(true);
+                        }}
+                        activeOpacity={0.7}
+                      >
+                        <MaterialIcons name="edit" size={20} color={colors.warning} />
+                      </TouchableOpacity>
+                    )}
                     {cur.text && displayMode === 'en' && (
                       <TouchableOpacity
                         style={styles.lineActionBtn}
@@ -1003,6 +1073,21 @@ const styles = StyleSheet.create({
   // the sentence.
   lineHe: { color: colors.primarySoft, fontSize: 18, lineHeight: 24, fontWeight: '700' },
   lineHeActive: { color: '#ffffff' },
+
+  // Dev-only (desktop web) inline editor for fixing a mistranslated line.
+  editRow: { width: '100%', flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  editInput: {
+    flex: 1,
+    color: colors.text,
+    fontSize: 16,
+    backgroundColor: colors.surfaceLight,
+    borderRadius: radius.sm,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 6,
+  },
+  editBtnRow: { flexDirection: 'row', gap: 4 },
+  editBtn: { padding: 4 },
+  editStatus: { color: colors.textFaint, fontSize: 11, position: 'absolute', bottom: -16, right: 0 },
 
   wordWrap: { position: 'relative', alignItems: 'center', marginHorizontal: 4 },
   wordWrapActive: { zIndex: 20 },
