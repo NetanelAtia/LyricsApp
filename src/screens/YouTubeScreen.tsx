@@ -755,30 +755,32 @@ export default function YouTubeScreen({ navigation, route }: any) {
                   {/* Always mounted at a fixed height — even when empty — so the
                       buttons below it never jump as the translation shows,
                       hides, or changes length. */}
-                  <View style={styles.heSlot}>
+                  <View style={[styles.heSlot, editingTag === cur.tag && styles.heSlotEditing]}>
                     {canEditTranslations && cur.text && editingTag === cur.tag ? (
                       <View style={styles.editRow}>
-                        <TextInput
-                          style={styles.editInput}
-                          value={editText}
-                          onChangeText={setEditText}
-                          multiline
-                          autoFocus
-                          textAlign="right"
-                        />
-                        <View style={styles.editBtnRow}>
-                          <TouchableOpacity
-                            style={styles.editBtn}
-                            onPress={async () => {
-                              await saveLineTranslation(cur.tag, editText);
-                              stopEditingLine();
-                            }}
-                          >
-                            <MaterialIcons name="check" size={20} color={colors.success} />
-                          </TouchableOpacity>
-                          <TouchableOpacity style={styles.editBtn} onPress={stopEditingLine}>
-                            <MaterialIcons name="close" size={20} color={colors.textFaint} />
-                          </TouchableOpacity>
+                        <View style={styles.editInputRow}>
+                          <TextInput
+                            style={styles.editInput}
+                            value={editText}
+                            onChangeText={setEditText}
+                            multiline
+                            autoFocus
+                            textAlign="right"
+                          />
+                          <View style={styles.editBtnRow}>
+                            <TouchableOpacity
+                              style={styles.editBtn}
+                              onPress={async () => {
+                                await saveLineTranslation(cur.tag, editText);
+                                stopEditingLine();
+                              }}
+                            >
+                              <MaterialIcons name="check" size={20} color={colors.success} />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.editBtn} onPress={stopEditingLine}>
+                              <MaterialIcons name="close" size={20} color={colors.textFaint} />
+                            </TouchableOpacity>
+                          </View>
                         </View>
                         {editStatus === 'saving' && <Text style={styles.editStatus}>שומר…</Text>}
                         {editStatus === 'error' && (
@@ -1101,6 +1103,7 @@ const styles = StyleSheet.create({
   // Fixed height (not minHeight) so a 1-line vs 2-line translation never
   // changes the box size — keeps the buttons below it from jumping.
   heSlot: { height: 54, justifyContent: 'center', marginTop: 2, overflow: 'hidden' },
+  heSlotEditing: { height: 'auto', minHeight: 54, overflow: 'visible' },
   lineHeRow: { flexDirection: 'row-reverse', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' },
   // Every word shares the exact same font size/weight — only the text color
   // changes — so highlighting the active word never resizes or reflows
@@ -1109,7 +1112,8 @@ const styles = StyleSheet.create({
   lineHeActive: { color: '#ffffff' },
 
   // Dev-only (desktop web) inline editor for fixing a mistranslated line.
-  editRow: { width: '100%', flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  editRow: { width: '100%' },
+  editInputRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   editInput: {
     flex: 1,
     color: colors.text,
@@ -1121,7 +1125,7 @@ const styles = StyleSheet.create({
   },
   editBtnRow: { flexDirection: 'row', gap: 4 },
   editBtn: { padding: 4 },
-  editStatus: { color: colors.textFaint, fontSize: 11, position: 'absolute', bottom: -16, right: 0 },
+  editStatus: { color: colors.textFaint, fontSize: 11, width: '100%', textAlign: 'right' },
 
   wordWrap: { position: 'relative', alignItems: 'center', marginHorizontal: 4 },
   wordWrapActive: { zIndex: 20 },
