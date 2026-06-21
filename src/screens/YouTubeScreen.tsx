@@ -139,6 +139,25 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [editText, setEditText] = useState('');
   const [editStatus, setEditStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
   const [pushStatus, setPushStatus] = useState<'idle' | 'pushing' | 'pushed' | 'error'>('idle');
+  const [editServerUp, setEditServerUp] = useState(false);
+
+  // Poll the local helper server so it's obvious — before you even try to
+  // edit a line — whether `npm run edit-server` is actually running.
+  useEffect(() => {
+    if (!canEditTranslations) return;
+    let alive = true;
+    function check() {
+      fetch('http://localhost:5174/health')
+        .then((r) => alive && setEditServerUp(r.ok))
+        .catch(() => alive && setEditServerUp(false));
+    }
+    check();
+    const id = setInterval(check, 5000);
+    return () => {
+      alive = false;
+      clearInterval(id);
+    };
+  }, [canEditTranslations]);
 
   function startEditingLine(tag: string, currentText: string) {
     playerRef.current?.pauseVideo?.();
@@ -928,6 +947,19 @@ export default function YouTubeScreen({ navigation, route }: any) {
                   </TouchableOpacity>
                 </View>
                 {canEditTranslations && (
+                  <View style={styles.editServerStatusRow}>
+                    <View
+                      style={[
+                        styles.editServerDot,
+                        { backgroundColor: editServerUp ? colors.success : colors.danger },
+                      ]}
+                    />
+                    <Text style={styles.syncHint}>
+                      {editServerUp ? 'edit server מחובר' : 'edit server לא רץ — npm run edit-server'}
+                    </Text>
+                  </View>
+                )}
+                {canEditTranslations && (
                   <View style={styles.offsetRow}>
                     <TouchableOpacity style={styles.calBtn} onPress={pushAllChanges} activeOpacity={0.85}>
                       <Text style={styles.calBtnText}>⬆ Push לגיט</Text>
@@ -1013,6 +1045,14 @@ const styles = StyleSheet.create({
     marginTop: spacing.lg,
   },
   syncHint: { color: colors.textFaint, fontSize: 12, textAlign: 'center', marginTop: spacing.md },
+  editServerStatusRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    marginTop: spacing.md,
+  },
+  editServerDot: { width: 8, height: 8, borderRadius: 4 },
   calBtn: { backgroundColor: colors.primary, borderRadius: radius.pill, paddingHorizontal: spacing.lg, paddingVertical: 8 },
   calBtnText: { color: '#fff', fontSize: 14, fontWeight: '700' },
   offsetLabel: { color: colors.textMuted, fontSize: 14 },

@@ -34,6 +34,10 @@ const server = http.createServer((req, res) => {
     send(res, 204, {});
     return;
   }
+  if (req.method === 'GET' && req.url === '/health') {
+    send(res, 200, { ok: true });
+    return;
+  }
   if (req.method === 'POST' && req.url === '/push') {
     execFile('git', ['push', 'origin', 'main'], { cwd: ROOT }, (pushErr, stdout, stderr) => {
       if (pushErr) {
