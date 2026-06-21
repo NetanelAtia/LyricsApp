@@ -41,6 +41,12 @@ export const youtubeSourcedLyrics = new Set<string>([
   'QVXE1EzMrfw', // Ja Rule ft. R. Kelly, Ashanti – Wonderful
   '34Na4j8AVgA', // The Weeknd ft. Daft Punk – Starboy
   'WpYeekQkAdc', // Black Eyed Peas – Where Is The Love?
+  'UYwF-jdcVjY', // Post Malone – Better Now
+  'wXhTHyIgQ_U', // Post Malone – Circles
+  'tt2k8PGm-TI', // ZAYN ft. Sia – Dusk Till Dawn
+  '8WYHDfJDPDc', // Nelly ft. Kelly Rowland – Dilemma
+  'VcP96KbFIIU', // Ja Rule ft. Ashanti – Mesmerize
+  'GxBSyx85Kp8', // Usher ft. Lil Jon, Ludacris – Yeah!
 ]);
 
 export const library: LibrarySong[] = [
@@ -84,4 +90,10 @@ export const library: LibrarySong[] = [
   { videoId: 'QVXE1EzMrfw', artist: 'Ja Rule ft. R. Kelly, Ashanti', track: 'Wonderful', emoji: '✨', accent: '#fdcb6e' },
   { videoId: '34Na4j8AVgA', artist: 'The Weeknd ft. Daft Punk', track: 'Starboy', emoji: '🌟', accent: '#2d3436' },
   { videoId: 'WpYeekQkAdc', artist: 'Black Eyed Peas', track: 'Where Is The Love?', emoji: '🌐', accent: '#00b894' },
+  { videoId: 'UYwF-jdcVjY', artist: 'Post Malone', track: 'Better Now', emoji: '💔', accent: '#74b9ff' },
+  { videoId: 'wXhTHyIgQ_U', artist: 'Post Malone', track: 'Circles', emoji: '🔄', accent: '#a29bfe' },
+  { videoId: 'tt2k8PGm-TI', artist: 'ZAYN ft. Sia', track: 'Dusk Till Dawn', emoji: '🌆', accent: '#6c5ce7' },
+  { videoId: '8WYHDfJDPDc', artist: 'Nelly ft. Kelly Rowland', track: 'Dilemma', emoji: '❓', accent: '#fdcb6e' },
+  { videoId: 'VcP96KbFIIU', artist: 'Ja Rule ft. Ashanti', track: 'Mesmerize', emoji: '💫', accent: '#e84393' },
+  { videoId: 'GxBSyx85Kp8', artist: 'Usher ft. Lil Jon, Ludacris', track: 'Yeah!', emoji: '🎉', accent: '#00cec9' },
 ];
