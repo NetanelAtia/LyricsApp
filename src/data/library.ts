@@ -39,6 +39,8 @@ export const youtubeSourcedLyrics = new Set<string>([
   'pfxyk1glEq4', // Chris Brown – Under The Influence
   '8gyLR4NfMiI', // Chris Brown ft. Lil Wayne, Busta Rhymes – Look At Me Now
   'QVXE1EzMrfw', // Ja Rule ft. R. Kelly, Ashanti – Wonderful
+  '34Na4j8AVgA', // The Weeknd ft. Daft Punk – Starboy
+  'WpYeekQkAdc', // Black Eyed Peas – Where Is The Love?
 ]);
 
 export const library: LibrarySong[] = [
@@ -80,4 +82,6 @@ export const library: LibrarySong[] = [
   { videoId: 'pfxyk1glEq4', artist: 'Chris Brown', track: 'Under The Influence', emoji: '🌀', accent: '#6c5ce7' },
   { videoId: '8gyLR4NfMiI', artist: 'Chris Brown ft. Lil Wayne, Busta Rhymes', track: 'Look At Me Now', emoji: '🔥', accent: '#ff7675' },
   { videoId: 'QVXE1EzMrfw', artist: 'Ja Rule ft. R. Kelly, Ashanti', track: 'Wonderful', emoji: '✨', accent: '#fdcb6e' },
+  { videoId: '34Na4j8AVgA', artist: 'The Weeknd ft. Daft Punk', track: 'Starboy', emoji: '🌟', accent: '#2d3436' },
+  { videoId: 'WpYeekQkAdc', artist: 'Black Eyed Peas', track: 'Where Is The Love?', emoji: '🌐', accent: '#00b894' },
 ];
