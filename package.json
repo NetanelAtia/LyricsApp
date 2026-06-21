@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "concurrently": "^10.0.3",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -32,7 +33,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "edit-server": "node scripts/dev-edit-server.mjs"
+    "edit-server": "node scripts/dev-edit-server.mjs",
+    "dev": "concurrently -n web,edit-server -c blue,yellow \"npm:web\" \"npm:edit-server\""
   },
   "private": true
 }
