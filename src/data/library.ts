@@ -45,6 +45,14 @@ export const youtubeSourcedLyrics = new Set<string>([
   'oyEuk8j8imI', // Justin Bieber – Love Yourself
   '3AyMjyHu1bA', // Justin Bieber – Intentions
   'Lt3IOdDE5iA', // John Lennon – Beautiful Boy
+  'RBumgq5yVrA', // Passenger – Let Her Go
+  'hT_nvWreIhg', // OneRepublic – Counting Stars
+  'L3wKzyIN1yk', // Rag'n'Bone Man – Human
+  'YaEG2aWJnZ8', // Sia – Unstoppable
+  'fHI8X4OXluQ', // The Weeknd – Blinding Lights
+  'XXYlFuWEuKI', // The Weeknd – Save Your Tears
+  'RgKAFK5djSk', // Wiz Khalifa ft. Charlie Puth – See You Again
+  'Lt3IOdDE5iA', // John Lennon – Beautiful Boy
   '8gyLR4NfMiI', // Chris Brown ft. Lil Wayne, Busta Rhymes – Look At Me Now
   'QVXE1EzMrfw', // Ja Rule ft. R. Kelly, Ashanti – Wonderful
   '34Na4j8AVgA', // The Weeknd ft. Daft Punk – Starboy

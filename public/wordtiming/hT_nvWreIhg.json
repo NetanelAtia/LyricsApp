@@ -1,3263 +1,3282 @@
 {
-  "00:00.00": [],
-  "00:00.47": [
+  "00:00.13": [
     {
       "word": "Lately,",
-      "start": 0.47,
-      "end": 1.173,
-      "score": 0.774
+      "start": 0.13,
+      "end": 1.154,
+      "score": 0.705
     },
     {
       "word": "I've",
-      "start": 1.775,
-      "end": 1.916,
-      "score": 0.254
+      "start": 1.716,
+      "end": 1.877,
+      "score": 0.504
     },
     {
       "word": "been,",
-      "start": 1.936,
-      "end": 2.378,
-      "score": 0.882
+      "start": 1.917,
+      "end": 2.339,
+      "score": 0.791
     },
     {
       "word": "I've",
-      "start": 2.398,
-      "end": 2.719,
-      "score": 0.324
+      "start": 2.359,
+      "end": 2.7,
+      "score": 0.45
     },
     {
       "word": "been",
-      "start": 2.739,
-      "end": 2.98,
-      "score": 0.781
+      "start": 2.721,
+      "end": 2.921,
+      "score": 0.723
     },
     {
       "word": "losing",
-      "start": 3.02,
-      "end": 3.382,
-      "score": 0.712
+      "start": 2.982,
+      "end": 3.303,
+      "score": 0.892
     },
     {
       "word": "sleep",
-      "start": 3.422,
-      "end": 3.844,
-      "score": 0.71
+      "start": 3.383,
+      "end": 3.825,
+      "score": 0.805
     }
   ],
-  "00:05.33": [
+  "00:05.03": [
     {
       "word": "Dreaming",
-      "start": 5.33,
-      "end": 5.571,
-      "score": 0.301
-    },
-    {
-      "word": "about",
-      "start": 5.651,
-      "end": 6.092,
-      "score": 0.725
-    },
-    {
-      "word": "the",
-      "start": 6.152,
-      "end": 6.252,
-      "score": 0.98
-    },
-    {
-      "word": "things",
-      "start": 6.373,
-      "end": 6.673,
-      "score": 0.975
-    },
-    {
-      "word": "that",
-      "start": 6.713,
-      "end": 6.934,
-      "score": 0.41
-    },
-    {
-      "word": "we",
-      "start": 6.994,
-      "end": 7.455,
-      "score": 0.894
-    },
-    {
-      "word": "could",
-      "start": 7.636,
-      "end": 8.017,
-      "score": 0.422
-    },
-    {
-      "word": "be",
-      "start": 8.077,
-      "end": 8.237,
-      "score": 0.58
-    }
-  ],
-  "00:09.30": [
-    {
-      "word": "But",
-      "start": 9.561,
-      "end": 9.641,
-      "score": 0.165
-    },
-    {
-      "word": "baby,",
-      "start": 9.701,
-      "end": 10.142,
-      "score": 0.776
-    },
-    {
-      "word": "I've",
-      "start": 10.663,
-      "end": 10.803,
-      "score": 0.522
-    },
-    {
-      "word": "been,",
-      "start": 10.843,
-      "end": 11.284,
-      "score": 0.887
-    },
-    {
-      "word": "I've",
-      "start": 11.485,
-      "end": 11.605,
-      "score": 0.262
-    },
-    {
-      "word": "been",
-      "start": 11.625,
-      "end": 11.805,
-      "score": 0.938
-    },
-    {
-      "word": "praying",
-      "start": 11.865,
-      "end": 12.286,
-      "score": 0.807
-    },
-    {
-      "word": "hard",
-      "start": 12.447,
-      "end": 12.868,
-      "score": 0.838
-    }
-  ],
-  "00:14.03": [
-    {
-      "word": "Said,",
-      "start": 14.03,
-      "end": 14.13,
-      "score": 0.04
-    },
-    {
-      "word": "\"No",
-      "start": 14.17,
-      "end": 14.371,
-      "score": 0.867
-    },
-    {
-      "word": "more",
-      "start": 14.431,
-      "end": 14.651,
-      "score": 0.825
-    },
-    {
-      "word": "counting",
-      "start": 14.731,
-      "end": 15.212,
-      "score": 0.727
-    },
-    {
-      "word": "dollars,",
-      "start": 15.252,
-      "end": 15.833,
-      "score": 0.842
-    },
-    {
-      "word": "we'll",
-      "start": 15.854,
-      "end": 16.114,
-      "score": 0.675
-    },
-    {
-      "word": "be",
-      "start": 16.154,
-      "end": 16.314,
-      "score": 0.814
-    },
-    {
-      "word": "counting",
-      "start": 16.395,
-      "end": 16.896,
-      "score": 0.763
-    },
-    {
-      "word": "stars\"",
-      "start": 16.936,
-      "end": 18.318,
-      "score": 0.872
-    }
-  ],
-  "00:19.20": [
-    {
-      "word": "Yeah,",
-      "start": 19.3,
-      "end": 19.46,
-      "score": 0.31
-    },
-    {
-      "word": "we'll",
-      "start": 19.5,
-      "end": 19.6,
-      "score": 0.009
-    },
-    {
-      "word": "be",
-      "start": 19.62,
-      "end": 19.721,
-      "score": 0.422
-    },
-    {
-      "word": "counting",
-      "start": 19.781,
-      "end": 20.882,
-      "score": 0.647
-    },
-    {
-      "word": "stars",
-      "start": 21.062,
-      "end": 22.003,
-      "score": 0.74
-    }
-  ],
-  "00:37.62": [
-    {
-      "word": "I",
-      "start": 37.801,
-      "end": 37.841,
-      "score": 0.613
-    },
-    {
-      "word": "see",
-      "start": 37.861,
-      "end": 37.941,
-      "score": 0.166
-    },
-    {
-      "word": "this",
-      "start": 37.961,
-      "end": 38.122,
-      "score": 0.36
-    },
-    {
-      "word": "life,",
-      "start": 38.162,
-      "end": 38.563,
-      "score": 0.733
-    },
-    {
-      "word": "like",
-      "start": 38.844,
-      "end": 39.005,
-      "score": 0.898
-    },
-    {
-      "word": "a",
-      "start": 39.025,
-      "end": 39.065,
-      "score": 0.462
-    },
-    {
-      "word": "swinging",
-      "start": 39.105,
-      "end": 39.487,
-      "score": 0.891
-    },
-    {
-      "word": "vine",
-      "start": 39.527,
-      "end": 40.049,
-      "score": 0.582
-    }
-  ],
-  "00:40.43": [
-    {
-      "word": "Swing",
-      "start": 40.43,
-      "end": 40.591,
-      "score": 0.231
-    },
-    {
-      "word": "my",
-      "start": 40.671,
-      "end": 40.852,
-      "score": 0.49
-    },
-    {
-      "word": "heart",
-      "start": 40.893,
-      "end": 41.013,
-      "score": 0.136
-    },
-    {
-      "word": "across",
-      "start": 41.053,
-      "end": 41.355,
-      "score": 0.883
-    },
-    {
-      "word": "the",
-      "start": 41.375,
-      "end": 41.496,
-      "score": 0.494
-    },
-    {
-      "word": "line",
-      "start": 41.536,
-      "end": 41.979,
-      "score": 0.427
-    }
-  ],
-  "00:42.24": [
-    {
-      "word": "And",
-      "start": 42.24,
-      "end": 42.361,
-      "score": 0.25
-    },
-    {
-      "word": "in",
-      "start": 42.381,
-      "end": 42.422,
-      "score": 0.006
-    },
-    {
-      "word": "my",
-      "start": 42.442,
-      "end": 42.482,
-      "score": 0.0
-    },
-    {
-      "word": "face",
-      "start": 42.563,
-      "end": 42.825,
-      "score": 0.915
-    },
-    {
-      "word": "is",
-      "start": 42.906,
-      "end": 42.986,
-      "score": 0.904
-    },
-    {
-      "word": "flashing",
-      "start": 43.067,
-      "end": 43.511,
-      "score": 0.654
-    },
-    {
-      "word": "signs",
-      "start": 43.551,
-      "end": 43.955,
-      "score": 0.488
-    }
-  ],
-  "00:44.54": [
-    {
-      "word": "Seek",
-      "start": 44.58,
-      "end": 44.661,
-      "score": 0.001
-    },
-    {
-      "word": "it",
-      "start": 44.681,
-      "end": 44.721,
-      "score": 0.001
-    },
-    {
-      "word": "out",
-      "start": 44.741,
-      "end": 44.822,
-      "score": 0.301
-    },
-    {
-      "word": "and",
-      "start": 44.862,
-      "end": 45.023,
-      "score": 0.609
-    },
-    {
-      "word": "ye",
-      "start": 45.083,
-      "end": 45.244,
-      "score": 0.784
-    },
-    {
-      "word": "shall",
-      "start": 45.265,
-      "end": 45.506,
-      "score": 0.6
-    },
-    {
-      "word": "find",
-      "start": 45.567,
-      "end": 45.909,
-      "score": 0.697
-    }
-  ],
-  "00:46.11": [
-    {
-      "word": "Old,",
-      "start": 46.291,
-      "end": 46.552,
-      "score": 0.652
-    },
-    {
-      "word": "but",
-      "start": 46.773,
-      "end": 46.874,
-      "score": 0.412
-    },
-    {
-      "word": "I'm",
-      "start": 46.914,
-      "end": 47.014,
-      "score": 0.305
-    },
-    {
-      "word": "not",
-      "start": 47.034,
-      "end": 47.195,
-      "score": 0.951
-    },
-    {
-      "word": "that",
-      "start": 47.255,
-      "end": 47.537,
-      "score": 0.805
-    },
-    {
-      "word": "old",
-      "start": 47.677,
-      "end": 47.818,
-      "score": 0.625
-    }
-  ],
-  "00:48.26": [
-    {
-      "word": "Young,",
-      "start": 48.26,
-      "end": 48.422,
-      "score": 0.145
-    },
-    {
-      "word": "but",
-      "start": 48.745,
-      "end": 48.866,
-      "score": 0.91
-    },
-    {
-      "word": "I'm",
-      "start": 48.906,
-      "end": 48.987,
-      "score": 0.221
-    },
-    {
-      "word": "not",
-      "start": 49.007,
-      "end": 49.189,
-      "score": 0.645
-    },
-    {
-      "word": "that",
-      "start": 49.23,
-      "end": 49.432,
-      "score": 0.76
-    },
-    {
-      "word": "bold",
-      "start": 49.512,
-      "end": 49.795,
-      "score": 0.653
-    }
-  ],
-  "00:50.28": [
-    {
-      "word": "And",
-      "start": 50.3,
-      "end": 50.381,
-      "score": 0.166
-    },
-    {
-      "word": "I",
-      "start": 50.401,
-      "end": 50.421,
-      "score": 0.001
-    },
-    {
-      "word": "don't",
-      "start": 50.442,
-      "end": 50.664,
-      "score": 0.386
-    },
-    {
-      "word": "think",
-      "start": 50.704,
-      "end": 50.846,
-      "score": 0.476
-    },
-    {
-      "word": "the",
-      "start": 50.927,
-      "end": 50.987,
-      "score": 0.002
-    },
-    {
-      "word": "world",
-      "start": 51.007,
-      "end": 51.23,
-      "score": 0.716
-    },
-    {
-      "word": "is",
-      "start": 51.27,
-      "end": 51.351,
-      "score": 0.353
-    },
-    {
-      "word": "sold",
-      "start": 51.411,
-      "end": 51.714,
-      "score": 0.74
-    }
-  ],
-  "00:52.26": [
-    {
-      "word": "On",
-      "start": 52.501,
-      "end": 52.581,
-      "score": 0.661
-    },
-    {
-      "word": "just",
-      "start": 52.621,
-      "end": 52.782,
-      "score": 0.398
-    },
-    {
-      "word": "doing",
-      "start": 52.802,
-      "end": 52.903,
-      "score": 0.03
-    },
-    {
-      "word": "what",
-      "start": 52.943,
-      "end": 53.123,
-      "score": 0.424
-    },
-    {
-      "word": "we're",
-      "start": 53.164,
-      "end": 53.304,
-      "score": 0.246
-    },
-    {
-      "word": "told",
-      "start": 53.364,
-      "end": 53.826,
-      "score": 0.657
-    }
-  ],
-  "00:54.79": [
-    {
-      "word": "I",
-      "start": 55.291,
-      "end": 55.412,
-      "score": 0.712
-    },
-    {
-      "word": "feel",
-      "start": 55.873,
-      "end": 56.033,
-      "score": 0.472
-    },
-    {
-      "word": "something",
-      "start": 56.053,
-      "end": 56.274,
-      "score": 0.089
-    },
-    {
-      "word": "so",
-      "start": 56.294,
-      "end": 56.354,
-      "score": 0.282
-    },
-    {
-      "word": "right,",
-      "start": 56.434,
-      "end": 56.775,
-      "score": 0.526
-    },
-    {
-      "word": "doing",
-      "start": 56.856,
-      "end": 57.096,
-      "score": 0.546
-    },
-    {
-      "word": "the",
-      "start": 57.116,
-      "end": 57.337,
-      "score": 0.555
-    },
-    {
-      "word": "wrong",
-      "start": 57.397,
-      "end": 57.858,
-      "score": 0.523
-    },
-    {
-      "word": "thing",
-      "start": 57.878,
-      "end": 58.279,
-      "score": 0.375
-    }
-  ],
-  "01:02.25": [
-    {
-      "word": "And",
-      "start": 63.812,
-      "end": 64.092,
-      "score": 0.577
-    },
-    {
-      "word": "I",
-      "start": 64.172,
-      "end": 64.233,
-      "score": 0.349
-    },
-    {
-      "word": "feel",
-      "start": 64.273,
-      "end": 64.653,
-      "score": 0.685
-    },
-    {
-      "word": "something",
-      "start": 64.693,
-      "end": 65.194,
-      "score": 0.503
-    },
-    {
-      "word": "so",
-      "start": 65.254,
-      "end": 65.594,
-      "score": 0.792
-    },
-    {
-      "word": "wrong,",
-      "start": 65.614,
-      "end": 66.175,
-      "score": 0.777
-    },
-    {
-      "word": "doing",
-      "start": 66.716,
-      "end": 67.136,
-      "score": 0.671
-    },
-    {
-      "word": "the",
-      "start": 67.216,
-      "end": 67.336,
-      "score": 0.541
-    },
-    {
-      "word": "right",
-      "start": 67.397,
-      "end": 67.857,
+      "start": 5.05,
+      "end": 5.551,
       "score": 0.547
     },
     {
-      "word": "thing",
-      "start": 67.917,
-      "end": 68.258,
-      "score": 0.462
-    }
-  ],
-  "01:10.14": [
-    {
-      "word": "I",
-      "start": 70.16,
-      "end": 70.2,
-      "score": 0.497
-    },
-    {
-      "word": "couldn't",
-      "start": 70.22,
-      "end": 70.643,
-      "score": 0.377
-    },
-    {
-      "word": "lie,",
-      "start": 70.663,
-      "end": 71.165,
-      "score": 0.712
-    },
-    {
-      "word": "couldn't",
-      "start": 71.186,
-      "end": 71.608,
-      "score": 0.342
-    },
-    {
-      "word": "lie,",
-      "start": 71.648,
-      "end": 72.131,
-      "score": 0.76
-    },
-    {
-      "word": "couldn't",
-      "start": 72.171,
-      "end": 72.492,
-      "score": 0.311
-    },
-    {
-      "word": "lie",
-      "start": 72.533,
-      "end": 72.593,
-      "score": 0.237
-    }
-  ],
-  "01:13.92": [
-    {
-      "word": "Everything",
-      "start": 73.98,
-      "end": 74.925,
-      "score": 0.839
-    },
-    {
-      "word": "that",
-      "start": 75.046,
-      "end": 75.347,
-      "score": 0.568
-    },
-    {
-      "word": "kills",
-      "start": 75.468,
-      "end": 75.95,
-      "score": 0.769
-    },
-    {
-      "word": "me",
-      "start": 76.031,
-      "end": 76.352,
-      "score": 0.689
-    },
-    {
-      "word": "makes",
-      "start": 76.493,
-      "end": 76.734,
-      "score": 0.763
-    },
-    {
-      "word": "me",
-      "start": 76.774,
-      "end": 76.895,
-      "score": 0.856
-    },
-    {
-      "word": "feel",
-      "start": 76.975,
-      "end": 77.237,
-      "score": 0.882
-    },
-    {
-      "word": "alive",
-      "start": 77.277,
-      "end": 77.578,
-      "score": 0.446
-    }
-  ],
-  "01:17.92": [
-    {
-      "word": "Lately,",
-      "start": 78.081,
-      "end": 78.443,
-      "score": 0.373
-    },
-    {
-      "word": "I've",
-      "start": 78.824,
-      "end": 78.965,
-      "score": 0.256
-    },
-    {
-      "word": "been,",
-      "start": 79.045,
-      "end": 79.427,
-      "score": 0.805
-    },
-    {
-      "word": "I've",
-      "start": 79.588,
-      "end": 79.689,
-      "score": 0.142
-    },
-    {
-      "word": "been",
-      "start": 79.729,
-      "end": 79.91,
-      "score": 0.594
-    },
-    {
-      "word": "losing",
-      "start": 79.95,
-      "end": 80.291,
-      "score": 0.434
-    },
-    {
-      "word": "sleep",
-      "start": 80.311,
-      "end": 80.673,
-      "score": 0.658
-    }
-  ],
-  "01:22.08": [
-    {
-      "word": "Dreaming",
-      "start": 82.16,
-      "end": 82.461,
-      "score": 0.156
-    },
-    {
       "word": "about",
-      "start": 82.481,
-      "end": 82.662,
-      "score": 0.391
+      "start": 5.611,
+      "end": 6.053,
+      "score": 0.923
     },
     {
       "word": "the",
-      "start": 82.682,
-      "end": 82.742,
-      "score": 0.014
+      "start": 6.113,
+      "end": 6.213,
+      "score": 0.969
     },
     {
       "word": "things",
-      "start": 82.983,
-      "end": 83.203,
-      "score": 0.435
+      "start": 6.333,
+      "end": 6.654,
+      "score": 0.809
     },
     {
       "word": "that",
-      "start": 83.223,
-      "end": 83.324,
-      "score": 0.083
+      "start": 6.694,
+      "end": 6.895,
+      "score": 0.39
     },
     {
       "word": "we",
-      "start": 83.404,
-      "end": 83.865,
-      "score": 0.89
+      "start": 6.955,
+      "end": 7.416,
+      "score": 0.88
     },
     {
       "word": "could",
-      "start": 83.946,
-      "end": 84.247,
-      "score": 0.506
+      "start": 7.596,
+      "end": 7.977,
+      "score": 0.56
     },
     {
       "word": "be",
-      "start": 84.387,
-      "end": 84.527,
-      "score": 0.484
+      "start": 8.058,
+      "end": 8.218,
+      "score": 0.805
     }
   ],
-  "01:25.37": [
+  "00:09.04": [
     {
       "word": "But",
-      "start": 85.831,
-      "end": 85.971,
-      "score": 0.531
+      "start": 9.12,
+      "end": 9.441,
+      "score": 0.468
     },
     {
       "word": "baby,",
-      "start": 85.991,
-      "end": 86.292,
-      "score": 0.463
+      "start": 9.521,
+      "end": 10.062,
+      "score": 0.837
     },
     {
       "word": "I've",
-      "start": 86.653,
-      "end": 86.813,
-      "score": 0.419
+      "start": 10.603,
+      "end": 10.764,
+      "score": 0.687
     },
     {
       "word": "been,",
-      "start": 86.873,
-      "end": 87.234,
-      "score": 0.697
+      "start": 10.824,
+      "end": 11.265,
+      "score": 0.811
     },
     {
       "word": "I've",
-      "start": 87.274,
-      "end": 87.535,
-      "score": 0.356
+      "start": 11.445,
+      "end": 11.565,
+      "score": 0.451
     },
     {
       "word": "been",
-      "start": 87.575,
-      "end": 87.795,
-      "score": 0.473
+      "start": 11.605,
+      "end": 11.786,
+      "score": 0.838
     },
     {
       "word": "praying",
-      "start": 87.876,
-      "end": 88.176,
-      "score": 0.528
+      "start": 11.826,
+      "end": 12.247,
+      "score": 0.817
     },
     {
       "word": "hard",
-      "start": 88.236,
-      "end": 88.357,
-      "score": 0.354
+      "start": 12.407,
+      "end": 12.848,
+      "score": 0.883
     }
   ],
-  "01:29.84": [
+  "00:13.85": [
     {
-      "word": "Said,",
-      "start": 89.84,
-      "end": 90.001,
-      "score": 0.234
+      "word": "Said",
+      "start": 13.85,
+      "end": 14.091,
+      "score": 0.741
     },
     {
-      "word": "\"No",
-      "start": 90.021,
-      "end": 90.081,
-      "score": 0.194
+      "word": "no",
+      "start": 14.151,
+      "end": 14.332,
+      "score": 0.962
     },
     {
       "word": "more",
-      "start": 90.101,
-      "end": 90.222,
-      "score": 0.35
+      "start": 14.392,
+      "end": 14.613,
+      "score": 0.934
     },
     {
       "word": "counting",
-      "start": 90.282,
-      "end": 90.725,
-      "score": 0.513
+      "start": 14.693,
+      "end": 15.175,
+      "score": 0.725
     },
     {
       "word": "dollars,",
-      "start": 90.805,
-      "end": 91.227,
-      "score": 0.525
+      "start": 15.235,
+      "end": 15.798,
+      "score": 0.738
     },
     {
       "word": "we'll",
-      "start": 91.308,
-      "end": 91.529,
-      "score": 0.457
+      "start": 15.818,
+      "end": 16.099,
+      "score": 0.658
     },
     {
       "word": "be",
-      "start": 91.569,
-      "end": 91.67,
-      "score": 0.616
+      "start": 16.139,
+      "end": 16.28,
+      "score": 0.873
     },
     {
       "word": "counting",
-      "start": 91.77,
-      "end": 92.172,
+      "start": 16.36,
+      "end": 16.862,
+      "score": 0.806
+    },
+    {
+      "word": "stars",
+      "start": 16.902,
+      "end": 17.524,
+      "score": 0.68
+    }
+  ],
+  "00:18.93": [
+    {
+      "word": "Yeah,",
+      "start": 18.95,
+      "end": 19.09,
+      "score": 0.2
+    },
+    {
+      "word": "we'll",
+      "start": 19.13,
+      "end": 19.411,
+      "score": 0.304
+    },
+    {
+      "word": "be",
+      "start": 19.451,
+      "end": 19.671,
+      "score": 0.816
+    },
+    {
+      "word": "counting",
+      "start": 19.751,
+      "end": 20.852,
+      "score": 0.652
+    },
+    {
+      "word": "stars",
+      "start": 21.032,
+      "end": 21.953,
+      "score": 0.732
+    }
+  ],
+  "00:37.59": [
+    {
+      "word": "I",
+      "start": 37.791,
+      "end": 37.811,
+      "score": 0.299
+    },
+    {
+      "word": "see",
+      "start": 37.831,
+      "end": 37.891,
+      "score": 0.004
+    },
+    {
+      "word": "this",
+      "start": 37.911,
+      "end": 38.112,
+      "score": 0.384
+    },
+    {
+      "word": "life,",
+      "start": 38.132,
+      "end": 38.534,
+      "score": 0.766
+    },
+    {
+      "word": "like",
+      "start": 38.815,
+      "end": 38.956,
+      "score": 0.92
+    },
+    {
+      "word": "a",
+      "start": 38.996,
+      "end": 39.016,
+      "score": 0.958
+    },
+    {
+      "word": "swinging",
+      "start": 39.076,
+      "end": 39.438,
+      "score": 0.953
+    },
+    {
+      "word": "vine",
+      "start": 39.498,
+      "end": 39.98,
       "score": 0.628
-    },
-    {
-      "word": "stars\"",
-      "start": 92.192,
-      "end": 92.936,
-      "score": 0.837
     }
   ],
-  "01:33.66": [
+  "00:40.04": [
     {
-      "word": "Lately,",
-      "start": 94.923,
-      "end": 95.104,
-      "score": 0.172
+      "word": "Swing",
+      "start": 40.08,
+      "end": 40.302,
+      "score": 0.844
     },
     {
-      "word": "I've",
-      "start": 95.525,
-      "end": 95.645,
-      "score": 0.259
+      "word": "my",
+      "start": 40.343,
+      "end": 40.585,
+      "score": 0.937
     },
     {
-      "word": "been,",
-      "start": 95.685,
-      "end": 95.845,
-      "score": 0.259
+      "word": "heart",
+      "start": 40.646,
+      "end": 40.989,
+      "score": 0.78
     },
     {
-      "word": "I've",
-      "start": 95.926,
-      "end": 96.046,
-      "score": 0.149
-    },
-    {
-      "word": "been",
-      "start": 96.086,
-      "end": 96.226,
-      "score": 0.432
-    },
-    {
-      "word": "losing",
-      "start": 96.267,
-      "end": 96.668,
-      "score": 0.454
-    },
-    {
-      "word": "sleep",
-      "start": 97.449,
-      "end": 97.59,
-      "score": 0.14
-    }
-  ],
-  "01:37.65": [
-    {
-      "word": "Dreaming",
-      "start": 97.911,
-      "end": 98.874,
-      "score": 0.21
-    },
-    {
-      "word": "about",
-      "start": 98.894,
-      "end": 99.134,
-      "score": 0.539
+      "word": "across",
+      "start": 41.029,
+      "end": 41.332,
+      "score": 0.939
     },
     {
       "word": "the",
-      "start": 99.174,
-      "end": 99.375,
-      "score": 0.489
+      "start": 41.352,
+      "end": 41.474,
+      "score": 0.782
+    },
+    {
+      "word": "line",
+      "start": 41.514,
+      "end": 41.938,
+      "score": 0.691
+    }
+  ],
+  "00:42.16": [
+    {
+      "word": "And",
+      "start": 42.18,
+      "end": 42.24,
+      "score": 0.001
+    },
+    {
+      "word": "in",
+      "start": 42.26,
+      "end": 42.321,
+      "score": 0.242
+    },
+    {
+      "word": "my",
+      "start": 42.341,
+      "end": 42.461,
+      "score": 0.339
+    },
+    {
+      "word": "face",
+      "start": 42.522,
+      "end": 42.803,
+      "score": 0.912
+    },
+    {
+      "word": "is",
+      "start": 42.863,
+      "end": 42.964,
+      "score": 0.831
+    },
+    {
+      "word": "flashing",
+      "start": 43.044,
+      "end": 43.466,
+      "score": 0.722
+    },
+    {
+      "word": "signs",
+      "start": 43.527,
+      "end": 43.909,
+      "score": 0.439
+    }
+  ],
+  "00:44.21": [
+    {
+      "word": "Seek",
+      "start": 44.23,
+      "end": 44.451,
+      "score": 0.387
+    },
+    {
+      "word": "it",
+      "start": 44.492,
+      "end": 44.552,
+      "score": 0.816
+    },
+    {
+      "word": "out",
+      "start": 44.653,
+      "end": 44.773,
+      "score": 0.931
+    },
+    {
+      "word": "and",
+      "start": 44.834,
+      "end": 44.954,
+      "score": 0.867
+    },
+    {
+      "word": "ye",
+      "start": 45.055,
+      "end": 45.196,
+      "score": 0.762
+    },
+    {
+      "word": "shall",
+      "start": 45.236,
+      "end": 45.457,
+      "score": 0.924
+    },
+    {
+      "word": "find",
+      "start": 45.517,
+      "end": 45.799,
+      "score": 0.862
+    }
+  ],
+  "00:45.98": [
+    {
+      "word": "Old,",
+      "start": 46.223,
+      "end": 46.526,
+      "score": 0.56
+    },
+    {
+      "word": "but",
+      "start": 46.728,
+      "end": 46.849,
+      "score": 0.376
+    },
+    {
+      "word": "I'm",
+      "start": 46.89,
+      "end": 46.991,
+      "score": 0.152
+    },
+    {
+      "word": "not",
+      "start": 47.011,
+      "end": 47.173,
+      "score": 0.873
+    },
+    {
+      "word": "that",
+      "start": 47.233,
+      "end": 47.496,
+      "score": 0.852
+    },
+    {
+      "word": "old",
+      "start": 47.638,
+      "end": 47.759,
+      "score": 0.511
+    }
+  ],
+  "00:47.86": [
+    {
+      "word": "Young,",
+      "start": 47.981,
+      "end": 48.365,
+      "score": 0.859
+    },
+    {
+      "word": "but",
+      "start": 48.708,
+      "end": 48.83,
+      "score": 0.701
+    },
+    {
+      "word": "I'm",
+      "start": 48.85,
+      "end": 48.931,
+      "score": 0.169
+    },
+    {
+      "word": "not",
+      "start": 48.971,
+      "end": 49.153,
+      "score": 0.741
+    },
+    {
+      "word": "that",
+      "start": 49.213,
+      "end": 49.415,
+      "score": 0.904
+    },
+    {
+      "word": "bold",
+      "start": 49.476,
+      "end": 49.718,
+      "score": 0.678
+    }
+  ],
+  "00:49.88": [
+    {
+      "word": "And",
+      "start": 49.88,
+      "end": 50.021,
+      "score": 0.515
+    },
+    {
+      "word": "I",
+      "start": 50.082,
+      "end": 50.163,
+      "score": 0.812
+    },
+    {
+      "word": "don't",
+      "start": 50.183,
+      "end": 50.365,
+      "score": 0.633
+    },
+    {
+      "word": "think",
+      "start": 50.405,
+      "end": 50.628,
+      "score": 0.983
+    },
+    {
+      "word": "the",
+      "start": 50.668,
+      "end": 50.83,
+      "score": 0.875
+    },
+    {
+      "word": "world",
+      "start": 50.89,
+      "end": 51.194,
+      "score": 0.844
+    },
+    {
+      "word": "is",
+      "start": 51.254,
+      "end": 51.335,
+      "score": 0.395
+    },
+    {
+      "word": "sold",
+      "start": 51.375,
+      "end": 51.719,
+      "score": 0.666
+    }
+  ],
+  "00:51.82": [
+    {
+      "word": "On",
+      "start": 52.062,
+      "end": 52.122,
+      "score": 0.386
+    },
+    {
+      "word": "just",
+      "start": 52.163,
+      "end": 52.344,
+      "score": 0.722
+    },
+    {
+      "word": "doing",
+      "start": 52.404,
+      "end": 52.868,
+      "score": 0.705
+    },
+    {
+      "word": "what",
+      "start": 52.908,
+      "end": 53.089,
+      "score": 0.316
+    },
+    {
+      "word": "we're",
+      "start": 53.13,
+      "end": 53.311,
+      "score": 0.346
+    },
+    {
+      "word": "told",
+      "start": 53.351,
+      "end": 53.593,
+      "score": 0.664
+    }
+  ],
+  "00:54.50": [
+    {
+      "word": "I",
+      "start": 56.104,
+      "end": 56.324,
+      "score": 0.807
+    },
+    {
+      "word": "feel",
+      "start": 56.384,
+      "end": 56.765,
+      "score": 0.721
+    },
+    {
+      "word": "something",
+      "start": 56.806,
+      "end": 57.267,
+      "score": 0.555
+    },
+    {
+      "word": "so",
+      "start": 57.327,
+      "end": 57.788,
+      "score": 0.879
+    },
+    {
+      "word": "right",
+      "start": 58.008,
+      "end": 58.269,
+      "score": 0.308
+    }
+  ],
+  "00:58.69": [
+    {
+      "word": "Doing",
+      "start": 58.79,
+      "end": 59.232,
+      "score": 0.677
+    },
+    {
+      "word": "the",
+      "start": 59.312,
+      "end": 59.552,
+      "score": 0.633
+    },
+    {
+      "word": "wrong",
+      "start": 59.693,
+      "end": 59.954,
+      "score": 0.315
+    },
+    {
+      "word": "thing",
+      "start": 60.014,
+      "end": 60.355,
+      "score": 0.53
+    }
+  ],
+  "01:02.16": [
+    {
+      "word": "And",
+      "start": 63.142,
+      "end": 64.024,
+      "score": 0.681
+    },
+    {
+      "word": "I",
+      "start": 64.124,
+      "end": 64.185,
+      "score": 0.448
+    },
+    {
+      "word": "feel",
+      "start": 64.225,
+      "end": 64.606,
+      "score": 0.62
+    },
+    {
+      "word": "something",
+      "start": 64.646,
+      "end": 65.127,
+      "score": 0.571
+    },
+    {
+      "word": "so",
+      "start": 65.187,
+      "end": 65.628,
+      "score": 0.816
+    },
+    {
+      "word": "wrong",
+      "start": 65.648,
+      "end": 66.089,
+      "score": 0.626
+    }
+  ],
+  "01:06.59": [
+    {
+      "word": "Doing",
+      "start": 66.67,
+      "end": 67.092,
+      "score": 0.841
+    },
+    {
+      "word": "the",
+      "start": 67.212,
+      "end": 67.332,
+      "score": 0.38
+    },
+    {
+      "word": "right",
+      "start": 67.352,
+      "end": 67.733,
+      "score": 0.311
+    },
+    {
+      "word": "thing",
+      "start": 67.874,
+      "end": 68.235,
+      "score": 0.533
+    }
+  ],
+  "01:09.92": [
+    {
+      "word": "I",
+      "start": 69.94,
+      "end": 70.08,
+      "score": 0.851
+    },
+    {
+      "word": "couldn't",
+      "start": 70.141,
+      "end": 70.562,
+      "score": 0.336
+    },
+    {
+      "word": "lie,",
+      "start": 70.622,
+      "end": 71.083,
+      "score": 0.788
+    },
+    {
+      "word": "couldn't",
+      "start": 71.144,
+      "end": 71.565,
+      "score": 0.345
+    },
+    {
+      "word": "lie,",
+      "start": 71.605,
+      "end": 72.046,
+      "score": 0.797
+    },
+    {
+      "word": "couldn't",
+      "start": 72.106,
+      "end": 72.548,
+      "score": 0.357
+    },
+    {
+      "word": "lie",
+      "start": 72.588,
+      "end": 73.049,
+      "score": 0.64
+    }
+  ],
+  "01:13.41": [
+    {
+      "word": "Everything",
+      "start": 73.912,
+      "end": 74.917,
+      "score": 0.83
+    },
+    {
+      "word": "that",
+      "start": 75.018,
+      "end": 75.319,
+      "score": 0.554
+    },
+    {
+      "word": "kills",
+      "start": 75.439,
+      "end": 75.922,
+      "score": 0.777
+    },
+    {
+      "word": "me",
+      "start": 76.002,
+      "end": 76.304,
+      "score": 0.788
+    },
+    {
+      "word": "makes",
+      "start": 76.464,
+      "end": 76.685,
+      "score": 0.916
+    },
+    {
+      "word": "me",
+      "start": 76.746,
+      "end": 76.866,
+      "score": 0.832
+    },
+    {
+      "word": "feel",
+      "start": 76.947,
+      "end": 77.188,
+      "score": 0.804
+    },
+    {
+      "word": "alive",
+      "start": 77.248,
+      "end": 77.529,
+      "score": 0.453
+    }
+  ],
+  "01:17.69": [
+    {
+      "word": "Lately,",
+      "start": 77.75,
+      "end": 78.412,
+      "score": 0.529
+    },
+    {
+      "word": "I've",
+      "start": 78.793,
+      "end": 78.933,
+      "score": 0.252
+    },
+    {
+      "word": "been,",
+      "start": 79.013,
+      "end": 79.394,
+      "score": 0.632
+    },
+    {
+      "word": "I've",
+      "start": 79.414,
+      "end": 79.675,
+      "score": 0.412
+    },
+    {
+      "word": "been",
+      "start": 79.695,
+      "end": 79.876,
+      "score": 0.51
+    },
+    {
+      "word": "losing",
+      "start": 79.916,
+      "end": 80.297,
+      "score": 0.495
+    },
+    {
+      "word": "sleep",
+      "start": 80.317,
+      "end": 80.778,
+      "score": 0.596
+    }
+  ],
+  "01:21.64": [
+    {
+      "word": "Dreaming",
+      "start": 81.64,
+      "end": 82.203,
+      "score": 0.392
+    },
+    {
+      "word": "about",
+      "start": 82.223,
+      "end": 82.626,
+      "score": 0.604
+    },
+    {
+      "word": "the",
+      "start": 82.646,
+      "end": 82.706,
+      "score": 0.009
     },
     {
       "word": "things",
-      "start": 99.395,
-      "end": 99.556,
-      "score": 0.158
+      "start": 82.967,
+      "end": 83.148,
+      "score": 0.33
+    },
+    {
+      "word": "that",
+      "start": 83.169,
+      "end": 83.309,
+      "score": 0.197
     },
     {
       "word": "we",
-      "start": 99.696,
-      "end": 99.836,
-      "score": 0.412
+      "start": 83.39,
+      "end": 83.792,
+      "score": 0.883
+    },
+    {
+      "word": "could",
+      "start": 83.913,
+      "end": 84.255,
+      "score": 0.475
+    },
+    {
+      "word": "be",
+      "start": 84.355,
+      "end": 84.556,
+      "score": 0.804
+    }
+  ],
+  "01:25.20": [
+    {
+      "word": "But",
+      "start": 85.38,
+      "end": 85.721,
+      "score": 0.756
+    },
+    {
+      "word": "baby,",
+      "start": 85.882,
+      "end": 86.262,
+      "score": 0.58
+    },
+    {
+      "word": "I've",
+      "start": 86.643,
+      "end": 86.784,
+      "score": 0.219
+    },
+    {
+      "word": "been,",
+      "start": 86.844,
+      "end": 87.185,
+      "score": 0.654
+    },
+    {
+      "word": "I've",
+      "start": 87.245,
+      "end": 87.525,
+      "score": 0.303
+    },
+    {
+      "word": "been",
+      "start": 87.566,
+      "end": 87.746,
+      "score": 0.3
+    },
+    {
+      "word": "praying",
+      "start": 87.826,
+      "end": 88.147,
+      "score": 0.434
+    },
+    {
+      "word": "hard",
+      "start": 88.207,
+      "end": 88.808,
+      "score": 0.546
+    }
+  ],
+  "01:29.47": [
+    {
+      "word": "Said",
+      "start": 89.812,
+      "end": 89.912,
+      "score": 0.124
+    },
+    {
+      "word": "no",
+      "start": 89.993,
+      "end": 90.033,
+      "score": 0.37
+    },
+    {
+      "word": "more",
+      "start": 90.053,
+      "end": 90.174,
+      "score": 0.555
+    },
+    {
+      "word": "counting",
+      "start": 90.234,
+      "end": 90.697,
+      "score": 0.597
+    },
+    {
+      "word": "dollars,",
+      "start": 90.797,
+      "end": 91.199,
+      "score": 0.492
+    },
+    {
+      "word": "we'll",
+      "start": 91.26,
+      "end": 91.481,
+      "score": 0.376
+    },
+    {
+      "word": "be",
+      "start": 91.521,
+      "end": 91.662,
+      "score": 0.65
+    },
+    {
+      "word": "counting",
+      "start": 91.763,
+      "end": 92.104,
+      "score": 0.393
+    },
+    {
+      "word": "stars",
+      "start": 92.145,
+      "end": 92.768,
+      "score": 0.823
+    }
+  ],
+  "01:33.13": [
+    {
+      "word": "Lately,",
+      "start": 94.858,
+      "end": 95.019,
+      "score": 0.093
+    },
+    {
+      "word": "I've",
+      "start": 95.039,
+      "end": 95.119,
+      "score": 0.012
+    },
+    {
+      "word": "been,",
+      "start": 95.18,
+      "end": 95.481,
+      "score": 0.526
+    },
+    {
+      "word": "I've",
+      "start": 95.501,
+      "end": 95.642,
+      "score": 0.318
+    },
+    {
+      "word": "been",
+      "start": 95.682,
+      "end": 95.803,
+      "score": 0.273
+    },
+    {
+      "word": "losing",
+      "start": 95.843,
+      "end": 95.983,
+      "score": 0.157
+    },
+    {
+      "word": "sleep",
+      "start": 96.003,
+      "end": 96.265,
+      "score": 0.419
+    }
+  ],
+  "01:37.39": [
+    {
+      "word": "Dreaming",
+      "start": 97.43,
+      "end": 98.814,
+      "score": 0.292
+    },
+    {
+      "word": "about",
+      "start": 98.854,
+      "end": 99.095,
+      "score": 0.413
+    },
+    {
+      "word": "the",
+      "start": 99.135,
+      "end": 99.315,
+      "score": 0.463
+    },
+    {
+      "word": "things",
+      "start": 99.356,
+      "end": 99.516,
+      "score": 0.155
+    },
+    {
+      "word": "we",
+      "start": 99.697,
+      "end": 99.837,
+      "score": 0.646
     },
     {
       "word": "could",
       "start": 99.857,
       "end": 99.977,
-      "score": 0.095
+      "score": 0.093
     },
     {
       "word": "be",
-      "start": 100.157,
-      "end": 100.298,
-      "score": 0.558
+      "start": 100.098,
+      "end": 100.318,
+      "score": 0.504
     }
   ],
-  "01:41.04": [
+  "01:40.90": [
     {
       "word": "But",
-      "start": 101.04,
-      "end": 101.12,
-      "score": 0.165
-    },
-    {
-      "word": "baby,",
-      "start": 101.14,
-      "end": 101.462,
-      "score": 0.428
-    },
-    {
-      "word": "I've",
-      "start": 101.502,
-      "end": 101.603,
-      "score": 0.114
-    },
-    {
-      "word": "been,",
-      "start": 102.627,
-      "end": 102.969,
-      "score": 0.598
-    },
-    {
-      "word": "I've",
-      "start": 102.989,
-      "end": 103.109,
-      "score": 0.119
-    },
-    {
-      "word": "been",
-      "start": 103.37,
-      "end": 103.531,
-      "score": 0.329
-    },
-    {
-      "word": "praying",
-      "start": 103.571,
-      "end": 104.033,
-      "score": 0.385
-    },
-    {
-      "word": "hard",
-      "start": 105.279,
-      "end": 105.44,
-      "score": 0.392
-    }
-  ],
-  "01:45.50": [
-    {
-      "word": "Said,",
-      "start": 105.52,
-      "end": 106.002,
-      "score": 0.521
-    },
-    {
-      "word": "\"No",
-      "start": 106.022,
-      "end": 106.283,
-      "score": 0.655
-    },
-    {
-      "word": "more",
-      "start": 106.323,
-      "end": 106.504,
-      "score": 0.508
-    },
-    {
-      "word": "counting",
-      "start": 106.524,
-      "end": 107.266,
-      "score": 0.562
-    },
-    {
-      "word": "dollars,",
-      "start": 107.287,
-      "end": 107.507,
-      "score": 0.158
-    },
-    {
-      "word": "we'll",
-      "start": 107.547,
-      "end": 107.748,
-      "score": 0.163
-    },
-    {
-      "word": "be,",
-      "start": 107.788,
-      "end": 107.969,
-      "score": 0.494
-    },
-    {
-      "word": "we'll",
-      "start": 108.029,
-      "end": 108.23,
-      "score": 0.167
-    },
-    {
-      "word": "be",
-      "start": 108.27,
-      "end": 108.451,
-      "score": 0.716
-    },
-    {
-      "word": "counting",
-      "start": 108.491,
-      "end": 108.892,
-      "score": 0.368
-    },
-    {
-      "word": "stars\"",
-      "start": 108.913,
-      "end": 109.495,
-      "score": 0.634
-    }
-  ],
-  "01:50.96": [
-    {
-      "word": "Yeah",
-      "start": 110.98,
-      "end": 111.601,
-      "score": 0.515
-    }
-  ],
-  "01:56.31": [
-    {
-      "word": "I",
-      "start": 116.673,
-      "end": 116.773,
-      "score": 0.721
-    },
-    {
-      "word": "feel",
-      "start": 116.854,
-      "end": 116.935,
-      "score": 0.01
-    },
-    {
-      "word": "your",
-      "start": 116.955,
-      "end": 117.096,
-      "score": 0.208
-    },
-    {
-      "word": "love,",
-      "start": 117.116,
-      "end": 117.277,
-      "score": 0.348
-    },
-    {
-      "word": "and",
-      "start": 117.599,
-      "end": 117.7,
-      "score": 0.698
-    },
-    {
-      "word": "I",
-      "start": 117.74,
-      "end": 117.781,
-      "score": 0.117
-    },
-    {
-      "word": "feel",
-      "start": 117.821,
-      "end": 118.002,
-      "score": 0.739
-    },
-    {
-      "word": "it",
-      "start": 118.022,
-      "end": 118.143,
-      "score": 0.714
-    },
-    {
-      "word": "burn",
-      "start": 118.224,
-      "end": 118.566,
-      "score": 0.824
-    }
-  ],
-  "01:59.07": [
-    {
-      "word": "Down",
-      "start": 119.09,
-      "end": 119.211,
-      "score": 0.218
-    },
-    {
-      "word": "this",
-      "start": 119.232,
-      "end": 119.312,
-      "score": 0.004
-    },
-    {
-      "word": "river,",
-      "start": 119.333,
-      "end": 119.656,
-      "score": 0.705
-    },
-    {
-      "word": "every",
-      "start": 119.939,
-      "end": 120.161,
-      "score": 0.813
-    },
-    {
-      "word": "turn",
-      "start": 120.202,
-      "end": 120.545,
-      "score": 0.411
-    }
-  ],
-  "02:01.03": [
-    {
-      "word": "Hope",
-      "start": 121.05,
-      "end": 121.191,
-      "score": 0.338
-    },
-    {
-      "word": "is",
-      "start": 121.211,
-      "end": 121.251,
-      "score": 0.457
-    },
-    {
-      "word": "our",
-      "start": 121.372,
-      "end": 121.472,
-      "score": 0.338
-    },
-    {
-      "word": "four-letter",
-      "start": 121.492,
-      "end": 122.116,
-      "score": 0.763
-    },
-    {
-      "word": "word",
-      "start": 122.136,
-      "end": 122.296,
-      "score": 0.443
-    }
-  ],
-  "02:02.98": [
-    {
-      "word": "Make",
-      "start": 122.98,
-      "end": 123.08,
-      "score": 0.132
-    },
-    {
-      "word": "that",
-      "start": 123.101,
-      "end": 123.181,
-      "score": 0.002
-    },
-    {
-      "word": "money,",
-      "start": 123.241,
-      "end": 123.523,
-      "score": 0.775
-    },
-    {
-      "word": "watch",
-      "start": 123.724,
-      "end": 123.985,
-      "score": 0.925
-    },
-    {
-      "word": "it",
-      "start": 124.045,
-      "end": 124.126,
-      "score": 0.516
-    },
-    {
-      "word": "burn",
-      "start": 124.226,
-      "end": 124.487,
-      "score": 0.713
-    }
-  ],
-  "02:05.01": [
-    {
-      "word": "Old,",
-      "start": 125.07,
-      "end": 125.191,
-      "score": 0.439
-    },
-    {
-      "word": "but",
-      "start": 125.432,
-      "end": 125.593,
-      "score": 0.463
-    },
-    {
-      "word": "I'm",
-      "start": 125.613,
-      "end": 125.714,
-      "score": 0.193
-    },
-    {
-      "word": "not",
-      "start": 125.734,
-      "end": 125.935,
-      "score": 0.643
-    },
-    {
-      "word": "that",
-      "start": 125.995,
-      "end": 126.297,
-      "score": 0.614
-    },
-    {
-      "word": "old",
-      "start": 126.397,
-      "end": 126.498,
-      "score": 0.389
-    }
-  ],
-  "02:06.94": [
-    {
-      "word": "Young,",
-      "start": 126.94,
-      "end": 127.223,
-      "score": 0.494
-    },
-    {
-      "word": "but",
-      "start": 127.446,
-      "end": 127.608,
-      "score": 0.49
-    },
-    {
-      "word": "I'm",
-      "start": 127.628,
-      "end": 127.688,
-      "score": 0.0
-    },
-    {
-      "word": "not",
-      "start": 127.709,
-      "end": 127.911,
-      "score": 0.634
-    },
-    {
-      "word": "that",
-      "start": 127.951,
-      "end": 128.194,
-      "score": 0.612
-    },
-    {
-      "word": "bold",
-      "start": 128.255,
-      "end": 128.538,
-      "score": 0.583
-    }
-  ],
-  "02:08.72": [
-    {
-      "word": "And",
-      "start": 128.72,
-      "end": 128.78,
-      "score": 0.001
-    },
-    {
-      "word": "I",
-      "start": 128.901,
-      "end": 128.941,
-      "score": 0.506
-    },
-    {
-      "word": "don't",
-      "start": 128.961,
-      "end": 129.102,
-      "score": 0.187
-    },
-    {
-      "word": "think",
-      "start": 129.162,
-      "end": 129.403,
-      "score": 0.502
-    },
-    {
-      "word": "the",
-      "start": 129.423,
-      "end": 129.584,
-      "score": 0.889
-    },
-    {
-      "word": "world",
-      "start": 129.664,
-      "end": 129.925,
-      "score": 0.867
-    },
-    {
-      "word": "is",
-      "start": 130.005,
-      "end": 130.086,
-      "score": 0.51
-    },
-    {
-      "word": "sold",
-      "start": 130.166,
-      "end": 130.407,
-      "score": 0.729
-    }
-  ],
-  "02:11.11": [
-    {
-      "word": "On",
-      "start": 131.21,
-      "end": 131.291,
-      "score": 0.488
-    },
-    {
-      "word": "just",
-      "start": 131.311,
-      "end": 131.492,
-      "score": 0.417
-    },
-    {
-      "word": "doing",
-      "start": 131.512,
-      "end": 131.633,
-      "score": 0.116
-    },
-    {
-      "word": "what",
-      "start": 131.673,
-      "end": 131.834,
-      "score": 0.28
-    },
-    {
-      "word": "we're",
-      "start": 131.874,
-      "end": 131.994,
-      "score": 0.177
-    },
-    {
-      "word": "told",
-      "start": 132.135,
-      "end": 132.457,
-      "score": 0.677
-    }
-  ],
-  "02:13.16": [
-    {
-      "word": "And",
-      "start": 134.722,
-      "end": 134.902,
-      "score": 0.418
-    },
-    {
-      "word": "I",
-      "start": 134.982,
-      "end": 135.062,
-      "score": 0.552
-    },
-    {
-      "word": "feel",
-      "start": 135.102,
-      "end": 135.483,
-      "score": 0.547
-    },
-    {
-      "word": "something",
-      "start": 135.503,
-      "end": 136.004,
-      "score": 0.502
-    },
-    {
-      "word": "so",
-      "start": 136.024,
-      "end": 137.005,
-      "score": 0.806
-    },
-    {
-      "word": "wrong,",
-      "start": 137.265,
-      "end": 137.486,
-      "score": 0.605
-    },
-    {
-      "word": "doing",
-      "start": 137.526,
-      "end": 137.966,
-      "score": 0.822
-    },
-    {
-      "word": "the",
-      "start": 138.046,
-      "end": 138.186,
-      "score": 0.617
-    },
-    {
-      "word": "right",
-      "start": 138.227,
-      "end": 138.667,
-      "score": 0.441
-    },
-    {
-      "word": "thing",
-      "start": 138.727,
-      "end": 139.088,
-      "score": 0.478
-    }
-  ],
-  "02:20.95": [
-    {
-      "word": "I",
-      "start": 140.95,
-      "end": 140.97,
-      "score": 0.0
-    },
-    {
-      "word": "couldn't",
-      "start": 141.01,
-      "end": 141.453,
-      "score": 0.38
-    },
-    {
-      "word": "lie,",
-      "start": 141.493,
-      "end": 141.935,
-      "score": 0.713
-    },
-    {
-      "word": "couldn't",
-      "start": 141.995,
-      "end": 142.458,
-      "score": 0.412
-    },
-    {
-      "word": "lie,",
-      "start": 142.498,
-      "end": 142.88,
-      "score": 0.748
-    },
-    {
-      "word": "couldn't",
-      "start": 142.981,
-      "end": 143.443,
-      "score": 0.424
-    },
-    {
-      "word": "lie",
-      "start": 143.483,
-      "end": 143.946,
-      "score": 0.537
-    }
-  ],
-  "02:24.81": [
-    {
-      "word": "Everything",
-      "start": 144.951,
-      "end": 145.815,
-      "score": 0.793
-    },
-    {
-      "word": "that",
-      "start": 145.896,
-      "end": 146.298,
-      "score": 0.181
-    },
-    {
-      "word": "drowns",
-      "start": 146.398,
-      "end": 146.881,
-      "score": 0.878
-    },
-    {
-      "word": "me",
-      "start": 146.921,
-      "end": 147.283,
-      "score": 0.836
-    },
-    {
-      "word": "makes",
-      "start": 147.383,
-      "end": 147.584,
-      "score": 0.946
-    },
-    {
-      "word": "me",
-      "start": 147.645,
-      "end": 147.806,
-      "score": 0.919
-    },
-    {
-      "word": "wanna",
-      "start": 147.886,
-      "end": 148.047,
-      "score": 0.233
-    },
-    {
-      "word": "fly",
-      "start": 148.087,
-      "end": 148.147,
-      "score": 0.007
-    }
-  ],
-  "02:28.67": [
-    {
-      "word": "Lately,",
-      "start": 148.951,
-      "end": 149.292,
-      "score": 0.36
-    },
-    {
-      "word": "I've",
-      "start": 149.672,
-      "end": 149.853,
-      "score": 0.454
-    },
-    {
-      "word": "been,",
-      "start": 149.913,
-      "end": 150.214,
-      "score": 0.571
-    },
-    {
-      "word": "I've",
-      "start": 150.234,
-      "end": 150.515,
-      "score": 0.43
-    },
-    {
-      "word": "been",
-      "start": 150.555,
-      "end": 150.735,
-      "score": 0.474
-    },
-    {
-      "word": "losing",
-      "start": 150.755,
-      "end": 151.156,
-      "score": 0.613
-    },
-    {
-      "word": "sleep",
-      "start": 151.176,
-      "end": 151.457,
-      "score": 0.572
-    }
-  ],
-  "02:32.72": [
-    {
-      "word": "Dreaming",
-      "start": 152.82,
-      "end": 153.021,
-      "score": 0.152
-    },
-    {
-      "word": "about",
-      "start": 153.041,
-      "end": 153.442,
-      "score": 0.407
-    },
-    {
-      "word": "the",
-      "start": 153.482,
-      "end": 153.602,
-      "score": 0.424
-    },
-    {
-      "word": "things",
-      "start": 153.783,
-      "end": 154.024,
-      "score": 0.29
-    },
-    {
-      "word": "that",
-      "start": 154.044,
-      "end": 154.164,
+      "start": 100.98,
+      "end": 101.081,
       "score": 0.223
     },
     {
-      "word": "we",
-      "start": 154.244,
-      "end": 154.645,
-      "score": 0.864
-    },
-    {
-      "word": "could",
-      "start": 154.746,
-      "end": 155.127,
-      "score": 0.597
-    },
-    {
-      "word": "be",
-      "start": 155.207,
-      "end": 155.327,
-      "score": 0.406
-    }
-  ],
-  "02:36.29": [
-    {
-      "word": "But",
-      "start": 156.35,
-      "end": 156.652,
-      "score": 0.499
-    },
-    {
       "word": "baby,",
-      "start": 156.732,
-      "end": 157.114,
-      "score": 0.547
+      "start": 101.101,
+      "end": 101.563,
+      "score": 0.574
     },
     {
       "word": "I've",
-      "start": 157.516,
-      "end": 157.717,
-      "score": 0.426
+      "start": 101.824,
+      "end": 102.708,
+      "score": 0.725
     },
     {
       "word": "been,",
-      "start": 157.757,
-      "end": 158.159,
-      "score": 0.47
+      "start": 102.749,
+      "end": 102.929,
+      "score": 0.418
     },
     {
       "word": "I've",
-      "start": 158.179,
-      "end": 158.38,
-      "score": 0.297
+      "start": 102.95,
+      "end": 103.07,
+      "score": 0.154
     },
     {
       "word": "been",
-      "start": 158.4,
-      "end": 158.581,
-      "score": 0.377
+      "start": 103.271,
+      "end": 103.492,
+      "score": 0.46
     },
     {
       "word": "praying",
-      "start": 158.661,
-      "end": 159.002,
-      "score": 0.482
+      "start": 103.572,
+      "end": 103.914,
+      "score": 0.483
     },
     {
       "word": "hard",
-      "start": 159.083,
-      "end": 159.545,
-      "score": 0.55
+      "start": 104.195,
+      "end": 104.517,
+      "score": 0.532
     }
   ],
-  "02:40.63": [
+  "01:45.20": [
     {
-      "word": "Said,",
-      "start": 160.63,
-      "end": 160.75,
-      "score": 0.132
+      "word": "Said",
+      "start": 105.22,
+      "end": 105.401,
+      "score": 0.456
     },
     {
-      "word": "\"No",
-      "start": 160.79,
-      "end": 160.871,
-      "score": 0.184
+      "word": "no",
+      "start": 105.462,
+      "end": 105.703,
+      "score": 0.452
     },
     {
       "word": "more",
-      "start": 160.891,
-      "end": 161.051,
-      "score": 0.473
+      "start": 105.723,
+      "end": 105.965,
+      "score": 0.62
     },
     {
       "word": "counting",
-      "start": 161.111,
-      "end": 161.573,
-      "score": 0.418
+      "start": 105.985,
+      "end": 106.428,
+      "score": 0.216
     },
     {
-      "word": "dollars,",
-      "start": 161.613,
-      "end": 162.054,
-      "score": 0.418
+      "word": "dollars",
+      "start": 106.448,
+      "end": 106.75,
+      "score": 0.305
+    }
+  ],
+  "01:46.81": [
+    {
+      "word": "We'll",
+      "start": 107.01,
+      "end": 107.211,
+      "score": 0.178
+    },
+    {
+      "word": "be,",
+      "start": 107.251,
+      "end": 107.472,
+      "score": 0.535
     },
     {
       "word": "we'll",
-      "start": 162.114,
-      "end": 162.315,
-      "score": 0.339
+      "start": 107.752,
+      "end": 108.193,
+      "score": 0.644
     },
     {
       "word": "be",
-      "start": 162.355,
-      "end": 162.535,
+      "start": 108.213,
+      "end": 108.414,
+      "score": 0.758
+    },
+    {
+      "word": "counting",
+      "start": 108.514,
+      "end": 108.855,
+      "score": 0.32
+    },
+    {
+      "word": "stars",
+      "start": 108.895,
+      "end": 109.316,
+      "score": 0.475
+    }
+  ],
+  "01:50.98": [
+    {
+      "word": "Yeah,",
+      "start": 111.1,
+      "end": 111.461,
+      "score": 0.313
+    },
+    {
+      "word": "yeah",
+      "start": 111.842,
+      "end": 112.563,
+      "score": 0.601
+    }
+  ],
+  "01:56.19": [
+    {
+      "word": "I",
+      "start": 116.592,
+      "end": 116.792,
+      "score": 0.88
+    },
+    {
+      "word": "feel",
+      "start": 116.812,
+      "end": 116.893,
+      "score": 0.006
+    },
+    {
+      "word": "your",
+      "start": 116.953,
+      "end": 117.074,
+      "score": 0.381
+    },
+    {
+      "word": "love,",
+      "start": 117.094,
+      "end": 117.254,
+      "score": 0.497
+    },
+    {
+      "word": "and",
+      "start": 117.555,
+      "end": 117.656,
+      "score": 0.773
+    },
+    {
+      "word": "I",
+      "start": 117.696,
+      "end": 117.736,
+      "score": 0.155
+    },
+    {
+      "word": "feel",
+      "start": 117.776,
+      "end": 117.977,
+      "score": 0.653
+    },
+    {
+      "word": "it",
+      "start": 117.997,
+      "end": 118.118,
+      "score": 0.746
+    },
+    {
+      "word": "burn",
+      "start": 118.178,
+      "end": 118.519,
+      "score": 0.696
+    }
+  ],
+  "01:58.70": [
+    {
+      "word": "Down",
+      "start": 118.781,
+      "end": 119.023,
+      "score": 0.873
+    },
+    {
+      "word": "this",
+      "start": 119.044,
+      "end": 119.205,
+      "score": 0.954
+    },
+    {
+      "word": "river,",
+      "start": 119.286,
+      "end": 119.629,
+      "score": 0.786
+    },
+    {
+      "word": "every",
+      "start": 119.912,
+      "end": 120.114,
+      "score": 0.844
+    },
+    {
+      "word": "turn",
+      "start": 120.175,
+      "end": 120.519,
+      "score": 0.657
+    }
+  ],
+  "02:00.66": [
+    {
+      "word": "Hope",
+      "start": 120.781,
+      "end": 121.002,
+      "score": 0.633
+    },
+    {
+      "word": "is",
+      "start": 121.062,
+      "end": 121.202,
+      "score": 0.765
+    },
+    {
+      "word": "our",
+      "start": 121.343,
+      "end": 121.464,
+      "score": 0.282
+    },
+    {
+      "word": "four-letter",
+      "start": 121.484,
+      "end": 122.147,
+      "score": 0.721
+    },
+    {
+      "word": "word",
+      "start": 122.247,
+      "end": 122.488,
+      "score": 0.564
+    }
+  ],
+  "02:02.89": [
+    {
+      "word": "Make",
+      "start": 122.89,
+      "end": 122.97,
+      "score": 0.0
+    },
+    {
+      "word": "that",
+      "start": 122.991,
+      "end": 123.152,
+      "score": 0.336
+    },
+    {
+      "word": "money,",
+      "start": 123.212,
+      "end": 123.473,
+      "score": 0.853
+    },
+    {
+      "word": "watch",
+      "start": 123.695,
+      "end": 123.936,
+      "score": 0.936
+    },
+    {
+      "word": "it",
+      "start": 123.996,
+      "end": 124.097,
+      "score": 0.544
+    },
+    {
+      "word": "burn",
+      "start": 124.198,
+      "end": 124.479,
+      "score": 0.942
+    }
+  ],
+  "02:04.62": [
+    {
+      "word": "Old,",
+      "start": 124.962,
+      "end": 125.163,
+      "score": 0.469
+    },
+    {
+      "word": "but",
+      "start": 125.444,
+      "end": 125.565,
+      "score": 0.599
+    },
+    {
+      "word": "I'm",
+      "start": 125.585,
+      "end": 125.686,
+      "score": 0.371
+    },
+    {
+      "word": "not",
+      "start": 125.726,
+      "end": 125.887,
+      "score": 0.676
+    },
+    {
+      "word": "that",
+      "start": 125.927,
+      "end": 126.229,
+      "score": 0.718
+    },
+    {
+      "word": "old",
+      "start": 126.349,
+      "end": 126.45,
+      "score": 0.413
+    }
+  ],
+  "02:06.47": [
+    {
+      "word": "Young,",
+      "start": 126.57,
+      "end": 127.234,
+      "score": 0.681
+    },
+    {
+      "word": "but",
+      "start": 127.394,
+      "end": 127.475,
+      "score": 0.144
+    },
+    {
+      "word": "I'm",
+      "start": 127.495,
+      "end": 127.635,
+      "score": 0.262
+    },
+    {
+      "word": "not",
+      "start": 127.676,
+      "end": 127.876,
+      "score": 0.588
+    },
+    {
+      "word": "that",
+      "start": 127.897,
+      "end": 128.158,
+      "score": 0.67
+    },
+    {
+      "word": "bold",
+      "start": 128.198,
+      "end": 128.459,
+      "score": 0.515
+    }
+  ],
+  "02:08.64": [
+    {
+      "word": "And",
+      "start": 128.66,
+      "end": 128.741,
+      "score": 0.166
+    },
+    {
+      "word": "I",
+      "start": 128.802,
+      "end": 128.822,
+      "score": 0.0
+    },
+    {
+      "word": "don't",
+      "start": 128.842,
+      "end": 129.024,
+      "score": 0.293
+    },
+    {
+      "word": "think",
+      "start": 129.186,
+      "end": 129.348,
+      "score": 0.233
+    },
+    {
+      "word": "the",
+      "start": 129.368,
+      "end": 129.57,
+      "score": 0.867
+    },
+    {
+      "word": "world",
+      "start": 129.651,
+      "end": 129.893,
+      "score": 0.618
+    },
+    {
+      "word": "is",
+      "start": 129.974,
+      "end": 130.075,
+      "score": 0.393
+    },
+    {
+      "word": "sold",
+      "start": 130.116,
+      "end": 130.399,
+      "score": 0.64
+    }
+  ],
+  "02:10.52": [
+    {
+      "word": "On",
+      "start": 130.801,
+      "end": 130.861,
+      "score": 0.332
+    },
+    {
+      "word": "just",
+      "start": 130.882,
+      "end": 131.062,
+      "score": 0.649
+    },
+    {
+      "word": "doing",
+      "start": 131.143,
+      "end": 131.544,
+      "score": 0.629
+    },
+    {
+      "word": "what",
+      "start": 131.605,
+      "end": 131.806,
+      "score": 0.495
+    },
+    {
+      "word": "we're",
+      "start": 131.846,
+      "end": 132.006,
+      "score": 0.376
+    },
+    {
+      "word": "told",
+      "start": 132.107,
+      "end": 132.428,
+      "score": 0.884
+    }
+  ],
+  "02:12.85": [
+    {
+      "word": "And",
+      "start": 134.718,
+      "end": 134.919,
+      "score": 0.567
+    },
+    {
+      "word": "I",
+      "start": 134.98,
+      "end": 135.02,
+      "score": 0.421
+    },
+    {
+      "word": "feel",
+      "start": 135.06,
+      "end": 135.442,
+      "score": 0.647
+    },
+    {
+      "word": "something",
+      "start": 135.482,
+      "end": 135.924,
+      "score": 0.499
+    },
+    {
+      "word": "so",
+      "start": 136.004,
+      "end": 136.346,
+      "score": 0.848
+    },
+    {
+      "word": "wrong",
+      "start": 136.426,
+      "end": 136.908,
+      "score": 0.776
+    }
+  ],
+  "02:17.33": [
+    {
+      "word": "Doing",
+      "start": 137.491,
+      "end": 137.934,
+      "score": 0.815
+    },
+    {
+      "word": "the",
+      "start": 138.034,
+      "end": 138.155,
+      "score": 0.519
+    },
+    {
+      "word": "right",
+      "start": 138.175,
+      "end": 138.578,
+      "score": 0.622
+    },
+    {
+      "word": "thing",
+      "start": 138.658,
+      "end": 138.92,
+      "score": 0.456
+    }
+  ],
+  "02:20.59": [
+    {
+      "word": "I",
+      "start": 140.73,
+      "end": 140.831,
+      "score": 0.757
+    },
+    {
+      "word": "couldn't",
+      "start": 140.951,
+      "end": 141.372,
+      "score": 0.433
+    },
+    {
+      "word": "lie,",
+      "start": 141.432,
+      "end": 141.873,
+      "score": 0.744
+    },
+    {
+      "word": "couldn't",
+      "start": 141.934,
+      "end": 142.355,
+      "score": 0.438
+    },
+    {
+      "word": "lie,",
+      "start": 142.415,
+      "end": 142.816,
+      "score": 0.697
+    },
+    {
+      "word": "couldn't",
+      "start": 142.916,
+      "end": 143.357,
+      "score": 0.38
+    },
+    {
+      "word": "lie",
+      "start": 143.398,
+      "end": 143.859,
+      "score": 0.562
+    }
+  ],
+  "02:24.32": [
+    {
+      "word": "Everything",
+      "start": 144.761,
+      "end": 145.783,
+      "score": 0.911
+    },
+    {
+      "word": "that",
+      "start": 146.124,
+      "end": 146.264,
+      "score": 0.12
+    },
+    {
+      "word": "drowns",
+      "start": 146.365,
+      "end": 146.826,
+      "score": 0.91
+    },
+    {
+      "word": "me",
+      "start": 146.886,
+      "end": 147.227,
+      "score": 0.854
+    },
+    {
+      "word": "makes",
+      "start": 147.347,
+      "end": 147.547,
+      "score": 0.821
+    },
+    {
+      "word": "me",
+      "start": 147.607,
+      "end": 147.748,
+      "score": 0.966
+    },
+    {
+      "word": "wanna",
+      "start": 147.828,
+      "end": 148.008,
+      "score": 0.192
+    },
+    {
+      "word": "fly",
+      "start": 148.028,
+      "end": 148.109,
+      "score": 0.154
+    }
+  ],
+  "02:28.77": [
+    {
+      "word": "Lately,",
+      "start": 148.971,
+      "end": 149.251,
+      "score": 0.224
+    },
+    {
+      "word": "I've",
+      "start": 149.632,
+      "end": 149.813,
+      "score": 0.437
+    },
+    {
+      "word": "been,",
+      "start": 149.873,
+      "end": 150.194,
+      "score": 0.622
+    },
+    {
+      "word": "I've",
+      "start": 150.374,
+      "end": 150.495,
+      "score": 0.204
+    },
+    {
+      "word": "been",
+      "start": 150.515,
+      "end": 150.715,
+      "score": 0.496
+    },
+    {
+      "word": "losing",
+      "start": 150.735,
+      "end": 151.136,
+      "score": 0.597
+    },
+    {
+      "word": "sleep",
+      "start": 151.156,
+      "end": 151.457,
+      "score": 0.576
+    }
+  ],
+  "02:32.56": [
+    {
+      "word": "Dreaming",
+      "start": 152.7,
+      "end": 153.001,
+      "score": 0.333
+    },
+    {
+      "word": "about",
+      "start": 153.021,
+      "end": 153.402,
+      "score": 0.51
+    },
+    {
+      "word": "the",
+      "start": 153.443,
+      "end": 153.583,
+      "score": 0.582
+    },
+    {
+      "word": "things",
+      "start": 153.743,
+      "end": 153.984,
+      "score": 0.524
+    },
+    {
+      "word": "that",
+      "start": 154.004,
+      "end": 154.145,
+      "score": 0.294
+    },
+    {
+      "word": "we",
+      "start": 154.205,
+      "end": 154.586,
+      "score": 0.846
+    },
+    {
+      "word": "could",
+      "start": 154.726,
+      "end": 155.087,
+      "score": 0.606
+    },
+    {
+      "word": "be",
+      "start": 155.168,
+      "end": 155.308,
+      "score": 0.679
+    }
+  ],
+  "02:36.01": [
+    {
+      "word": "But",
+      "start": 156.311,
+      "end": 156.613,
+      "score": 0.492
+    },
+    {
+      "word": "baby,",
+      "start": 156.693,
+      "end": 157.095,
+      "score": 0.57
+    },
+    {
+      "word": "I've",
+      "start": 157.477,
+      "end": 157.597,
+      "score": 0.254
+    },
+    {
+      "word": "been,",
+      "start": 157.618,
+      "end": 158.14,
+      "score": 0.699
+    },
+    {
+      "word": "I've",
+      "start": 158.24,
+      "end": 158.341,
+      "score": 0.137
+    },
+    {
+      "word": "been",
+      "start": 158.361,
+      "end": 158.602,
+      "score": 0.471
+    },
+    {
+      "word": "praying",
+      "start": 158.662,
+      "end": 158.984,
+      "score": 0.467
+    },
+    {
+      "word": "hard",
+      "start": 159.044,
+      "end": 159.547,
+      "score": 0.413
+    }
+  ],
+  "02:40.29": [
+    {
+      "word": "Said",
+      "start": 160.29,
+      "end": 160.531,
+      "score": 0.509
+    },
+    {
+      "word": "no",
+      "start": 160.551,
+      "end": 160.752,
+      "score": 0.68
+    },
+    {
+      "word": "more",
+      "start": 160.813,
+      "end": 160.994,
+      "score": 0.537
+    },
+    {
+      "word": "counting",
+      "start": 161.094,
+      "end": 161.537,
+      "score": 0.471
+    },
+    {
+      "word": "dollars,",
+      "start": 161.617,
+      "end": 162.019,
+      "score": 0.466
+    },
+    {
+      "word": "we'll",
+      "start": 162.08,
+      "end": 162.261,
+      "score": 0.257
+    },
+    {
+      "word": "be",
+      "start": 162.321,
+      "end": 162.482,
+      "score": 0.699
+    },
+    {
+      "word": "counting",
+      "start": 162.582,
+      "end": 162.985,
+      "score": 0.421
+    },
+    {
+      "word": "stars",
+      "start": 163.005,
+      "end": 163.427,
+      "score": 0.559
+    }
+  ],
+  "02:43.99": [
+    {
+      "word": "Lately,",
+      "start": 164.09,
+      "end": 165.774,
+      "score": 0.457
+    },
+    {
+      "word": "I've",
+      "start": 165.794,
+      "end": 165.935,
+      "score": 0.288
+    },
+    {
+      "word": "been,",
+      "start": 166.235,
+      "end": 166.656,
+      "score": 0.44
+    },
+    {
+      "word": "I've",
+      "start": 166.696,
+      "end": 166.857,
+      "score": 0.301
+    },
+    {
+      "word": "been",
+      "start": 166.897,
+      "end": 167.017,
+      "score": 0.311
+    },
+    {
+      "word": "losing",
+      "start": 167.057,
+      "end": 167.298,
+      "score": 0.147
+    },
+    {
+      "word": "sleep",
+      "start": 167.318,
+      "end": 167.498,
+      "score": 0.175
+    }
+  ],
+  "02:48.24": [
+    {
+      "word": "Dreaming",
+      "start": 168.24,
+      "end": 168.522,
+      "score": 0.223
+    },
+    {
+      "word": "about",
+      "start": 168.562,
+      "end": 168.783,
+      "score": 0.261
+    },
+    {
+      "word": "the",
+      "start": 169.467,
+      "end": 169.688,
+      "score": 0.456
+    },
+    {
+      "word": "things",
+      "start": 169.708,
+      "end": 169.97,
+      "score": 0.323
+    },
+    {
+      "word": "that",
+      "start": 170.03,
+      "end": 170.211,
+      "score": 0.347
+    },
+    {
+      "word": "we",
+      "start": 170.593,
+      "end": 170.634,
+      "score": 0.005
+    },
+    {
+      "word": "could",
+      "start": 170.654,
+      "end": 170.815,
+      "score": 0.229
+    },
+    {
+      "word": "be",
+      "start": 171.056,
+      "end": 171.156,
+      "score": 0.372
+    }
+  ],
+  "02:51.78": [
+    {
+      "word": "But",
+      "start": 171.78,
+      "end": 171.86,
+      "score": 0.164
+    },
+    {
+      "word": "baby,",
+      "start": 171.9,
+      "end": 172.341,
+      "score": 0.575
+    },
+    {
+      "word": "I've",
+      "start": 172.361,
+      "end": 173.484,
+      "score": 0.667
+    },
+    {
+      "word": "been,",
+      "start": 173.524,
+      "end": 173.845,
+      "score": 0.381
+    },
+    {
+      "word": "I've",
+      "start": 174.005,
+      "end": 174.106,
+      "score": 0.149
+    },
+    {
+      "word": "been",
+      "start": 174.126,
+      "end": 174.306,
+      "score": 0.395
+    },
+    {
+      "word": "praying",
+      "start": 174.366,
+      "end": 174.807,
+      "score": 0.412
+    },
+    {
+      "word": "hard",
+      "start": 175.068,
+      "end": 175.328,
+      "score": 0.422
+    }
+  ],
+  "02:55.99": [
+    {
+      "word": "Said",
+      "start": 176.05,
+      "end": 176.231,
+      "score": 0.44
+    },
+    {
+      "word": "no",
+      "start": 176.272,
+      "end": 176.352,
+      "score": 0.324
+    },
+    {
+      "word": "more",
+      "start": 176.553,
+      "end": 176.775,
+      "score": 0.565
+    },
+    {
+      "word": "counting",
+      "start": 176.835,
+      "end": 177.298,
+      "score": 0.274
+    },
+    {
+      "word": "dollars",
+      "start": 177.318,
+      "end": 177.599,
+      "score": 0.274
+    }
+  ],
+  "02:57.70": [
+    {
+      "word": "We'll",
+      "start": 177.84,
+      "end": 178.041,
+      "score": 0.387
+    },
+    {
+      "word": "be,",
+      "start": 178.081,
+      "end": 178.281,
+      "score": 0.655
+    },
+    {
+      "word": "we'll",
+      "start": 178.562,
+      "end": 179.003,
+      "score": 0.465
+    },
+    {
+      "word": "be",
+      "start": 179.043,
+      "end": 179.223,
+      "score": 0.598
+    },
+    {
+      "word": "counting",
+      "start": 179.263,
+      "end": 179.644,
+      "score": 0.416
+    },
+    {
+      "word": "stars",
+      "start": 179.664,
+      "end": 179.784,
+      "score": 0.151
+    }
+  ],
+  "03:02.61": [
+    {
+      "word": "Oh,",
+      "start": 182.872,
+      "end": 183.677,
+      "score": 0.776
+    },
+    {
+      "word": "take",
+      "start": 183.738,
+      "end": 183.98,
+      "score": 0.951
+    },
+    {
+      "word": "that",
+      "start": 184.0,
+      "end": 184.201,
+      "score": 0.547
+    },
+    {
+      "word": "money,",
+      "start": 184.241,
+      "end": 184.543,
+      "score": 0.652
+    },
+    {
+      "word": "watch",
+      "start": 184.584,
+      "end": 184.866,
+      "score": 0.726
+    },
+    {
+      "word": "it",
+      "start": 184.926,
+      "end": 185.047,
+      "score": 0.75
+    },
+    {
+      "word": "burn",
+      "start": 185.087,
+      "end": 185.349,
+      "score": 0.408
+    }
+  ],
+  "03:05.49": [
+    {
+      "word": "Sink",
+      "start": 185.49,
+      "end": 185.872,
+      "score": 0.722
+    },
+    {
+      "word": "in",
+      "start": 185.972,
+      "end": 186.053,
+      "score": 0.56
+    },
+    {
+      "word": "the",
+      "start": 186.073,
+      "end": 186.194,
+      "score": 0.542
+    },
+    {
+      "word": "river",
+      "start": 186.214,
+      "end": 186.394,
+      "score": 0.693
+    },
+    {
+      "word": "the",
+      "start": 186.435,
+      "end": 186.495,
+      "score": 0.961
+    },
+    {
+      "word": "lessons",
+      "start": 186.555,
+      "end": 186.917,
+      "score": 0.482
+    },
+    {
+      "word": "I've",
+      "start": 187.018,
+      "end": 187.118,
+      "score": 0.132
+    },
+    {
+      "word": "learned",
+      "start": 187.158,
+      "end": 187.379,
+      "score": 0.309
+    }
+  ],
+  "03:07.50": [
+    {
+      "word": "Take",
+      "start": 187.641,
+      "end": 187.884,
+      "score": 0.733
+    },
+    {
+      "word": "that",
+      "start": 187.924,
+      "end": 188.086,
+      "score": 0.837
+    },
+    {
+      "word": "money,",
+      "start": 188.147,
+      "end": 188.47,
+      "score": 0.581
+    },
+    {
+      "word": "watch",
+      "start": 188.511,
+      "end": 188.773,
+      "score": 0.985
+    },
+    {
+      "word": "it",
+      "start": 188.854,
+      "end": 188.935,
+      "score": 0.852
+    },
+    {
+      "word": "burn",
+      "start": 188.996,
+      "end": 189.279,
+      "score": 0.433
+    }
+  ],
+  "03:09.42": [
+    {
+      "word": "Sink",
+      "start": 189.44,
+      "end": 189.802,
+      "score": 0.701
+    },
+    {
+      "word": "in",
+      "start": 189.882,
+      "end": 189.963,
+      "score": 0.363
+    },
+    {
+      "word": "the",
+      "start": 190.003,
+      "end": 190.103,
+      "score": 0.264
+    },
+    {
+      "word": "river",
+      "start": 190.143,
+      "end": 190.344,
+      "score": 0.43
+    },
+    {
+      "word": "the",
+      "start": 190.365,
+      "end": 190.465,
+      "score": 0.746
+    },
+    {
+      "word": "lessons",
+      "start": 190.485,
+      "end": 190.847,
+      "score": 0.567
+    },
+    {
+      "word": "I've",
+      "start": 190.947,
+      "end": 191.088,
+      "score": 0.168
+    },
+    {
+      "word": "learned",
+      "start": 191.108,
+      "end": 191.289,
+      "score": 0.304
+    }
+  ],
+  "03:11.51": [
+    {
+      "word": "Take",
+      "start": 191.591,
+      "end": 191.793,
+      "score": 0.874
+    },
+    {
+      "word": "that",
+      "start": 191.833,
+      "end": 192.015,
+      "score": 0.548
+    },
+    {
+      "word": "money,",
+      "start": 192.076,
+      "end": 192.42,
+      "score": 0.626
+    },
+    {
+      "word": "watch",
+      "start": 192.44,
+      "end": 192.703,
+      "score": 0.94
+    },
+    {
+      "word": "it",
+      "start": 192.804,
+      "end": 192.905,
+      "score": 0.698
+    },
+    {
+      "word": "burn",
+      "start": 192.925,
+      "end": 193.228,
+      "score": 0.441
+    }
+  ],
+  "03:13.39": [
+    {
+      "word": "Sink",
+      "start": 193.592,
+      "end": 193.814,
+      "score": 0.466
+    },
+    {
+      "word": "in",
+      "start": 193.834,
+      "end": 193.895,
+      "score": 0.292
+    },
+    {
+      "word": "the",
+      "start": 193.935,
+      "end": 194.036,
+      "score": 0.266
+    },
+    {
+      "word": "river",
+      "start": 194.056,
+      "end": 194.258,
+      "score": 0.244
+    },
+    {
+      "word": "the",
+      "start": 194.299,
+      "end": 194.4,
+      "score": 0.357
+    },
+    {
+      "word": "lessons",
+      "start": 194.44,
+      "end": 194.622,
+      "score": 0.171
+    },
+    {
+      "word": "I've",
+      "start": 194.642,
+      "end": 194.763,
+      "score": 0.114
+    },
+    {
+      "word": "learned",
+      "start": 194.804,
+      "end": 195.187,
+      "score": 0.541
+    }
+  ],
+  "03:15.47": [
+    {
+      "word": "Take",
+      "start": 195.51,
+      "end": 195.733,
+      "score": 0.677
+    },
+    {
+      "word": "that",
+      "start": 195.773,
+      "end": 195.975,
+      "score": 0.704
+    },
+    {
+      "word": "money,",
+      "start": 196.016,
+      "end": 196.36,
+      "score": 0.552
+    },
+    {
+      "word": "watch",
+      "start": 196.38,
+      "end": 196.643,
+      "score": 0.852
+    },
+    {
+      "word": "it",
+      "start": 196.724,
+      "end": 196.825,
+      "score": 0.538
+    },
+    {
+      "word": "burn",
+      "start": 196.865,
+      "end": 197.108,
+      "score": 0.434
+    }
+  ],
+  "03:17.31": [
+    {
+      "word": "Sink",
+      "start": 197.431,
+      "end": 197.653,
+      "score": 0.491
+    },
+    {
+      "word": "in",
+      "start": 197.754,
+      "end": 197.855,
+      "score": 0.629
+    },
+    {
+      "word": "the",
+      "start": 197.875,
+      "end": 197.976,
+      "score": 0.27
+    },
+    {
+      "word": "river",
+      "start": 198.016,
+      "end": 198.178,
+      "score": 0.209
+    },
+    {
+      "word": "the",
+      "start": 198.218,
+      "end": 198.299,
+      "score": 0.857
+    },
+    {
+      "word": "lessons",
+      "start": 198.339,
+      "end": 198.743,
+      "score": 0.5
+    },
+    {
+      "word": "I've",
+      "start": 198.803,
+      "end": 198.944,
+      "score": 0.186
+    },
+    {
+      "word": "learned",
+      "start": 198.985,
+      "end": 199.287,
+      "score": 0.308
+    }
+  ],
+  "03:19.59": [
+    {
+      "word": "Everything",
+      "start": 199.871,
+      "end": 200.935,
+      "score": 0.759
+    },
+    {
+      "word": "that",
+      "start": 201.055,
+      "end": 201.396,
+      "score": 0.854
+    },
+    {
+      "word": "kills",
+      "start": 201.537,
+      "end": 202.099,
+      "score": 0.697
+    },
+    {
+      "word": "me",
+      "start": 202.179,
+      "end": 202.36,
+      "score": 0.998
+    }
+  ],
+  "03:25.29": [
+    {
+      "word": "Makes",
+      "start": 205.29,
+      "end": 205.451,
+      "score": 0.668
+    },
+    {
+      "word": "me",
+      "start": 205.512,
+      "end": 205.632,
+      "score": 0.947
+    },
+    {
+      "word": "feel",
+      "start": 205.733,
+      "end": 205.995,
+      "score": 0.825
+    },
+    {
+      "word": "alive",
+      "start": 206.035,
+      "end": 206.358,
+      "score": 0.461
+    }
+  ],
+  "03:26.70": [
+    {
+      "word": "Lately,",
+      "start": 206.8,
+      "end": 207.261,
+      "score": 0.54
+    },
+    {
+      "word": "I've",
+      "start": 207.622,
+      "end": 207.783,
+      "score": 0.29
+    },
+    {
+      "word": "been,",
+      "start": 207.863,
+      "end": 208.244,
+      "score": 0.665
+    },
+    {
+      "word": "I've",
+      "start": 208.404,
+      "end": 208.525,
+      "score": 0.132
+    },
+    {
+      "word": "been",
+      "start": 208.565,
+      "end": 208.685,
+      "score": 0.352
+    },
+    {
+      "word": "losing",
+      "start": 208.745,
+      "end": 209.146,
+      "score": 0.671
+    },
+    {
+      "word": "sleep",
+      "start": 209.166,
+      "end": 209.527,
+      "score": 0.474
+    }
+  ],
+  "03:30.55": [
+    {
+      "word": "Dreaming",
+      "start": 210.731,
+      "end": 211.033,
+      "score": 0.381
+    },
+    {
+      "word": "about",
+      "start": 211.053,
+      "end": 211.455,
+      "score": 0.648
+    },
+    {
+      "word": "the",
+      "start": 211.495,
+      "end": 211.596,
+      "score": 0.442
+    },
+    {
+      "word": "things",
+      "start": 211.817,
+      "end": 212.038,
+      "score": 0.393
+    },
+    {
+      "word": "that",
+      "start": 212.058,
+      "end": 212.219,
+      "score": 0.369
+    },
+    {
+      "word": "we",
+      "start": 212.28,
+      "end": 212.782,
+      "score": 0.838
+    },
+    {
+      "word": "could",
+      "start": 212.843,
+      "end": 213.144,
+      "score": 0.562
+    },
+    {
+      "word": "be",
+      "start": 213.205,
+      "end": 213.507,
+      "score": 0.539
+    }
+  ],
+  "03:34.13": [
+    {
+      "word": "But",
+      "start": 214.391,
+      "end": 214.631,
+      "score": 0.44
+    },
+    {
+      "word": "baby,",
+      "start": 214.751,
+      "end": 215.092,
+      "score": 0.564
+    },
+    {
+      "word": "I've",
+      "start": 215.513,
+      "end": 215.634,
+      "score": 0.247
+    },
+    {
+      "word": "been,",
+      "start": 215.714,
+      "end": 215.934,
+      "score": 0.419
+    },
+    {
+      "word": "I've",
+      "start": 215.994,
+      "end": 216.195,
+      "score": 0.41
+    },
+    {
+      "word": "been",
+      "start": 216.215,
+      "end": 216.616,
+      "score": 0.59
+    },
+    {
+      "word": "praying",
+      "start": 216.696,
+      "end": 217.037,
+      "score": 0.432
+    },
+    {
+      "word": "hard",
+      "start": 217.298,
+      "end": 217.578,
+      "score": 0.302
+    }
+  ],
+  "03:38.34": [
+    {
+      "word": "Said",
+      "start": 218.34,
+      "end": 218.501,
+      "score": 0.394
+    },
+    {
+      "word": "no",
+      "start": 218.682,
+      "end": 218.802,
+      "score": 0.644
+    },
+    {
+      "word": "more",
+      "start": 218.843,
+      "end": 219.024,
+      "score": 0.609
+    },
+    {
+      "word": "counting",
+      "start": 219.144,
+      "end": 219.567,
+      "score": 0.481
+    },
+    {
+      "word": "dollars,",
+      "start": 219.627,
+      "end": 220.069,
+      "score": 0.44
+    },
+    {
+      "word": "we'll",
+      "start": 220.17,
+      "end": 220.331,
+      "score": 0.18
+    },
+    {
+      "word": "be",
+      "start": 220.351,
+      "end": 220.552,
+      "score": 0.74
+    },
+    {
+      "word": "counting",
+      "start": 220.632,
+      "end": 221.014,
+      "score": 0.414
+    },
+    {
+      "word": "stars",
+      "start": 221.055,
+      "end": 221.517,
+      "score": 0.632
+    }
+  ],
+  "03:42.08": [
+    {
+      "word": "Lately,",
+      "start": 223.728,
+      "end": 223.929,
+      "score": 0.166
+    },
+    {
+      "word": "I've",
+      "start": 223.949,
+      "end": 224.23,
+      "score": 0.526
+    },
+    {
+      "word": "been,",
+      "start": 224.29,
+      "end": 224.491,
+      "score": 0.347
+    },
+    {
+      "word": "I've",
+      "start": 224.753,
+      "end": 224.873,
+      "score": 0.244
+    },
+    {
+      "word": "been",
+      "start": 224.934,
+      "end": 225.054,
+      "score": 0.165
+    },
+    {
+      "word": "losing",
+      "start": 225.074,
+      "end": 225.436,
+      "score": 0.534
+    },
+    {
+      "word": "sleep",
+      "start": 225.456,
+      "end": 226.039,
+      "score": 0.432
+    }
+  ],
+  "03:46.30": [
+    {
+      "word": "Dreaming",
+      "start": 226.561,
+      "end": 226.761,
+      "score": 0.082
+    },
+    {
+      "word": "about",
+      "start": 226.781,
+      "end": 227.704,
+      "score": 0.645
+    },
+    {
+      "word": "the",
+      "start": 227.744,
+      "end": 227.965,
+      "score": 0.652
+    },
+    {
+      "word": "things",
+      "start": 227.985,
+      "end": 228.386,
+      "score": 0.613
+    },
+    {
+      "word": "that",
+      "start": 228.426,
+      "end": 228.707,
+      "score": 0.49
+    },
+    {
+      "word": "we",
+      "start": 228.727,
+      "end": 228.887,
+      "score": 0.638
+    },
+    {
+      "word": "could",
+      "start": 228.947,
+      "end": 229.348,
+      "score": 0.547
+    },
+    {
+      "word": "be",
+      "start": 229.449,
+      "end": 229.569,
+      "score": 0.382
+    }
+  ],
+  "03:49.89": [
+    {
+      "word": "But",
+      "start": 229.93,
+      "end": 231.374,
+      "score": 0.853
+    },
+    {
+      "word": "baby,",
+      "start": 231.434,
+      "end": 231.774,
+      "score": 0.583
+    },
+    {
+      "word": "I've",
+      "start": 231.795,
+      "end": 231.875,
+      "score": 0.0
+    },
+    {
+      "word": "been,",
+      "start": 231.935,
+      "end": 232.155,
+      "score": 0.266
+    },
+    {
+      "word": "I've",
+      "start": 232.256,
+      "end": 232.356,
+      "score": 0.123
+    },
+    {
+      "word": "been",
+      "start": 232.436,
+      "end": 232.536,
+      "score": 0.124
+    },
+    {
+      "word": "praying",
+      "start": 232.556,
+      "end": 233.679,
+      "score": 0.139
+    },
+    {
+      "word": "hard",
+      "start": 233.739,
+      "end": 233.92,
+      "score": 0.348
+    }
+  ],
+  "03:54.10": [
+    {
+      "word": "Said",
+      "start": 234.1,
+      "end": 234.261,
+      "score": 0.414
+    },
+    {
+      "word": "no",
+      "start": 234.301,
+      "end": 234.563,
+      "score": 0.458
+    },
+    {
+      "word": "more",
+      "start": 234.583,
+      "end": 234.784,
+      "score": 0.471
+    },
+    {
+      "word": "counting",
+      "start": 234.845,
+      "end": 235.267,
+      "score": 0.327
+    },
+    {
+      "word": "dollars",
+      "start": 235.287,
+      "end": 235.589,
+      "score": 0.195
+    }
+  ],
+  "03:55.73": [
+    {
+      "word": "We'll",
+      "start": 235.891,
+      "end": 236.071,
+      "score": 0.245
+    },
+    {
+      "word": "be,",
+      "start": 236.091,
+      "end": 236.292,
+      "score": 0.507
+    },
+    {
+      "word": "we'll",
+      "start": 236.352,
+      "end": 236.573,
+      "score": 0.352
+    },
+    {
+      "word": "be",
+      "start": 236.593,
+      "end": 236.814,
       "score": 0.75
     },
     {
       "word": "counting",
-      "start": 162.615,
-      "end": 162.956,
-      "score": 0.346
+      "start": 236.854,
+      "end": 237.276,
+      "score": 0.362
     },
     {
-      "word": "stars\"",
-      "start": 162.976,
-      "end": 163.518,
-      "score": 0.649
+      "word": "stars",
+      "start": 237.296,
+      "end": 237.657,
+      "score": 0.472
     }
   ],
-  "02:44.32": [
+  "03:58.30": [
     {
-      "word": "Lately,",
-      "start": 165.443,
-      "end": 165.984,
-      "score": 0.383
-    },
-    {
-      "word": "I've",
-      "start": 166.164,
-      "end": 166.485,
-      "score": 0.559
-    },
-    {
-      "word": "been,",
-      "start": 166.686,
-      "end": 166.866,
-      "score": 0.258
-    },
-    {
-      "word": "I've",
-      "start": 166.886,
-      "end": 167.046,
-      "score": 0.294
-    },
-    {
-      "word": "been",
-      "start": 167.087,
-      "end": 167.487,
-      "score": 0.743
-    },
-    {
-      "word": "losing",
-      "start": 167.868,
-      "end": 168.189,
-      "score": 0.308
-    },
-    {
-      "word": "sleep",
-      "start": 168.269,
-      "end": 168.53,
-      "score": 0.361
-    }
-  ],
-  "02:48.57": [
-    {
-      "word": "Dreaming",
-      "start": 168.57,
-      "end": 169.717,
-      "score": 0.57
-    },
-    {
-      "word": "about",
-      "start": 169.837,
-      "end": 170.199,
-      "score": 0.409
-    },
-    {
-      "word": "the",
-      "start": 170.219,
-      "end": 170.421,
-      "score": 0.465
-    },
-    {
-      "word": "things",
-      "start": 170.602,
-      "end": 170.863,
-      "score": 0.321
+      "word": "Take",
+      "start": 238.3,
+      "end": 238.622,
+      "score": 0.442
     },
     {
       "word": "that",
-      "start": 170.984,
-      "end": 171.346,
-      "score": 0.573
-    },
-    {
-      "word": "we",
-      "start": 171.406,
-      "end": 171.607,
-      "score": 0.633
-    },
-    {
-      "word": "could",
-      "start": 171.708,
-      "end": 171.909,
-      "score": 0.269
-    },
-    {
-      "word": "be",
-      "start": 171.949,
-      "end": 172.07,
-      "score": 0.444
-    }
-  ],
-  "02:52.09": [
-    {
-      "word": "But",
-      "start": 172.451,
-      "end": 173.533,
-      "score": 0.566
-    },
-    {
-      "word": "baby,",
-      "start": 173.574,
-      "end": 173.774,
-      "score": 0.383
-    },
-    {
-      "word": "I've",
-      "start": 173.814,
-      "end": 173.894,
-      "score": 0.035
-    },
-    {
-      "word": "been,",
-      "start": 173.934,
-      "end": 174.155,
-      "score": 0.422
-    },
-    {
-      "word": "I've",
-      "start": 174.235,
-      "end": 174.335,
-      "score": 0.162
-    },
-    {
-      "word": "been",
-      "start": 174.395,
-      "end": 174.516,
-      "score": 0.25
-    },
-    {
-      "word": "praying",
-      "start": 174.536,
-      "end": 174.716,
-      "score": 0.144
-    },
-    {
-      "word": "hard",
-      "start": 174.756,
-      "end": 174.837,
-      "score": 0.066
-    }
-  ],
-  "02:56.30": [
-    {
-      "word": "Said,",
-      "start": 176.46,
-      "end": 176.58,
-      "score": 0.111
-    },
-    {
-      "word": "\"No",
-      "start": 176.6,
-      "end": 176.661,
-      "score": 0.038
-    },
-    {
-      "word": "more",
-      "start": 176.681,
-      "end": 176.801,
-      "score": 0.308
-    },
-    {
-      "word": "counting",
-      "start": 176.841,
-      "end": 177.342,
-      "score": 0.56
-    },
-    {
-      "word": "dollars,",
-      "start": 177.382,
-      "end": 178.083,
-      "score": 0.495
-    },
-    {
-      "word": "we'll",
-      "start": 178.123,
-      "end": 178.564,
-      "score": 0.521
-    },
-    {
-      "word": "be,",
-      "start": 178.604,
-      "end": 178.824,
-      "score": 0.642
-    },
-    {
-      "word": "we'll",
-      "start": 178.864,
-      "end": 179.064,
-      "score": 0.312
-    },
-    {
-      "word": "be",
-      "start": 179.084,
-      "end": 179.285,
-      "score": 0.64
-    },
-    {
-      "word": "counting",
-      "start": 179.305,
-      "end": 179.685,
-      "score": 0.503
-    },
-    {
-      "word": "stars\"",
-      "start": 179.705,
-      "end": 179.866,
-      "score": 0.352
-    }
-  ],
-  "03:02.71": [
-    {
-      "word": "Oh,",
-      "start": 183.152,
-      "end": 183.713,
-      "score": 0.619
-    },
-    {
-      "word": "take",
-      "start": 183.774,
-      "end": 184.035,
-      "score": 0.924
-    },
-    {
-      "word": "that",
-      "start": 184.055,
-      "end": 184.235,
-      "score": 0.553
+      "start": 238.663,
+      "end": 238.864,
+      "score": 0.407
     },
     {
       "word": "money,",
-      "start": 184.255,
-      "end": 184.576,
-      "score": 0.476
+      "start": 238.924,
+      "end": 239.106,
+      "score": 0.186
     },
     {
       "word": "watch",
-      "start": 184.617,
-      "end": 184.898,
-      "score": 0.627
+      "start": 239.146,
+      "end": 239.428,
+      "score": 0.267
     },
     {
       "word": "it",
-      "start": 184.938,
-      "end": 185.058,
-      "score": 0.673
+      "start": 239.468,
+      "end": 239.549,
+      "score": 0.286
     },
     {
       "word": "burn",
-      "start": 185.098,
-      "end": 185.279,
-      "score": 0.428
+      "start": 239.589,
+      "end": 239.71,
+      "score": 0.189
     }
   ],
-  "03:05.62": [
+  "03:59.71": [
     {
       "word": "Sink",
-      "start": 185.64,
-      "end": 185.963,
-      "score": 0.744
+      "start": 239.73,
+      "end": 239.811,
+      "score": 0.001
     },
     {
       "word": "in",
-      "start": 186.003,
-      "end": 186.084,
-      "score": 0.637
-    },
-    {
-      "word": "the",
-      "start": 186.124,
-      "end": 186.245,
-      "score": 0.371
-    },
-    {
-      "word": "river",
-      "start": 186.286,
-      "end": 186.427,
-      "score": 0.527
-    },
-    {
-      "word": "the",
-      "start": 186.467,
-      "end": 186.528,
-      "score": 0.927
-    },
-    {
-      "word": "lessons",
-      "start": 186.588,
-      "end": 186.952,
+      "start": 239.831,
+      "end": 239.911,
       "score": 0.472
     },
     {
-      "word": "I've",
-      "start": 187.052,
-      "end": 187.174,
-      "score": 0.174
-    },
-    {
-      "word": "learned",
-      "start": 187.214,
-      "end": 187.436,
-      "score": 0.358
-    }
-  ],
-  "03:07.92": [
-    {
-      "word": "Take",
-      "start": 187.94,
-      "end": 188.142,
-      "score": 0.44
-    },
-    {
-      "word": "that",
-      "start": 188.163,
-      "end": 188.345,
-      "score": 0.486
-    },
-    {
-      "word": "money,",
-      "start": 188.365,
-      "end": 188.507,
-      "score": 0.291
-    },
-    {
-      "word": "watch",
-      "start": 188.527,
-      "end": 188.83,
-      "score": 0.991
-    },
-    {
-      "word": "it",
-      "start": 188.891,
-      "end": 188.972,
-      "score": 0.962
-    },
-    {
-      "word": "burn",
-      "start": 189.032,
-      "end": 189.376,
-      "score": 0.47
-    }
-  ],
-  "03:09.70": [
-    {
-      "word": "Sink",
-      "start": 189.7,
-      "end": 189.861,
-      "score": 0.396
-    },
-    {
-      "word": "in",
-      "start": 189.921,
-      "end": 190.001,
-      "score": 0.303
-    },
-    {
       "word": "the",
-      "start": 190.021,
-      "end": 190.142,
-      "score": 0.439
+      "start": 239.931,
+      "end": 240.092,
+      "score": 0.415
     },
     {
       "word": "river",
-      "start": 190.162,
-      "end": 190.383,
-      "score": 0.555
-    },
-    {
-      "word": "the",
-      "start": 190.403,
-      "end": 190.484,
-      "score": 0.909
-    },
-    {
-      "word": "lessons",
-      "start": 190.524,
-      "end": 190.885,
-      "score": 0.554
-    },
-    {
-      "word": "I've",
-      "start": 190.986,
-      "end": 191.086,
-      "score": 0.091
-    },
-    {
-      "word": "learned",
-      "start": 191.147,
-      "end": 191.368,
-      "score": 0.376
-    }
-  ],
-  "03:11.89": [
-    {
-      "word": "Take",
-      "start": 191.93,
-      "end": 192.051,
-      "score": 0.25
-    },
-    {
-      "word": "that",
-      "start": 192.111,
-      "end": 192.252,
-      "score": 0.472
-    },
-    {
-      "word": "money,",
-      "start": 192.272,
-      "end": 192.433,
-      "score": 0.295
-    },
-    {
-      "word": "watch",
-      "start": 192.453,
-      "end": 192.714,
-      "score": 0.819
-    },
-    {
-      "word": "it",
-      "start": 192.815,
-      "end": 192.915,
-      "score": 0.804
-    },
-    {
-      "word": "burn",
-      "start": 192.956,
-      "end": 193.318,
-      "score": 0.498
-    }
-  ],
-  "03:13.76": [
-    {
-      "word": "Sink",
-      "start": 193.922,
-      "end": 194.204,
-      "score": 0.247
-    },
-    {
-      "word": "in",
-      "start": 194.224,
-      "end": 194.285,
-      "score": 0.25
-    },
-    {
-      "word": "the",
-      "start": 194.325,
-      "end": 194.406,
-      "score": 0.421
-    },
-    {
-      "word": "river",
-      "start": 194.426,
-      "end": 194.608,
-      "score": 0.297
-    },
-    {
-      "word": "the",
-      "start": 194.628,
-      "end": 194.689,
-      "score": 0.166
-    },
-    {
-      "word": "lessons",
-      "start": 194.709,
-      "end": 194.992,
-      "score": 0.27
-    },
-    {
-      "word": "I've",
-      "start": 195.012,
-      "end": 195.315,
-      "score": 0.385
-    },
-    {
-      "word": "learned",
-      "start": 195.557,
-      "end": 195.759,
-      "score": 0.143
-    }
-  ],
-  "03:15.86": [
-    {
-      "word": "Take",
-      "start": 196.042,
-      "end": 196.366,
-      "score": 0.603
-    },
-    {
-      "word": "that",
-      "start": 196.406,
-      "end": 196.588,
-      "score": 0.667
-    },
-    {
-      "word": "money,",
-      "start": 196.649,
-      "end": 196.892,
-      "score": 0.475
-    },
-    {
-      "word": "watch",
-      "start": 196.912,
-      "end": 197.053,
-      "score": 0.358
-    },
-    {
-      "word": "it",
-      "start": 197.175,
-      "end": 197.256,
-      "score": 0.272
-    },
-    {
-      "word": "burn",
-      "start": 197.357,
-      "end": 197.6,
-      "score": 0.444
-    }
-  ],
-  "03:17.64": [
-    {
-      "word": "Sink",
-      "start": 197.761,
-      "end": 197.881,
-      "score": 0.301
-    },
-    {
-      "word": "in",
-      "start": 197.941,
-      "end": 197.982,
-      "score": 0.014
-    },
-    {
-      "word": "the",
-      "start": 198.022,
-      "end": 198.203,
-      "score": 0.449
-    },
-    {
-      "word": "river",
-      "start": 198.303,
-      "end": 198.585,
-      "score": 0.544
-    },
-    {
-      "word": "the",
-      "start": 198.605,
-      "end": 198.705,
-      "score": 0.383
-    },
-    {
-      "word": "lessons",
-      "start": 198.745,
-      "end": 198.926,
-      "score": 0.161
-    },
-    {
-      "word": "I've",
-      "start": 198.946,
-      "end": 199.087,
-      "score": 0.252
-    },
-    {
-      "word": "learned",
-      "start": 199.107,
-      "end": 199.489,
-      "score": 0.332
-    }
-  ],
-  "03:19.71": [
-    {
-      "word": "Everything",
-      "start": 199.931,
-      "end": 200.974,
-      "score": 0.878
-    },
-    {
-      "word": "that",
-      "start": 201.094,
-      "end": 201.395,
-      "score": 0.836
-    },
-    {
-      "word": "kills",
-      "start": 201.555,
-      "end": 202.137,
-      "score": 0.603
-    },
-    {
-      "word": "me",
-      "start": 202.217,
-      "end": 203.561,
-      "score": 0.926
-    },
-    {
-      "word": "makes",
-      "start": 205.286,
-      "end": 205.507,
-      "score": 0.82
-    },
-    {
-      "word": "me",
-      "start": 205.567,
-      "end": 205.687,
-      "score": 0.831
-    },
-    {
-      "word": "feel",
-      "start": 205.768,
-      "end": 206.048,
-      "score": 0.97
-    },
-    {
-      "word": "alive",
-      "start": 206.109,
-      "end": 206.41,
-      "score": 0.419
-    }
-  ],
-  "03:26.57": [
-    {
-      "word": "Lately,",
-      "start": 206.871,
-      "end": 207.273,
-      "score": 0.378
-    },
-    {
-      "word": "I've",
-      "start": 207.675,
-      "end": 207.816,
-      "score": 0.278
-    },
-    {
-      "word": "been,",
-      "start": 207.876,
-      "end": 208.298,
-      "score": 0.676
-    },
-    {
-      "word": "I've",
-      "start": 208.339,
-      "end": 208.54,
-      "score": 0.298
-    },
-    {
-      "word": "been",
-      "start": 208.6,
-      "end": 208.761,
-      "score": 0.406
-    },
-    {
-      "word": "losing",
-      "start": 208.821,
-      "end": 209.183,
-      "score": 0.439
-    },
-    {
-      "word": "sleep",
-      "start": 209.203,
-      "end": 209.645,
-      "score": 0.633
-    }
-  ],
-  "03:30.71": [
-    {
-      "word": "Dreaming",
-      "start": 210.891,
-      "end": 211.071,
+      "start": 240.112,
+      "end": 240.253,
       "score": 0.132
     },
     {
-      "word": "about",
-      "start": 211.091,
-      "end": 211.492,
-      "score": 0.582
-    },
-    {
       "word": "the",
-      "start": 211.512,
-      "end": 211.613,
-      "score": 0.462
-    },
-    {
-      "word": "things",
-      "start": 211.833,
-      "end": 212.054,
-      "score": 0.388
-    },
-    {
-      "word": "that",
-      "start": 212.074,
-      "end": 212.234,
-      "score": 0.179
-    },
-    {
-      "word": "we",
-      "start": 212.295,
-      "end": 212.776,
-      "score": 0.798
-    },
-    {
-      "word": "could",
-      "start": 212.936,
-      "end": 213.157,
-      "score": 0.439
-    },
-    {
-      "word": "be",
-      "start": 213.237,
-      "end": 213.518,
-      "score": 0.502
-    }
-  ],
-  "03:34.22": [
-    {
-      "word": "But",
-      "start": 214.481,
-      "end": 214.642,
-      "score": 0.453
-    },
-    {
-      "word": "baby,",
-      "start": 214.722,
-      "end": 214.943,
-      "score": 0.183
-    },
-    {
-      "word": "I've",
-      "start": 214.963,
-      "end": 215.144,
-      "score": 0.5
-    },
-    {
-      "word": "been,",
-      "start": 215.727,
-      "end": 216.209,
-      "score": 0.643
-    },
-    {
-      "word": "I've",
-      "start": 216.33,
-      "end": 216.43,
-      "score": 0.141
-    },
-    {
-      "word": "been",
-      "start": 216.45,
-      "end": 216.651,
-      "score": 0.357
-    },
-    {
-      "word": "praying",
-      "start": 216.732,
-      "end": 217.053,
-      "score": 0.302
-    },
-    {
-      "word": "hard",
-      "start": 217.254,
-      "end": 217.636,
-      "score": 0.522
-    }
-  ],
-  "03:38.54": [
-    {
-      "word": "Said,",
-      "start": 218.56,
-      "end": 218.681,
-      "score": 0.102
-    },
-    {
-      "word": "\"No",
-      "start": 218.701,
-      "end": 218.842,
-      "score": 0.428
-    },
-    {
-      "word": "more",
-      "start": 218.862,
-      "end": 219.083,
-      "score": 0.686
-    },
-    {
-      "word": "counting",
-      "start": 219.163,
-      "end": 219.606,
-      "score": 0.431
-    },
-    {
-      "word": "dollars,",
-      "start": 219.666,
-      "end": 220.088,
-      "score": 0.467
-    },
-    {
-      "word": "we'll",
-      "start": 220.229,
-      "end": 220.37,
-      "score": 0.184
-    },
-    {
-      "word": "be",
-      "start": 220.39,
-      "end": 220.571,
-      "score": 0.76
-    },
-    {
-      "word": "counting",
-      "start": 220.651,
-      "end": 221.033,
-      "score": 0.425
-    },
-    {
-      "word": "stars\"",
-      "start": 221.053,
-      "end": 221.576,
-      "score": 0.697
-    }
-  ],
-  "03:42.34": [
-    {
-      "word": "Lately,",
-      "start": 223.743,
-      "end": 224.265,
-      "score": 0.358
-    },
-    {
-      "word": "I've",
-      "start": 224.385,
-      "end": 224.545,
-      "score": 0.292
-    },
-    {
-      "word": "been,",
-      "start": 224.565,
-      "end": 224.746,
-      "score": 0.288
-    },
-    {
-      "word": "I've",
-      "start": 224.766,
-      "end": 224.946,
-      "score": 0.398
-    },
-    {
-      "word": "been",
-      "start": 224.986,
-      "end": 225.107,
-      "score": 0.264
-    },
-    {
-      "word": "losing",
-      "start": 225.147,
-      "end": 225.548,
-      "score": 0.367
-    },
-    {
-      "word": "sleep",
-      "start": 226.289,
-      "end": 226.47,
-      "score": 0.326
-    }
-  ],
-  "03:46.51": [
-    {
-      "word": "Dreaming",
-      "start": 226.53,
-      "end": 226.872,
-      "score": 0.257
-    },
-    {
-      "word": "about",
-      "start": 226.993,
-      "end": 227.757,
-      "score": 0.541
-    },
-    {
-      "word": "the",
-      "start": 227.777,
-      "end": 227.998,
-      "score": 0.498
-    },
-    {
-      "word": "things",
-      "start": 228.018,
-      "end": 228.38,
-      "score": 0.509
-    },
-    {
-      "word": "that",
-      "start": 228.984,
-      "end": 229.366,
-      "score": 0.687
-    },
-    {
-      "word": "we",
-      "start": 229.466,
-      "end": 229.687,
-      "score": 0.73
-    },
-    {
-      "word": "could",
-      "start": 229.748,
-      "end": 229.949,
-      "score": 0.259
-    },
-    {
-      "word": "be",
-      "start": 229.989,
-      "end": 230.13,
-      "score": 0.385
-    }
-  ],
-  "03:50.15": [
-    {
-      "word": "But",
-      "start": 231.473,
-      "end": 231.894,
-      "score": 0.571
-    },
-    {
-      "word": "baby,",
-      "start": 231.974,
-      "end": 232.375,
-      "score": 0.492
-    },
-    {
-      "word": "I've",
-      "start": 232.395,
-      "end": 232.536,
-      "score": 0.272
-    },
-    {
-      "word": "been,",
-      "start": 232.556,
-      "end": 232.736,
-      "score": 0.326
-    },
-    {
-      "word": "I've",
-      "start": 232.756,
-      "end": 233.357,
-      "score": 0.239
-    },
-    {
-      "word": "been",
-      "start": 233.418,
-      "end": 233.658,
-      "score": 0.492
-    },
-    {
-      "word": "praying",
-      "start": 233.678,
-      "end": 234.039,
-      "score": 0.391
-    },
-    {
-      "word": "hard",
-      "start": 234.159,
-      "end": 234.3,
-      "score": 0.291
-    }
-  ],
-  "03:54.48": [
-    {
-      "word": "Said,",
-      "start": 234.48,
-      "end": 234.681,
-      "score": 0.261
-    },
-    {
-      "word": "\"No",
-      "start": 234.701,
-      "end": 234.761,
-      "score": 0.039
-    },
-    {
-      "word": "more",
-      "start": 234.781,
-      "end": 234.861,
-      "score": 0.001
-    },
-    {
-      "word": "counting",
-      "start": 234.881,
-      "end": 235.323,
-      "score": 0.378
-    },
-    {
-      "word": "dollars,",
-      "start": 235.804,
-      "end": 236.105,
-      "score": 0.2
-    },
-    {
-      "word": "we'll",
-      "start": 236.145,
-      "end": 236.285,
-      "score": 0.138
-    },
-    {
-      "word": "be,",
-      "start": 236.305,
-      "end": 236.366,
-      "score": 0.055
-    },
-    {
-      "word": "we'll",
-      "start": 236.506,
-      "end": 236.606,
-      "score": 0.001
-    },
-    {
-      "word": "be",
-      "start": 236.646,
-      "end": 236.807,
-      "score": 0.718
-    },
-    {
-      "word": "counting",
-      "start": 236.867,
-      "end": 237.329,
-      "score": 0.456
-    },
-    {
-      "word": "stars\"",
-      "start": 237.349,
-      "end": 237.589,
-      "score": 0.344
-    }
-  ],
-  "03:57.83": [
-    {
-      "word": "Take",
-      "start": 238.533,
-      "end": 238.895,
-      "score": 0.582
-    },
-    {
-      "word": "that",
-      "start": 238.955,
-      "end": 239.136,
-      "score": 0.418
-    },
-    {
-      "word": "money,",
-      "start": 239.196,
-      "end": 239.377,
-      "score": 0.231
-    },
-    {
-      "word": "watch",
-      "start": 239.438,
-      "end": 239.699,
-      "score": 0.358
-    },
-    {
-      "word": "it",
-      "start": 239.719,
-      "end": 239.819,
-      "score": 0.548
-    },
-    {
-      "word": "burn",
-      "start": 239.86,
-      "end": 239.94,
-      "score": 0.019
-    }
-  ],
-  "03:59.96": [
-    {
-      "word": "Sink",
-      "start": 240.04,
-      "end": 240.161,
-      "score": 0.243
-    },
-    {
-      "word": "in",
-      "start": 240.221,
-      "end": 240.282,
-      "score": 0.242
-    },
-    {
-      "word": "the",
-      "start": 240.302,
-      "end": 240.543,
-      "score": 0.582
-    },
-    {
-      "word": "river",
-      "start": 240.583,
-      "end": 240.844,
-      "score": 0.36
-    },
-    {
-      "word": "the",
-      "start": 241.005,
-      "end": 241.266,
-      "score": 0.668
-    },
-    {
-      "word": "lessons",
-      "start": 241.286,
-      "end": 241.568,
-      "score": 0.306
-    },
-    {
-      "word": "I've",
-      "start": 241.668,
-      "end": 241.749,
-      "score": 0.01
-    },
-    {
-      "word": "learned",
-      "start": 241.789,
-      "end": 241.95,
-      "score": 0.079
-    }
-  ],
-  "04:02.05": [
-    {
-      "word": "Take",
-      "start": 242.374,
-      "end": 242.596,
-      "score": 0.428
-    },
-    {
-      "word": "that",
-      "start": 242.636,
-      "end": 242.839,
-      "score": 0.451
-    },
-    {
-      "word": "money,",
-      "start": 242.879,
-      "end": 243.101,
-      "score": 0.253
-    },
-    {
-      "word": "watch",
-      "start": 243.142,
-      "end": 243.324,
-      "score": 0.272
-    },
-    {
-      "word": "it",
-      "start": 243.344,
-      "end": 243.385,
-      "score": 0.002
-    },
-    {
-      "word": "burn",
-      "start": 243.627,
-      "end": 243.769,
-      "score": 0.18
-    }
-  ],
-  "04:03.89": [
-    {
-      "word": "Sink",
-      "start": 243.89,
-      "end": 244.031,
-      "score": 0.282
-    },
-    {
-      "word": "in",
-      "start": 244.051,
-      "end": 244.151,
-      "score": 0.562
-    },
-    {
-      "word": "the",
-      "start": 244.232,
-      "end": 244.413,
-      "score": 0.278
-    },
-    {
-      "word": "river",
-      "start": 244.433,
-      "end": 244.815,
-      "score": 0.707
-    },
-    {
-      "word": "the",
-      "start": 244.835,
-      "end": 244.915,
-      "score": 0.164
-    },
-    {
-      "word": "lessons",
-      "start": 244.955,
-      "end": 245.277,
-      "score": 0.454
-    },
-    {
-      "word": "I've",
-      "start": 245.357,
-      "end": 245.458,
-      "score": 0.12
-    },
-    {
-      "word": "learned",
-      "start": 245.518,
-      "end": 245.739,
-      "score": 0.231
-    }
-  ],
-  "04:05.92": [
-    {
-      "word": "Take",
-      "start": 246.344,
-      "end": 246.506,
-      "score": 0.396
-    },
-    {
-      "word": "that",
-      "start": 246.587,
-      "end": 246.769,
-      "score": 0.406
-    },
-    {
-      "word": "money,",
-      "start": 246.829,
-      "end": 247.031,
-      "score": 0.269
-    },
-    {
-      "word": "watch",
-      "start": 247.072,
-      "end": 247.254,
-      "score": 0.335
-    },
-    {
-      "word": "it",
-      "start": 247.314,
-      "end": 247.436,
-      "score": 0.58
-    },
-    {
-      "word": "burn",
-      "start": 247.577,
-      "end": 247.799,
-      "score": 0.222
-    }
-  ],
-  "04:07.86": [
-    {
-      "word": "Sink",
-      "start": 248.001,
-      "end": 248.564,
-      "score": 0.584
-    },
-    {
-      "word": "in",
-      "start": 248.624,
-      "end": 248.724,
-      "score": 0.553
-    },
-    {
-      "word": "the",
-      "start": 248.764,
-      "end": 248.845,
+      "start": 240.273,
+      "end": 240.353,
       "score": 0.165
     },
     {
-      "word": "river",
-      "start": 248.905,
-      "end": 249.106,
-      "score": 0.35
-    },
-    {
-      "word": "the",
-      "start": 249.146,
-      "end": 249.247,
-      "score": 0.319
-    },
-    {
       "word": "lessons",
-      "start": 249.267,
-      "end": 249.609,
-      "score": 0.289
+      "start": 240.454,
+      "end": 240.595,
+      "score": 0.003
     },
     {
       "word": "I've",
-      "start": 249.629,
-      "end": 249.709,
-      "score": 0.006
+      "start": 240.675,
+      "end": 240.816,
+      "score": 0.356
     },
     {
       "word": "learned",
-      "start": 249.729,
-      "end": 249.87,
-      "score": 0.01
+      "start": 241.017,
+      "end": 241.278,
+      "score": 0.308
     }
   ],
-  "04:09.87": [
+  "04:01.62": [
     {
       "word": "Take",
-      "start": 249.89,
-      "end": 250.093,
-      "score": 0.324
+      "start": 241.721,
+      "end": 241.901,
+      "score": 0.311
     },
     {
       "word": "that",
-      "start": 250.275,
-      "end": 250.457,
-      "score": 0.349
+      "start": 241.982,
+      "end": 242.183,
+      "score": 0.457
     },
     {
       "word": "money,",
-      "start": 250.497,
-      "end": 250.942,
-      "score": 0.437
+      "start": 242.344,
+      "end": 242.565,
+      "score": 0.297
     },
     {
       "word": "watch",
-      "start": 251.003,
-      "end": 251.185,
-      "score": 0.346
+      "start": 242.605,
+      "end": 242.886,
+      "score": 0.414
     },
     {
       "word": "it",
-      "start": 251.205,
-      "end": 251.407,
-      "score": 0.391
+      "start": 242.967,
+      "end": 243.067,
+      "score": 0.414
     },
     {
       "word": "burn",
-      "start": 251.508,
-      "end": 251.63,
-      "score": 0.149
+      "start": 243.087,
+      "end": 243.268,
+      "score": 0.322
     }
   ],
-  "04:11.65": [
+  "04:03.59": [
     {
       "word": "Sink",
-      "start": 251.65,
-      "end": 251.851,
-      "score": 0.472
+      "start": 243.61,
+      "end": 243.751,
+      "score": 0.28
     },
     {
       "word": "in",
-      "start": 251.871,
-      "end": 251.951,
-      "score": 0.477
+      "start": 243.811,
+      "end": 243.871,
+      "score": 0.24
     },
     {
       "word": "the",
-      "start": 251.971,
-      "end": 252.071,
-      "score": 0.51
+      "start": 243.912,
+      "end": 244.032,
+      "score": 0.375
     },
     {
       "word": "river",
-      "start": 252.091,
-      "end": 252.312,
-      "score": 0.555
+      "start": 244.052,
+      "end": 244.756,
+      "score": 0.501
     },
     {
       "word": "the",
-      "start": 252.352,
-      "end": 252.433,
-      "score": 0.831
+      "start": 244.916,
+      "end": 245.037,
+      "score": 0.38
     },
     {
       "word": "lessons",
-      "start": 252.473,
-      "end": 252.814,
-      "score": 0.361
+      "start": 245.057,
+      "end": 245.218,
+      "score": 0.071
     },
     {
       "word": "I've",
-      "start": 252.934,
-      "end": 253.416,
-      "score": 0.557
+      "start": 245.318,
+      "end": 245.419,
+      "score": 0.118
     },
     {
       "word": "learned",
-      "start": 253.938,
-      "end": 255.864,
-      "score": 0.323
+      "start": 245.439,
+      "end": 245.64,
+      "score": 0.161
+    }
+  ],
+  "04:05.68": [
+    {
+      "word": "Take",
+      "start": 245.902,
+      "end": 246.084,
+      "score": 0.436
+    },
+    {
+      "word": "that",
+      "start": 246.165,
+      "end": 246.286,
+      "score": 0.253
+    },
+    {
+      "word": "money,",
+      "start": 246.347,
+      "end": 246.489,
+      "score": 0.122
+    },
+    {
+      "word": "watch",
+      "start": 246.509,
+      "end": 246.812,
+      "score": 0.435
+    },
+    {
+      "word": "it",
+      "start": 246.873,
+      "end": 246.974,
+      "score": 0.528
+    },
+    {
+      "word": "burn",
+      "start": 247.034,
+      "end": 247.176,
+      "score": 0.22
+    }
+  ],
+  "04:07.58": [
+    {
+      "word": "Sink",
+      "start": 247.66,
+      "end": 247.741,
+      "score": 0.0
+    },
+    {
+      "word": "in",
+      "start": 247.761,
+      "end": 247.882,
+      "score": 0.393
+    },
+    {
+      "word": "the",
+      "start": 248.123,
+      "end": 248.485,
+      "score": 0.783
+    },
+    {
+      "word": "river",
+      "start": 248.505,
+      "end": 248.686,
+      "score": 0.158
+    },
+    {
+      "word": "the",
+      "start": 248.706,
+      "end": 248.806,
+      "score": 0.328
+    },
+    {
+      "word": "lessons",
+      "start": 248.867,
+      "end": 249.108,
+      "score": 0.2
+    },
+    {
+      "word": "I've",
+      "start": 249.128,
+      "end": 249.208,
+      "score": 0.0
+    },
+    {
+      "word": "learned",
+      "start": 249.229,
+      "end": 249.389,
+      "score": 0.071
+    }
+  ],
+  "04:09.51": [
+    {
+      "word": "Take",
+      "start": 249.631,
+      "end": 249.813,
+      "score": 0.336
+    },
+    {
+      "word": "that",
+      "start": 249.874,
+      "end": 250.076,
+      "score": 0.414
+    },
+    {
+      "word": "money,",
+      "start": 250.217,
+      "end": 250.439,
+      "score": 0.321
+    },
+    {
+      "word": "watch",
+      "start": 250.46,
+      "end": 250.702,
+      "score": 0.429
+    },
+    {
+      "word": "it",
+      "start": 250.823,
+      "end": 250.924,
+      "score": 0.38
+    },
+    {
+      "word": "burn",
+      "start": 250.965,
+      "end": 251.207,
+      "score": 0.371
+    }
+  ],
+  "04:11.49": [
+    {
+      "word": "Sink",
+      "start": 251.61,
+      "end": 251.811,
+      "score": 0.495
+    },
+    {
+      "word": "in",
+      "start": 251.831,
+      "end": 251.931,
+      "score": 0.745
+    },
+    {
+      "word": "the",
+      "start": 251.952,
+      "end": 252.032,
+      "score": 0.508
+    },
+    {
+      "word": "river",
+      "start": 252.052,
+      "end": 252.293,
+      "score": 0.422
+    },
+    {
+      "word": "the",
+      "start": 252.313,
+      "end": 252.413,
+      "score": 0.804
+    },
+    {
+      "word": "lessons",
+      "start": 252.433,
+      "end": 252.794,
+      "score": 0.472
+    },
+    {
+      "word": "I've",
+      "start": 252.895,
+      "end": 252.995,
+      "score": 0.121
+    },
+    {
+      "word": "learned",
+      "start": 253.015,
+      "end": 253.477,
+      "score": 0.416
     }
   ]
 }
