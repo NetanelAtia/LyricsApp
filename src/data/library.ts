@@ -18,6 +18,7 @@ export const defaultOffsets: Record<string, number> = {
   'Xg72z08aTXY': -0.5, // Måneskin – Beggin'
   'C7dPqrmDWxs': -0.3, // Pharrell Williams – Happy
   'WDaNJW_jEBo': -0.5, // Busta Rhymes ft. Mariah Carey – I Know What You Want
+  'YQHsXMglC9A': -63.4, // Adele – Hello
 };
 
 // videoIds whose lyrics + word-timing were pulled straight from that exact
@@ -28,7 +29,6 @@ export const youtubeSourcedLyrics = new Set<string>([
   'UXWFqxKU2qA', // Snoop Dogg – Vato
   'CaCSuzR4DwM', // Louis Armstrong – What A Wonderful World
   'kXYiU_JCYtU', // Linkin Park – Numb
-  'YQHsXMglC9A', // Adele – Hello
   'hLQl3WQQoQ0', // Adele – Someone Like You
   'EkHTsc9PU2A', // Jason Mraz – I'm Yours
   'WDaNJW_jEBo', // Busta Rhymes ft. Mariah Carey – I Know What You Want
