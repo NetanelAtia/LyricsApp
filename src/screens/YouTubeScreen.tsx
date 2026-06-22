@@ -201,8 +201,22 @@ export default function YouTubeScreen({ navigation, route }: any) {
     }
   }
 
+  // After moving a word between two English lines, the old Hebrew
+  // translations no longer match — re-translate both lines from scratch
+  // rather than trying to algorithmically shift a Hebrew word (translations
+  // aren't word-aligned with the English, so that wouldn't be reliable).
+  // Takes the new English texts directly rather than reading `lines`, since
+  // that state may not have re-rendered yet by the time this runs.
+  async function retranslateLines(edits: { tag: string; text: string }[]) {
+    for (const { tag, text } of edits) {
+      if (!text) continue;
+      const tr = await translateToHebrew(text);
+      await saveLineTranslation(tag, tr);
+    }
+  }
+
   // Pull the next line's first word back onto the end of the current line.
-  function moveWordFromNextToCurrent(idx: number) {
+  async function moveWordFromNextToCurrent(idx: number) {
     const cur = lines[idx];
     const next = lines[idx + 1];
     if (!cur || !next || !next.text) return;
@@ -211,14 +225,16 @@ export default function YouTubeScreen({ navigation, route }: any) {
     if (!moved) return;
     const newCurText = cur.text ? `${cur.text} ${moved}` : moved;
     const newNextText = nextWords.join(' ');
-    saveLyricLineEdits([
+    const edits = [
       { tag: cur.tag, text: newCurText },
       { tag: next.tag, text: newNextText },
-    ]);
+    ];
+    await saveLyricLineEdits(edits);
+    await retranslateLines(edits);
   }
 
   // Push the current line's last word forward onto the start of the next line.
-  function moveWordFromCurrentToNext(idx: number) {
+  async function moveWordFromCurrentToNext(idx: number) {
     const cur = lines[idx];
     const next = lines[idx + 1];
     if (!cur || !next || !cur.text) return;
@@ -227,10 +243,12 @@ export default function YouTubeScreen({ navigation, route }: any) {
     if (!moved) return;
     const newCurText = curWords.join(' ');
     const newNextText = next.text ? `${moved} ${next.text}` : moved;
-    saveLyricLineEdits([
+    const edits = [
       { tag: cur.tag, text: newCurText },
       { tag: next.tag, text: newNextText },
-    ]);
+    ];
+    await saveLyricLineEdits(edits);
+    await retranslateLines(edits);
   }
 
   async function saveLineTranslation(tag: string, text: string) {
