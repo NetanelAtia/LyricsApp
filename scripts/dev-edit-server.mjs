@@ -15,6 +15,7 @@ const PORT = 5174;
 const ROOT = path.resolve(import.meta.dirname, '..');
 const TRANSLATIONS_DIR = path.join(ROOT, 'public', 'translations');
 const LYRICS_DIR = path.join(ROOT, 'public', 'lyrics');
+const WORDTIMING_DIR = path.join(ROOT, 'public', 'wordtiming');
 
 function send(res, status, body) {
   res.writeHead(status, {
@@ -109,7 +110,7 @@ const server = http.createServer((req, res) => {
         send(res, 400, { error: 'invalid JSON' });
         return;
       }
-      const { videoId, edits, track } = data || {};
+      const { videoId, edits, wordTimingUpdate, track } = data || {};
       if (!isSafeVideoId(videoId) || !Array.isArray(edits) || !edits.length) {
         send(res, 400, { error: 'missing/invalid fields' });
         return;
@@ -129,9 +130,28 @@ const server = http.createServer((req, res) => {
         if (idx >= 0) lines[idx] = `[${tag}]${text}`;
       }
       fs.writeFileSync(file, lines.join('\n'), 'utf8');
+      const relPaths = [path.relative(ROOT, file)];
 
-      const relPath = path.relative(ROOT, file);
-      execFile('git', ['add', relPath], { cwd: ROOT }, (addErr) => {
+      // The word's actual timestamp doesn't change when it moves to a
+      // different line's text - just which line's array it's grouped
+      // under - so the client computes the moved entry and we just write
+      // both updated arrays, no re-alignment needed.
+      if (wordTimingUpdate && typeof wordTimingUpdate === 'object') {
+        const wtFile = path.join(WORDTIMING_DIR, `${videoId}.json`);
+        let wt = {};
+        try {
+          wt = JSON.parse(fs.readFileSync(wtFile, 'utf8'));
+        } catch {
+          // no existing word-timing file for this song
+        }
+        for (const [tag, words] of Object.entries(wordTimingUpdate)) {
+          if (Array.isArray(words)) wt[tag] = words;
+        }
+        fs.writeFileSync(wtFile, JSON.stringify(wt, null, 2) + '\n', 'utf8');
+        relPaths.push(path.relative(ROOT, wtFile));
+      }
+
+      execFile('git', ['add', ...relPaths], { cwd: ROOT }, (addErr) => {
         if (addErr) {
           send(res, 200, { saved: true, committed: false, error: String(addErr) });
           return;

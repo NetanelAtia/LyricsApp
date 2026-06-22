@@ -178,13 +178,16 @@ export default function YouTubeScreen({ navigation, route }: any) {
   // by nudging one word across the line break, then save both lines.
   const [moveStatus, setMoveStatus] = useState<'idle' | 'saving' | 'error'>('idle');
 
-  async function saveLyricLineEdits(edits: { tag: string; text: string }[]) {
+  async function saveLyricLineEdits(
+    edits: { tag: string; text: string }[],
+    wordTimingUpdate?: Record<string, { word: string; start: number; end: number }[]>
+  ) {
     setMoveStatus('saving');
     try {
       const res = await fetch('http://localhost:5174/save-lyric-lines', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ videoId, edits, track }),
+        body: JSON.stringify({ videoId, edits, wordTimingUpdate, track }),
       });
       if (!res.ok) throw new Error('save failed');
       setLines((prev) => {
@@ -195,6 +198,9 @@ export default function YouTubeScreen({ navigation, route }: any) {
         }
         return next;
       });
+      if (wordTimingUpdate) {
+        setWordTiming((prev) => ({ ...prev, ...wordTimingUpdate }));
+      }
       setMoveStatus('idle');
     } catch {
       setMoveStatus('error');
@@ -229,7 +235,16 @@ export default function YouTubeScreen({ navigation, route }: any) {
       { tag: cur.tag, text: newCurText },
       { tag: next.tag, text: newNextText },
     ];
-    await saveLyricLineEdits(edits);
+    // Move the actual aligned word entry along with it — its real audio
+    // timestamp doesn't change, only which line's bucket it's filed under.
+    const curWordTiming = wordTiming[cur.tag] ? [...wordTiming[cur.tag]] : null;
+    const nextWordTiming = wordTiming[next.tag] ? [...wordTiming[next.tag]] : null;
+    let wordTimingUpdate: Record<string, { word: string; start: number; end: number }[]> | undefined;
+    if (curWordTiming && nextWordTiming && nextWordTiming.length) {
+      const movedEntry = nextWordTiming.shift()!;
+      wordTimingUpdate = { [cur.tag]: [...curWordTiming, movedEntry], [next.tag]: nextWordTiming };
+    }
+    await saveLyricLineEdits(edits, wordTimingUpdate);
     await retranslateLines(edits);
   }
 
@@ -247,7 +262,14 @@ export default function YouTubeScreen({ navigation, route }: any) {
       { tag: cur.tag, text: newCurText },
       { tag: next.tag, text: newNextText },
     ];
-    await saveLyricLineEdits(edits);
+    const curWordTiming = wordTiming[cur.tag] ? [...wordTiming[cur.tag]] : null;
+    const nextWordTiming = wordTiming[next.tag] ? [...wordTiming[next.tag]] : null;
+    let wordTimingUpdate: Record<string, { word: string; start: number; end: number }[]> | undefined;
+    if (curWordTiming && curWordTiming.length && nextWordTiming) {
+      const movedEntry = curWordTiming.pop()!;
+      wordTimingUpdate = { [cur.tag]: curWordTiming, [next.tag]: [movedEntry, ...nextWordTiming] };
+    }
+    await saveLyricLineEdits(edits, wordTimingUpdate);
     await retranslateLines(edits);
   }
 
