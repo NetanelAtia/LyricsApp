@@ -31,7 +31,6 @@ export const youtubeSourcedLyrics = new Set<string>([
   'YQHsXMglC9A', // Adele – Hello
   'hLQl3WQQoQ0', // Adele – Someone Like You
   'EkHTsc9PU2A', // Jason Mraz – I'm Yours
-  'kPBzTxZQG5Q', // 3 Doors Down – Here Without You
   'WDaNJW_jEBo', // Busta Rhymes ft. Mariah Carey – I Know What You Want
   'pfxyk1glEq4', // Chris Brown – Under The Influence
   '2Vv-BfVoq4g', // Ed Sheeran – Perfect
