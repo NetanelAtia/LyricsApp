@@ -16,8 +16,6 @@ export const defaultOffsets: Record<string, number> = {
   'LjhCEhWiKXk': -15.7, // Bruno Mars – Just the Way You Are
   'fLexgOxsZu0': -3.0, // Bruno Mars – The Lazy Song
   'Xg72z08aTXY': -0.5, // Måneskin – Beggin'
-  'Zi_XLOBDo_Y': -0.6, // Michael Jackson – Billie Jean
-  'oyEuk8j8imI': -9.9, // Justin Bieber – Love Yourself
   'C7dPqrmDWxs': -0.3, // Pharrell Williams – Happy
   'WDaNJW_jEBo': -0.5, // Busta Rhymes ft. Mariah Carey – I Know What You Want
 };
@@ -41,6 +39,12 @@ export const youtubeSourcedLyrics = new Set<string>([
   'H5v3kku4y6Q', // Harry Styles – As It Was
   '0yW7w8F2TVA', // James Arthur – Say You Won't Let Go
   '450p7goxZqg', // John Legend – All of Me
+  'Zi_XLOBDo_Y', // Michael Jackson – Billie Jean
+  'LHCob76kigA', // Lukas Graham – 7 Years
+  'r7qovpFAGrQ', // Lil Nas X – Old Town Road
+  'oyEuk8j8imI', // Justin Bieber – Love Yourself
+  '3AyMjyHu1bA', // Justin Bieber – Intentions
+  'Lt3IOdDE5iA', // John Lennon – Beautiful Boy
   '8gyLR4NfMiI', // Chris Brown ft. Lil Wayne, Busta Rhymes – Look At Me Now
   'QVXE1EzMrfw', // Ja Rule ft. R. Kelly, Ashanti – Wonderful
   '34Na4j8AVgA', // The Weeknd ft. Daft Punk – Starboy
@@ -100,4 +104,5 @@ export const library: LibrarySong[] = [
   { videoId: '8WYHDfJDPDc', artist: 'Nelly ft. Kelly Rowland', track: 'Dilemma', emoji: '❓', accent: '#fdcb6e' },
   { videoId: 'VcP96KbFIIU', artist: 'Ja Rule ft. Ashanti', track: 'Mesmerize', emoji: '💫', accent: '#e84393' },
   { videoId: 'GxBSyx85Kp8', artist: 'Usher ft. Lil Jon, Ludacris', track: 'Yeah!', emoji: '🎉', accent: '#00cec9' },
+  { videoId: 'Lt3IOdDE5iA', artist: 'John Lennon', track: 'Beautiful Boy', emoji: '👶', accent: '#fdcb6e' },
 ];
