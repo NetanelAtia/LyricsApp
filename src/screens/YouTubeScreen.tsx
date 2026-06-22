@@ -62,7 +62,10 @@ function parseLrc(lrc: string): LrcLine[] {
     const m = raw.match(/\[(\d+):(\d+(?:\.\d+)?)\]/);
     if (!m) continue;
     const time = parseInt(m[1], 10) * 60 + parseFloat(m[2]);
-    const text = raw.replace(/\[.*?\]/g, '').trim();
+    // "¦" marks a forced line break preserved from the source caption's own
+    // multi-line block (e.g. two lines shown together on screen) — turn it
+    // back into a real newline so the renderer can stack them.
+    const text = raw.replace(/\[.*?\]/g, '').trim().replace(/¦/g, '\n');
     out.push({ time, text, tag: `${m[1]}:${m[2]}` });
   }
   return out;
@@ -737,37 +740,50 @@ export default function YouTubeScreen({ navigation, route }: any) {
                 <View style={styles.currentBlock}>
                   {displayMode !== 'he' && (
                     <View style={styles.wordsArea}>
-                      <View style={styles.lineWords}>
-                        {cur.text ? (
-                          cur.text.split(/\s+/).map((w, wi) => {
-                            const key = `${idx}-${wi}`;
-                            const isSel = selected === key;
-                            const isActiveWord = karaokeOn && wi === currentWord;
-                            return (
-                              <View key={wi} style={[styles.wordWrap, isSel && styles.wordWrapActive]}>
-                                {isSel && (
-                                  <View style={styles.bubbleContainer} pointerEvents="box-none">
-                                    <View style={styles.bubble}>
-                                      <TouchableOpacity onPress={closeBubble} activeOpacity={0.85}>
-                                        <Text style={styles.bubbleText}>{wordTranslation}</Text>
-                                      </TouchableOpacity>
-                                      <TouchableOpacity onPress={toggleSaveWord} hitSlop={8}>
-                                        <Text style={styles.bubbleStar}>{selectedSaved ? '★' : '☆'}</Text>
-                                      </TouchableOpacity>
-                                    </View>
-                                    <View style={styles.bubbleArrow} />
+                      {cur.text ? (
+                        // A "¦" in the source (now a real newline) means the
+                        // original caption showed these as separate stacked
+                        // lines — keep that grouping instead of flowing all
+                        // words into one paragraph, so the on-screen layout
+                        // matches the source 1:1 (1 line in -> 1 line shown,
+                        // 2 lines in -> 2 lines shown).
+                        (() => {
+                          let wi = -1;
+                          return cur.text.split('\n').map((subLine, si) => (
+                            <View key={si} style={styles.lineWords}>
+                              {subLine.split(/\s+/).filter(Boolean).map((w) => {
+                                wi++;
+                                const myWi = wi;
+                                const key = `${idx}-${myWi}`;
+                                const isSel = selected === key;
+                                const isActiveWord = karaokeOn && myWi === currentWord;
+                                return (
+                                  <View key={myWi} style={[styles.wordWrap, isSel && styles.wordWrapActive]}>
+                                    {isSel && (
+                                      <View style={styles.bubbleContainer} pointerEvents="box-none">
+                                        <View style={styles.bubble}>
+                                          <TouchableOpacity onPress={closeBubble} activeOpacity={0.85}>
+                                            <Text style={styles.bubbleText}>{wordTranslation}</Text>
+                                          </TouchableOpacity>
+                                          <TouchableOpacity onPress={toggleSaveWord} hitSlop={8}>
+                                            <Text style={styles.bubbleStar}>{selectedSaved ? '★' : '☆'}</Text>
+                                          </TouchableOpacity>
+                                        </View>
+                                        <View style={styles.bubbleArrow} />
+                                      </View>
+                                    )}
+                                    <TouchableOpacity onPress={() => onWordPress(key, w)} activeOpacity={0.7}>
+                                      <Text style={[styles.currentWord, isActiveWord && styles.activeWord]}>{w}</Text>
+                                    </TouchableOpacity>
                                   </View>
-                                )}
-                                <TouchableOpacity onPress={() => onWordPress(key, w)} activeOpacity={0.7}>
-                                  <Text style={[styles.currentWord, isActiveWord && styles.activeWord]}>{w}</Text>
-                                </TouchableOpacity>
-                              </View>
-                            );
-                          })
-                        ) : (
-                          <Text style={styles.currentWord}>♪</Text>
-                        )}
-                      </View>
+                                );
+                              })}
+                            </View>
+                          ));
+                        })()
+                      ) : (
+                        <Text style={styles.currentWord}>♪</Text>
+                      )}
                     </View>
                   )}
 
@@ -813,22 +829,30 @@ export default function YouTubeScreen({ navigation, route }: any) {
                           // Approximate: highlight the Hebrew word at the same
                           // proportional position as the English word, since
                           // translations aren't word-aligned with the original.
-                          const heWords = lineHe(idx).split(/\s+/);
-                          const enWordCount = cur.text.split(/\s+/).length;
+                          const heText = lineHe(idx);
+                          const heWords = heText.split(/\s+/).filter(Boolean);
+                          const enWordCount = cur.text.split(/\s+/).filter(Boolean).length;
                           const activeHeIdx =
                             karaokeOn && currentWord >= 0 && enWordCount > 0
                               ? Math.min(heWords.length - 1, Math.floor(((currentWord + 1) / enWordCount) * heWords.length))
                               : -1;
-                          return (
-                            <View style={styles.lineHeRow}>
-                              {heWords.map((w, wi) => (
-                                <Text key={wi} style={[styles.lineHe, wi === activeHeIdx && styles.lineHeActive]}>
-                                  {w}
-                                  {wi < heWords.length - 1 ? ' ' : ''}
-                                </Text>
-                              ))}
+                          // Same source-line-break preservation as the English side.
+                          let heWi = -1;
+                          const heSubLines = heText.split('\n').map((sub) => sub.split(/\s+/).filter(Boolean));
+                          return heSubLines.map((subWords, si) => (
+                            <View key={si} style={styles.lineHeRow}>
+                              {subWords.map((w, wiInSub) => {
+                                heWi++;
+                                const myWi = heWi;
+                                return (
+                                  <Text key={myWi} style={[styles.lineHe, myWi === activeHeIdx && styles.lineHeActive]}>
+                                    {w}
+                                    {wiInSub < subWords.length - 1 ? ' ' : ''}
+                                  </Text>
+                                );
+                              })}
                             </View>
-                          );
+                          ));
                         })()
                       : null}
                   </View>

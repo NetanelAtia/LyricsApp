@@ -36,7 +36,10 @@ def parse_lrc(path):
             mm, ss, text = m.groups()
             start = int(mm) * 60 + float(ss)
             tag = f"{mm}:{ss}"
-            lines.append({"tag": tag, "start": start, "text": text.strip()})
+            # "¦" marks a forced line break preserved from a multi-line
+            # source caption (rendered as a real newline in the app) — the
+            # aligner just needs the words in order, so flatten it to a space.
+            lines.append({"tag": tag, "start": start, "text": text.strip().replace("¦", " ")})
     return lines
 
 

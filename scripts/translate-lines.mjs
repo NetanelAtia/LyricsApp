@@ -27,19 +27,28 @@ for (const id of ids) {
   const out = {};
   for (const { tag, text } of lines) {
     if (!text) continue;
-    const key = text.toLowerCase();
-    if (cache.has(key)) {
-      out[tag] = cache.get(key);
-      continue;
+    // "¦" preserves a source caption's own line break (e.g. two lines shown
+    // together) — translate each sub-line on its own so the Hebrew keeps
+    // the same break, then rejoin with the same marker.
+    const subs = text.split('¦');
+    const trSubs = [];
+    for (const sub of subs) {
+      const key = sub.toLowerCase();
+      if (cache.has(key)) {
+        trSubs.push(cache.get(key));
+        continue;
+      }
+      let tr = '';
+      try {
+        tr = (await translate(sub)) || '';
+        cache.set(key, tr);
+      } catch (e) {
+        tr = '';
+      }
+      trSubs.push(tr);
+      await sleep(120);
     }
-    try {
-      const tr = await translate(text);
-      out[tag] = tr || '';
-      cache.set(key, out[tag]);
-    } catch (e) {
-      out[tag] = '';
-    }
-    await sleep(120);
+    out[tag] = trSubs.join('¦');
   }
   fs.writeFileSync(`public/translations/${id}.json`, JSON.stringify(out, null, 2) + '\n', 'utf8');
   console.log(id, '->', Object.keys(out).length, 'lines translated');
