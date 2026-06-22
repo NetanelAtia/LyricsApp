@@ -2,39 +2,41 @@
   "00:00.66": [
     {
       "word": "Your",
-      "start": 0.76,
-      "end": 0.86,
-      "score": 0.441
+      "start": 0.761,
+      "end": 0.944,
+      "score": 0.51
     },
     {
       "word": "addiction",
-      "start": 0.941,
-      "end": 1.742,
-      "score": 0.49
-    },
+      "start": 0.964,
+      "end": 1.45,
+      "score": 0.812
+    }
+  ],
+  "00:02.28": [
     {
       "word": "has",
-      "start": 1.923,
-      "end": 2.183,
-      "score": 0.69
+      "start": 2.902,
+      "end": 3.102,
+      "score": 0.561
     },
     {
       "word": "altered",
-      "start": 2.945,
-      "end": 3.285,
-      "score": 0.306
+      "start": 3.183,
+      "end": 3.544,
+      "score": 0.401
     },
     {
       "word": "your",
-      "start": 3.305,
-      "end": 3.726,
-      "score": 0.615
+      "start": 3.584,
+      "end": 3.724,
+      "score": 0.19
     },
     {
       "word": "mind.",
-      "start": 4.428,
-      "end": 4.588,
-      "score": 0.376
+      "start": 4.426,
+      "end": 4.607,
+      "score": 0.447
     }
   ],
   "00:05.67": [
@@ -92,51 +94,53 @@
   "00:17.80": [
     {
       "word": "Kiddominant",
-      "start": 18.042,
-      "end": 18.546,
-      "score": 0.344
+      "start": 17.82,
+      "end": 18.547,
+      "score": 0.479
     },
     {
       "word": "on",
-      "start": 18.607,
-      "end": 18.667,
-      "score": 0.924
+      "start": 18.608,
+      "end": 18.648,
+      "score": 0.228
     },
     {
       "word": "the",
-      "start": 18.687,
-      "end": 18.768,
-      "score": 0.328
-    },
+      "start": 18.668,
+      "end": 18.729,
+      "score": 0.01
+    }
+  ],
+  "00:18.85": [
     {
       "word": "beat,",
-      "start": 18.808,
-      "end": 18.949,
-      "score": 0.202
+      "start": 19.011,
+      "end": 19.273,
+      "score": 0.683
     },
     {
       "word": "better",
-      "start": 19.01,
-      "end": 19.252,
-      "score": 0.335
+      "start": 19.515,
+      "end": 19.656,
+      "score": 0.101
     },
     {
       "word": "run",
-      "start": 19.514,
-      "end": 19.635,
-      "score": 0.368
+      "start": 19.837,
+      "end": 19.998,
+      "score": 0.303
     },
     {
       "word": "it",
-      "start": 19.696,
-      "end": 19.756,
-      "score": 0.242
+      "start": 20.018,
+      "end": 20.119,
+      "score": 0.725
     },
     {
       "word": "back",
-      "start": 19.776,
-      "end": 19.877,
-      "score": 0.125
+      "start": 20.159,
+      "end": 20.24,
+      "score": 0.044
     }
   ],
   "00:20.24": [
@@ -156,75 +160,77 @@
   "00:23.05": [
     {
       "word": "I",
-      "start": 23.05,
-      "end": 23.15,
-      "score": 0.488
+      "start": 23.131,
+      "end": 23.151,
+      "score": 0.0
     },
     {
       "word": "don't",
       "start": 23.211,
-      "end": 23.432,
-      "score": 0.489
+      "end": 23.413,
+      "score": 0.359
     },
     {
       "word": "know",
-      "start": 23.452,
-      "end": 23.693,
-      "score": 0.664
+      "start": 23.433,
+      "end": 23.675,
+      "score": 0.606
     },
     {
       "word": "why",
-      "start": 23.713,
-      "end": 23.954,
-      "score": 0.528
+      "start": 23.695,
+      "end": 23.937,
+      "score": 0.703
     },
     {
       "word": "this",
-      "start": 23.974,
-      "end": 24.094,
-      "score": 0.482
+      "start": 23.978,
+      "end": 24.119,
+      "score": 0.339
     },
     {
       "word": "shit",
-      "start": 24.175,
-      "end": 24.516,
-      "score": 0.839
-    },
+      "start": 24.2,
+      "end": 24.482,
+      "score": 0.598
+    }
+  ],
+  "00:25.47": [
     {
       "word": "got",
-      "start": 24.717,
-      "end": 24.938,
-      "score": 0.624
+      "start": 25.591,
+      "end": 25.934,
+      "score": 0.768
     },
     {
       "word": "me",
-      "start": 24.958,
-      "end": 25.199,
-      "score": 0.736
+      "start": 26.055,
+      "end": 26.236,
+      "score": 0.71
     },
     {
       "word": "lazy",
-      "start": 25.279,
-      "end": 26.263,
-      "score": 0.851
+      "start": 26.297,
+      "end": 26.539,
+      "score": 0.44
     },
     {
       "word": "right",
-      "start": 26.303,
-      "end": 26.785,
-      "score": 0.436
+      "start": 26.559,
+      "end": 26.74,
+      "score": 0.21
     },
     {
       "word": "now,",
-      "start": 26.845,
-      "end": 27.307,
-      "score": 0.714
+      "start": 26.78,
+      "end": 27.325,
+      "score": 0.705
     },
     {
       "word": "yeah",
-      "start": 27.388,
-      "end": 27.87,
-      "score": 0.536
+      "start": 27.385,
+      "end": 27.688,
+      "score": 0.42
     }
   ],
   "00:27.97": [
@@ -269,62 +275,64 @@
     {
       "word": "turnin'",
       "start": 31.41,
-      "end": 31.831,
-      "score": 0.568
+      "end": 31.812,
+      "score": 0.784
     },
     {
       "word": "one,",
-      "start": 32.072,
-      "end": 32.372,
-      "score": 0.916
+      "start": 32.053,
+      "end": 32.214,
+      "score": 0.491
     },
     {
       "word": "tryna",
-      "start": 32.452,
-      "end": 32.933,
-      "score": 0.652
+      "start": 32.435,
+      "end": 32.917,
+      "score": 0.72
     },
     {
       "word": "live",
-      "start": 32.973,
-      "end": 33.374,
-      "score": 0.583
-    },
+      "start": 32.977,
+      "end": 33.359,
+      "score": 0.6
+    }
+  ],
+  "00:33.58": [
     {
       "word": "it",
-      "start": 33.394,
-      "end": 33.434,
-      "score": 0.14
+      "start": 33.58,
+      "end": 33.681,
+      "score": 0.368
     },
     {
       "word": "up",
-      "start": 33.535,
-      "end": 33.695,
-      "score": 0.586
+      "start": 33.701,
+      "end": 33.963,
+      "score": 0.782
     },
     {
       "word": "here",
-      "start": 33.996,
-      "end": 34.477,
-      "score": 0.615
+      "start": 33.983,
+      "end": 34.528,
+      "score": 0.759
     },
     {
       "word": "right,",
-      "start": 34.557,
-      "end": 34.978,
-      "score": 0.417
+      "start": 34.608,
+      "end": 34.991,
+      "score": 0.458
     },
     {
       "word": "right,",
-      "start": 35.038,
-      "end": 35.499,
-      "score": 0.445
+      "start": 35.032,
+      "end": 35.515,
+      "score": 0.393
     },
     {
       "word": "right",
-      "start": 35.539,
-      "end": 35.859,
-      "score": 0.416
+      "start": 35.556,
+      "end": 35.858,
+      "score": 0.305
     }
   ],
   "00:36.10": [
