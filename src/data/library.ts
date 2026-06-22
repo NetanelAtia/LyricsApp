@@ -44,7 +44,6 @@ export const youtubeSourcedLyrics = new Set<string>([
   'r7qovpFAGrQ', // Lil Nas X – Old Town Road
   'oyEuk8j8imI', // Justin Bieber – Love Yourself
   '3AyMjyHu1bA', // Justin Bieber – Intentions
-  'Lt3IOdDE5iA', // John Lennon – Beautiful Boy
   'RBumgq5yVrA', // Passenger – Let Her Go
   'hT_nvWreIhg', // OneRepublic – Counting Stars
   'L3wKzyIN1yk', // Rag'n'Bone Man – Human

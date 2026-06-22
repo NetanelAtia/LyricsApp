@@ -301,50 +301,52 @@
     {
       "word": "Nothing's",
       "start": 35.35,
-      "end": 36.113,
-      "score": 0.476
+      "end": 36.096,
+      "score": 0.576
     },
     {
       "word": "going",
-      "start": 36.153,
-      "end": 36.354,
-      "score": 0.771
+      "start": 36.136,
+      "end": 36.358,
+      "score": 0.643
     },
     {
       "word": "to",
-      "start": 36.394,
-      "end": 36.454,
-      "score": 0.942
+      "start": 36.378,
+      "end": 36.479,
+      "score": 0.528
     },
     {
       "word": "stop",
-      "start": 36.494,
-      "end": 36.775,
-      "score": 0.954
-    },
+      "start": 36.499,
+      "end": 36.62,
+      "score": 0.248
+    }
+  ],
+  "00:36.62": [
     {
       "word": "me",
-      "start": 36.815,
-      "end": 36.916,
-      "score": 0.724
+      "start": 36.802,
+      "end": 36.904,
+      "score": 0.684
     },
     {
       "word": "but",
-      "start": 36.956,
-      "end": 37.157,
-      "score": 0.814
+      "start": 36.944,
+      "end": 37.167,
+      "score": 0.829
     },
     {
       "word": "divine",
-      "start": 37.197,
-      "end": 37.598,
-      "score": 0.677
+      "start": 37.188,
+      "end": 37.613,
+      "score": 0.729
     },
     {
       "word": "intervention",
-      "start": 37.638,
-      "end": 38.04,
-      "score": 0.248
+      "start": 37.654,
+      "end": 38.12,
+      "score": 0.326
     }
   ],
   "00:38.12": [
@@ -582,51 +584,53 @@
   "01:13.81": [
     {
       "word": "Open",
-      "start": 74.773,
-      "end": 75.134,
-      "score": 0.535
+      "start": 73.911,
+      "end": 74.192,
+      "score": 0.461
     },
     {
       "word": "up",
-      "start": 75.194,
-      "end": 75.295,
-      "score": 0.956
+      "start": 74.655,
+      "end": 74.756,
+      "score": 0.377
     },
     {
       "word": "your",
-      "start": 75.335,
-      "end": 75.495,
-      "score": 0.86
+      "start": 74.776,
+      "end": 74.897,
+      "score": 0.375
     },
     {
       "word": "plans",
-      "start": 75.515,
-      "end": 75.937,
-      "score": 0.808
-    },
+      "start": 74.917,
+      "end": 75.139,
+      "score": 0.466
+    }
+  ],
+  "01:15.36": [
     {
       "word": "and",
-      "start": 75.997,
-      "end": 76.117,
-      "score": 0.835
+      "start": 75.724,
+      "end": 76.088,
+      "score": 0.667
     },
     {
       "word": "damn",
-      "start": 76.157,
-      "end": 76.538,
-      "score": 0.767
+      "start": 76.169,
+      "end": 76.534,
+      "score": 0.866
     },
     {
       "word": "you're",
-      "start": 76.558,
-      "end": 76.799,
-      "score": 0.682
+      "start": 76.574,
+      "end": 76.857,
+      "score": 0.435
     },
     {
       "word": "free",
-      "start": 76.94,
-      "end": 77.08,
-      "score": 0.39
+      "start": 76.959,
+      "end": 77.06,
+      "score": 0.378
     }
   ],
   "01:17.08": [
@@ -1780,101 +1784,105 @@
   "03:11.55": [
     {
       "word": "Open",
-      "start": 192.393,
-      "end": 192.734,
-      "score": 0.668
+      "start": 192.401,
+      "end": 192.563,
+      "score": 0.414
     },
     {
       "word": "up",
-      "start": 192.794,
-      "end": 192.914,
-      "score": 0.655
+      "start": 192.624,
+      "end": 192.725,
+      "score": 0.232
     },
     {
       "word": "your",
-      "start": 192.954,
-      "end": 193.095,
-      "score": 0.938
+      "start": 192.746,
+      "end": 192.908,
+      "score": 0.559
     },
     {
       "word": "plans",
-      "start": 193.135,
-      "end": 193.516,
-      "score": 0.906
-    },
+      "start": 192.928,
+      "end": 193.09,
+      "score": 0.24
+    }
+  ],
+  "03:13.09": [
     {
       "word": "and",
-      "start": 193.596,
-      "end": 193.717,
-      "score": 0.757
+      "start": 193.392,
+      "end": 193.512,
+      "score": 0.799
     },
     {
       "word": "damn",
-      "start": 193.757,
-      "end": 194.098,
-      "score": 0.65
+      "start": 193.734,
+      "end": 194.076,
+      "score": 0.576
     },
     {
       "word": "you're",
-      "start": 194.118,
-      "end": 194.519,
-      "score": 0.519
+      "start": 194.156,
+      "end": 194.518,
+      "score": 0.342
     },
     {
       "word": "free",
       "start": 194.559,
       "end": 194.78,
-      "score": 0.554
+      "score": 0.584
     }
   ],
   "03:14.80": [
     {
       "word": "Look",
-      "start": 195.483,
-      "end": 195.663,
-      "score": 0.54
+      "start": 195.084,
+      "end": 195.186,
+      "score": 0.123
     },
     {
       "word": "into",
-      "start": 195.784,
-      "end": 196.085,
-      "score": 0.568
+      "start": 195.206,
+      "end": 195.45,
+      "score": 0.502
     },
     {
       "word": "your",
-      "start": 196.105,
-      "end": 196.265,
-      "score": 0.771
+      "start": 195.49,
+      "end": 195.653,
+      "score": 0.334
     },
     {
       "word": "heart",
-      "start": 196.326,
-      "end": 196.727,
-      "score": 0.688
-    },
+      "start": 195.673,
+      "end": 195.856,
+      "score": 0.284
+    }
+  ],
+  "03:16.16": [
     {
       "word": "and",
-      "start": 196.787,
-      "end": 196.888,
-      "score": 0.458
+      "start": 196.22,
+      "end": 196.281,
+      "score": 0.059
     },
     {
       "word": "you'll",
-      "start": 196.948,
-      "end": 197.088,
-      "score": 0.444
+      "start": 196.462,
+      "end": 196.664,
+      "score": 0.291
     },
     {
       "word": "find",
-      "start": 197.109,
-      "end": 197.189,
-      "score": 0.003
+      "start": 196.684,
+      "end": 196.885,
+      "score": 0.513
     },
     {
       "word": "that",
-      "start": 197.269,
-      "end": 197.41,
-      "score": 0.292
+      "start": 196.906,
+      "end": 197.026,
+      "score": 0.215
     }
   ],
   "03:17.51": [
@@ -1906,45 +1914,47 @@
   "03:20.09": [
     {
       "word": "So",
-      "start": 200.09,
-      "end": 200.211,
-      "score": 0.736
+      "start": 200.151,
+      "end": 200.232,
+      "score": 0.498
     },
     {
       "word": "please",
-      "start": 200.312,
-      "end": 200.614,
-      "score": 0.35
+      "start": 200.313,
+      "end": 200.638,
+      "score": 0.449
     },
     {
       "word": "don't,",
-      "start": 200.634,
-      "end": 200.937,
-      "score": 0.592
+      "start": 200.658,
+      "end": 200.942,
+      "score": 0.408
     },
     {
       "word": "please",
-      "start": 200.997,
-      "end": 201.32,
-      "score": 0.6
-    },
+      "start": 201.003,
+      "end": 201.287,
+      "score": 0.477
+    }
+  ],
+  "03:21.49": [
     {
       "word": "don't,",
-      "start": 201.42,
-      "end": 201.723,
-      "score": 0.538
+      "start": 201.49,
+      "end": 201.734,
+      "score": 0.366
     },
     {
       "word": "please",
-      "start": 201.803,
-      "end": 202.146,
-      "score": 0.625
+      "start": 201.795,
+      "end": 202.141,
+      "score": 0.623
     },
     {
       "word": "don't",
-      "start": 202.207,
-      "end": 202.489,
-      "score": 0.453
+      "start": 202.223,
+      "end": 202.487,
+      "score": 0.38
     }
   ],
   "03:22.65": [
