@@ -970,7 +970,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                         <MaterialIcons name="arrow-back" size={18} color={colors.primarySoft} />
                       </TouchableOpacity>
                     )}
-                    {canEditTranslations && cur.text && lines[idx + 1] && editingTag !== cur.tag && (
+                    {canEditTranslations && !!cur.text && lines[idx + 1] && editingTag !== cur.tag && (
                       <TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => moveWordFromCurrentToNext(idx)}
@@ -979,7 +979,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                         <MaterialIcons name="arrow-forward" size={18} color={colors.primarySoft} />
                       </TouchableOpacity>
                     )}
-                    {canEditTranslations && cur.text && editingTag !== cur.tag && (
+                    {canEditTranslations && !!cur.text && editingTag !== cur.tag && (
                       <TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => startEditingLine(cur.tag, lineHe(idx))}
@@ -991,7 +991,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                     {canEditTranslations && moveStatus === 'error' && (
                       <Text style={styles.editStatus}>שגיאה בהזזת מילה</Text>
                     )}
-                    {cur.text && displayMode === 'en' && (
+                    {!!cur.text && displayMode === 'en' && (
                       <TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => toggleLine(idx, cur.text)}
@@ -1004,7 +1004,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                         />
                       </TouchableOpacity>
                     )}
-                    {cur.text && videoId && (
+                    {!!cur.text && videoId && (
                       <TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => {
@@ -1022,7 +1022,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                         an explicit button instead of relying on click-drag
                         text selection, which the per-word tap targets would
                         otherwise interfere with. */}
-                    {cur.text && (
+                    {!!cur.text && (
                       <TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={async () => {
