@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FlatList, Image, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { colors, fonts, radius, spacing } from '../theme';
@@ -144,57 +144,7 @@ export default function SongsListScreen({ navigation }: any) {
   );
 }
 
-// Dev-only (desktop web): % of lines whose word-timing array length matches
-// the line's actual word count — i.e. how much of the song has exact,
-// aligned karaoke highlighting vs. falling back to the rough estimate.
-const canShowAccuracy = __DEV__ && Platform.OS === 'web';
-const accuracyCache: Record<string, number | null> = {};
-
-function useWordTimingAccuracy(videoId: string): number | null {
-  const [pct, setPct] = useState<number | null>(accuracyCache[videoId] ?? null);
-  useEffect(() => {
-    if (!canShowAccuracy) return;
-    if (videoId in accuracyCache) {
-      setPct(accuracyCache[videoId]);
-      return;
-    }
-    let alive = true;
-    (async () => {
-      try {
-        const [lrcRes, wtRes] = await Promise.all([
-          fetch(`lyrics/${videoId}.lrc`),
-          fetch(`wordtiming/${videoId}.json`),
-        ]);
-        const lrcText = lrcRes.ok ? await lrcRes.text() : '';
-        const wt = wtRes.ok ? await wtRes.json() : {};
-        let matched = 0;
-        let total = 0;
-        for (const raw of lrcText.split('\n')) {
-          const m = raw.match(/^\[(\d{2}:\d{2}\.\d{2})\](.*)$/);
-          if (!m) continue;
-          const text = m[2].trim();
-          if (!text) continue;
-          total++;
-          const words = text.replace(/¦/g, ' ').split(/\s+/).filter(Boolean);
-          if (wt[m[1]] && wt[m[1]].length === words.length) matched++;
-        }
-        const result = total ? Math.round((matched / total) * 100) : null;
-        accuracyCache[videoId] = result;
-        if (alive) setPct(result);
-      } catch {
-        accuracyCache[videoId] = null;
-        if (alive) setPct(null);
-      }
-    })();
-    return () => {
-      alive = false;
-    };
-  }, [videoId]);
-  return pct;
-}
-
 function SongCard({ song, number, onPress }: { song: LibrarySong; number: number; onPress: () => void }) {
-  const accuracy = useWordTimingAccuracy(canShowAccuracy ? song.videoId : '');
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.8}>
       <Text style={styles.cardNumber}>{number}</Text>
@@ -205,9 +155,6 @@ function SongCard({ song, number, onPress }: { song: LibrarySong; number: number
       <View style={styles.cardBody}>
         <Text style={styles.songTitle}>{song.track}</Text>
         <Text style={styles.songArtist}>{song.artist}</Text>
-        {canShowAccuracy && accuracy != null && (
-          <Text style={styles.accuracyLabel}>תזמון: {accuracy}%</Text>
-        )}
       </View>
       {readySongs.has(song.videoId) && <View style={styles.readyDot} />}
       <View style={styles.playCol}>
@@ -285,7 +232,6 @@ const styles = StyleSheet.create({
   cardBody: { flex: 1, marginLeft: spacing.md },
   songTitle: { color: colors.text, fontSize: 17, fontWeight: '700' },
   songArtist: { color: colors.textMuted, fontSize: 13, marginTop: 2 },
-  accuracyLabel: { color: colors.textFaint, fontSize: 11, marginTop: 2 },
   playCol: { alignItems: 'center', paddingHorizontal: spacing.md },
   sourceBadge: { marginBottom: 2 },
   readyDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.success },
