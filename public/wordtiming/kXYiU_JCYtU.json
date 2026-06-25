@@ -826,189 +826,185 @@
   "01:30.92": [
     {
       "word": "Every",
-      "start": 91.705,
-      "end": 92.027,
-      "score": 0.403
+      "start": 91.742,
+      "end": 92.063,
+      "score": 0.51
     },
     {
       "word": "step",
-      "start": 92.047,
-      "end": 92.389,
-      "score": 0.767
+      "start": 92.083,
+      "end": 92.363,
+      "score": 0.649
     },
     {
       "word": "that",
-      "start": 92.429,
-      "end": 92.67,
-      "score": 0.557
+      "start": 92.424,
+      "end": 92.664,
+      "score": 0.706
     },
     {
       "word": "I",
-      "start": 92.691,
-      "end": 92.711,
-      "score": 0.002
+      "start": 92.804,
+      "end": 92.925,
+      "score": 0.699
     },
     {
       "word": "take",
-      "start": 92.731,
-      "end": 92.932,
-      "score": 0.603
+      "start": 92.965,
+      "end": 93.466,
+      "score": 0.723
     },
     {
       "word": "is",
-      "start": 92.952,
-      "end": 93.214,
-      "score": 0.43
+      "start": 93.667,
+      "end": 93.807,
+      "score": 0.706
     },
     {
       "word": "another",
-      "start": 93.234,
-      "end": 93.475,
-      "score": 0.2
+      "start": 93.947,
+      "end": 94.408,
+      "score": 0.382
     },
     {
       "word": "mistake",
-      "start": 93.536,
-      "end": 94.22,
-      "score": 0.6
-    }
-  ],
-  "01:34.28": [
+      "start": 94.609,
+      "end": 95.07,
+      "score": 0.462
+    },
     {
       "word": "to",
-      "start": 94.621,
-      "end": 94.662,
-      "score": 0.04
+      "start": 95.13,
+      "end": 95.391,
+      "score": 0.702
     },
     {
       "word": "you",
-      "start": 94.682,
-      "end": 94.802,
-      "score": 0.248
+      "start": 95.431,
+      "end": 95.651,
+      "score": 0.468
     },
     {
       "word": "(Caught",
-      "start": 94.842,
-      "end": 95.204,
-      "score": 0.422
+      "start": 95.671,
+      "end": 95.932,
+      "score": 0.319
     },
     {
       "word": "in",
-      "start": 95.304,
-      "end": 95.364,
-      "score": 0.243
+      "start": 95.952,
+      "end": 96.012,
+      "score": 0.256
     },
     {
       "word": "the",
-      "start": 95.384,
-      "end": 95.445,
-      "score": 0.009
+      "start": 96.092,
+      "end": 96.433,
+      "score": 0.701
     },
     {
       "word": "undertow,",
-      "start": 95.525,
-      "end": 95.906,
-      "score": 0.305
+      "start": 96.473,
+      "end": 97.937,
+      "score": 0.555
     },
     {
       "word": "just",
-      "start": 95.926,
-      "end": 96.007,
-      "score": 0.003
+      "start": 98.057,
+      "end": 98.538,
+      "score": 0.354
     },
     {
       "word": "caught",
-      "start": 96.087,
-      "end": 96.328,
-      "score": 0.266
+      "start": 98.578,
+      "end": 98.819,
+      "score": 0.376
     },
     {
       "word": "in",
-      "start": 96.348,
-      "end": 96.428,
-      "score": 0.467
+      "start": 98.899,
+      "end": 98.959,
+      "score": 0.241
     },
     {
       "word": "the",
-      "start": 96.449,
-      "end": 96.569,
-      "score": 0.26
+      "start": 98.979,
+      "end": 99.059,
+      "score": 0.166
     },
     {
       "word": "undertow)",
-      "start": 98.456,
-      "end": 99.28,
-      "score": 0.587
+      "start": 99.079,
+      "end": 99.34,
+      "score": 0.242
     }
   ],
   "01:39.36": [
     {
       "word": "And",
-      "start": 100.102,
-      "end": 100.282,
-      "score": 0.576
+      "start": 100.103,
+      "end": 100.283,
+      "score": 0.59
     },
     {
       "word": "every",
-      "start": 100.462,
-      "end": 100.783,
-      "score": 0.631
+      "start": 100.464,
+      "end": 100.805,
+      "score": 0.538
     },
     {
       "word": "second",
-      "start": 100.823,
-      "end": 101.424,
-      "score": 0.705
+      "start": 100.826,
+      "end": 101.428,
+      "score": 0.608
     },
     {
       "word": "I",
-      "start": 101.565,
-      "end": 101.665,
-      "score": 0.617
+      "start": 101.568,
+      "end": 101.669,
+      "score": 0.644
     },
     {
       "word": "waste",
-      "start": 101.725,
-      "end": 102.126,
-      "score": 0.568
+      "start": 101.729,
+      "end": 102.13,
+      "score": 0.583
     },
     {
       "word": "is",
-      "start": 102.367,
-      "end": 102.467,
-      "score": 0.655
+      "start": 102.351,
+      "end": 102.472,
+      "score": 0.434
     },
     {
       "word": "more",
-      "start": 102.547,
-      "end": 102.767,
-      "score": 0.563
+      "start": 102.532,
+      "end": 102.773,
+      "score": 0.604
     },
     {
       "word": "than",
-      "start": 102.808,
-      "end": 103.168,
-      "score": 0.716
+      "start": 102.813,
+      "end": 103.034,
+      "score": 0.582
     },
     {
       "word": "I",
-      "start": 103.329,
-      "end": 103.429,
-      "score": 0.694
+      "start": 103.054,
+      "end": 103.074,
+      "score": 0.006
     },
     {
       "word": "can",
-      "start": 103.469,
-      "end": 103.709,
-      "score": 0.57
-    }
-  ],
-  "01:43.95": [
+      "start": 103.094,
+      "end": 103.435,
+      "score": 0.686
+    },
     {
       "word": "take!",
-      "start": 104.011,
-      "end": 104.315,
-      "score": 0.422
+      "start": 103.496,
+      "end": 103.817,
+      "score": 0.446
     }
   ],
   "01:44.64": [
