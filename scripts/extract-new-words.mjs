@@ -7,7 +7,7 @@ const words = new Set();
 for (const id of ids) {
   const lrc = fs.readFileSync(`public/lyrics/${id}.lrc`, 'utf8');
   for (const line of lrc.split('\n')) {
-    const text = line.replace(/\[\d{2}:\d{2}\.\d{2}\]/, '').trim();
+    const text = line.replace(/\[\d{2}:\d{2}\.\d{2}\]/, '').replace(/¦/g, ' ').trim();
     for (const w of text.split(/\s+/)) {
       const clean = w.replace(/[^a-zA-Z']/g, '').toLowerCase();
       if (clean && !glossary[clean]) words.add(clean);

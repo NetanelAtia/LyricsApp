@@ -2,53 +2,51 @@
   "00:17.40": [
     {
       "word": "What",
-      "start": 17.682,
-      "end": 17.884,
-      "score": 0.667
+      "start": 17.48,
+      "end": 17.882,
+      "score": 0.552
     },
     {
       "word": "would",
-      "start": 17.925,
-      "end": 18.207,
-      "score": 0.952
+      "start": 17.923,
+      "end": 18.204,
+      "score": 0.931
     },
     {
       "word": "I",
-      "start": 18.429,
-      "end": 18.59,
-      "score": 0.807
+      "start": 18.445,
+      "end": 18.586,
+      "score": 0.66
     },
     {
       "word": "do",
-      "start": 18.651,
-      "end": 18.873,
-      "score": 0.988
+      "start": 18.666,
+      "end": 18.868,
+      "score": 0.98
     },
     {
       "word": "without",
-      "start": 18.893,
-      "end": 19.498,
-      "score": 0.752
-    }
-  ],
-  "00:19.70": [
+      "start": 18.908,
+      "end": 19.511,
+      "score": 0.883
+    },
     {
       "word": "your",
-      "start": 19.7,
-      "end": 19.923,
-      "score": 0.41
+      "start": 19.571,
+      "end": 19.973,
+      "score": 0.612
     },
     {
       "word": "smart",
-      "start": 19.963,
-      "end": 20.51,
-      "score": 0.813
+      "start": 19.993,
+      "end": 20.536,
+      "score": 0.806
     },
     {
       "word": "mouth",
-      "start": 20.591,
-      "end": 20.875,
-      "score": 0.334
+      "start": 20.576,
+      "end": 20.918,
+      "score": 0.587
     }
   ],
   "00:21.30": [
@@ -348,47 +346,45 @@
   "00:48.76": [
     {
       "word": "My",
-      "start": 48.841,
-      "end": 49.083,
-      "score": 0.815
+      "start": 48.84,
+      "end": 49.101,
+      "score": 0.762
     },
     {
       "word": "head's",
-      "start": 49.184,
-      "end": 49.829,
-      "score": 0.391
+      "start": 49.201,
+      "end": 49.803,
+      "score": 0.431
     },
     {
       "word": "underwater",
-      "start": 50.011,
-      "end": 51.14,
-      "score": 0.534
-    }
-  ],
-  "00:51.14": [
+      "start": 50.003,
+      "end": 52.149,
+      "score": 0.785
+    },
     {
       "word": "but",
-      "start": 52.224,
-      "end": 52.465,
-      "score": 0.747
+      "start": 52.229,
+      "end": 52.59,
+      "score": 0.796
     },
     {
       "word": "I'm",
-      "start": 53.248,
-      "end": 53.529,
-      "score": 0.569
+      "start": 53.212,
+      "end": 53.512,
+      "score": 0.449
     },
     {
       "word": "breathing",
-      "start": 53.649,
-      "end": 54.513,
-      "score": 0.799
+      "start": 53.653,
+      "end": 54.455,
+      "score": 0.756
     },
     {
       "word": "fine",
-      "start": 54.613,
-      "end": 55.235,
-      "score": 0.733
+      "start": 54.615,
+      "end": 55.277,
+      "score": 0.858
     }
   ],
   "00:56.50": [
@@ -864,47 +860,45 @@
   "01:52.61": [
     {
       "word": "Even",
-      "start": 113.054,
-      "end": 113.337,
-      "score": 0.836
+      "start": 113.072,
+      "end": 113.334,
+      "score": 0.947
     },
     {
       "word": "when",
-      "start": 113.358,
-      "end": 113.58,
-      "score": 0.469
+      "start": 113.374,
+      "end": 113.575,
+      "score": 0.559
     },
     {
       "word": "you're",
-      "start": 113.62,
-      "end": 113.782,
-      "score": 0.201
+      "start": 113.615,
+      "end": 113.776,
+      "score": 0.25
     },
     {
       "word": "crying",
-      "start": 113.842,
-      "end": 114.388,
-      "score": 0.568
-    }
-  ],
-  "01:54.59": [
+      "start": 113.836,
+      "end": 114.6,
+      "score": 0.679
+    },
     {
       "word": "you're",
-      "start": 114.61,
-      "end": 114.772,
-      "score": 0.158
+      "start": 114.621,
+      "end": 114.802,
+      "score": 0.193
     },
     {
       "word": "beautiful,",
-      "start": 114.812,
-      "end": 115.48,
-      "score": 0.886
+      "start": 114.822,
+      "end": 115.485,
+      "score": 0.92
     },
     {
       "word": "too",
-      "start": 115.54,
-      "end": 115.722,
-      "score": 0.537
+      "start": 115.545,
+      "end": 115.726,
+      "score": 0.501
     }
   ],
   "01:56.41": [
@@ -1020,161 +1014,155 @@
       "word": "My",
       "start": 127.91,
       "end": 128.071,
-      "score": 0.807
+      "score": 0.884
     },
     {
       "word": "worst",
       "start": 128.132,
       "end": 128.554,
-      "score": 0.691
+      "score": 0.72
     },
     {
       "word": "distraction,",
       "start": 128.594,
-      "end": 129.639,
-      "score": 0.744
-    }
-  ],
-  "02:09.82": [
+      "end": 129.74,
+      "score": 0.813
+    },
     {
       "word": "my",
-      "start": 129.84,
-      "end": 129.961,
-      "score": 0.356
+      "start": 129.8,
+      "end": 129.981,
+      "score": 0.687
     },
     {
       "word": "rhythm",
-      "start": 130.041,
-      "end": 130.423,
-      "score": 0.594
+      "start": 130.062,
+      "end": 130.444,
+      "score": 0.656
     },
     {
       "word": "and",
-      "start": 130.584,
+      "start": 130.625,
       "end": 130.806,
-      "score": 0.514
+      "score": 0.647
     },
     {
       "word": "blues",
-      "start": 130.826,
-      "end": 131.328,
-      "score": 0.592
+      "start": 130.846,
+      "end": 131.288,
+      "score": 0.593
     }
   ],
   "02:11.61": [
     {
       "word": "I",
-      "start": 131.812,
-      "end": 131.912,
-      "score": 0.625
+      "start": 131.81,
+      "end": 131.891,
+      "score": 0.896
     },
     {
       "word": "can't",
-      "start": 131.953,
-      "end": 132.255,
-      "score": 0.639
+      "start": 131.951,
+      "end": 132.251,
+      "score": 0.789
     },
     {
       "word": "stop",
-      "start": 132.295,
-      "end": 132.84,
-      "score": 0.915
+      "start": 132.292,
+      "end": 132.813,
+      "score": 0.914
     },
     {
       "word": "singing,",
-      "start": 132.92,
-      "end": 133.666,
-      "score": 0.759
+      "start": 132.913,
+      "end": 133.995,
+      "score": 0.801
     },
     {
       "word": "it's",
-      "start": 133.868,
-      "end": 134.11,
-      "score": 0.408
-    }
-  ],
-  "02:14.11": [
+      "start": 134.076,
+      "end": 134.316,
+      "score": 0.68
+    },
     {
       "word": "ringing",
-      "start": 134.792,
-      "end": 136.036,
-      "score": 0.758
+      "start": 134.717,
+      "end": 136.02,
+      "score": 0.728
     },
     {
       "word": "in",
-      "start": 136.116,
-      "end": 136.217,
-      "score": 0.808
+      "start": 136.12,
+      "end": 136.241,
+      "score": 0.794
     },
     {
       "word": "my",
-      "start": 136.478,
-      "end": 137.14,
-      "score": 0.88
+      "start": 136.481,
+      "end": 137.143,
+      "score": 0.902
     },
     {
       "word": "head",
-      "start": 137.481,
-      "end": 138.083,
-      "score": 0.689
+      "start": 137.163,
+      "end": 138.065,
+      "score": 0.784
     },
     {
       "word": "for",
-      "start": 138.103,
-      "end": 138.364,
-      "score": 0.503
+      "start": 138.085,
+      "end": 138.365,
+      "score": 0.548
     },
     {
       "word": "you",
-      "start": 138.404,
-      "end": 138.484,
-      "score": 0.225
+      "start": 138.426,
+      "end": 139.749,
+      "score": 0.63
     }
   ],
   "02:20.33": [
     {
       "word": "My",
       "start": 140.33,
-      "end": 140.471,
-      "score": 0.662
+      "end": 140.51,
+      "score": 0.756
     },
     {
       "word": "head's",
-      "start": 140.572,
-      "end": 141.258,
-      "score": 0.426
+      "start": 140.591,
+      "end": 141.513,
+      "score": 0.566
     },
     {
       "word": "underwater",
-      "start": 141.419,
-      "end": 141.923,
-      "score": 0.363
-    }
-  ],
-  "02:22.71": [
+      "start": 141.613,
+      "end": 143.539,
+      "score": 0.717
+    },
     {
       "word": "but",
-      "start": 143.674,
-      "end": 143.895,
-      "score": 0.79
+      "start": 143.679,
+      "end": 143.9,
+      "score": 0.686
     },
     {
       "word": "I'm",
-      "start": 144.698,
-      "end": 144.959,
-      "score": 0.541
+      "start": 144.682,
+      "end": 144.963,
+      "score": 0.528
     },
     {
       "word": "breathing",
-      "start": 145.08,
-      "end": 145.903,
-      "score": 0.924
+      "start": 145.083,
+      "end": 145.885,
+      "score": 0.849
     },
     {
       "word": "fine",
-      "start": 146.043,
-      "end": 146.766,
-      "score": 0.65
+      "start": 146.066,
+      "end": 146.768,
+      "score": 0.589
     }
   ],
   "02:27.67": [
@@ -1633,52 +1621,50 @@
     {
       "word": "Cards",
       "start": 201.52,
-      "end": 202.126,
-      "score": 0.508
+      "end": 202.162,
+      "score": 0.587
     },
     {
       "word": "on",
-      "start": 202.388,
-      "end": 202.59,
-      "score": 0.75
+      "start": 202.402,
+      "end": 202.864,
+      "score": 0.903
     },
     {
       "word": "the",
-      "start": 202.691,
-      "end": 203.054,
-      "score": 0.582
+      "start": 202.984,
+      "end": 203.044,
+      "score": 0.134
     },
     {
       "word": "table,",
-      "start": 203.155,
-      "end": 203.64,
-      "score": 0.634
-    }
-  ],
-  "03:23.66": [
+      "start": 203.124,
+      "end": 203.967,
+      "score": 0.635
+    },
     {
       "word": "we're",
-      "start": 204.122,
-      "end": 205.005,
-      "score": 0.774
+      "start": 204.127,
+      "end": 205.009,
+      "score": 0.811
     },
     {
       "word": "both",
-      "start": 205.105,
-      "end": 205.888,
-      "score": 0.636
+      "start": 205.11,
+      "end": 205.892,
+      "score": 0.832
     },
     {
       "word": "showing",
-      "start": 205.969,
-      "end": 206.812,
-      "score": 0.679
+      "start": 205.972,
+      "end": 206.794,
+      "score": 0.7
     },
     {
       "word": "hearts",
-      "start": 206.992,
-      "end": 208.498,
-      "score": 0.584
+      "start": 206.954,
+      "end": 208.499,
+      "score": 0.574
     }
   ],
   "03:29.06": [
@@ -1842,71 +1828,69 @@
   "03:49.08": [
     {
       "word": "Give",
-      "start": 229.14,
-      "end": 229.301,
-      "score": 0.322
+      "start": 229.12,
+      "end": 229.321,
+      "score": 0.905
     },
     {
       "word": "your",
-      "start": 229.341,
-      "end": 230.868,
-      "score": 0.624
+      "start": 229.361,
+      "end": 229.501,
+      "score": 0.56
     },
     {
       "word": "all",
-      "start": 230.968,
-      "end": 231.048,
-      "score": 0.183
+      "start": 231.206,
+      "end": 231.346,
+      "score": 0.46
     },
     {
       "word": "to",
-      "start": 231.089,
-      "end": 231.189,
-      "score": 0.553
+      "start": 231.366,
+      "end": 231.406,
+      "score": 0.002
     },
     {
       "word": "me,",
-      "start": 231.249,
-      "end": 231.33,
-      "score": 0.207
-    }
-  ],
-  "03:51.41": [
+      "start": 231.767,
+      "end": 232.208,
+      "score": 0.975
+    },
     {
       "word": "I'll",
-      "start": 231.751,
-      "end": 232.212,
-      "score": 0.43
+      "start": 232.229,
+      "end": 232.89,
+      "score": 0.562
     },
     {
       "word": "give",
-      "start": 232.913,
-      "end": 233.153,
-      "score": 0.544
+      "start": 232.93,
+      "end": 233.171,
+      "score": 0.56
     },
     {
       "word": "my",
-      "start": 233.234,
-      "end": 233.875,
-      "score": 0.844
+      "start": 233.251,
+      "end": 233.913,
+      "score": 0.896
     },
     {
       "word": "all",
-      "start": 235.037,
-      "end": 235.177,
-      "score": 0.505
+      "start": 235.036,
+      "end": 235.197,
+      "score": 0.496
     },
     {
       "word": "to",
-      "start": 235.298,
-      "end": 235.518,
-      "score": 0.986
+      "start": 235.297,
+      "end": 235.517,
+      "score": 0.876
     },
     {
       "word": "you",
       "start": 235.578,
-      "end": 235.759,
-      "score": 0.947
+      "end": 235.758,
+      "score": 0.95
     }
   ],
   "03:56.48": [

@@ -2,239 +2,231 @@
   "00:13.11": [
     {
       "word": "Yeah,",
-      "start": 13.15,
-      "end": 13.733,
-      "score": 0.519
+      "start": 13.673,
+      "end": 13.813,
+      "score": 0.274
     },
     {
       "word": "I'm",
-      "start": 13.753,
-      "end": 13.893,
-      "score": 0.251
+      "start": 13.834,
+      "end": 13.914,
+      "score": 0.053
     },
     {
       "word": "gonna",
       "start": 13.974,
-      "end": 14.295,
-      "score": 0.472
+      "end": 14.316,
+      "score": 0.48
     },
     {
       "word": "take",
-      "start": 14.375,
-      "end": 14.717,
-      "score": 0.828
+      "start": 14.376,
+      "end": 14.718,
+      "score": 0.795
     },
     {
       "word": "my",
-      "start": 14.817,
-      "end": 15.179,
-      "score": 0.866
+      "start": 14.839,
+      "end": 15.18,
+      "score": 0.857
     },
     {
       "word": "horse",
-      "start": 15.279,
-      "end": 15.48,
-      "score": 0.503
-    }
-  ],
-  "00:15.50": [
+      "start": 15.261,
+      "end": 15.622,
+      "score": 0.942
+    },
     {
       "word": "to",
-      "start": 15.681,
-      "end": 15.882,
-      "score": 0.739
+      "start": 15.683,
+      "end": 15.884,
+      "score": 0.784
     },
     {
       "word": "the",
-      "start": 15.902,
-      "end": 16.023,
-      "score": 0.844
+      "start": 15.924,
+      "end": 16.024,
+      "score": 0.762
     },
     {
       "word": "old",
-      "start": 16.184,
-      "end": 16.325,
-      "score": 0.523
+      "start": 16.205,
+      "end": 16.326,
+      "score": 0.552
     },
     {
       "word": "town",
-      "start": 16.365,
-      "end": 16.707,
-      "score": 0.917
+      "start": 16.366,
+      "end": 16.748,
+      "score": 0.895
     },
     {
       "word": "road",
-      "start": 16.788,
-      "end": 16.989,
-      "score": 0.646
+      "start": 16.808,
+      "end": 17.029,
+      "score": 0.578
     }
   ],
   "00:17.15": [
     {
       "word": "I'm",
-      "start": 17.31,
+      "start": 17.311,
       "end": 17.411,
-      "score": 0.277
+      "score": 0.295
     },
     {
       "word": "gonna",
-      "start": 17.451,
-      "end": 17.832,
-      "score": 0.867
+      "start": 17.452,
+      "end": 17.814,
+      "score": 0.881
     },
     {
       "word": "ride",
-      "start": 18.334,
-      "end": 19.096,
-      "score": 0.707
+      "start": 18.336,
+      "end": 19.101,
+      "score": 0.703
     },
     {
       "word": "'til",
-      "start": 19.116,
-      "end": 19.437,
-      "score": 0.83
+      "start": 19.121,
+      "end": 19.442,
+      "score": 0.816
     },
     {
       "word": "I",
-      "start": 19.537,
-      "end": 19.597,
-      "score": 0.564
+      "start": 19.523,
+      "end": 19.603,
+      "score": 0.671
     },
     {
       "word": "can't",
-      "start": 19.638,
-      "end": 20.019,
-      "score": 0.739
+      "start": 19.643,
+      "end": 20.026,
+      "score": 0.731
     },
     {
       "word": "no",
-      "start": 20.119,
-      "end": 20.28,
-      "score": 0.978
-    }
-  ],
-  "00:20.42": [
+      "start": 20.106,
+      "end": 20.388,
+      "score": 0.843
+    },
     {
       "word": "more",
-      "start": 20.522,
-      "end": 20.748,
-      "score": 0.394
+      "start": 20.528,
+      "end": 20.83,
+      "score": 0.754
     }
   ],
   "00:20.85": [
     {
       "word": "I'm",
-      "start": 20.87,
-      "end": 20.951,
-      "score": 0.166
+      "start": 20.85,
+      "end": 20.95,
+      "score": 0.222
     },
     {
       "word": "gonna",
-      "start": 20.971,
-      "end": 21.314,
-      "score": 0.693
+      "start": 20.97,
+      "end": 21.311,
+      "score": 0.68
     },
     {
       "word": "take",
-      "start": 21.374,
-      "end": 21.758,
-      "score": 0.683
+      "start": 21.372,
+      "end": 21.753,
+      "score": 0.724
     },
     {
       "word": "my",
-      "start": 21.818,
-      "end": 22.101,
-      "score": 0.454
+      "start": 21.853,
+      "end": 22.134,
+      "score": 0.496
     },
     {
       "word": "horse",
-      "start": 22.121,
-      "end": 22.665,
-      "score": 0.581
+      "start": 22.334,
+      "end": 22.635,
+      "score": 0.448
     },
     {
       "word": "to",
-      "start": 22.706,
-      "end": 22.928,
-      "score": 0.897
+      "start": 22.695,
+      "end": 22.916,
+      "score": 0.822
     },
     {
       "word": "the",
-      "start": 22.988,
-      "end": 23.069,
-      "score": 0.668
-    }
-  ],
-  "00:23.21": [
+      "start": 22.956,
+      "end": 23.097,
+      "score": 0.814
+    },
     {
       "word": "old",
-      "start": 23.271,
-      "end": 23.372,
-      "score": 0.329
+      "start": 23.177,
+      "end": 23.377,
+      "score": 0.62
     },
     {
       "word": "town",
-      "start": 23.432,
-      "end": 23.796,
-      "score": 0.938
+      "start": 23.438,
+      "end": 23.799,
+      "score": 0.865
     },
     {
       "word": "road",
-      "start": 23.836,
-      "end": 24.038,
-      "score": 0.599
+      "start": 23.839,
+      "end": 24.019,
+      "score": 0.417
     }
   ],
   "00:24.22": [
     {
       "word": "I'm",
-      "start": 24.22,
+      "start": 24.34,
       "end": 24.421,
-      "score": 0.394
+      "score": 0.229
     },
     {
       "word": "gonna",
       "start": 24.501,
-      "end": 24.842,
-      "score": 0.664
+      "end": 24.822,
+      "score": 0.641
     },
     {
       "word": "ride",
-      "start": 25.404,
+      "start": 25.403,
       "end": 26.186,
-      "score": 0.665
+      "score": 0.663
     },
     {
       "word": "'til",
       "start": 26.206,
-      "end": 26.528,
-      "score": 0.805
+      "end": 26.507,
+      "score": 0.844
     },
     {
       "word": "I",
-      "start": 26.608,
-      "end": 26.668,
-      "score": 0.464
+      "start": 26.607,
+      "end": 26.667,
+      "score": 0.382
     },
     {
       "word": "can't",
-      "start": 26.728,
-      "end": 27.109,
-      "score": 0.69
+      "start": 26.727,
+      "end": 27.108,
+      "score": 0.641
     },
     {
       "word": "no",
-      "start": 27.21,
-      "end": 27.29,
-      "score": 0.466
-    }
-  ],
-  "00:27.29": [
+      "start": 27.209,
+      "end": 27.369,
+      "score": 0.976
+    },
     {
       "word": "more",
-      "start": 27.29,
-      "end": 27.374,
-      "score": 0.008
+      "start": 27.389,
+      "end": 27.509,
+      "score": 0.165
     }
   ],
   "00:27.69": [
@@ -336,47 +328,45 @@
   "00:33.20": [
     {
       "word": "Got",
-      "start": 33.301,
+      "start": 33.3,
       "end": 33.542,
-      "score": 0.89
+      "score": 0.731
     },
     {
       "word": "the",
       "start": 33.582,
-      "end": 33.703,
-      "score": 0.711
+      "end": 33.722,
+      "score": 0.595
     },
     {
       "word": "boots",
-      "start": 33.743,
-      "end": 33.944,
-      "score": 0.447
+      "start": 33.742,
+      "end": 33.983,
+      "score": 0.469
     },
     {
       "word": "that's",
-      "start": 33.964,
-      "end": 34.165,
-      "score": 0.302
+      "start": 34.024,
+      "end": 34.164,
+      "score": 0.187
     },
     {
       "word": "black",
-      "start": 34.185,
-      "end": 34.446,
-      "score": 0.674
+      "start": 34.204,
+      "end": 34.445,
+      "score": 0.638
     },
     {
       "word": "to",
-      "start": 34.467,
-      "end": 34.547,
-      "score": 0.456
-    }
-  ],
-  "00:35.13": [
+      "start": 34.466,
+      "end": 34.626,
+      "score": 0.626
+    },
     {
       "word": "match",
-      "start": 35.13,
-      "end": 35.385,
-      "score": 0.301
+      "start": 34.666,
+      "end": 35.108,
+      "score": 0.344
     }
   ],
   "00:35.47": [
@@ -479,52 +469,50 @@
     {
       "word": "You",
       "start": 40.51,
-      "end": 40.591,
-      "score": 0.151
+      "end": 40.59,
+      "score": 0.174
     },
     {
       "word": "ain't",
-      "start": 40.672,
-      "end": 40.814,
-      "score": 0.299
+      "start": 40.671,
+      "end": 40.811,
+      "score": 0.436
     },
     {
       "word": "been",
-      "start": 40.834,
-      "end": 41.057,
-      "score": 0.762
+      "start": 40.852,
+      "end": 41.053,
+      "score": 0.876
     },
     {
       "word": "up",
-      "start": 41.179,
-      "end": 41.26,
-      "score": 0.341
+      "start": 41.173,
+      "end": 41.274,
+      "score": 0.588
     },
     {
       "word": "off",
-      "start": 41.341,
-      "end": 41.462,
-      "score": 0.597
+      "start": 41.354,
+      "end": 41.454,
+      "score": 0.639
     },
     {
       "word": "that",
-      "start": 41.483,
-      "end": 41.645,
-      "score": 0.516
-    }
-  ],
-  "00:42.05": [
+      "start": 41.495,
+      "end": 41.655,
+      "score": 0.626
+    },
     {
       "word": "porch,",
-      "start": 42.152,
-      "end": 42.396,
-      "score": 0.364
+      "start": 41.736,
+      "end": 42.118,
+      "score": 0.488
     },
     {
       "word": "now",
-      "start": 42.416,
-      "end": 42.498,
-      "score": 0.175
+      "start": 42.138,
+      "end": 42.278,
+      "score": 0.874
     }
   ],
   "00:42.64": [
@@ -1018,239 +1006,231 @@
   "01:23.92": [
     {
       "word": "Yeah,",
-      "start": 83.92,
-      "end": 84.342,
-      "score": 0.595
+      "start": 83.98,
+      "end": 84.322,
+      "score": 0.549
     },
     {
       "word": "I'm",
-      "start": 84.402,
-      "end": 84.503,
-      "score": 0.33
+      "start": 84.342,
+      "end": 84.483,
+      "score": 0.459
     },
     {
       "word": "gonna",
       "start": 84.543,
-      "end": 84.904,
-      "score": 0.757
+      "end": 84.885,
+      "score": 0.655
     },
     {
       "word": "take",
-      "start": 84.965,
-      "end": 85.286,
-      "score": 0.524
+      "start": 84.966,
+      "end": 85.327,
+      "score": 0.666
     },
     {
       "word": "my",
-      "start": 85.387,
-      "end": 85.808,
-      "score": 0.874
+      "start": 85.408,
+      "end": 85.81,
+      "score": 0.903
     },
     {
       "word": "horse",
-      "start": 85.909,
-      "end": 86.09,
-      "score": 0.379
-    }
-  ],
-  "01:26.17": [
+      "start": 85.89,
+      "end": 86.172,
+      "score": 0.53
+    },
     {
       "word": "to",
-      "start": 86.271,
-      "end": 86.432,
-      "score": 0.722
+      "start": 86.252,
+      "end": 86.453,
+      "score": 0.837
     },
     {
       "word": "the",
-      "start": 86.492,
-      "end": 86.754,
-      "score": 0.65
+      "start": 86.514,
+      "end": 86.735,
+      "score": 0.656
     },
     {
       "word": "old",
-      "start": 86.834,
-      "end": 86.935,
-      "score": 0.269
+      "start": 86.855,
+      "end": 86.936,
+      "score": 0.193
     },
     {
       "word": "town",
-      "start": 86.975,
-      "end": 87.257,
-      "score": 0.565
+      "start": 86.976,
+      "end": 87.258,
+      "score": 0.442
     },
     {
       "word": "road",
-      "start": 87.317,
+      "start": 87.278,
       "end": 87.599,
-      "score": 0.475
+      "score": 0.518
     }
   ],
   "01:27.72": [
     {
       "word": "I'm",
-      "start": 87.901,
-      "end": 88.002,
-      "score": 0.272
+      "start": 87.921,
+      "end": 88.001,
+      "score": 0.208
     },
     {
       "word": "gonna",
-      "start": 88.042,
-      "end": 88.666,
-      "score": 0.715
+      "start": 88.041,
+      "end": 88.643,
+      "score": 0.725
     },
     {
       "word": "ride",
-      "start": 88.907,
-      "end": 89.753,
-      "score": 0.662
+      "start": 88.903,
+      "end": 89.746,
+      "score": 0.658
     },
     {
       "word": "'til",
-      "start": 89.773,
-      "end": 89.974,
-      "score": 0.453
+      "start": 89.766,
+      "end": 89.966,
+      "score": 0.444
     },
     {
       "word": "I",
-      "start": 90.095,
-      "end": 90.175,
-      "score": 0.606
+      "start": 90.086,
+      "end": 90.187,
+      "score": 0.697
     },
     {
       "word": "can't",
-      "start": 90.215,
-      "end": 90.638,
-      "score": 0.497
+      "start": 90.207,
+      "end": 90.608,
+      "score": 0.554
     },
     {
       "word": "no",
-      "start": 90.719,
-      "end": 90.839,
-      "score": 0.662
-    }
-  ],
-  "01:30.96": [
+      "start": 90.708,
+      "end": 90.909,
+      "score": 0.829
+    },
     {
       "word": "more",
-      "start": 91.185,
-      "end": 91.39,
-      "score": 0.456
+      "start": 90.949,
+      "end": 91.109,
+      "score": 0.433
     }
   ],
   "01:31.39": [
     {
       "word": "I'm",
-      "start": 91.41,
-      "end": 91.531,
-      "score": 0.485
+      "start": 91.45,
+      "end": 91.55,
+      "score": 0.254
     },
     {
       "word": "gonna",
-      "start": 91.592,
-      "end": 91.934,
-      "score": 0.52
+      "start": 91.591,
+      "end": 91.932,
+      "score": 0.566
     },
     {
       "word": "take",
-      "start": 91.995,
-      "end": 92.297,
-      "score": 0.616
+      "start": 91.992,
+      "end": 92.293,
+      "score": 0.688
     },
     {
       "word": "my",
-      "start": 92.439,
-      "end": 92.842,
-      "score": 0.918
+      "start": 92.433,
+      "end": 92.894,
+      "score": 0.887
     },
     {
       "word": "horse",
-      "start": 92.983,
-      "end": 93.145,
-      "score": 0.4
+      "start": 92.975,
+      "end": 93.175,
+      "score": 0.462
     },
     {
       "word": "to",
-      "start": 93.165,
-      "end": 93.205,
-      "score": 0.009
+      "start": 93.336,
+      "end": 93.556,
+      "score": 0.79
     },
     {
       "word": "the",
-      "start": 93.346,
-      "end": 93.487,
-      "score": 0.732
-    }
-  ],
-  "01:33.81": [
+      "start": 93.616,
+      "end": 93.737,
+      "score": 0.253
+    },
     {
       "word": "old",
-      "start": 93.871,
-      "end": 93.972,
-      "score": 0.332
+      "start": 93.797,
+      "end": 93.977,
+      "score": 0.504
     },
     {
       "word": "town",
-      "start": 94.032,
-      "end": 94.335,
-      "score": 0.584
+      "start": 94.038,
+      "end": 94.298,
+      "score": 0.647
     },
     {
       "word": "road",
-      "start": 94.355,
-      "end": 94.658,
-      "score": 0.483
+      "start": 94.359,
+      "end": 94.659,
+      "score": 0.378
     }
   ],
   "01:34.86": [
     {
       "word": "I'm",
-      "start": 94.94,
-      "end": 95.301,
-      "score": 0.546
+      "start": 94.92,
+      "end": 95.041,
+      "score": 0.238
     },
     {
       "word": "gonna",
-      "start": 95.321,
-      "end": 95.722,
-      "score": 0.694
+      "start": 95.101,
+      "end": 95.523,
+      "score": 0.729
     },
     {
       "word": "ride",
-      "start": 96.023,
-      "end": 96.845,
-      "score": 0.68
+      "start": 95.603,
+      "end": 95.905,
+      "score": 0.578
     },
     {
       "word": "'til",
-      "start": 96.865,
-      "end": 97.046,
-      "score": 0.374
+      "start": 96.769,
+      "end": 97.05,
+      "score": 0.553
     },
     {
       "word": "I",
-      "start": 97.186,
-      "end": 97.306,
-      "score": 0.658
+      "start": 97.191,
+      "end": 97.311,
+      "score": 0.633
     },
     {
       "word": "can't",
-      "start": 97.326,
-      "end": 97.748,
-      "score": 0.528
+      "start": 97.331,
+      "end": 97.753,
+      "score": 0.509
     },
     {
       "word": "no",
-      "start": 97.808,
-      "end": 98.008,
-      "score": 0.91
-    }
-  ],
-  "01:38.69": [
+      "start": 97.814,
+      "end": 98.175,
+      "score": 0.832
+    },
     {
       "word": "more",
-      "start": 98.853,
-      "end": 99.18,
-      "score": 0.387
+      "start": 98.236,
+      "end": 98.577,
+      "score": 0.611
     }
   ],
   "01:39.20": [
@@ -1258,347 +1238,335 @@
       "word": "Hat",
       "start": 99.2,
       "end": 99.441,
-      "score": 0.82
+      "score": 0.788
     },
     {
       "word": "down,",
       "start": 99.542,
-      "end": 99.883,
-      "score": 0.863
+      "end": 99.884,
+      "score": 0.818
     },
     {
       "word": "cross",
-      "start": 99.964,
-      "end": 100.345,
-      "score": 0.866
+      "start": 99.965,
+      "end": 100.347,
+      "score": 0.869
     },
     {
       "word": "town,",
-      "start": 100.406,
-      "end": 100.787,
-      "score": 0.947
+      "start": 100.407,
+      "end": 100.81,
+      "score": 0.957
     },
     {
       "word": "livin'",
-      "start": 100.868,
-      "end": 101.209,
-      "score": 0.735
-    }
-  ],
-  "01:41.35": [
+      "start": 100.87,
+      "end": 101.212,
+      "score": 0.84
+    },
     {
       "word": "like",
-      "start": 101.37,
-      "end": 101.511,
-      "score": 0.381
+      "start": 101.293,
+      "end": 101.514,
+      "score": 0.816
     },
     {
       "word": "a",
-      "start": 101.552,
-      "end": 101.592,
-      "score": 0.926
+      "start": 101.615,
+      "end": 101.635,
+      "score": 0.002
     },
     {
       "word": "rockstar",
-      "start": 101.713,
-      "end": 102.419,
-      "score": 0.875
+      "start": 101.715,
+      "end": 102.42,
+      "score": 0.823
     }
   ],
   "01:42.50": [
     {
       "word": "Spent",
       "start": 102.54,
-      "end": 102.821,
-      "score": 0.769
+      "end": 102.801,
+      "score": 0.741
     },
     {
       "word": "a",
-      "start": 102.902,
-      "end": 102.962,
-      "score": 0.534
+      "start": 102.901,
+      "end": 102.941,
+      "score": 0.569
     },
     {
       "word": "lot",
-      "start": 103.022,
-      "end": 103.283,
-      "score": 0.771
+      "start": 103.021,
+      "end": 103.262,
+      "score": 0.599
     },
     {
       "word": "of",
-      "start": 103.344,
-      "end": 103.384,
-      "score": 0.0
+      "start": 103.282,
+      "end": 103.362,
+      "score": 0.268
     },
     {
       "word": "money",
-      "start": 103.464,
-      "end": 103.806,
-      "score": 0.855
+      "start": 103.443,
+      "end": 103.804,
+      "score": 0.764
     },
     {
       "word": "on",
-      "start": 103.966,
-      "end": 104.087,
-      "score": 0.879
+      "start": 103.984,
+      "end": 104.084,
+      "score": 0.724
     },
     {
       "word": "my",
-      "start": 104.127,
-      "end": 104.187,
-      "score": 0.484
-    }
-  ],
-  "01:44.77": [
+      "start": 104.124,
+      "end": 104.285,
+      "score": 0.456
+    },
     {
       "word": "brand",
-      "start": 104.77,
-      "end": 105.013,
-      "score": 0.175
+      "start": 104.325,
+      "end": 104.646,
+      "score": 0.679
     },
     {
       "word": "new",
-      "start": 105.034,
-      "end": 105.135,
-      "score": 0.333
+      "start": 104.766,
+      "end": 105.127,
+      "score": 0.819
     },
     {
       "word": "guitar",
-      "start": 105.216,
-      "end": 106.069,
-      "score": 0.885
+      "start": 105.247,
+      "end": 106.01,
+      "score": 0.824
     }
   ],
   "01:46.17": [
     {
       "word": "Baby's",
-      "start": 106.21,
-      "end": 106.554,
-      "score": 0.522
+      "start": 106.23,
+      "end": 106.552,
+      "score": 0.465
     },
     {
       "word": "got",
-      "start": 106.575,
-      "end": 106.858,
-      "score": 0.828
+      "start": 106.592,
+      "end": 106.834,
+      "score": 0.812
     },
     {
       "word": "a",
-      "start": 106.919,
-      "end": 106.979,
-      "score": 0.645
+      "start": 106.894,
+      "end": 106.975,
+      "score": 0.611
     },
     {
       "word": "habit:",
-      "start": 107.04,
-      "end": 107.384,
-      "score": 0.532
+      "start": 107.015,
+      "end": 107.397,
+      "score": 0.771
     },
     {
       "word": "diamond",
-      "start": 107.445,
-      "end": 107.829,
-      "score": 0.561
-    }
-  ],
-  "01:47.89": [
+      "start": 107.437,
+      "end": 107.82,
+      "score": 0.523
+    },
     {
       "word": "rings",
-      "start": 107.89,
-      "end": 108.133,
-      "score": 0.906
+      "start": 107.9,
+      "end": 108.141,
+      "score": 0.857
     },
     {
       "word": "and",
-      "start": 108.194,
-      "end": 108.295,
-      "score": 0.83
+      "start": 108.202,
+      "end": 108.302,
+      "score": 0.794
     },
     {
       "word": "Fendi",
-      "start": 108.315,
-      "end": 108.699,
-      "score": 0.769
+      "start": 108.323,
+      "end": 108.725,
+      "score": 0.726
     },
     {
       "word": "sports",
-      "start": 108.72,
-      "end": 109.124,
-      "score": 0.74
+      "start": 108.745,
+      "end": 109.127,
+      "score": 0.806
     },
     {
       "word": "bras",
-      "start": 109.205,
+      "start": 109.208,
       "end": 109.489,
-      "score": 0.665
+      "score": 0.633
     }
   ],
   "01:49.61": [
     {
       "word": "Ridin'",
-      "start": 109.691,
-      "end": 110.055,
-      "score": 0.678
+      "start": 109.69,
+      "end": 110.052,
+      "score": 0.776
     },
     {
       "word": "down",
-      "start": 110.095,
-      "end": 110.317,
-      "score": 0.894
+      "start": 110.093,
+      "end": 110.314,
+      "score": 0.978
     },
     {
       "word": "Rodeo",
-      "start": 110.338,
-      "end": 110.924,
-      "score": 0.627
+      "start": 110.334,
+      "end": 110.917,
+      "score": 0.572
     },
     {
       "word": "in",
-      "start": 111.065,
-      "end": 111.186,
-      "score": 0.819
+      "start": 111.058,
+      "end": 111.179,
+      "score": 0.636
     },
     {
       "word": "my",
-      "start": 111.227,
-      "end": 111.308,
-      "score": 0.977
-    }
-  ],
-  "01:51.55": [
+      "start": 111.219,
+      "end": 111.38,
+      "score": 0.838
+    },
     {
       "word": "Maserati",
-      "start": 111.591,
-      "end": 112.218,
-      "score": 0.664
+      "start": 111.42,
+      "end": 112.245,
+      "score": 0.748
     },
     {
       "word": "sports",
-      "start": 112.259,
-      "end": 112.684,
-      "score": 0.702
+      "start": 112.265,
+      "end": 112.687,
+      "score": 0.728
     },
     {
       "word": "car",
-      "start": 112.765,
-      "end": 113.028,
-      "score": 0.763
+      "start": 112.768,
+      "end": 112.989,
+      "score": 0.669
     }
   ],
   "01:53.15": [
     {
       "word": "Got",
       "start": 113.19,
-      "end": 113.474,
-      "score": 0.703
+      "end": 113.513,
+      "score": 0.739
     },
     {
       "word": "no",
-      "start": 113.595,
-      "end": 113.919,
-      "score": 0.826
+      "start": 113.593,
+      "end": 113.895,
+      "score": 0.802
     },
     {
       "word": "stress,",
-      "start": 113.939,
-      "end": 114.303,
-      "score": 0.602
+      "start": 113.915,
+      "end": 114.278,
+      "score": 0.548
     },
     {
       "word": "I've",
-      "start": 114.323,
-      "end": 114.465,
-      "score": 0.291
+      "start": 114.298,
+      "end": 114.459,
+      "score": 0.172
     },
     {
       "word": "been",
-      "start": 114.485,
-      "end": 114.607,
-      "score": 0.386
-    }
-  ],
-  "01:54.89": [
+      "start": 114.479,
+      "end": 114.681,
+      "score": 0.327
+    },
     {
       "word": "through",
-      "start": 114.89,
-      "end": 115.358,
-      "score": 0.373
+      "start": 114.721,
+      "end": 115.063,
+      "score": 0.705
     },
     {
       "word": "all",
-      "start": 115.378,
-      "end": 115.623,
-      "score": 0.763
+      "start": 115.385,
+      "end": 115.567,
+      "score": 0.848
     },
     {
       "word": "that",
-      "start": 115.643,
-      "end": 115.846,
-      "score": 0.402
+      "start": 115.627,
+      "end": 115.828,
+      "score": 0.575
     }
   ],
   "01:56.05": [
     {
       "word": "I'm",
       "start": 116.09,
-      "end": 116.191,
-      "score": 0.333
+      "end": 116.19,
+      "score": 0.215
     },
     {
       "word": "like",
       "start": 116.251,
-      "end": 116.492,
-      "score": 0.496
+      "end": 116.471,
+      "score": 0.358
     },
     {
       "word": "a",
-      "start": 116.572,
+      "start": 116.551,
       "end": 116.632,
-      "score": 0.532
+      "score": 0.683
     },
     {
       "word": "Marlboro",
       "start": 116.692,
-      "end": 117.536,
-      "score": 0.699
+      "end": 117.514,
+      "score": 0.805
     },
     {
       "word": "Man",
-      "start": 117.576,
-      "end": 117.817,
-      "score": 0.826
+      "start": 117.574,
+      "end": 117.795,
+      "score": 0.881
     },
     {
       "word": "so",
-      "start": 117.837,
-      "end": 117.998,
-      "score": 0.74
+      "start": 117.815,
+      "end": 118.015,
+      "score": 0.766
     },
     {
       "word": "I",
-      "start": 118.098,
-      "end": 118.118,
-      "score": 0.187
-    }
-  ],
-  "01:58.62": [
+      "start": 118.116,
+      "end": 118.216,
+      "score": 0.634
+    },
     {
       "word": "kick",
-      "start": 118.681,
-      "end": 118.844,
-      "score": 0.388
+      "start": 118.256,
+      "end": 118.657,
+      "score": 0.732
     },
     {
       "word": "on",
-      "start": 118.885,
-      "end": 119.048,
-      "score": 0.501
+      "start": 118.858,
+      "end": 119.098,
+      "score": 0.845
     },
     {
       "word": "back",
-      "start": 119.15,
-      "end": 119.394,
-      "score": 0.424
+      "start": 119.138,
+      "end": 119.439,
+      "score": 0.583
     }
   ],
   "01:59.72": [
@@ -1606,69 +1574,67 @@
       "word": "Wish",
       "start": 119.72,
       "end": 119.8,
-      "score": 0.152
+      "score": 0.01
     },
     {
       "word": "I",
-      "start": 119.921,
-      "end": 119.981,
-      "score": 0.675
+      "start": 119.901,
+      "end": 119.961,
+      "score": 0.944
     },
     {
       "word": "could",
       "start": 120.001,
-      "end": 120.162,
-      "score": 0.99
+      "end": 120.201,
+      "score": 0.926
     },
     {
       "word": "roll",
-      "start": 120.222,
-      "end": 120.524,
-      "score": 0.852
+      "start": 120.221,
+      "end": 120.522,
+      "score": 0.836
     },
     {
       "word": "on",
-      "start": 120.906,
-      "end": 121.046,
-      "score": 0.87
+      "start": 120.904,
+      "end": 121.044,
+      "score": 0.88
     },
     {
       "word": "back",
-      "start": 121.107,
-      "end": 121.308,
-      "score": 0.988
+      "start": 121.104,
+      "end": 121.305,
+      "score": 0.922
     },
     {
       "word": "to",
-      "start": 121.348,
-      "end": 121.408,
-      "score": 0.974
-    }
-  ],
-  "02:01.77": [
+      "start": 121.345,
+      "end": 121.465,
+      "score": 0.959
+    },
     {
       "word": "that",
-      "start": 122.034,
-      "end": 122.562,
-      "score": 0.69
+      "start": 121.525,
+      "end": 121.766,
+      "score": 0.726
     },
     {
       "word": "old",
-      "start": 122.623,
-      "end": 122.704,
-      "score": 0.147
-    },
-    {
-      "word": "town",
-      "start": 122.724,
-      "end": 122.928,
+      "start": 121.927,
+      "end": 122.107,
       "score": 0.544
     },
     {
+      "word": "town",
+      "start": 122.187,
+      "end": 122.568,
+      "score": 0.912
+    },
+    {
       "word": "road",
-      "start": 122.988,
-      "end": 123.09,
-      "score": 0.124
+      "start": 122.649,
+      "end": 122.93,
+      "score": 0.497
     }
   ],
   "02:03.09": [
@@ -1676,289 +1642,279 @@
       "word": "I",
       "start": 123.231,
       "end": 123.352,
-      "score": 0.641
+      "score": 0.668
     },
     {
       "word": "wanna",
       "start": 123.412,
-      "end": 123.896,
-      "score": 0.68
+      "end": 123.875,
+      "score": 0.651
     },
     {
       "word": "ride",
-      "start": 124.198,
-      "end": 125.023,
-      "score": 0.541
+      "start": 124.197,
+      "end": 125.001,
+      "score": 0.641
     },
     {
       "word": "'til",
-      "start": 125.043,
-      "end": 125.345,
-      "score": 0.798
+      "start": 125.022,
+      "end": 125.343,
+      "score": 0.829
     },
     {
       "word": "I",
-      "start": 125.446,
-      "end": 125.507,
-      "score": 0.925
+      "start": 125.444,
+      "end": 125.504,
+      "score": 0.865
     },
     {
       "word": "can't",
-      "start": 125.547,
-      "end": 125.869,
-      "score": 0.487
+      "start": 125.565,
+      "end": 125.927,
+      "score": 0.591
     },
     {
       "word": "no",
-      "start": 125.889,
-      "end": 125.95,
-      "score": 0.25
-    }
-  ],
-  "02:06.01": [
+      "start": 126.028,
+      "end": 126.309,
+      "score": 0.532
+    },
     {
       "word": "more",
-      "start": 126.073,
-      "end": 126.157,
-      "score": 0.003
+      "start": 126.329,
+      "end": 126.43,
+      "score": 0.252
     }
   ],
   "02:06.43": [
     {
       "word": "Yeah,",
-      "start": 126.571,
-      "end": 126.772,
-      "score": 0.638
+      "start": 126.43,
+      "end": 126.691,
+      "score": 0.448
     },
     {
       "word": "I'm",
-      "start": 126.792,
-      "end": 126.872,
-      "score": 0.163
+      "start": 126.711,
+      "end": 126.871,
+      "score": 0.221
     },
     {
       "word": "gonna",
-      "start": 126.912,
-      "end": 127.254,
-      "score": 0.718
+      "start": 126.891,
+      "end": 127.252,
+      "score": 0.629
     },
     {
       "word": "take",
-      "start": 127.314,
-      "end": 127.635,
-      "score": 0.663
+      "start": 127.312,
+      "end": 127.633,
+      "score": 0.582
     },
     {
       "word": "my",
-      "start": 127.736,
-      "end": 128.158,
-      "score": 0.84
+      "start": 127.733,
+      "end": 128.135,
+      "score": 0.884
     },
     {
       "word": "horse",
-      "start": 128.178,
-      "end": 128.499,
-      "score": 0.472
-    }
-  ],
-  "02:08.64": [
+      "start": 128.235,
+      "end": 128.536,
+      "score": 0.788
+    },
     {
       "word": "to",
-      "start": 128.64,
-      "end": 128.802,
-      "score": 0.692
+      "start": 128.596,
+      "end": 128.796,
+      "score": 0.96
     },
     {
       "word": "the",
-      "start": 128.843,
-      "end": 129.167,
-      "score": 0.613
+      "start": 128.877,
+      "end": 128.957,
+      "score": 0.19
     },
     {
       "word": "old",
-      "start": 129.187,
-      "end": 129.248,
-      "score": 0.0
+      "start": 128.997,
+      "end": 129.258,
+      "score": 0.529
     },
     {
       "word": "town",
-      "start": 129.329,
-      "end": 129.694,
-      "score": 0.755
+      "start": 129.318,
+      "end": 129.699,
+      "score": 0.887
     },
     {
       "word": "road",
-      "start": 129.755,
-      "end": 129.978,
-      "score": 0.56
+      "start": 129.759,
+      "end": 129.98,
+      "score": 0.475
     }
   ],
   "02:10.16": [
     {
       "word": "I'm",
-      "start": 130.261,
-      "end": 130.341,
-      "score": 0.163
+      "start": 130.26,
+      "end": 130.34,
+      "score": 0.144
     },
     {
       "word": "gonna",
       "start": 130.381,
-      "end": 130.784,
-      "score": 0.743
+      "end": 130.782,
+      "score": 0.572
     },
     {
       "word": "ride",
-      "start": 131.267,
-      "end": 132.112,
-      "score": 0.545
+      "start": 131.283,
+      "end": 132.125,
+      "score": 0.653
     },
     {
       "word": "'til",
-      "start": 132.132,
-      "end": 132.374,
-      "score": 0.525
+      "start": 132.145,
+      "end": 132.366,
+      "score": 0.397
     },
     {
       "word": "I",
-      "start": 132.474,
-      "end": 132.555,
-      "score": 0.794
+      "start": 132.446,
+      "end": 132.547,
+      "score": 0.712
     },
     {
       "word": "can't",
-      "start": 132.575,
-      "end": 132.957,
-      "score": 0.668
+      "start": 132.587,
+      "end": 132.968,
+      "score": 0.557
     },
     {
       "word": "no",
-      "start": 133.078,
-      "end": 133.299,
-      "score": 0.81
-    }
-  ],
-  "02:13.40": [
+      "start": 133.048,
+      "end": 133.449,
+      "score": 0.899
+    },
     {
       "word": "more",
-      "start": 133.502,
-      "end": 133.707,
-      "score": 0.459
+      "start": 133.509,
+      "end": 133.69,
+      "score": 0.607
     }
   ],
   "02:13.83": [
     {
       "word": "I'm",
       "start": 133.83,
-      "end": 133.91,
-      "score": 0.167
+      "end": 133.89,
+      "score": 0.0
     },
     {
       "word": "gonna",
-      "start": 133.93,
-      "end": 134.272,
-      "score": 0.62
+      "start": 133.931,
+      "end": 134.293,
+      "score": 0.681
     },
     {
       "word": "take",
-      "start": 134.332,
-      "end": 134.654,
-      "score": 0.586
+      "start": 134.353,
+      "end": 134.675,
+      "score": 0.568
     },
     {
       "word": "my",
-      "start": 134.794,
-      "end": 135.236,
-      "score": 0.756
+      "start": 134.816,
+      "end": 135.238,
+      "score": 0.786
     },
     {
       "word": "horse",
-      "start": 135.316,
-      "end": 135.537,
-      "score": 0.506
+      "start": 135.339,
+      "end": 135.5,
+      "score": 0.483
     },
     {
       "word": "to",
-      "start": 135.658,
-      "end": 135.798,
-      "score": 0.744
+      "start": 135.661,
+      "end": 135.902,
+      "score": 0.824
     },
     {
       "word": "the",
-      "start": 135.819,
-      "end": 135.879,
-      "score": 0.071
-    }
-  ],
-  "02:16.16": [
+      "start": 135.943,
+      "end": 136.043,
+      "score": 0.908
+    },
     {
       "word": "old",
-      "start": 136.261,
-      "end": 136.342,
-      "score": 0.155
+      "start": 136.184,
+      "end": 136.345,
+      "score": 0.566
     },
     {
       "word": "town",
-      "start": 136.382,
-      "end": 136.806,
-      "score": 0.544
+      "start": 136.385,
+      "end": 136.788,
+      "score": 0.613
     },
     {
       "word": "road",
-      "start": 136.827,
-      "end": 137.069,
-      "score": 0.468
+      "start": 136.828,
+      "end": 137.049,
+      "score": 0.391
     }
   ],
   "02:17.17": [
     {
       "word": "I'm",
-      "start": 137.27,
-      "end": 137.411,
-      "score": 0.257
+      "start": 137.31,
+      "end": 137.391,
+      "score": 0.162
     },
     {
       "word": "gonna",
       "start": 137.451,
-      "end": 137.872,
-      "score": 0.719
+      "end": 138.133,
+      "score": 0.776
     },
     {
       "word": "ride",
-      "start": 138.353,
-      "end": 139.155,
-      "score": 0.744
+      "start": 138.334,
+      "end": 139.177,
+      "score": 0.678
     },
     {
       "word": "'til",
-      "start": 139.175,
-      "end": 139.456,
-      "score": 0.632
+      "start": 139.197,
+      "end": 139.458,
+      "score": 0.533
     },
     {
       "word": "I",
-      "start": 139.536,
-      "end": 139.616,
-      "score": 0.675
+      "start": 139.538,
+      "end": 139.618,
+      "score": 0.767
     },
     {
       "word": "can't",
-      "start": 139.657,
-      "end": 140.098,
-      "score": 0.581
+      "start": 139.658,
+      "end": 140.12,
+      "score": 0.654
     },
     {
       "word": "no",
-      "start": 140.258,
-      "end": 140.419,
-      "score": 0.637
-    }
-  ],
-  "02:20.94": [
+      "start": 140.16,
+      "end": 140.481,
+      "score": 0.839
+    },
     {
       "word": "more",
-      "start": 141.02,
-      "end": 141.602,
-      "score": 0.732
+      "start": 140.561,
+      "end": 140.943,
+      "score": 0.644
     }
   ]
 }
