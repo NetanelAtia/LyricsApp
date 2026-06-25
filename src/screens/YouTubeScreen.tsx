@@ -945,9 +945,11 @@ export default function YouTubeScreen({ navigation, route }: any) {
                                 heWi++;
                                 const myWi = heWi;
                                 return (
-                                  <Text key={myWi} style={[styles.lineHe, myWi === activeHeIdx && styles.lineHeActive]}>
+                                  <Text
+                                    key={myWi}
+                                    style={[styles.lineHe, styles.lineHeWord, myWi === activeHeIdx && styles.lineHeActive]}
+                                  >
                                     {w}
-                                    {wiInSub < subWords.length - 1 ? ' ' : ''}
                                   </Text>
                                 );
                               })}
@@ -1294,6 +1296,11 @@ const styles = StyleSheet.create({
   // changes — so highlighting the active word never resizes or reflows
   // the sentence.
   lineHe: { color: colors.primarySoft, fontSize: 18, lineHeight: 24, fontWeight: '700' },
+  // A real layout gap instead of a trailing space character — a plain space
+  // between two Text spans can visually collapse when an embedded
+  // left-to-right run (e.g. a product name) sits next to Hebrew text, since
+  // the browser's bidi reordering doesn't always preserve it.
+  lineHeWord: { marginStart: 5 },
   lineHeActive: { color: '#ffffff' },
 
   // Dev-only (desktop web) inline editor for fixing a mistranslated line.

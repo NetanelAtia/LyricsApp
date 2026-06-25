@@ -75,6 +75,26 @@ export const readySongs = new Set<string>([
   'LjhCEhWiKXk', // Bruno Mars – Just the Way You Are
   'nfs8NYg7yQM', // Charlie Puth – Attention
   'BxuY9FET9Y4', // Charlie Puth – One Call Away
+  'pfxyk1glEq4', // Chris Brown – Under The Influence
+  '8gyLR4NfMiI', // Chris Brown ft. Lil Wayne, Busta Rhymes – Look At Me Now
+  '2Vv-BfVoq4g', // Ed Sheeran – Perfect
+  'VcP96KbFIIU', // Ja Rule ft. Ashanti – Mesmerize
+  'QVXE1EzMrfw', // Ja Rule ft. R. Kelly, Ashanti – Wonderful
+  'EkHTsc9PU2A', // Jason Mraz – I'm Yours
+  'Lt3IOdDE5iA', // John Lennon – Beautiful Boy
+  'CaCSuzR4DwM', // Louis Armstrong – What A Wonderful World
+  'Xg72z08aTXY', // Måneskin – Beggin'
+  'SlPhMPnQ58k', // Maroon 5 – Memories
+  '8WYHDfJDPDc', // Nelly ft. Kelly Rowland – Dilemma
+  'C7dPqrmDWxs', // Pharrell Williams – Happy
+  'UYwF-jdcVjY', // Post Malone – Better Now
+  'YaEG2aWJnZ8', // Sia – Unstoppable
+  'GxBSyx85Kp8', // Usher ft. Lil Jon, Ludacris – Yeah!
+  'fHI8X4OXluQ', // The Weeknd – Blinding Lights
+  'XXYlFuWEuKI', // The Weeknd – Save Your Tears
+  '34Na4j8AVgA', // The Weeknd ft. Daft Punk – Starboy
+  'RgKAFK5djSk', // Wiz Khalifa ft. Charlie Puth – See You Again
+  'tt2k8PGm-TI', // ZAYN ft. Sia – Dusk Till Dawn
 ]);
 
 export const library: LibrarySong[] = [
