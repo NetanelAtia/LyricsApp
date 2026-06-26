@@ -642,5 +642,42 @@
       "start": 57.8,
       "end": 58.15
     }
+  ],
+  "00:58.35": [
+    {
+      "word": "I'ma",
+      "start": 58.35,
+      "end": 58.7
+    },
+    {
+      "word": "give",
+      "start": 58.7,
+      "end": 59.05
+    },
+    {
+      "word": "it",
+      "start": 59.05,
+      "end": 59.4
+    },
+    {
+      "word": "all",
+      "start": 59.4,
+      "end": 59.75
+    },
+    {
+      "word": "to",
+      "start": 59.75,
+      "end": 60.1
+    },
+    {
+      "word": "you",
+      "start": 60.1,
+      "end": 60.45
+    },
+    {
+      "word": "baby",
+      "start": 60.45,
+      "end": 60.8
+    }
   ]
 }
