@@ -380,9 +380,19 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const SPEED_STEP = 0.15;
   async function nudgeCurrentLineTiming(idx: number, direction: 1 | -1) {
     const cur = lines[idx];
-    if (!cur) return;
-    const curWordTiming = wordTiming[cur.tag];
-    if (!curWordTiming || !curWordTiming.length) return;
+    if (!cur || !cur.text) return;
+    // A line with no timing yet (e.g. one added manually) gets a rough
+    // evenly-spaced starting point on the fly, so the nudge buttons work
+    // immediately without forcing a separate ⏱ calibration step first.
+    const curWordTiming =
+      wordTiming[cur.tag] && wordTiming[cur.tag].length
+        ? wordTiming[cur.tag]
+        : cur.text.split(/\s+/).filter(Boolean).map((word, i) => ({
+            word,
+            start: +(cur.time + i * DEFAULT_WORD_DURATION).toFixed(3),
+            end: +(cur.time + (i + 1) * DEFAULT_WORD_DURATION).toFixed(3),
+          }));
+    if (!curWordTiming.length) return;
     const delta = direction * SPEED_STEP;
     let shifted;
     if (direction < 0) {
@@ -1132,20 +1142,20 @@ export default function YouTubeScreen({ navigation, route }: any) {
                         <MaterialIcons name="arrow-forward" size={18} color={colors.primarySoft} />
                       </TouchableOpacity></View>
                     )}
-                    {canEditTranslations && !!cur.text && !!wordTiming[cur.tag]?.length && editingTag !== cur.tag && (
+                    {canEditTranslations && !!cur.text && editingTag !== cur.tag && (
                       <View {...({ onMouseEnter: (e: any) => showTip(e, 'הקדם את הדגשת המילים בשורה (0.15 שניות)'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => nudgeCurrentLineTiming(idx, -1)}
-                        activeOpacity={0.7} 
+                        activeOpacity={0.7}
                       >
                         <MaterialIcons name="fast-forward" size={18} color={colors.primarySoft} />
                       </TouchableOpacity></View>
                     )}
-                    {canEditTranslations && !!cur.text && !!wordTiming[cur.tag]?.length && editingTag !== cur.tag && (
+                    {canEditTranslations && !!cur.text && editingTag !== cur.tag && (
                       <View {...({ onMouseEnter: (e: any) => showTip(e, 'האט את הדגשת המילים בשורה (0.15 שניות)'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => nudgeCurrentLineTiming(idx, 1)}
-                        activeOpacity={0.7} 
+                        activeOpacity={0.7}
                       >
                         <MaterialIcons name="fast-rewind" size={18} color={colors.primarySoft} />
                       </TouchableOpacity></View>
