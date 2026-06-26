@@ -612,5 +612,42 @@
       "start": 107.93,
       "end": 108.28
     }
+  ],
+  "01:34.02": [
+    {
+      "word": "Blackbird",
+      "start": 94.02,
+      "end": 94.37
+    },
+    {
+      "word": "singing",
+      "start": 94.37,
+      "end": 94.72
+    },
+    {
+      "word": "in",
+      "start": 94.72,
+      "end": 95.07
+    },
+    {
+      "word": "the",
+      "start": 95.07,
+      "end": 95.42
+    },
+    {
+      "word": "dead",
+      "start": 95.42,
+      "end": 95.77
+    },
+    {
+      "word": "of",
+      "start": 95.77,
+      "end": 96.12
+    },
+    {
+      "word": "night",
+      "start": 96.12,
+      "end": 96.47
+    }
   ]
 }
