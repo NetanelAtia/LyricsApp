@@ -1321,9 +1321,11 @@ export default function YouTubeScreen({ navigation, route }: any) {
                     </View>
                     {isExpanded && !!words.length && (
                       <View style={styles.allLinesWordsRow}>
-                        {words.map((w, wi) => (
+                        {words.map((w, wi) => {
+                          const isActiveWord = karaokeOn && i === currentLine && wi === currentWord;
+                          return (
                           <View key={wi} style={styles.allLinesWordCol}>
-                            <Text style={styles.allLinesWordText}>{w}</Text>
+                            <Text style={[styles.allLinesWordText, isActiveWord && styles.activeWord]}>{w}</Text>
                             <TextInput
                               key={`${l.tag}-${wi}-${wt?.[wi]?.start ?? ''}`}
                               style={styles.wordTimeInput}
@@ -1353,7 +1355,8 @@ export default function YouTubeScreen({ navigation, route }: any) {
                               </TouchableOpacity>
                             </View>
                           </View>
-                        ))}
+                          );
+                        })}
                       </View>
                     )}
                   </View>
@@ -2051,13 +2054,12 @@ const styles = StyleSheet.create({
   },
   allLinesTitle: { color: colors.text, fontSize: 18, fontWeight: '800' },
   allLinesPlayerHalf: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: spacing.md,
+    gap: spacing.sm,
     borderBottomWidth: 1,
     borderBottomColor: colors.surfaceLight,
-    padding: spacing.md,
+    paddingVertical: spacing.sm,
   },
   allLinesNowPlaying: { color: colors.primarySoft, fontSize: 16, fontWeight: '700', textAlign: 'center' },
   allLinesScrollHalf: { flex: 1 },
