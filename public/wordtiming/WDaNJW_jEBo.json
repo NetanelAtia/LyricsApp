@@ -2570,5 +2570,52 @@
       "start": 314.82,
       "end": 315.17
     }
+  ],
+  "05:14.32": [
+    {
+      "word": "Went",
+      "start": 314.32,
+      "end": 314.67
+    },
+    {
+      "word": "from",
+      "start": 314.67,
+      "end": 315.02
+    },
+    {
+      "word": "looseys",
+      "start": 315.02,
+      "end": 315.37
+    },
+    {
+      "word": "and",
+      "start": 315.37,
+      "end": 315.72
+    },
+    {
+      "word": "buses",
+      "start": 315.72,
+      "end": 316.07
+    },
+    {
+      "word": "to",
+      "start": 316.07,
+      "end": 316.42
+    },
+    {
+      "word": "fifty",
+      "start": 316.42,
+      "end": 316.77
+    },
+    {
+      "word": "cent",
+      "start": 316.77,
+      "end": 317.12
+    },
+    {
+      "word": "sodas",
+      "start": 317.12,
+      "end": 317.47
+    }
   ]
 }
