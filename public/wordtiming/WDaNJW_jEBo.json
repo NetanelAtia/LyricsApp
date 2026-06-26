@@ -4008,5 +4008,52 @@
       "start": 431.12,
       "end": 431.47
     }
+  ],
+  "07:11.32": [
+    {
+      "word": "Lookin'",
+      "start": 431.32,
+      "end": 431.67
+    },
+    {
+      "word": "at",
+      "start": 431.67,
+      "end": 432.02
+    },
+    {
+      "word": "my",
+      "start": 432.02,
+      "end": 432.37
+    },
+    {
+      "word": "daughter",
+      "start": 432.37,
+      "end": 432.72
+    },
+    {
+      "word": "you'll",
+      "start": 432.72,
+      "end": 433.07
+    },
+    {
+      "word": "never",
+      "start": 433.07,
+      "end": 433.42
+    },
+    {
+      "word": "do",
+      "start": 433.42,
+      "end": 433.77
+    },
+    {
+      "word": "me",
+      "start": 433.77,
+      "end": 434.12
+    },
+    {
+      "word": "greasy",
+      "start": 434.12,
+      "end": 434.47
+    }
   ]
 }
