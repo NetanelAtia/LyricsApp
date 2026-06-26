@@ -226,6 +226,36 @@ export default function YouTubeScreen({ navigation, route }: any) {
     }
   }
 
+  // Dev-only: delete a line entirely (e.g. a caption fragment that isn't
+  // real lyrics).
+  const [deleteStatus, setDeleteStatus] = useState<'idle' | 'saving' | 'error'>('idle');
+
+  async function deleteLine(tag: string) {
+    setDeleteStatus('saving');
+    try {
+      const res = await fetch('http://localhost:5174/delete-lyric-line', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ videoId, tag, track }),
+      });
+      if (!res.ok) throw new Error('delete failed');
+      setLines((prev) => prev.filter((l) => l.tag !== tag));
+      setBundledTr((prev) => {
+        const next = { ...prev };
+        delete next[tag];
+        return next;
+      });
+      setWordTiming((prev) => {
+        const next = { ...prev };
+        delete next[tag];
+        return next;
+      });
+      setDeleteStatus('idle');
+    } catch {
+      setDeleteStatus('error');
+    }
+  }
+
   async function saveLyricLineEdits(
     edits: { tag: string; text: string }[],
     wordTimingUpdate?: Record<string, { word: string; start: number; end: number }[]>
@@ -1038,8 +1068,20 @@ export default function YouTubeScreen({ navigation, route }: any) {
                         <MaterialIcons name="edit" size={20} color={colors.warning} />
                       </TouchableOpacity>
                     )}
+                    {canEditTranslations && !!cur.text && editingTag !== cur.tag && (
+                      <TouchableOpacity
+                        style={styles.lineActionBtn}
+                        onPress={() => deleteLine(cur.tag)}
+                        activeOpacity={0.7}
+                      >
+                        <MaterialIcons name="delete-outline" size={20} color={colors.danger} />
+                      </TouchableOpacity>
+                    )}
                     {canEditTranslations && moveStatus === 'error' && (
                       <Text style={styles.editStatus}>שגיאה בהזזת מילה</Text>
+                    )}
+                    {canEditTranslations && deleteStatus === 'error' && (
+                      <Text style={styles.editStatus}>שגיאה במחיקה</Text>
                     )}
                     {!!cur.text && displayMode === 'en' && (
                       <TouchableOpacity

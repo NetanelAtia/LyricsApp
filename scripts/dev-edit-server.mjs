@@ -170,6 +170,79 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Remove a line entirely (e.g. a caption fragment that isn't real
+  // lyrics). Removes it from the .lrc and cleans up its translation and
+  // word-timing entries if present.
+  if (req.method === 'POST' && req.url === '/delete-lyric-line') {
+    let body = '';
+    req.on('data', (chunk) => (body += chunk));
+    req.on('end', () => {
+      let data;
+      try {
+        data = JSON.parse(body);
+      } catch {
+        send(res, 400, { error: 'invalid JSON' });
+        return;
+      }
+      const { videoId, tag, track } = data || {};
+      if (!isSafeVideoId(videoId) || typeof tag !== 'string') {
+        send(res, 400, { error: 'missing/invalid fields' });
+        return;
+      }
+      const lrcFile = path.join(LYRICS_DIR, `${videoId}.lrc`);
+      let raw;
+      try {
+        raw = fs.readFileSync(lrcFile, 'utf8');
+      } catch {
+        send(res, 400, { error: 'lyrics file not found' });
+        return;
+      }
+      const lines = raw.split('\n').filter((l) => !l.startsWith(`[${tag}]`));
+      fs.writeFileSync(lrcFile, lines.join('\n'), 'utf8');
+      const relPaths = [path.relative(ROOT, lrcFile)];
+
+      const trFile = path.join(TRANSLATIONS_DIR, `${videoId}.json`);
+      try {
+        const tr = JSON.parse(fs.readFileSync(trFile, 'utf8'));
+        if (tag in tr) {
+          delete tr[tag];
+          fs.writeFileSync(trFile, JSON.stringify(tr, null, 2) + '\n', 'utf8');
+          relPaths.push(path.relative(ROOT, trFile));
+        }
+      } catch {
+        // no translation file for this song
+      }
+
+      const wtFile = path.join(WORDTIMING_DIR, `${videoId}.json`);
+      try {
+        const wt = JSON.parse(fs.readFileSync(wtFile, 'utf8'));
+        if (tag in wt) {
+          delete wt[tag];
+          fs.writeFileSync(wtFile, JSON.stringify(wt, null, 2) + '\n', 'utf8');
+          relPaths.push(path.relative(ROOT, wtFile));
+        }
+      } catch {
+        // no word-timing file for this song
+      }
+
+      execFile('git', ['add', ...relPaths], { cwd: ROOT }, (addErr) => {
+        if (addErr) {
+          send(res, 200, { saved: true, committed: false, error: String(addErr) });
+          return;
+        }
+        const message = `Remove line in ${track || videoId} (${tag})`;
+        execFile('git', ['commit', '-m', message], { cwd: ROOT }, (commitErr) => {
+          if (commitErr) {
+            send(res, 200, { saved: true, committed: false, error: String(commitErr) });
+            return;
+          }
+          send(res, 200, { saved: true, committed: true });
+        });
+      });
+    });
+    return;
+  }
+
   // Insert a brand-new lyric line at a given timestamp (e.g. the captions
   // skipped a sung phrase entirely). Inserts into the .lrc in chronological
   // order by tag.
