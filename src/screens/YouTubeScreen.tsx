@@ -174,6 +174,26 @@ export default function YouTubeScreen({ navigation, route }: any) {
     playerRef.current?.playVideo?.();
   }
 
+  // Dev-only: edit a line's English text directly (e.g. a caption typo or
+  // mis-transcribed word) — reuses the same /save-lyric-lines endpoint the
+  // word-move/speed tools already use, since that endpoint patches text by
+  // tag regardless of who calls it.
+  const [editingEnTag, setEditingEnTag] = useState<string | null>(null);
+  const [editEnText, setEditEnText] = useState('');
+  function startEditingEnLine(tag: string, currentText: string) {
+    playerRef.current?.pauseVideo?.();
+    setEditingEnTag(tag);
+    setEditEnText(currentText);
+  }
+  function stopEditingEnLine() {
+    setEditingEnTag(null);
+    playerRef.current?.playVideo?.();
+  }
+  async function saveEnLineText(tag: string, text: string) {
+    await saveLyricLineEdits([{ tag, text }]);
+    stopEditingEnLine();
+  }
+
   // Dev-only: fix a caption that split a sentence at the wrong word boundary
   // by nudging one word across the line break, then save both lines.
   const [moveStatus, setMoveStatus] = useState<'idle' | 'saving' | 'error'>('idle');
@@ -1008,7 +1028,37 @@ export default function YouTubeScreen({ navigation, route }: any) {
                 <View style={styles.currentBlock}>
                   {displayMode !== 'he' && (
                     <View style={styles.wordsArea}>
-                      {cur.text ? (
+                      {canEditTranslations && editingEnTag === cur.tag ? (
+                        <View style={styles.editRow}>
+                          <View style={styles.editInputRow}>
+                            <TextInput
+                              style={styles.editInput}
+                              value={editEnText}
+                              onChangeText={setEditEnText}
+                              multiline
+                              autoFocus
+                              textAlign="left"
+                            />
+                            <View style={styles.editBtnRow}>
+                              <TouchableOpacity
+                                style={styles.editBtn}
+                                onPress={() => saveEnLineText(cur.tag, editEnText)}
+                              >
+                                <MaterialIcons name="check" size={20} color={colors.success} />
+                              </TouchableOpacity>
+                              <TouchableOpacity style={styles.editBtn} onPress={stopEditingEnLine}>
+                                <MaterialIcons name="close" size={20} color={colors.textFaint} />
+                              </TouchableOpacity>
+                            </View>
+                          </View>
+                          {moveStatus === 'saving' && <Text style={styles.editStatus}>שומר…</Text>}
+                          {moveStatus === 'error' && (
+                            <Text style={[styles.editStatus, { color: colors.danger }]}>
+                              שגיאה — ה-edit server רץ?
+                            </Text>
+                          )}
+                        </View>
+                      ) : cur.text ? (
                         // A "¦" in the source (now a real newline) means the
                         // original caption showed these as separate stacked
                         // lines — keep that grouping instead of flowing all
@@ -1176,11 +1226,20 @@ export default function YouTubeScreen({ navigation, route }: any) {
                         <MaterialIcons name="timer" size={18} color={colors.primarySoft} />
                       </TouchableOpacity></View>
                     )}
-                    {canEditTranslations && !!cur.text && editingTag !== cur.tag && (
+                    {canEditTranslations && !!cur.text && editingTag !== cur.tag && editingEnTag !== cur.tag && (
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'ערוך את הטקסט באנגלית'), onMouseLeave: hideTip } as any)}><TouchableOpacity
+                        style={styles.lineActionBtn}
+                        onPress={() => startEditingEnLine(cur.tag, cur.text)}
+                        activeOpacity={0.7}
+                      >
+                        <MaterialIcons name="text-fields" size={20} color={colors.primarySoft} />
+                      </TouchableOpacity></View>
+                    )}
+                    {canEditTranslations && !!cur.text && editingTag !== cur.tag && editingEnTag !== cur.tag && (
                       <View {...({ onMouseEnter: (e: any) => showTip(e, 'ערוך את התרגום לעברית'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => startEditingLine(cur.tag, lineHe(idx))}
-                        activeOpacity={0.7} 
+                        activeOpacity={0.7}
                       >
                         <MaterialIcons name="edit" size={20} color={colors.warning} />
                       </TouchableOpacity></View>
