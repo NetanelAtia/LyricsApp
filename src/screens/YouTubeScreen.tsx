@@ -487,11 +487,12 @@ export default function YouTubeScreen({ navigation, route }: any) {
     await saveLyricLineEdits([{ tag: cur.tag, text: cur.text }], { [cur.tag]: generated });
   }
 
-  // Manual word-by-word timing: tap a button once per word, right as the
-  // singer says it, instead of one bulk calibration for the whole line.
-  // Each tap captures the current moment as that word's start; the
-  // previous word's end is set to the same moment, and the line saves
-  // automatically once every word has been tapped.
+  // Manual word-by-word timing, controlled live: the line's own words stay
+  // on screen with one highlighted in white (the "pointer") — pressing ▶
+  // marks the highlighted word's start as right now and advances the
+  // pointer to the next word, pressing ◀ undoes the last mark and steps
+  // back, so a mistimed press can be corrected without starting over.
+  // Saves automatically once the pointer passes the last word.
   const [wordTapTag, setWordTapTag] = useState<string | null>(null);
   const [wordTapTimes, setWordTapTimes] = useState<number[]>([]);
   function startWordTap(tag: string) {
@@ -502,7 +503,10 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setWordTapTag(null);
     setWordTapTimes([]);
   }
-  async function tapWord(idx: number) {
+  function tapWordBack() {
+    setWordTapTimes((prev) => prev.slice(0, -1));
+  }
+  async function tapWordForward(idx: number) {
     const cur = lines[idx];
     if (!cur || !cur.text) return;
     const words = cur.text.split(/\s+/).filter(Boolean);
@@ -1091,13 +1095,26 @@ export default function YouTubeScreen({ navigation, route }: any) {
                     <View style={styles.wordsArea}>
                       {wordTapTag === cur.tag ? (
                         <View style={styles.editRow}>
-                          <Text style={styles.syncHint}>
-                            מילה {wordTapTimes.length + 1} מ-{cur.text.split(/\s+/).filter(Boolean).length} —
-                            לחץ "סמן" ברגע שהמילה נשמעת
-                          </Text>
+                          <View style={styles.lineWords}>
+                            {cur.text.split(/\s+/).filter(Boolean).map((w, wi) => (
+                              <Text
+                                key={wi}
+                                style={[styles.currentWord, wi === wordTapTimes.length && styles.activeWord]}
+                              >
+                                {w}
+                              </Text>
+                            ))}
+                          </View>
                           <View style={styles.editBtnRow}>
-                            <TouchableOpacity style={[styles.calBtn, { marginTop: spacing.sm }]} onPress={() => tapWord(idx)}>
-                              <Text style={styles.calBtnText}>● סמן</Text>
+                            <TouchableOpacity
+                              style={styles.calBtn}
+                              onPress={tapWordBack}
+                              disabled={!wordTapTimes.length}
+                            >
+                              <Text style={styles.calBtnText}>◀ הקודם</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.calBtn} onPress={() => tapWordForward(idx)}>
+                              <Text style={styles.calBtnText}>הבא ▶</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.editBtn} onPress={cancelWordTap}>
                               <MaterialIcons name="close" size={20} color={colors.textFaint} />
