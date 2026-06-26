@@ -594,8 +594,8 @@ export default function YouTubeScreen({ navigation, route }: any) {
     function onKey(e: KeyboardEvent) {
       const tag = (document.activeElement as HTMLElement)?.tagName;
       if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-      if (e.key === 'ArrowRight') seek(5);
-      else if (e.key === 'ArrowLeft') seek(-5);
+      if (e.key === 'ArrowRight') seek(2);
+      else if (e.key === 'ArrowLeft') seek(-2);
     }
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -1501,16 +1501,16 @@ export default function YouTubeScreen({ navigation, route }: any) {
         {videoId && lines.length > 0 && (
           <>
             <View style={styles.controlsRow}>
-              <View {...({ onMouseEnter: (e: any) => showTip(e, 'אחורה 5 שניות'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-5)} activeOpacity={0.8} >
-                <Text style={styles.ctrlText}>⏪ 5</Text>
+              <View {...({ onMouseEnter: (e: any) => showTip(e, 'אחורה 2 שניות'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-2)} activeOpacity={0.8} >
+                <Text style={styles.ctrlText}>⏪ 2</Text>
               </TouchableOpacity></View>
               <View {...({ onMouseEnter: (e: any) => showTip(e, isPlaying ? 'עצור' : 'נגן'), onMouseLeave: hideTip } as any)}>
                 <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
                   <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
                 </TouchableOpacity>
               </View>
-              <View {...({ onMouseEnter: (e: any) => showTip(e, 'קדימה 5 שניות'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(5)} activeOpacity={0.8} >
-                <Text style={styles.ctrlText}>5 ⏩</Text>
+              <View {...({ onMouseEnter: (e: any) => showTip(e, 'קדימה 2 שניות'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(2)} activeOpacity={0.8} >
+                <Text style={styles.ctrlText}>2 ⏩</Text>
               </TouchableOpacity></View>
             </View>
 
