@@ -970,62 +970,62 @@
   "00:58.47": [
     {
       "word": "I",
-      "start": 58.571,
-      "end": 58.672,
+      "start": 58.703,
+      "end": 58.804,
       "score": 0.563
     },
     {
       "word": "know",
-      "start": 58.732,
-      "end": 58.833,
+      "start": 58.853,
+      "end": 58.954,
       "score": 0.007
     },
     {
       "word": "what",
-      "start": 58.853,
-      "end": 58.975,
+      "start": 59.003,
+      "end": 59.125,
       "score": 0.248
     },
     {
       "word": "you",
-      "start": 59.015,
-      "end": 59.196,
+      "start": 59.165,
+      "end": 59.346,
       "score": 0.95
     },
     {
       "word": "want,",
-      "start": 59.237,
-      "end": 59.479,
+      "start": 59.387,
+      "end": 59.629,
       "score": 0.656
     },
     {
       "word": "you",
-      "start": 59.762,
-      "end": 59.862,
+      "start": 59.903,
+      "end": 60.003,
       "score": 0.219
     },
     {
       "word": "know",
-      "start": 59.903,
-      "end": 60.064,
+      "start": 60.053,
+      "end": 60.214,
       "score": 0.921
     },
     {
       "word": "I",
-      "start": 60.165,
-      "end": 60.246,
+      "start": 60.266,
+      "end": 60.347,
       "score": 0.331
     },
     {
       "word": "got",
-      "start": 60.266,
-      "end": 60.427,
+      "start": 60.416,
+      "end": 60.577,
       "score": 0.722
     },
     {
       "word": "it",
-      "start": 60.528,
-      "end": 60.569,
+      "start": 60.678,
+      "end": 60.719,
       "score": 0.002
     }
   ],
