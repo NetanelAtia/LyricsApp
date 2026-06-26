@@ -250,68 +250,6 @@
       "score": 0.303
     }
   ],
-  "00:44.43": [
-    {
-      "word": "But",
-      "start": 45.114,
-      "end": 45.336,
-      "score": 0.516
-    },
-    {
-      "word": "every",
-      "start": 45.396,
-      "end": 45.577,
-      "score": 0.345
-    },
-    {
-      "word": "time",
-      "start": 45.598,
-      "end": 45.718,
-      "score": 0.296
-    },
-    {
-      "word": "she",
-      "start": 45.738,
-      "end": 46,
-      "score": 0.806
-    },
-    {
-      "word": "asks",
-      "start": 46.02,
-      "end": 46.222,
-      "score": 0.545
-    },
-    {
-      "word": "me,",
-      "start": 46.322,
-      "end": 46.604,
-      "score": 0.632
-    },
-    {
-      "word": "\"Do",
-      "start": 46.745,
-      "end": 47.127,
-      "score": 0.874
-    },
-    {
-      "word": "I",
-      "start": 47.168,
-      "end": 47.188,
-      "score": 0.002
-    },
-    {
-      "word": "look",
-      "start": 47.208,
-      "end": 47.309,
-      "score": 0.124
-    },
-    {
-      "word": "okay?\"",
-      "start": 47.349,
-      "end": 47.47,
-      "score": 0.107
-    }
-  ],
   "00:47.53": [
     {
       "word": "I",
@@ -1824,6 +1762,68 @@
       "start": 43.149,
       "end": 43.209,
       "score": 0.026
+    }
+  ],
+  "00:43.93": [
+    {
+      "word": "But",
+      "start": 44.614,
+      "end": 44.836,
+      "score": 0.516
+    },
+    {
+      "word": "every",
+      "start": 44.896,
+      "end": 45.077,
+      "score": 0.345
+    },
+    {
+      "word": "time",
+      "start": 45.098,
+      "end": 45.218,
+      "score": 0.296
+    },
+    {
+      "word": "she",
+      "start": 45.238,
+      "end": 45.5,
+      "score": 0.806
+    },
+    {
+      "word": "asks",
+      "start": 45.52,
+      "end": 45.722,
+      "score": 0.545
+    },
+    {
+      "word": "me,",
+      "start": 45.822,
+      "end": 46.104,
+      "score": 0.632
+    },
+    {
+      "word": "\"Do",
+      "start": 46.245,
+      "end": 46.627,
+      "score": 0.874
+    },
+    {
+      "word": "I",
+      "start": 46.668,
+      "end": 46.688,
+      "score": 0.002
+    },
+    {
+      "word": "look",
+      "start": 46.708,
+      "end": 46.809,
+      "score": 0.124
+    },
+    {
+      "word": "okay?\"",
+      "start": 46.849,
+      "end": 46.97,
+      "score": 0.107
     }
   ]
 }
