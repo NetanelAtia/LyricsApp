@@ -1744,56 +1744,6 @@
       "score": 0.303
     }
   ],
-  "00:37.58": [
-    {
-      "word": "When",
-      "start": 37.68,
-      "end": 37.941,
-      "score": 0.401
-    },
-    {
-      "word": "I",
-      "start": 38.042,
-      "end": 38.122,
-      "score": 0.738
-    },
-    {
-      "word": "compliment",
-      "start": 38.503,
-      "end": 39.145,
-      "score": 0.329
-    },
-    {
-      "word": "her",
-      "start": 39.326,
-      "end": 39.446,
-      "score": 0.811
-    },
-    {
-      "word": "she",
-      "start": 39.607,
-      "end": 39.888,
-      "score": 0.421
-    },
-    {
-      "word": "won't",
-      "start": 39.908,
-      "end": 40.048,
-      "score": 0.128
-    },
-    {
-      "word": "believe",
-      "start": 40.109,
-      "end": 40.329,
-      "score": 0.245
-    },
-    {
-      "word": "me",
-      "start": 40.39,
-      "end": 40.45,
-      "score": 0.25
-    }
-  ],
   "00:35.52": [
     {
       "word": "Yeah,",
@@ -1824,6 +1774,56 @@
       "start": 36.871,
       "end": 37.032,
       "score": 0.382
+    }
+  ],
+  "00:38.08": [
+    {
+      "word": "When",
+      "start": 38.18,
+      "end": 38.441,
+      "score": 0.401
+    },
+    {
+      "word": "I",
+      "start": 38.542,
+      "end": 38.622,
+      "score": 0.738
+    },
+    {
+      "word": "compliment",
+      "start": 39.003,
+      "end": 39.645,
+      "score": 0.329
+    },
+    {
+      "word": "her",
+      "start": 39.826,
+      "end": 39.946,
+      "score": 0.811
+    },
+    {
+      "word": "she",
+      "start": 40.107,
+      "end": 40.388,
+      "score": 0.421
+    },
+    {
+      "word": "won't",
+      "start": 40.408,
+      "end": 40.548,
+      "score": 0.128
+    },
+    {
+      "word": "believe",
+      "start": 40.609,
+      "end": 40.829,
+      "score": 0.245
+    },
+    {
+      "word": "me",
+      "start": 40.89,
+      "end": 40.95,
+      "score": 0.25
     }
   ]
 }
