@@ -203,8 +203,9 @@ export default function YouTubeScreen({ navigation, route }: any) {
   const [tooltip, setTooltip] = useState<{ label: string; x: number; y: number } | null>(null);
   function showTip(e: any, label: string) {
     if (Platform.OS !== 'web') return;
-    const x = e?.nativeEvent?.clientX ?? 0;
-    const y = e?.nativeEvent?.clientY ?? 0;
+    const x = e?.nativeEvent?.clientX ?? e?.clientX ?? 0;
+    const y = e?.nativeEvent?.clientY ?? e?.clientY ?? 0;
+    console.log('[tooltip] hover', label, x, y);
     setTooltip({ label, x, y });
   }
   function hideTip() {
