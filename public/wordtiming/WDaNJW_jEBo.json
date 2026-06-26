@@ -829,5 +829,42 @@
       "start": 132.87,
       "end": 133.22
     }
+  ],
+  "02:12.72": [
+    {
+      "word": "I",
+      "start": 132.72,
+      "end": 133.07
+    },
+    {
+      "word": "know",
+      "start": 133.07,
+      "end": 133.42
+    },
+    {
+      "word": "you",
+      "start": 133.42,
+      "end": 133.77
+    },
+    {
+      "word": "aggravated,",
+      "start": 133.77,
+      "end": 134.12
+    },
+    {
+      "word": "walk",
+      "start": 134.12,
+      "end": 134.47
+    },
+    {
+      "word": "around",
+      "start": 134.47,
+      "end": 134.82
+    },
+    {
+      "word": "frustrated",
+      "start": 134.82,
+      "end": 135.17
+    }
   ]
 }
