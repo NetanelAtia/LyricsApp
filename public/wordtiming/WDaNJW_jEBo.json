@@ -6,48 +6,6 @@
       "end": 7.72
     }
   ],
-  "00:16.37": [
-    {
-      "word": "I",
-      "start": 16.37,
-      "end": 16.72
-    },
-    {
-      "word": "promise",
-      "start": 16.72,
-      "end": 17.07
-    },
-    {
-      "word": "I",
-      "start": 17.07,
-      "end": 17.42
-    },
-    {
-      "word": "ain't",
-      "start": 17.42,
-      "end": 17.77
-    },
-    {
-      "word": "gonna",
-      "start": 17.77,
-      "end": 18.12
-    },
-    {
-      "word": "hold",
-      "start": 18.12,
-      "end": 18.47
-    },
-    {
-      "word": "out",
-      "start": 18.47,
-      "end": 18.82
-    },
-    {
-      "word": "neither",
-      "start": 18.82,
-      "end": 19.17
-    }
-  ],
   "00:19.37": [
     {
       "word": "I'ma",
@@ -6139,6 +6097,48 @@
       "word": "need",
       "start": 14.52,
       "end": 14.87
+    }
+  ],
+  "00:16.12": [
+    {
+      "word": "I",
+      "start": 16.12,
+      "end": 16.47
+    },
+    {
+      "word": "promise",
+      "start": 16.47,
+      "end": 16.82
+    },
+    {
+      "word": "I",
+      "start": 16.82,
+      "end": 17.17
+    },
+    {
+      "word": "ain't",
+      "start": 17.17,
+      "end": 17.52
+    },
+    {
+      "word": "gonna",
+      "start": 17.52,
+      "end": 17.87
+    },
+    {
+      "word": "hold",
+      "start": 17.87,
+      "end": 18.22
+    },
+    {
+      "word": "out",
+      "start": 18.22,
+      "end": 18.57
+    },
+    {
+      "word": "neither",
+      "start": 18.57,
+      "end": 18.92
     }
   ]
 }
