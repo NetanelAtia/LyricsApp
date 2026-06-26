@@ -353,7 +353,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
   // that's simply timed wrong from the start, not just sung at an
   // unexpected pace. Renames the line's tag, carrying its translation and
   // any word-timing (also shifted by the same amount) along with it.
-  const LINE_SHIFT_STEP = 0.5;
+  const LINE_SHIFT_STEP = 0.25;
   async function shiftLineTime(idx: number, deltaSeconds: number) {
     const cur = lines[idx];
     if (!cur) return;
@@ -1182,7 +1182,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       instrumental (♪) gaps. */}
                   <View style={styles.lineActionsRow}>
                     {canEditTranslations && !!cur.text && editingTag !== cur.tag && (
-                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'הקדם את השורה (0.5 שניות)'), onMouseLeave: hideTip } as any)}><TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'הקדם את השורה (0.25 שניות)'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => shiftLineTime(idx, -LINE_SHIFT_STEP)}
                         activeOpacity={0.7} 
@@ -1191,7 +1191,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       </TouchableOpacity></View>
                     )}
                     {canEditTranslations && !!cur.text && editingTag !== cur.tag && (
-                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'דחה את השורה (0.5 שניות)'), onMouseLeave: hideTip } as any)}><TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'דחה את השורה (0.25 שניות)'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => shiftLineTime(idx, LINE_SHIFT_STEP)}
                         activeOpacity={0.7} 
