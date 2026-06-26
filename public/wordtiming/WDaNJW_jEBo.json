@@ -64,47 +64,5 @@
       "start": 45.74,
       "end": 46.09
     }
-  ],
-  "00:46.56": [
-    {
-      "word": "I",
-      "start": 46.56,
-      "end": 46.91
-    },
-    {
-      "word": "promise",
-      "start": 46.91,
-      "end": 47.26
-    },
-    {
-      "word": "I",
-      "start": 47.26,
-      "end": 47.61
-    },
-    {
-      "word": "ain't",
-      "start": 47.61,
-      "end": 47.96
-    },
-    {
-      "word": "gonna",
-      "start": 47.96,
-      "end": 48.31
-    },
-    {
-      "word": "hold",
-      "start": 48.31,
-      "end": 48.66
-    },
-    {
-      "word": "out",
-      "start": 48.66,
-      "end": 49.01
-    },
-    {
-      "word": "neither",
-      "start": 49.01,
-      "end": 49.36
-    }
   ]
 }
