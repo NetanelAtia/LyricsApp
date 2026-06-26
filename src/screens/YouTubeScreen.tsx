@@ -401,6 +401,15 @@ export default function YouTubeScreen({ navigation, route }: any) {
       setLines([]);
       setBundledTr({});
       setWordTiming({});
+      // The lines are also cached in localStorage for offline use — without
+      // clearing it too, reloading the page would bring the old lines right
+      // back, since the offline cache is checked before the (now-empty)
+      // bundled file.
+      if (videoId) {
+        try {
+          window.localStorage?.removeItem(LRC_KEY + videoId);
+        } catch {}
+      }
       setClearStatus('idle');
     } catch {
       setClearStatus('error');
