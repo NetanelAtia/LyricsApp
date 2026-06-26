@@ -1799,5 +1799,52 @@
       "start": 194.26,
       "end": 194.61
     }
+  ],
+  "03:17.16": [
+    {
+      "word": "The",
+      "start": 197.16,
+      "end": 197.51
+    },
+    {
+      "word": "whole",
+      "start": 197.51,
+      "end": 197.86
+    },
+    {
+      "word": "world",
+      "start": 197.86,
+      "end": 198.21
+    },
+    {
+      "word": "stops",
+      "start": 198.21,
+      "end": 198.56
+    },
+    {
+      "word": "and",
+      "start": 198.56,
+      "end": 198.91
+    },
+    {
+      "word": "stares",
+      "start": 198.91,
+      "end": 199.26
+    },
+    {
+      "word": "for",
+      "start": 199.26,
+      "end": 199.61
+    },
+    {
+      "word": "a",
+      "start": 199.61,
+      "end": 199.96
+    },
+    {
+      "word": "while",
+      "start": 199.96,
+      "end": 200.31
+    }
   ]
 }
