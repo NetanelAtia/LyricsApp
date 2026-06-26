@@ -412,43 +412,6 @@
       "end": 43.453509
     }
   ],
-  "01:01.37": [
-    {
-      "word": "I",
-      "start": 61.37,
-      "end": 61.72
-    },
-    {
-      "word": "know",
-      "start": 61.72,
-      "end": 62.07
-    },
-    {
-      "word": "you",
-      "start": 62.07,
-      "end": 62.42
-    },
-    {
-      "word": "aggravated,",
-      "start": 62.42,
-      "end": 62.77
-    },
-    {
-      "word": "walk",
-      "start": 62.77,
-      "end": 63.12
-    },
-    {
-      "word": "around",
-      "start": 63.12,
-      "end": 63.47
-    },
-    {
-      "word": "frustrated",
-      "start": 63.47,
-      "end": 63.82
-    }
-  ],
   "01:04.37": [
     {
       "word": "Ya",
@@ -6139,6 +6102,43 @@
       "word": "phone",
       "start": 59.52,
       "end": 59.87
+    }
+  ],
+  "01:01.12": [
+    {
+      "word": "I",
+      "start": 61.12,
+      "end": 61.47
+    },
+    {
+      "word": "know",
+      "start": 61.47,
+      "end": 61.82
+    },
+    {
+      "word": "you",
+      "start": 61.82,
+      "end": 62.17
+    },
+    {
+      "word": "aggravated,",
+      "start": 62.17,
+      "end": 62.52
+    },
+    {
+      "word": "walk",
+      "start": 62.52,
+      "end": 62.87
+    },
+    {
+      "word": "around",
+      "start": 62.87,
+      "end": 63.22
+    },
+    {
+      "word": "frustrated",
+      "start": 63.22,
+      "end": 63.57
     }
   ]
 }
