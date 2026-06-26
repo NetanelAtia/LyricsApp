@@ -1363,9 +1363,31 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       <View style={styles.allLinesWordsRow}>
                         {words.map((w, wi) => {
                           const isActiveWord = karaokeOn && i === currentLine && wi === currentWord;
+                          const key = `${i}-${wi}`;
+                          const isSel = selected === key;
                           return (
                           <View key={wi} style={styles.allLinesWordCol}>
-                            <Text style={[styles.allLinesWordText, isActiveWord && styles.activeWord]}>{w}</Text>
+                            {isSel && (
+                              <View style={styles.bubbleContainer} pointerEvents="box-none">
+                                <View style={styles.bubble}>
+                                  <TouchableOpacity onPress={closeBubble} activeOpacity={0.85}>
+                                    <Text style={styles.bubbleText}>{wordTranslation}</Text>
+                                  </TouchableOpacity>
+                                  <TouchableOpacity onPress={toggleSaveWord} hitSlop={8}>
+                                    <Text style={styles.bubbleStar}>{selectedSaved ? '★' : '☆'}</Text>
+                                  </TouchableOpacity>
+                                  {canEditTranslations && (
+                                    <TouchableOpacity onPress={() => markWordNow(l.tag, l.text, wi)} hitSlop={8}>
+                                      <MaterialIcons name="my-location" size={16} color="#fff" />
+                                    </TouchableOpacity>
+                                  )}
+                                </View>
+                                <View style={styles.bubbleArrow} />
+                              </View>
+                            )}
+                            <TouchableOpacity onPress={() => onWordPress(key, w)} activeOpacity={0.7}>
+                              <Text style={[styles.allLinesWordText, isActiveWord && styles.activeWord]}>{w}</Text>
+                            </TouchableOpacity>
                             <TextInput
                               key={`${l.tag}-${wi}-${wt?.[wi]?.start ?? ''}`}
                               style={styles.wordTimeInput}
