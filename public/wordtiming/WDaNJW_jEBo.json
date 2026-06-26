@@ -6099,46 +6099,46 @@
       "end": 14.87
     }
   ],
-  "00:15.87": [
+  "00:16.12": [
     {
       "word": "I",
-      "start": 15.870000000000001,
-      "end": 16.22
+      "start": 16.12,
+      "end": 16.47
     },
     {
       "word": "promise",
-      "start": 16.22,
-      "end": 16.57
+      "start": 16.47,
+      "end": 16.82
     },
     {
       "word": "I",
-      "start": 16.57,
-      "end": 16.92
+      "start": 16.82,
+      "end": 17.17
     },
     {
       "word": "ain't",
-      "start": 16.92,
-      "end": 17.27
+      "start": 17.17,
+      "end": 17.52
     },
     {
       "word": "gonna",
-      "start": 17.27,
-      "end": 17.62
+      "start": 17.52,
+      "end": 17.87
     },
     {
       "word": "hold",
-      "start": 17.62,
-      "end": 17.97
+      "start": 17.87,
+      "end": 18.22
     },
     {
       "word": "out",
-      "start": 17.97,
-      "end": 18.32
+      "start": 18.22,
+      "end": 18.57
     },
     {
       "word": "neither",
-      "start": 18.32,
-      "end": 18.67
+      "start": 18.57,
+      "end": 18.92
     }
   ]
 }
