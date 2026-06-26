@@ -3993,5 +3993,52 @@
       "start": 348.52,
       "end": 348.87
     }
+  ],
+  "05:48.72": [
+    {
+      "word": "Lookin'",
+      "start": 348.72,
+      "end": 349.07
+    },
+    {
+      "word": "at",
+      "start": 349.07,
+      "end": 349.42
+    },
+    {
+      "word": "my",
+      "start": 349.42,
+      "end": 349.77
+    },
+    {
+      "word": "daughter,",
+      "start": 349.77,
+      "end": 350.12
+    },
+    {
+      "word": "you'll",
+      "start": 350.12,
+      "end": 350.47
+    },
+    {
+      "word": "never",
+      "start": 350.47,
+      "end": 350.82
+    },
+    {
+      "word": "do",
+      "start": 350.82,
+      "end": 351.17
+    },
+    {
+      "word": "me",
+      "start": 351.17,
+      "end": 351.52
+    },
+    {
+      "word": "greasy",
+      "start": 351.52,
+      "end": 351.87
+    }
   ]
 }
