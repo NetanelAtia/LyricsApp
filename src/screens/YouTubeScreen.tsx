@@ -549,6 +549,21 @@ export default function YouTubeScreen({ navigation, route }: any) {
     await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
   }
 
+  // Discard whatever manual override a single word has and put it back on
+  // the same rough evenly-spaced default everyone starts from.
+  async function resetWordTime(tag: string, text: string, wordIdx: number) {
+    const words = text.split(/\s+/).filter(Boolean);
+    const lineStart = lines.find((l) => l.tag === tag)?.time ?? 0;
+    const base = getOrCreateWordTiming(tag, text);
+    const updated = [...base];
+    updated[wordIdx] = {
+      word: words[wordIdx],
+      start: +(lineStart + wordIdx * DEFAULT_WORD_DURATION).toFixed(3),
+      end: +(lineStart + (wordIdx + 1) * DEFAULT_WORD_DURATION).toFixed(3),
+    };
+    await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
+  }
+
   async function saveLineTranslation(tag: string, text: string) {
     setEditStatus('saving');
     try {
@@ -1216,6 +1231,13 @@ export default function YouTubeScreen({ navigation, route }: any) {
                                           hitSlop={4}
                                         >
                                           <Text style={styles.wordTimeStepText}>+</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity
+                                          style={styles.wordTimeStepBtn}
+                                          onPress={() => resetWordTime(cur.tag, cur.text, myWi)}
+                                          hitSlop={4}
+                                        >
+                                          <MaterialIcons name="restore" size={11} color={colors.textFaint} />
                                         </TouchableOpacity>
                                       </View>
                                     )}
