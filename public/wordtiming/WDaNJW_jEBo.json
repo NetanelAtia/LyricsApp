@@ -866,5 +866,62 @@
       "start": 63.47,
       "end": 63.82
     }
+  ],
+  "01:04.37": [
+    {
+      "word": "Ya",
+      "start": 64.37,
+      "end": 64.72
+    },
+    {
+      "word": "patience",
+      "start": 64.72,
+      "end": 65.07
+    },
+    {
+      "word": "gettin'",
+      "start": 65.07,
+      "end": 65.42
+    },
+    {
+      "word": "short,",
+      "start": 65.42,
+      "end": 65.77
+    },
+    {
+      "word": "how",
+      "start": 65.77,
+      "end": 66.12
+    },
+    {
+      "word": "much",
+      "start": 66.12,
+      "end": 66.47
+    },
+    {
+      "word": "longer",
+      "start": 66.47,
+      "end": 66.82
+    },
+    {
+      "word": "can",
+      "start": 66.82,
+      "end": 67.17
+    },
+    {
+      "word": "you",
+      "start": 67.17,
+      "end": 67.52
+    },
+    {
+      "word": "tolerate",
+      "start": 67.52,
+      "end": 67.87
+    },
+    {
+      "word": "it?",
+      "start": 67.87,
+      "end": 68.22
+    }
   ]
 }
