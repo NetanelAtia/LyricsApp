@@ -5848,5 +5848,47 @@
       "end": 114.71,
       "score": 0.195
     }
+  ],
+  "01:48.45": [
+    {
+      "word": "I",
+      "start": 108.45,
+      "end": 108.8
+    },
+    {
+      "word": "can",
+      "start": 108.8,
+      "end": 109.15
+    },
+    {
+      "word": "tell",
+      "start": 109.15,
+      "end": 109.5
+    },
+    {
+      "word": "that",
+      "start": 109.5,
+      "end": 109.85
+    },
+    {
+      "word": "you",
+      "start": 109.85,
+      "end": 110.2
+    },
+    {
+      "word": "different",
+      "start": 110.2,
+      "end": 110.55
+    },
+    {
+      "word": "from",
+      "start": 110.55,
+      "end": 110.9
+    },
+    {
+      "word": "most",
+      "start": 110.9,
+      "end": 111.25
+    }
   ]
 }
