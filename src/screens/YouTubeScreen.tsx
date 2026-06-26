@@ -624,6 +624,14 @@ export default function YouTubeScreen({ navigation, route }: any) {
   // without needing playback to actually reach each one.
   const [allLinesOpen, setAllLinesOpen] = useState(false);
   const [expandedLineTag, setExpandedLineTag] = useState<string | null>(null);
+  // While the modal is open, keep whichever line is actually playing
+  // expanded automatically, so the live word-highlight is visible without
+  // having to manually tap the right line first.
+  useEffect(() => {
+    if (allLinesOpen && currentLine >= 0 && lines[currentLine]) {
+      setExpandedLineTag(lines[currentLine].tag);
+    }
+  }, [allLinesOpen, currentLine]);
   // High-quality curated translations bundled with the app (time -> Hebrew).
   const [bundledTr, setBundledTr] = useState<Record<string, string>>({});
   // Real per-word timestamps from offline forced alignment, keyed by LRC
@@ -1149,8 +1157,11 @@ export default function YouTubeScreen({ navigation, route }: any) {
         )}
         {error ? <Text style={styles.error}>{error}</Text> : null}
 
-        {/* Player */}
-        {videoId && (
+        {/* Player — not rendered here while the all-lines modal is open,
+            since that modal renders its own copy instead. Same component
+            and onReady callback either way, so playerRef always points at
+            whichever one is actually mounted. */}
+        {videoId && !allLinesOpen && (
           <View style={styles.playerWrap}>
             {(artist || track) && (
               <Text style={styles.nowPlaying} numberOfLines={1}>
@@ -1281,6 +1292,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                 underneath this modal — not a second video instance, which
                 would otherwise fight over playerRef and double the audio. */}
             <View style={styles.allLinesPlayerHalf}>
+              {videoId && allLinesOpen && <YouTubePlayer videoId={videoId} onReady={onPlayerReady} />}
               <Text style={styles.allLinesNowPlaying} numberOfLines={1}>
                 {lines[currentLine]?.text || '♪'}
               </Text>
@@ -1317,6 +1329,29 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       </TouchableOpacity>
                       <TouchableOpacity onPress={() => shiftLineTime(i, LINE_SHIFT_STEP)} hitSlop={6}>
                         <MaterialIcons name="arrow-forward" size={18} color={colors.primarySoft} />
+                      </TouchableOpacity>
+                      {!!wt?.length && (
+                        <>
+                          <TouchableOpacity onPress={() => nudgeCurrentLineTiming(i, -1)} hitSlop={6}>
+                            <MaterialIcons name="fast-forward" size={18} color={colors.primarySoft} />
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={() => nudgeCurrentLineTiming(i, 1)} hitSlop={6}>
+                            <MaterialIcons name="fast-rewind" size={18} color={colors.primarySoft} />
+                          </TouchableOpacity>
+                        </>
+                      )}
+                      {!!l.text && (
+                        <TouchableOpacity onPress={() => startEditingEnLine(l.tag, l.text)} hitSlop={6}>
+                          <MaterialIcons name="text-fields" size={18} color={colors.primarySoft} />
+                        </TouchableOpacity>
+                      )}
+                      {!!l.text && (
+                        <TouchableOpacity onPress={() => startEditingLine(l.tag, lineHe(i))} hitSlop={6}>
+                          <MaterialIcons name="edit" size={18} color={colors.warning} />
+                        </TouchableOpacity>
+                      )}
+                      <TouchableOpacity onPress={() => deleteLine(l.tag)} hitSlop={6}>
+                        <MaterialIcons name="delete-outline" size={18} color={colors.danger} />
                       </TouchableOpacity>
                     </View>
                     {isExpanded && !!words.length && (
