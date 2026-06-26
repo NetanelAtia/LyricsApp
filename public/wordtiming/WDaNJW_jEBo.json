@@ -405,44 +405,6 @@
       "score": 0.001
     }
   ],
-  "00:20.50": [
-    {
-      "word": "to",
-      "start": 20.52,
-      "end": 20.561,
-      "score": 0
-    },
-    {
-      "word": "take",
-      "start": 20.582,
-      "end": 20.663,
-      "score": 0.003
-    },
-    {
-      "word": "care",
-      "start": 20.704,
-      "end": 20.867,
-      "score": 0.326
-    },
-    {
-      "word": "of",
-      "start": 20.928,
-      "end": 21.03,
-      "score": 0.478
-    },
-    {
-      "word": "some",
-      "start": 21.091,
-      "end": 21.193,
-      "score": 0.124
-    },
-    {
-      "word": "business.",
-      "start": 21.213,
-      "end": 21.397,
-      "score": 0.162
-    }
-  ],
   "03:45.20": [
     {
       "word": "Until",
