@@ -495,10 +495,11 @@ export default function YouTubeScreen({ navigation, route }: any) {
     if (!curWordTiming || !curWordTiming[wordIdx]) return;
     const delta = direction * 0.15;
     const w = curWordTiming[wordIdx];
-    const prevEnd = wordIdx > 0 ? curWordTiming[wordIdx - 1].end : 0;
-    const nextStart = wordIdx < curWordTiming.length - 1 ? curWordTiming[wordIdx + 1].start : Infinity;
     const duration = w.end - w.start;
-    const start = Math.max(prevEnd, Math.min(nextStart - duration, w.start + delta), 0);
+    // Deliberately NOT clamped against the neighboring words' own start/end —
+    // back-to-back aligned words usually touch with zero gap, so clamping to
+    // "don't cross the neighbor" left no room to move at all.
+    const start = Math.max(0, w.start + delta);
     const updated = [...curWordTiming];
     updated[wordIdx] = { ...w, start, end: start + duration };
     await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
