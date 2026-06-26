@@ -37,5 +37,32 @@
       "start": 76.07,
       "end": 76.42
     }
+  ],
+  "01:17.32": [
+    {
+      "word": "I",
+      "start": 77.32,
+      "end": 77.67
+    },
+    {
+      "word": "got",
+      "start": 77.67,
+      "end": 78.02
+    },
+    {
+      "word": "everything",
+      "start": 78.02,
+      "end": 78.37
+    },
+    {
+      "word": "you",
+      "start": 78.37,
+      "end": 78.72
+    },
+    {
+      "word": "need",
+      "start": 78.72,
+      "end": 79.07
+    }
   ]
 }
