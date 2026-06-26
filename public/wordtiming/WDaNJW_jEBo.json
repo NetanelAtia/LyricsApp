@@ -2191,5 +2191,37 @@
       "start": 277.07,
       "end": 277.42
     }
+  ],
+  "04:38.32": [
+    {
+      "word": "Puttin'",
+      "start": 278.32,
+      "end": 278.67
+    },
+    {
+      "word": "you",
+      "start": 278.67,
+      "end": 279.02
+    },
+    {
+      "word": "through",
+      "start": 279.02,
+      "end": 279.37
+    },
+    {
+      "word": "the",
+      "start": 279.37,
+      "end": 279.72
+    },
+    {
+      "word": "unnecessary",
+      "start": 279.72,
+      "end": 280.07
+    },
+    {
+      "word": "rigga-ma-ro",
+      "start": 280.07,
+      "end": 280.42
+    }
   ]
 }
