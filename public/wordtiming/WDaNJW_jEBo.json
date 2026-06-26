@@ -735,5 +735,47 @@
       "start": 55.52,
       "end": 55.87
     }
+  ],
+  "00:55.37": [
+    {
+      "word": "I'm",
+      "start": 55.37,
+      "end": 55.72
+    },
+    {
+      "word": "always",
+      "start": 55.72,
+      "end": 56.07
+    },
+    {
+      "word": "on",
+      "start": 56.07,
+      "end": 56.42
+    },
+    {
+      "word": "the",
+      "start": 56.42,
+      "end": 56.77
+    },
+    {
+      "word": "road,",
+      "start": 56.77,
+      "end": 57.12
+    },
+    {
+      "word": "hardly",
+      "start": 57.12,
+      "end": 57.47
+    },
+    {
+      "word": "ever",
+      "start": 57.47,
+      "end": 57.82
+    },
+    {
+      "word": "home",
+      "start": 57.82,
+      "end": 58.17
+    }
   ]
 }
