@@ -412,58 +412,6 @@
       "end": 43.453509
     }
   ],
-  "00:58.37": [
-    {
-      "word": "Always",
-      "start": 58.37,
-      "end": 58.72
-    },
-    {
-      "word": "busy",
-      "start": 58.72,
-      "end": 59.07
-    },
-    {
-      "word": "this,",
-      "start": 59.07,
-      "end": 59.42
-    },
-    {
-      "word": "busy",
-      "start": 59.42,
-      "end": 59.77
-    },
-    {
-      "word": "that,",
-      "start": 59.77,
-      "end": 60.12
-    },
-    {
-      "word": "can't",
-      "start": 60.12,
-      "end": 60.47
-    },
-    {
-      "word": "talk",
-      "start": 60.47,
-      "end": 60.82
-    },
-    {
-      "word": "on",
-      "start": 60.82,
-      "end": 61.17
-    },
-    {
-      "word": "the",
-      "start": 61.17,
-      "end": 61.52
-    },
-    {
-      "word": "phone",
-      "start": 61.52,
-      "end": 61.87
-    }
-  ],
   "01:01.37": [
     {
       "word": "I",
@@ -6139,6 +6087,58 @@
       "word": "home",
       "start": 55.704834999999996,
       "end": 56.054835
+    }
+  ],
+  "00:58.12": [
+    {
+      "word": "Always",
+      "start": 58.12,
+      "end": 58.47
+    },
+    {
+      "word": "busy",
+      "start": 58.47,
+      "end": 58.82
+    },
+    {
+      "word": "this,",
+      "start": 58.82,
+      "end": 59.17
+    },
+    {
+      "word": "busy",
+      "start": 59.17,
+      "end": 59.52
+    },
+    {
+      "word": "that,",
+      "start": 59.52,
+      "end": 59.87
+    },
+    {
+      "word": "can't",
+      "start": 59.87,
+      "end": 60.22
+    },
+    {
+      "word": "talk",
+      "start": 60.22,
+      "end": 60.57
+    },
+    {
+      "word": "on",
+      "start": 60.57,
+      "end": 60.92
+    },
+    {
+      "word": "the",
+      "start": 60.92,
+      "end": 61.27
+    },
+    {
+      "word": "phone",
+      "start": 61.27,
+      "end": 61.62
     }
   ]
 }
