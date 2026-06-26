@@ -37,5 +37,32 @@
       "start": 12.12,
       "end": 12.47
     }
+  ],
+  "00:13.37": [
+    {
+      "word": "I",
+      "start": 13.37,
+      "end": 13.72
+    },
+    {
+      "word": "got",
+      "start": 13.72,
+      "end": 14.07
+    },
+    {
+      "word": "everything",
+      "start": 14.07,
+      "end": 14.42
+    },
+    {
+      "word": "you",
+      "start": 14.42,
+      "end": 14.77
+    },
+    {
+      "word": "need",
+      "start": 14.77,
+      "end": 15.12
+    }
   ]
 }
