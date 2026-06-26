@@ -6,38 +6,6 @@
       "end": 7.72
     }
   ],
-  "00:10.37": [
-    {
-      "word": "Shawty,",
-      "start": 10.37,
-      "end": 10.72
-    },
-    {
-      "word": "I",
-      "start": 10.72,
-      "end": 11.07
-    },
-    {
-      "word": "know",
-      "start": 11.07,
-      "end": 11.42
-    },
-    {
-      "word": "what",
-      "start": 11.42,
-      "end": 11.77
-    },
-    {
-      "word": "you",
-      "start": 11.77,
-      "end": 12.12
-    },
-    {
-      "word": "need",
-      "start": 12.12,
-      "end": 12.47
-    }
-  ],
   "00:13.37": [
     {
       "word": "I",
@@ -6139,6 +6107,38 @@
       "word": "it-aca",
       "start": 263.34,
       "end": 263.69
+    }
+  ],
+  "00:10.12": [
+    {
+      "word": "Shawty,",
+      "start": 10.12,
+      "end": 10.47
+    },
+    {
+      "word": "I",
+      "start": 10.47,
+      "end": 10.82
+    },
+    {
+      "word": "know",
+      "start": 10.82,
+      "end": 11.17
+    },
+    {
+      "word": "what",
+      "start": 11.17,
+      "end": 11.52
+    },
+    {
+      "word": "you",
+      "start": 11.52,
+      "end": 11.87
+    },
+    {
+      "word": "need",
+      "start": 11.87,
+      "end": 12.22
     }
   ]
 }
