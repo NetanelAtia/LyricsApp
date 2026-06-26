@@ -350,7 +350,7 @@ const server = http.createServer((req, res) => {
         send(res, 400, { error: 'invalid JSON' });
         return;
       }
-      const { videoId, tag, text, track } = data || {};
+      const { videoId, tag, text, wordTimingUpdate, track } = data || {};
       if (!isSafeVideoId(videoId) || typeof tag !== 'string' || typeof text !== 'string' || !text.trim()) {
         send(res, 400, { error: 'missing/invalid fields' });
         return;
@@ -381,9 +381,21 @@ const server = http.createServer((req, res) => {
       }
       lines.splice(insertAt, 0, newLine);
       fs.writeFileSync(file, lines.join('\n'), 'utf8');
+      const relPaths = [path.relative(ROOT, file)];
 
-      const relPath = path.relative(ROOT, file);
-      execFile('git', ['add', relPath], { cwd: ROOT }, (addErr) => {
+      if (wordTimingUpdate && Array.isArray(wordTimingUpdate)) {
+        const wtFile = path.join(WORDTIMING_DIR, `${videoId}.json`);
+        try {
+          const wt = JSON.parse(fs.readFileSync(wtFile, 'utf8'));
+          wt[tag] = wordTimingUpdate;
+          fs.writeFileSync(wtFile, JSON.stringify(wt, null, 2) + '\n', 'utf8');
+          relPaths.push(path.relative(ROOT, wtFile));
+        } catch {
+          // no word-timing file for this song yet
+        }
+      }
+
+      execFile('git', ['add', ...relPaths], { cwd: ROOT }, (addErr) => {
         if (addErr) {
           send(res, 200, { saved: true, committed: false, error: String(addErr) });
           return;

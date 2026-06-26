@@ -221,6 +221,10 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setTooltip(null);
   }
 
+  // A rough default per-word duration for a freshly-added line, so it gets
+  // SOME word timing right away (gives access to the ⏩/⏪ speed buttons
+  // immediately) instead of forcing a separate ⏱ calibration step first.
+  const DEFAULT_WORD_DURATION = 0.35;
   async function saveNewLine() {
     const text = addLineText.trim();
     if (!text) return;
@@ -228,20 +232,27 @@ export default function YouTubeScreen({ navigation, route }: any) {
     const mm = String(Math.floor(t / 60)).padStart(2, '0');
     const ss = (t % 60).toFixed(2).padStart(5, '0');
     const tag = `${mm}:${ss}`;
+    const time = parseInt(mm, 10) * 60 + parseFloat(ss);
+    const words = text.split(/\s+/).filter(Boolean);
+    const wordTimingUpdate = words.map((word, i) => ({
+      word,
+      start: +(time + i * DEFAULT_WORD_DURATION).toFixed(3),
+      end: +(time + (i + 1) * DEFAULT_WORD_DURATION).toFixed(3),
+    }));
     setAddLineStatus('saving');
     try {
       const res = await fetch('http://localhost:5174/insert-lyric-line', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ videoId, tag, text, track }),
+        body: JSON.stringify({ videoId, tag, text, wordTimingUpdate, track }),
       });
       if (!res.ok) throw new Error('save failed');
-      const time = parseInt(mm, 10) * 60 + parseFloat(ss);
       setLines((prev) => {
         const next = [...prev, { time, text, tag }];
         next.sort((a, b) => a.time - b.time);
         return next;
       });
+      setWordTiming((prev) => ({ ...prev, [tag]: wordTimingUpdate }));
       const tr = await translateToHebrew(text);
       await saveLineTranslation(tag, tr);
       setAddLineStatus('idle');
