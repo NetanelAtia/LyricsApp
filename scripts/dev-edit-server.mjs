@@ -336,6 +336,63 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Wipe every line for a song entirely — text, translations, and
+  // word-timing all reset to empty, so it can be rebuilt from scratch with
+  // the "add missing line" tool. A deliberate full reset, not a per-line edit.
+  if (req.method === 'POST' && req.url === '/clear-lyrics') {
+    let body = '';
+    req.on('data', (chunk) => (body += chunk));
+    req.on('end', () => {
+      let data;
+      try {
+        data = JSON.parse(body);
+      } catch {
+        send(res, 400, { error: 'invalid JSON' });
+        return;
+      }
+      const { videoId, track } = data || {};
+      if (!isSafeVideoId(videoId)) {
+        send(res, 400, { error: 'missing/invalid fields' });
+        return;
+      }
+      const lrcFile = path.join(LYRICS_DIR, `${videoId}.lrc`);
+      if (!fs.existsSync(lrcFile)) {
+        send(res, 400, { error: 'lyrics file not found' });
+        return;
+      }
+      fs.writeFileSync(lrcFile, '', 'utf8');
+      const relPaths = [path.relative(ROOT, lrcFile)];
+
+      const trFile = path.join(TRANSLATIONS_DIR, `${videoId}.json`);
+      if (fs.existsSync(trFile)) {
+        fs.writeFileSync(trFile, '{}\n', 'utf8');
+        relPaths.push(path.relative(ROOT, trFile));
+      }
+
+      const wtFile = path.join(WORDTIMING_DIR, `${videoId}.json`);
+      if (fs.existsSync(wtFile)) {
+        fs.writeFileSync(wtFile, '{}\n', 'utf8');
+        relPaths.push(path.relative(ROOT, wtFile));
+      }
+
+      execFile('git', ['add', ...relPaths], { cwd: ROOT }, (addErr) => {
+        if (addErr) {
+          send(res, 200, { saved: true, committed: false, error: String(addErr) });
+          return;
+        }
+        const message = `Clear all lines in ${track || videoId}`;
+        execFile('git', ['commit', '-m', message], { cwd: ROOT }, (commitErr) => {
+          if (commitErr) {
+            send(res, 200, { saved: true, committed: false, error: String(commitErr) });
+            return;
+          }
+          send(res, 200, { saved: true, committed: true });
+        });
+      });
+    });
+    return;
+  }
+
   // Insert a brand-new lyric line at a given timestamp (e.g. the captions
   // skipped a sung phrase entirely). Inserts into the .lrc in chronological
   // order by tag.

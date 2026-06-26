@@ -319,6 +319,32 @@ export default function YouTubeScreen({ navigation, route }: any) {
     }
   }
 
+  // Dev-only: wipe every line for this song (text, translation, timing —
+  // everything), so it can be rebuilt from scratch with "add missing line".
+  // A deliberate, confirmed full reset, not a per-line action.
+  const [clearStatus, setClearStatus] = useState<'idle' | 'saving' | 'error'>('idle');
+  async function clearAllLines() {
+    if (typeof window !== 'undefined' && window.confirm) {
+      const ok = window.confirm(`למחוק את כל המשפטים, התרגומים והתזמון של "${track}"? לא ניתן לבטל מהממשק.`);
+      if (!ok) return;
+    }
+    setClearStatus('saving');
+    try {
+      const res = await fetch('http://localhost:5174/clear-lyrics', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ videoId, track }),
+      });
+      if (!res.ok) throw new Error('clear failed');
+      setLines([]);
+      setBundledTr({});
+      setWordTiming({});
+      setClearStatus('idle');
+    } catch {
+      setClearStatus('error');
+    }
+  }
+
   async function saveLyricLineEdits(
     edits: { tag: string; text: string }[],
     wordTimingUpdate?: Record<string, { word: string; start: number; end: number }[]>
@@ -1417,6 +1443,21 @@ export default function YouTubeScreen({ navigation, route }: any) {
                     )}
                     {pushStatus === 'error' && (
                       <Text style={[styles.syncHint, { color: colors.danger }]}>שגיאה בדחיפה</Text>
+                    )}
+                  </View>
+                )}
+                {canEditTranslations && (
+                  <View style={styles.offsetRow}>
+                    <View {...({ onMouseEnter: (e: any) => showTip(e, 'מחק את כל המשפטים, התרגומים והתזמון של השיר הזה'), onMouseLeave: hideTip } as any)}><TouchableOpacity
+                      style={[styles.calBtn, { backgroundColor: colors.danger }]}
+                      onPress={clearAllLines}
+                      activeOpacity={0.85}
+                    >
+                      <Text style={styles.calBtnText}>🗑 מחק את כל המשפטים</Text>
+                    </TouchableOpacity></View>
+                    {clearStatus === 'saving' && <Text style={styles.syncHint}>מוחק…</Text>}
+                    {clearStatus === 'error' && (
+                      <Text style={[styles.syncHint, { color: colors.danger }]}>שגיאה במחיקה</Text>
                     )}
                   </View>
                 )}
