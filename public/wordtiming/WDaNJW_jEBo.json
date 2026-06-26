@@ -6099,46 +6099,46 @@
       "end": 54.31322999999999
     }
   ],
-  "00:55.12": [
+  "00:54.87": [
     {
       "word": "I'm",
-      "start": 55.12,
-      "end": 55.47
+      "start": 54.87,
+      "end": 55.22
     },
     {
       "word": "always",
-      "start": 55.47,
-      "end": 55.82
+      "start": 55.22,
+      "end": 55.57
     },
     {
       "word": "on",
-      "start": 55.82,
-      "end": 56.17
+      "start": 55.57,
+      "end": 55.92
     },
     {
       "word": "the",
-      "start": 56.17,
-      "end": 56.52
+      "start": 55.92,
+      "end": 56.27
     },
     {
       "word": "road,",
-      "start": 56.52,
-      "end": 56.87
+      "start": 56.27,
+      "end": 56.62
     },
     {
       "word": "hardly",
-      "start": 56.87,
-      "end": 57.22
+      "start": 56.62,
+      "end": 56.97
     },
     {
       "word": "ever",
-      "start": 57.22,
-      "end": 57.57
+      "start": 56.97,
+      "end": 57.32
     },
     {
       "word": "home",
-      "start": 57.57,
-      "end": 57.92
+      "start": 57.32,
+      "end": 57.67
     }
   ]
 }
