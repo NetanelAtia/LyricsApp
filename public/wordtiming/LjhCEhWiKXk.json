@@ -1764,65 +1764,65 @@
       "score": 0.026
     }
   ],
-  "00:41.93": [
+  "00:42.43": [
     {
       "word": "But",
-      "start": 42.614,
-      "end": 42.836,
+      "start": 43.114,
+      "end": 43.336,
       "score": 0.516
     },
     {
       "word": "every",
-      "start": 42.896,
-      "end": 43.077,
+      "start": 43.396,
+      "end": 43.577,
       "score": 0.345
     },
     {
       "word": "time",
-      "start": 43.098,
-      "end": 43.218,
+      "start": 43.598,
+      "end": 43.718,
       "score": 0.296
     },
     {
       "word": "she",
-      "start": 43.238,
-      "end": 43.5,
+      "start": 43.738,
+      "end": 44,
       "score": 0.806
     },
     {
       "word": "asks",
-      "start": 43.52,
-      "end": 43.722,
+      "start": 44.02,
+      "end": 44.222,
       "score": 0.545
     },
     {
       "word": "me,",
-      "start": 43.822,
-      "end": 44.104,
+      "start": 44.322,
+      "end": 44.604,
       "score": 0.632
     },
     {
       "word": "\"Do",
-      "start": 44.245,
-      "end": 44.627,
+      "start": 44.745,
+      "end": 45.127,
       "score": 0.874
     },
     {
       "word": "I",
-      "start": 44.668,
-      "end": 44.688,
+      "start": 45.168,
+      "end": 45.188,
       "score": 0.002
     },
     {
       "word": "look",
-      "start": 44.708,
-      "end": 44.809,
+      "start": 45.208,
+      "end": 45.309,
       "score": 0.124
     },
     {
       "word": "okay?\"",
-      "start": 44.849,
-      "end": 44.97,
+      "start": 45.349,
+      "end": 45.47,
       "score": 0.107
     }
   ]
