@@ -5841,5 +5841,67 @@
       "start": 67.63,
       "end": 67.98
     }
+  ],
+  "01:07.24": [
+    {
+      "word": "Baby",
+      "start": 67.24,
+      "end": 67.59
+    },
+    {
+      "word": "if",
+      "start": 67.59,
+      "end": 67.94
+    },
+    {
+      "word": "you",
+      "start": 67.94,
+      "end": 68.29
+    },
+    {
+      "word": "give",
+      "start": 68.29,
+      "end": 68.64
+    },
+    {
+      "word": "it",
+      "start": 68.64,
+      "end": 68.99
+    },
+    {
+      "word": "to",
+      "start": 68.99,
+      "end": 69.34
+    },
+    {
+      "word": "me",
+      "start": 69.34,
+      "end": 69.69
+    },
+    {
+      "word": "I'll",
+      "start": 69.69,
+      "end": 70.04
+    },
+    {
+      "word": "give",
+      "start": 70.04,
+      "end": 70.39
+    },
+    {
+      "word": "it",
+      "start": 70.39,
+      "end": 70.74
+    },
+    {
+      "word": "to",
+      "start": 70.74,
+      "end": 71.09
+    },
+    {
+      "word": "you",
+      "start": 71.09,
+      "end": 71.44
+    }
   ]
 }
