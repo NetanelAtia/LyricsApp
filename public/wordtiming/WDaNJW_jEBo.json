@@ -1389,62 +1389,6 @@
       "score": 0.224
     }
   ],
-  "01:37.74": [
-    {
-      "word": "Step",
-      "start": 97.841,
-      "end": 98.083,
-      "score": 0.561
-    },
-    {
-      "word": "on",
-      "start": 98.124,
-      "end": 98.204,
-      "score": 0.144
-    },
-    {
-      "word": "the",
-      "start": 98.265,
-      "end": 98.427,
-      "score": 0.453
-    },
-    {
-      "word": "grind",
-      "start": 98.447,
-      "end": 98.709,
-      "score": 0.451
-    },
-    {
-      "word": "tryin'",
-      "start": 98.75,
-      "end": 99.113,
-      "score": 0.471
-    },
-    {
-      "word": "to",
-      "start": 99.133,
-      "end": 99.214,
-      "score": 0.427
-    },
-    {
-      "word": "elevate",
-      "start": 99.295,
-      "end": 99.618,
-      "score": 0.407
-    },
-    {
-      "word": "it",
-      "start": 99.638,
-      "end": 99.719,
-      "score": 0.548
-    },
-    {
-      "word": "now",
-      "start": 99.759,
-      "end": 99.84,
-      "score": 0.21
-    }
-  ],
   "01:39.84": [
     {
       "word": "Hey",
@@ -5867,6 +5811,62 @@
       "start": 101.551,
       "end": 101.996,
       "score": 0.482
+    }
+  ],
+  "01:38.24": [
+    {
+      "word": "Step",
+      "start": 98.341,
+      "end": 98.583,
+      "score": 0.561
+    },
+    {
+      "word": "on",
+      "start": 98.624,
+      "end": 98.704,
+      "score": 0.144
+    },
+    {
+      "word": "the",
+      "start": 98.765,
+      "end": 98.927,
+      "score": 0.453
+    },
+    {
+      "word": "grind",
+      "start": 98.947,
+      "end": 99.209,
+      "score": 0.451
+    },
+    {
+      "word": "tryin'",
+      "start": 99.25,
+      "end": 99.613,
+      "score": 0.471
+    },
+    {
+      "word": "to",
+      "start": 99.633,
+      "end": 99.714,
+      "score": 0.427
+    },
+    {
+      "word": "elevate",
+      "start": 99.795,
+      "end": 100.118,
+      "score": 0.407
+    },
+    {
+      "word": "it",
+      "start": 100.138,
+      "end": 100.219,
+      "score": 0.548
+    },
+    {
+      "word": "now",
+      "start": 100.259,
+      "end": 100.34,
+      "score": 0.21
     }
   ]
 }
