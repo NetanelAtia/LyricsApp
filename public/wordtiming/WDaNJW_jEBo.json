@@ -923,5 +923,57 @@
       "start": 67.87,
       "end": 68.22
     }
+  ],
+  "01:07.37": [
+    {
+      "word": "Listen",
+      "start": 67.37,
+      "end": 67.72
+    },
+    {
+      "word": "ma",
+      "start": 67.72,
+      "end": 68.07
+    },
+    {
+      "word": "I'm",
+      "start": 68.07,
+      "end": 68.42
+    },
+    {
+      "word": "just",
+      "start": 68.42,
+      "end": 68.77
+    },
+    {
+      "word": "motivated,",
+      "start": 68.77,
+      "end": 69.12
+    },
+    {
+      "word": "I",
+      "start": 69.12,
+      "end": 69.47
+    },
+    {
+      "word": "do",
+      "start": 69.47,
+      "end": 69.82
+    },
+    {
+      "word": "this",
+      "start": 69.82,
+      "end": 70.17
+    },
+    {
+      "word": "for",
+      "start": 70.17,
+      "end": 70.52
+    },
+    {
+      "word": "us",
+      "start": 70.52,
+      "end": 70.87
+    }
   ]
 }
