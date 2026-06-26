@@ -1193,6 +1193,38 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       </TouchableOpacity>
                     )}
                   </View>
+
+                  {/* Dev-only: add a sung line the captions missed entirely,
+                      at whatever moment the video is paused on. */}
+                  {canEditTranslations && !addingLine && (
+                    <TouchableOpacity style={[styles.calBtn, styles.addLineBtn]} onPress={startAddingLine} activeOpacity={0.85}>
+                      <Text style={styles.calBtnText}>+ הוסף שורה חסרה כאן</Text>
+                    </TouchableOpacity>
+                  )}
+                  {canEditTranslations && addingLine && (
+                    <View style={styles.addLineRow}>
+                      <TextInput
+                        style={styles.addLineInput}
+                        value={addLineText}
+                        onChangeText={setAddLineText}
+                        placeholder="המשפט באנגלית..."
+                        placeholderTextColor={colors.textFaint}
+                        autoFocus
+                      />
+                      <View style={styles.editBtnRow}>
+                        <TouchableOpacity style={styles.editBtn} onPress={saveNewLine}>
+                          <MaterialIcons name="check" size={20} color={colors.success} />
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.editBtn} onPress={stopAddingLine}>
+                          <MaterialIcons name="close" size={20} color={colors.textFaint} />
+                        </TouchableOpacity>
+                      </View>
+                      {addLineStatus === 'saving' && <Text style={styles.editStatus}>שומר…</Text>}
+                      {addLineStatus === 'error' && (
+                        <Text style={[styles.editStatus, { color: colors.danger }]}>שגיאה — ה-edit server רץ?</Text>
+                      )}
+                    </View>
+                  )}
                 </View>
 
                 <Text style={styles.contextLine} numberOfLines={1}>
@@ -1271,37 +1303,6 @@ export default function YouTubeScreen({ navigation, route }: any) {
                     )}
                     {pushStatus === 'error' && (
                       <Text style={[styles.syncHint, { color: colors.danger }]}>שגיאה בדחיפה</Text>
-                    )}
-                  </View>
-                )}
-                {/* Dev-only: add a sung line the captions missed entirely,
-                    at whatever moment the video is paused on. */}
-                {canEditTranslations && !addingLine && (
-                  <TouchableOpacity style={[styles.calBtn, styles.addLineBtn]} onPress={startAddingLine} activeOpacity={0.85}>
-                    <Text style={styles.calBtnText}>+ הוסף שורה חסרה כאן</Text>
-                  </TouchableOpacity>
-                )}
-                {canEditTranslations && addingLine && (
-                  <View style={styles.addLineRow}>
-                    <TextInput
-                      style={styles.addLineInput}
-                      value={addLineText}
-                      onChangeText={setAddLineText}
-                      placeholder="המשפט באנגלית..."
-                      placeholderTextColor={colors.textFaint}
-                      autoFocus
-                    />
-                    <View style={styles.editBtnRow}>
-                      <TouchableOpacity style={styles.editBtn} onPress={saveNewLine}>
-                        <MaterialIcons name="check" size={20} color={colors.success} />
-                      </TouchableOpacity>
-                      <TouchableOpacity style={styles.editBtn} onPress={stopAddingLine}>
-                        <MaterialIcons name="close" size={20} color={colors.textFaint} />
-                      </TouchableOpacity>
-                    </View>
-                    {addLineStatus === 'saving' && <Text style={styles.editStatus}>שומר…</Text>}
-                    {addLineStatus === 'error' && (
-                      <Text style={[styles.editStatus, { color: colors.danger }]}>שגיאה — ה-edit server רץ?</Text>
                     )}
                   </View>
                 )}
@@ -1511,10 +1512,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.sm,
     marginTop: spacing.md,
-    width: '100%',
+    alignSelf: 'center',
   },
   addLineInput: {
-    flex: 1,
+    width: 180,
     color: colors.text,
     fontSize: 15,
     backgroundColor: colors.surfaceLight,
