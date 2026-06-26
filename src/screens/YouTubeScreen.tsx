@@ -1338,17 +1338,17 @@ export default function YouTubeScreen({ navigation, route }: any) {
           </>
         )}
       </ScrollView>
-      {tooltip && (
-        <View
-          style={[
-            styles.hoverTooltip,
-            { left: tooltip.left, top: tooltip.top },
-          ]}
-          pointerEvents="none"
-        >
-          <Text style={styles.hoverTooltipText}>{tooltip.label}</Text>
-        </View>
-      )}
+      {tooltip && Platform.OS === 'web' && typeof document !== 'undefined'
+        ? require('react-dom').createPortal(
+            <View
+              style={[styles.hoverTooltip, { left: tooltip.left, top: tooltip.top, position: 'fixed' } as any]}
+              pointerEvents="none"
+            >
+              <Text style={styles.hoverTooltipText}>{tooltip.label}</Text>
+            </View>,
+            document.body
+          )
+        : null}
     </SafeAreaView>
   );
 }
