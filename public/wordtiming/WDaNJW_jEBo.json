@@ -2661,5 +2661,62 @@
       "start": 199.52,
       "end": 199.87
     }
+  ],
+  "03:19.37": [
+    {
+      "word": "Word",
+      "start": 199.37,
+      "end": 199.72
+    },
+    {
+      "word": "is",
+      "start": 199.72,
+      "end": 200.07
+    },
+    {
+      "word": "bond,",
+      "start": 200.07,
+      "end": 200.42
+    },
+    {
+      "word": "never",
+      "start": 200.42,
+      "end": 200.77
+    },
+    {
+      "word": "screw",
+      "start": 200.77,
+      "end": 201.12
+    },
+    {
+      "word": "none",
+      "start": 201.12,
+      "end": 201.47
+    },
+    {
+      "word": "of",
+      "start": 201.47,
+      "end": 201.82
+    },
+    {
+      "word": "these",
+      "start": 201.82,
+      "end": 202.17
+    },
+    {
+      "word": "industry",
+      "start": 202.17,
+      "end": 202.52
+    },
+    {
+      "word": "cats",
+      "start": 202.52,
+      "end": 202.87
+    },
+    {
+      "word": "(boy)",
+      "start": 202.87,
+      "end": 203.22
+    }
   ]
 }
