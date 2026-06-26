@@ -2718,5 +2718,52 @@
       "start": 274.22,
       "end": 274.57
     }
+  ],
+  "04:33.72": [
+    {
+      "word": "We",
+      "start": 273.72,
+      "end": 274.07
+    },
+    {
+      "word": "like",
+      "start": 274.07,
+      "end": 274.42
+    },
+    {
+      "word": "Scull",
+      "start": 274.42,
+      "end": 274.77
+    },
+    {
+      "word": "and",
+      "start": 274.77,
+      "end": 275.12
+    },
+    {
+      "word": "Mulder",
+      "start": 275.12,
+      "end": 275.47
+    },
+    {
+      "word": "walkin'",
+      "start": 275.47,
+      "end": 275.82
+    },
+    {
+      "word": "shoulder",
+      "start": 275.82,
+      "end": 276.17
+    },
+    {
+      "word": "to",
+      "start": 276.17,
+      "end": 276.52
+    },
+    {
+      "word": "shoulder",
+      "start": 276.52,
+      "end": 276.87
+    }
   ]
 }
