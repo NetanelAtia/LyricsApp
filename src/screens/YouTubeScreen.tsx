@@ -638,6 +638,28 @@ export default function YouTubeScreen({ navigation, route }: any) {
     setSelectedSaved(toggleWord(selectedWord, tr, track || undefined));
   }
 
+  // Pause the video right where a word is sung, tap that exact word, and
+  // mark it as starting "now" — for picking the word directly instead of
+  // trusting the live currentWord guess.
+  async function markWordNow(tag: string, text: string, wordIdx: number) {
+    const words = text.split(/\s+/).filter(Boolean);
+    const lineStart = lines.find((l) => l.tag === tag)?.time ?? 0;
+    const existing = wordTiming[tag];
+    const base =
+      existing && existing.length === words.length
+        ? existing
+        : words.map((word, i) => ({
+            word,
+            start: +(lineStart + i * DEFAULT_WORD_DURATION).toFixed(3),
+            end: +(lineStart + (i + 1) * DEFAULT_WORD_DURATION).toFixed(3),
+          }));
+    const updated = [...base];
+    const duration = updated[wordIdx].end - updated[wordIdx].start;
+    const start = Math.max(0, getTime() + syncOffset);
+    updated[wordIdx] = { ...updated[wordIdx], start, end: start + duration };
+    await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
+  }
+
   // Reveal (or hide) just this one line's translation — used in
   // English-only mode, where the Hebrew slot is otherwise hidden.
   // Opening it pauses the song (so you have time to read); closing it
@@ -1116,6 +1138,14 @@ export default function YouTubeScreen({ navigation, route }: any) {
                                           <TouchableOpacity onPress={toggleSaveWord} hitSlop={8}>
                                             <Text style={styles.bubbleStar}>{selectedSaved ? '★' : '☆'}</Text>
                                           </TouchableOpacity>
+                                          {canEditTranslations && (
+                                            <TouchableOpacity
+                                              onPress={() => markWordNow(cur.tag, cur.text, myWi)}
+                                              hitSlop={8}
+                                            >
+                                              <MaterialIcons name="my-location" size={16} color="#fff" />
+                                            </TouchableOpacity>
+                                          )}
                                         </View>
                                         <View style={styles.bubbleArrow} />
                                       </View>
