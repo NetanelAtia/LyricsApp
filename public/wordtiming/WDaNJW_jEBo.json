@@ -2,7 +2,7 @@
   "00:00.00": [
     {
       "word": "Over",
-      "start": 0.0,
+      "start": 0,
       "end": 0.081,
       "score": 0.012
     },
@@ -16,26 +16,26 @@
   "00:00.83": [
     {
       "word": "Let's",
-      "start": 1.232,
-      "end": 1.855,
+      "start": 1.082,
+      "end": 1.705,
       "score": 0.524
     },
     {
       "word": "go",
-      "start": 1.895,
-      "end": 2.116,
+      "start": 1.745,
+      "end": 1.9660000000000002,
       "score": 0.729
     },
     {
       "word": "do",
-      "start": 2.136,
-      "end": 2.297,
+      "start": 1.9860000000000002,
+      "end": 2.1470000000000002,
       "score": 0.59
     },
     {
       "word": "somethin'.",
-      "start": 2.337,
-      "end": 2.859,
+      "start": 2.1870000000000003,
+      "end": 2.709,
       "score": 0.56
     }
   ],
@@ -74,7 +74,7 @@
       "word": "crackin'",
       "start": 4.168,
       "end": 4.329,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "tonight.",
@@ -126,7 +126,7 @@
       "word": "up",
       "start": 7.264,
       "end": 7.304,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "like",
@@ -232,7 +232,7 @@
       "word": "What's",
       "start": 15.26,
       "end": 15.381,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "goin'",
@@ -384,7 +384,7 @@
       "word": "go",
       "start": 20.135,
       "end": 20.175,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "out",
@@ -410,7 +410,7 @@
       "word": "to",
       "start": 20.52,
       "end": 20.561,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "take",
@@ -528,7 +528,7 @@
       "word": "I",
       "start": 24.703,
       "end": 24.724,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "trust,",
@@ -2588,7 +2588,7 @@
       "word": "I",
       "start": 126.997,
       "end": 127.017,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "got",
@@ -2600,7 +2600,7 @@
       "word": "it",
       "start": 127.198,
       "end": 127.238,
-      "score": 0.0
+      "score": 0
     }
   ],
   "02:07.68": [
@@ -2724,7 +2724,7 @@
       "word": "I",
       "start": 132.768,
       "end": 132.788,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "got",
@@ -2750,7 +2750,7 @@
       "word": "if",
       "start": 133.813,
       "end": 133.854,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "you",
@@ -3214,7 +3214,7 @@
       "word": "go",
       "start": 152.41,
       "end": 152.45,
-      "score": 0.0
+      "score": 0
     }
   ],
   "02:32.49": [
@@ -3310,7 +3310,7 @@
       "word": "Of",
       "start": 157.23,
       "end": 157.271,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "stress",
@@ -3560,7 +3560,7 @@
       "word": "We",
       "start": 166.78,
       "end": 166.82,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "started",
@@ -4090,7 +4090,7 @@
       "word": "know",
       "start": 192.683,
       "end": 192.764,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "what",
@@ -4126,7 +4126,7 @@
       "word": "I",
       "start": 193.995,
       "end": 194.015,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "got",
@@ -4262,7 +4262,7 @@
       "word": "I",
       "start": 199.04,
       "end": 199.06,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "got",
@@ -4274,7 +4274,7 @@
       "word": "it",
       "start": 199.403,
       "end": 199.443,
-      "score": 0.0
+      "score": 0
     }
   ],
   "03:20.23": [
@@ -4640,9 +4640,9 @@
   "03:36.96": [
     {
       "word": "I",
-      "start": 217.0,
+      "start": 217,
       "end": 217.02,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "will",
@@ -4960,7 +4960,7 @@
       "word": "up",
       "start": 234.083,
       "end": 234.123,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "to",
@@ -4984,7 +4984,7 @@
       "word": "in",
       "start": 234.566,
       "end": 234.607,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "a",
@@ -5178,7 +5178,7 @@
       "word": "I",
       "start": 245.695,
       "end": 245.715,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "do",
@@ -5668,7 +5668,7 @@
       "word": "Baby,",
       "start": 267.24,
       "end": 267.341,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "if",
@@ -5790,7 +5790,7 @@
       "word": "got",
       "start": 272.589,
       "end": 272.65,
-      "score": 0.0
+      "score": 0
     },
     {
       "word": "it",
