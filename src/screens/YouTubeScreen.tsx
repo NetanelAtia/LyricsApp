@@ -2108,8 +2108,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: colors.surfaceLight,
   },
-  allLinesText: { flex: 1, color: colors.textMuted, fontSize: 13, textAlign: 'left' },
-  allLinesHeText: { color: colors.primarySoft, fontSize: 12, textAlign: 'right', marginTop: 2 },
+  allLinesText: { flex: 1, color: colors.primarySoft, fontSize: 13, textAlign: 'right', fontWeight: '700' },
+  allLinesHeText: { color: colors.textMuted, fontSize: 12, textAlign: 'right', marginTop: 2 },
   allLinesWordsRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -2118,7 +2118,7 @@ const styles = StyleSheet.create({
     paddingStart: 24,
   },
   allLinesWordCol: { alignItems: 'center' },
-  allLinesWordText: { color: colors.text, fontSize: 12, marginBottom: 2 },
+  allLinesWordText: { color: colors.primarySoft, fontSize: 12, fontWeight: '700', marginBottom: 2 },
 
   // Focused karaoke view
   karaoke: { paddingHorizontal: spacing.lg, paddingTop: spacing.md, alignItems: 'center' },
