@@ -232,5 +232,57 @@
       "start": 29.22,
       "end": 29.57
     }
+  ],
+  "00:28.37": [
+    {
+      "word": "I",
+      "start": 28.37,
+      "end": 28.72
+    },
+    {
+      "word": "know",
+      "start": 28.72,
+      "end": 29.07
+    },
+    {
+      "word": "what",
+      "start": 29.07,
+      "end": 29.42
+    },
+    {
+      "word": "you",
+      "start": 29.42,
+      "end": 29.77
+    },
+    {
+      "word": "want,",
+      "start": 29.77,
+      "end": 30.12
+    },
+    {
+      "word": "you",
+      "start": 30.12,
+      "end": 30.47
+    },
+    {
+      "word": "know",
+      "start": 30.47,
+      "end": 30.82
+    },
+    {
+      "word": "I",
+      "start": 30.82,
+      "end": 31.17
+    },
+    {
+      "word": "got",
+      "start": 31.17,
+      "end": 31.52
+    },
+    {
+      "word": "it",
+      "start": 31.52,
+      "end": 31.87
+    }
   ]
 }
