@@ -6,33 +6,6 @@
       "end": 7.72
     }
   ],
-  "00:13.37": [
-    {
-      "word": "I",
-      "start": 13.37,
-      "end": 13.72
-    },
-    {
-      "word": "got",
-      "start": 13.72,
-      "end": 14.07
-    },
-    {
-      "word": "everything",
-      "start": 14.07,
-      "end": 14.42
-    },
-    {
-      "word": "you",
-      "start": 14.42,
-      "end": 14.77
-    },
-    {
-      "word": "need",
-      "start": 14.77,
-      "end": 15.12
-    }
-  ],
   "00:16.37": [
     {
       "word": "I",
@@ -6139,6 +6112,33 @@
       "word": "need",
       "start": 11.87,
       "end": 12.22
+    }
+  ],
+  "00:13.12": [
+    {
+      "word": "I",
+      "start": 13.12,
+      "end": 13.47
+    },
+    {
+      "word": "got",
+      "start": 13.47,
+      "end": 13.82
+    },
+    {
+      "word": "everything",
+      "start": 13.82,
+      "end": 14.17
+    },
+    {
+      "word": "you",
+      "start": 14.17,
+      "end": 14.52
+    },
+    {
+      "word": "need",
+      "start": 14.52,
+      "end": 14.87
     }
   ]
 }
