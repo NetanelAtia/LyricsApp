@@ -943,15 +943,15 @@ export default function YouTubeScreen({ navigation, route }: any) {
 
         {/* Karaoke word-by-word highlight on/off */}
         {lines.length > 0 && (
-          <TouchableOpacity
+          <View {...({ onMouseEnter: (e: any) => showTip(e, 'הדלק/כבה הדגשת מילה-מילה בזמן שירה'), onMouseLeave: hideTip } as any)}><TouchableOpacity
             style={[styles.karaokeToggle, karaokeOn && styles.karaokeToggleActive]}
             onPress={() => setKaraokeOn((v) => !v)}
-            activeOpacity={0.85} {...({ onMouseEnter: (e: any) => showTip(e, 'הדלק/כבה הדגשת מילה-מילה בזמן שירה'), onMouseLeave: hideTip } as any)}
+            activeOpacity={0.85} 
           >
             <Text style={[styles.karaokeToggleText, karaokeOn && styles.karaokeToggleTextActive]}>
               {karaokeOn ? '🎤 מצב קריוקי פעיל' : '🎤 מצב קריוקי כבוי'}
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity></View>
         )}
         {/* Focused karaoke: only the current line (+ a peek at prev/next) */}
         {lines.length > 0 &&
@@ -1094,67 +1094,67 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       instrumental (♪) gaps. */}
                   <View style={styles.lineActionsRow}>
                     {canEditTranslations && !!cur.text && editingTag !== cur.tag && (
-                      <TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'הקדם את השורה (0.5 שניות)'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => shiftLineTime(idx, -LINE_SHIFT_STEP)}
-                        activeOpacity={0.7} {...({ onMouseEnter: (e: any) => showTip(e, 'הקדם את השורה (0.5 שניות)'), onMouseLeave: hideTip } as any)}
+                        activeOpacity={0.7} 
                       >
                         <MaterialIcons name="arrow-back" size={18} color={colors.primarySoft} />
-                      </TouchableOpacity>
+                      </TouchableOpacity></View>
                     )}
                     {canEditTranslations && !!cur.text && editingTag !== cur.tag && (
-                      <TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'דחה את השורה (0.5 שניות)'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => shiftLineTime(idx, LINE_SHIFT_STEP)}
-                        activeOpacity={0.7} {...({ onMouseEnter: (e: any) => showTip(e, 'דחה את השורה (0.5 שניות)'), onMouseLeave: hideTip } as any)}
+                        activeOpacity={0.7} 
                       >
                         <MaterialIcons name="arrow-forward" size={18} color={colors.primarySoft} />
-                      </TouchableOpacity>
+                      </TouchableOpacity></View>
                     )}
                     {canEditTranslations && !!cur.text && !!wordTiming[cur.tag]?.length && editingTag !== cur.tag && (
-                      <TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'הקדם את הדגשת המילים בשורה (0.15 שניות)'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => nudgeCurrentLineTiming(idx, -1)}
-                        activeOpacity={0.7} {...({ onMouseEnter: (e: any) => showTip(e, 'הקדם את הדגשת המילים בשורה (0.15 שניות)'), onMouseLeave: hideTip } as any)}
+                        activeOpacity={0.7} 
                       >
                         <MaterialIcons name="fast-forward" size={18} color={colors.primarySoft} />
-                      </TouchableOpacity>
+                      </TouchableOpacity></View>
                     )}
                     {canEditTranslations && !!cur.text && !!wordTiming[cur.tag]?.length && editingTag !== cur.tag && (
-                      <TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'האט את הדגשת המילים בשורה (0.15 שניות)'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => nudgeCurrentLineTiming(idx, 1)}
-                        activeOpacity={0.7} {...({ onMouseEnter: (e: any) => showTip(e, 'האט את הדגשת המילים בשורה (0.15 שניות)'), onMouseLeave: hideTip } as any)}
+                        activeOpacity={0.7} 
                       >
                         <MaterialIcons name="fast-rewind" size={18} color={colors.primarySoft} />
-                      </TouchableOpacity>
+                      </TouchableOpacity></View>
                     )}
                     {canEditTranslations && !!cur.text && !wordTiming[cur.tag]?.length && editingTag !== cur.tag && (
-                      <TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'קבע תזמון מילים — לחץ ברגע שהשורה מסתיימת'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => calibrateLineSpeed(idx)}
-                        activeOpacity={0.7} {...({ onMouseEnter: (e: any) => showTip(e, 'קבע תזמון מילים — לחץ ברגע שהשורה מסתיימת'), onMouseLeave: hideTip } as any)}
+                        activeOpacity={0.7} 
                       >
                         <MaterialIcons name="timer" size={18} color={colors.primarySoft} />
-                      </TouchableOpacity>
+                      </TouchableOpacity></View>
                     )}
                     {canEditTranslations && !!cur.text && editingTag !== cur.tag && (
-                      <TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'ערוך את התרגום לעברית'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => startEditingLine(cur.tag, lineHe(idx))}
-                        activeOpacity={0.7} {...({ onMouseEnter: (e: any) => showTip(e, 'ערוך את התרגום לעברית'), onMouseLeave: hideTip } as any)}
+                        activeOpacity={0.7} 
                       >
                         <MaterialIcons name="edit" size={20} color={colors.warning} />
-                      </TouchableOpacity>
+                      </TouchableOpacity></View>
                     )}
                     {canEditTranslations && !!cur.text && editingTag !== cur.tag && (
-                      <TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'מחק את השורה הזו'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => deleteLine(cur.tag)}
-                        activeOpacity={0.7} {...({ onMouseEnter: (e: any) => showTip(e, 'מחק את השורה הזו'), onMouseLeave: hideTip } as any)}
+                        activeOpacity={0.7} 
                       >
                         <MaterialIcons name="delete-outline" size={20} color={colors.danger} />
-                      </TouchableOpacity>
+                      </TouchableOpacity></View>
                     )}
                     {canEditTranslations && moveStatus === 'error' && (
                       <Text style={styles.editStatus}>שגיאה בהזזת מילה</Text>
@@ -1163,38 +1163,38 @@ export default function YouTubeScreen({ navigation, route }: any) {
                       <Text style={styles.editStatus}>שגיאה במחיקה</Text>
                     )}
                     {!!cur.text && displayMode === 'en' && (
-                      <TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'הצג/הסתר תרגום לשורה זו'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => toggleLine(idx, cur.text)}
-                        activeOpacity={0.7} {...({ onMouseEnter: (e: any) => showTip(e, 'הצג/הסתר תרגום לשורה זו'), onMouseLeave: hideTip } as any)}
+                        activeOpacity={0.7} 
                       >
                         <MaterialIcons
                           name="translate"
                           size={26}
                           color={openLines[idx] ? colors.primary : colors.textFaint}
                         />
-                      </TouchableOpacity>
+                      </TouchableOpacity></View>
                     )}
                     {!!cur.text && videoId && (
-                      <TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'שמור משפט זה לאוצר המילים'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => {
                           toggleSentence(`${videoId}:${cur.tag}`, cur.text, lineHe(idx), track || undefined);
                           setSentenceTick((t) => t + 1);
                         }}
-                        activeOpacity={0.7} {...({ onMouseEnter: (e: any) => showTip(e, 'שמור משפט זה לאוצר המילים'), onMouseLeave: hideTip } as any)}
+                        activeOpacity={0.7} 
                       >
                         <Text style={styles.lineActionIcon}>
                           {isSentenceSaved(`${videoId}:${cur.tag}`) ? '★' : '☆'}
                         </Text>
-                      </TouchableOpacity>
+                      </TouchableOpacity></View>
                     )}
                     {/* Copy the line(s) currently on screen to the clipboard —
                         an explicit button instead of relying on click-drag
                         text selection, which the per-word tap targets would
                         otherwise interfere with. */}
                     {!!cur.text && (
-                      <TouchableOpacity
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'העתק את השורה ללוח'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={async () => {
                           const parts = [];
@@ -1202,19 +1202,19 @@ export default function YouTubeScreen({ navigation, route }: any) {
                           if (displayMode !== 'en') parts.push(lineHe(idx));
                           await Clipboard.setStringAsync(parts.join('\n'));
                         }}
-                        activeOpacity={0.7} {...({ onMouseEnter: (e: any) => showTip(e, 'העתק את השורה ללוח'), onMouseLeave: hideTip } as any)}
+                        activeOpacity={0.7} 
                       >
                         <MaterialIcons name="content-copy" size={22} color={colors.textFaint} />
-                      </TouchableOpacity>
+                      </TouchableOpacity></View>
                     )}
                   </View>
 
                   {/* Dev-only: add a sung line the captions missed entirely,
                       at whatever moment the video is paused on. */}
                   {canEditTranslations && !addingLine && (
-                    <TouchableOpacity style={[styles.calBtn, styles.addLineBtn]} onPress={startAddingLine} activeOpacity={0.85} {...({ onMouseEnter: (e: any) => showTip(e, 'הוסף שורה חדשה במיקום הנוכחי בנגן'), onMouseLeave: hideTip } as any)}>
+                    <View {...({ onMouseEnter: (e: any) => showTip(e, 'הוסף שורה חדשה במיקום הנוכחי בנגן'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={[styles.calBtn, styles.addLineBtn]} onPress={startAddingLine} activeOpacity={0.85} >
                       <Text style={styles.calBtnText}>+ הוסף שורה חסרה כאן</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity></View>
                   )}
                   {canEditTranslations && addingLine && (
                     <View style={styles.addLineRow}>
@@ -1227,12 +1227,12 @@ export default function YouTubeScreen({ navigation, route }: any) {
                         autoFocus
                       />
                       <View style={styles.editBtnRow}>
-                        <TouchableOpacity style={styles.editBtn} onPress={saveNewLine} {...({ onMouseEnter: (e: any) => showTip(e, 'שמור שורה חדשה'), onMouseLeave: hideTip } as any)}>
+                        <View {...({ onMouseEnter: (e: any) => showTip(e, 'שמור שורה חדשה'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.editBtn} onPress={saveNewLine} >
                           <MaterialIcons name="check" size={20} color={colors.success} />
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.editBtn} onPress={stopAddingLine} {...({ onMouseEnter: (e: any) => showTip(e, 'בטל'), onMouseLeave: hideTip } as any)}>
+                        </TouchableOpacity></View>
+                        <View {...({ onMouseEnter: (e: any) => showTip(e, 'בטל'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.editBtn} onPress={stopAddingLine} >
                           <MaterialIcons name="close" size={20} color={colors.textFaint} />
-                        </TouchableOpacity>
+                        </TouchableOpacity></View>
                       </View>
                       {addLineStatus === 'saving' && <Text style={styles.editStatus}>שומר…</Text>}
                       {addLineStatus === 'error' && (
@@ -1253,20 +1253,17 @@ export default function YouTubeScreen({ navigation, route }: any) {
         {videoId && lines.length > 0 && (
           <>
             <View style={styles.controlsRow}>
-              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-5)} activeOpacity={0.8} {...({ onMouseEnter: (e: any) => showTip(e, 'אחורה 5 שניות'), onMouseLeave: hideTip } as any)}>
+              <View {...({ onMouseEnter: (e: any) => showTip(e, 'אחורה 5 שניות'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-5)} activeOpacity={0.8} >
                 <Text style={styles.ctrlText}>⏪ 5</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.ctrlBtn, styles.playBtn]}
-                onPress={togglePlay}
-                activeOpacity={0.8}
-                {...({ onMouseEnter: (e: any) => showTip(e, isPlaying ? 'עצור' : 'נגן'), onMouseLeave: hideTip } as any)}
-              >
-                <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(5)} activeOpacity={0.8} {...({ onMouseEnter: (e: any) => showTip(e, 'קדימה 5 שניות'), onMouseLeave: hideTip } as any)}>
+              </TouchableOpacity></View>
+              <View {...({ onMouseEnter: (e: any) => showTip(e, isPlaying ? 'עצור' : 'נגן'), onMouseLeave: hideTip } as any)}>
+                <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
+                  <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
+                </TouchableOpacity>
+              </View>
+              <View {...({ onMouseEnter: (e: any) => showTip(e, 'קדימה 5 שניות'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(5)} activeOpacity={0.8} >
                 <Text style={styles.ctrlText}>5 ⏩</Text>
-              </TouchableOpacity>
+              </TouchableOpacity></View>
             </View>
 
             {/* Calibration tools — shown ONLY in development (npm start), so
@@ -1278,12 +1275,12 @@ export default function YouTubeScreen({ navigation, route }: any) {
                   [DEV] סנכרון: לחץ "כייל" כשהמילה הראשונה נשמעת — ערך: {syncOffset.toFixed(1)}s
                 </Text>
                 <View style={styles.offsetRow}>
-                  <TouchableOpacity style={styles.calBtn} onPress={calibrate} activeOpacity={0.85} {...({ onMouseEnter: (e: any) => showTip(e, 'כייל סנכרון אוטומטית למילה הראשונה הנשמעת עכשיו'), onMouseLeave: hideTip } as any)}>
+                  <View {...({ onMouseEnter: (e: any) => showTip(e, 'כייל סנכרון אוטומטית למילה הראשונה הנשמעת עכשיו'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.calBtn} onPress={calibrate} activeOpacity={0.85} >
                     <Text style={styles.calBtnText}>🎯 כייל</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(-0.5)} hitSlop={6} {...({ onMouseEnter: (e: any) => showTip(e, 'הקטן את ערך הסנכרון ב-0.5 שניות'), onMouseLeave: hideTip } as any)}>
+                  </TouchableOpacity></View>
+                  <View {...({ onMouseEnter: (e: any) => showTip(e, 'הקטן את ערך הסנכרון ב-0.5 שניות'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(-0.5)} hitSlop={6} >
                     <Text style={styles.offsetBtnText}>−</Text>
-                  </TouchableOpacity>
+                  </TouchableOpacity></View>
                   <TextInput
                     style={styles.offsetInput}
                     value={offsetText}
@@ -1295,9 +1292,9 @@ export default function YouTubeScreen({ navigation, route }: any) {
                     textAlign="center" {...({ onMouseEnter: (e: any) => showTip(e, 'ערך הסנכרון הנוכחי — אפשר להקליד ידנית'), onMouseLeave: hideTip } as any)}
                   />
                   <Text style={styles.offsetLabel}>s</Text>
-                  <TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(0.5)} hitSlop={6} {...({ onMouseEnter: (e: any) => showTip(e, 'הגדל את ערך הסנכרון ב-0.5 שניות'), onMouseLeave: hideTip } as any)}>
+                  <View {...({ onMouseEnter: (e: any) => showTip(e, 'הגדל את ערך הסנכרון ב-0.5 שניות'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.offsetBtn} onPress={() => adjustOffset(0.5)} hitSlop={6} >
                     <Text style={styles.offsetBtnText}>+</Text>
-                  </TouchableOpacity>
+                  </TouchableOpacity></View>
                 </View>
                 {canEditTranslations && (
                   <View style={styles.editServerStatusRow}>
@@ -1314,9 +1311,9 @@ export default function YouTubeScreen({ navigation, route }: any) {
                 )}
                 {canEditTranslations && (
                   <View style={styles.offsetRow}>
-                    <TouchableOpacity style={styles.calBtn} onPress={pushAllChanges} activeOpacity={0.85} {...({ onMouseEnter: (e: any) => showTip(e, 'דחוף את כל השינויים שנשמרו מקומית ל-GitHub'), onMouseLeave: hideTip } as any)}>
+                    <View {...({ onMouseEnter: (e: any) => showTip(e, 'דחוף את כל השינויים שנשמרו מקומית ל-GitHub'), onMouseLeave: hideTip } as any)}><TouchableOpacity style={styles.calBtn} onPress={pushAllChanges} activeOpacity={0.85} >
                       <Text style={styles.calBtnText}>⬆ Push לגיט</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity></View>
                     {pushStatus === 'pushing' && <Text style={styles.syncHint}>דוחף…</Text>}
                     {pushStatus === 'pushed' && (
                       <Text style={[styles.syncHint, { color: colors.success }]}>נדחף בהצלחה</Text>
