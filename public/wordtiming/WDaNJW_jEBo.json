@@ -777,5 +777,57 @@
       "start": 129.17,
       "end": 129.52
     }
+  ],
+  "02:09.72": [
+    {
+      "word": "Always",
+      "start": 129.72,
+      "end": 130.07
+    },
+    {
+      "word": "busy",
+      "start": 130.07,
+      "end": 130.42
+    },
+    {
+      "word": "this,",
+      "start": 130.42,
+      "end": 130.77
+    },
+    {
+      "word": "busy",
+      "start": 130.77,
+      "end": 131.12
+    },
+    {
+      "word": "that,",
+      "start": 131.12,
+      "end": 131.47
+    },
+    {
+      "word": "can't",
+      "start": 131.47,
+      "end": 131.82
+    },
+    {
+      "word": "talk",
+      "start": 131.82,
+      "end": 132.17
+    },
+    {
+      "word": "on",
+      "start": 132.17,
+      "end": 132.52
+    },
+    {
+      "word": "the",
+      "start": 132.52,
+      "end": 132.87
+    },
+    {
+      "word": "phone",
+      "start": 132.87,
+      "end": 133.22
+    }
   ]
 }
