@@ -1764,65 +1764,65 @@
       "score": 0.411
     }
   ],
-  "00:41.56": [
+  "00:41.06": [
     {
       "word": "Sad",
-      "start": 42.122,
-      "end": 42.263,
+      "start": 41.622,
+      "end": 41.763,
       "score": 0.386
     },
     {
       "word": "to",
-      "start": 42.283,
-      "end": 42.484,
+      "start": 41.783,
+      "end": 41.984,
       "score": 0.641
     },
     {
       "word": "think",
-      "start": 42.544,
-      "end": 42.745,
+      "start": 42.044,
+      "end": 42.245,
       "score": 0.339
     },
     {
       "word": "that",
-      "start": 42.765,
-      "end": 42.886,
+      "start": 42.265,
+      "end": 42.386,
       "score": 0.29
     },
     {
       "word": "she",
-      "start": 42.906,
-      "end": 43.006,
+      "start": 42.406,
+      "end": 42.506,
       "score": 0.209
     },
     {
       "word": "don't",
-      "start": 43.086,
-      "end": 43.247,
+      "start": 42.586,
+      "end": 42.747,
       "score": 0.225
     },
     {
       "word": "see",
-      "start": 43.267,
-      "end": 43.348,
+      "start": 42.767,
+      "end": 42.848,
       "score": 0.125
     },
     {
       "word": "what",
-      "start": 43.388,
-      "end": 43.468,
+      "start": 42.888,
+      "end": 42.968,
       "score": 0.007
     },
     {
       "word": "I",
-      "start": 43.589,
-      "end": 43.609,
+      "start": 43.089,
+      "end": 43.109,
       "score": 0.084
     },
     {
       "word": "see",
-      "start": 43.649,
-      "end": 43.709,
+      "start": 43.149,
+      "end": 43.209,
       "score": 0.026
     }
   ]
