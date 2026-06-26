@@ -1700,5 +1700,62 @@
       "start": 47.54,
       "end": 47.89
     }
+  ],
+  "01:50.02": [
+    {
+      "word": "If",
+      "start": 110.02,
+      "end": 110.37
+    },
+    {
+      "word": "perfect's",
+      "start": 110.37,
+      "end": 110.72
+    },
+    {
+      "word": "what",
+      "start": 110.72,
+      "end": 111.07
+    },
+    {
+      "word": "you're",
+      "start": 111.07,
+      "end": 111.42
+    },
+    {
+      "word": "searchin'",
+      "start": 111.42,
+      "end": 111.77
+    },
+    {
+      "word": "for,",
+      "start": 111.77,
+      "end": 112.12
+    },
+    {
+      "word": "then",
+      "start": 112.12,
+      "end": 112.47
+    },
+    {
+      "word": "just",
+      "start": 112.47,
+      "end": 112.82
+    },
+    {
+      "word": "stay",
+      "start": 112.82,
+      "end": 113.17
+    },
+    {
+      "word": "the",
+      "start": 113.17,
+      "end": 113.52
+    },
+    {
+      "word": "same",
+      "start": 113.52,
+      "end": 113.87
+    }
   ]
 }
