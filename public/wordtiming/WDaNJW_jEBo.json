@@ -541,5 +541,37 @@
       "start": 46.35,
       "end": 46.7
     }
+  ],
+  "00:49.35": [
+    {
+      "word": "Shorty",
+      "start": 49.35,
+      "end": 49.7
+    },
+    {
+      "word": "I",
+      "start": 49.7,
+      "end": 50.05
+    },
+    {
+      "word": "know",
+      "start": 50.05,
+      "end": 50.4
+    },
+    {
+      "word": "what",
+      "start": 50.4,
+      "end": 50.75
+    },
+    {
+      "word": "you",
+      "start": 50.75,
+      "end": 51.1
+    },
+    {
+      "word": "need",
+      "start": 51.1,
+      "end": 51.45
+    }
   ]
 }
