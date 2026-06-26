@@ -3602,5 +3602,67 @@
       "start": 324.87,
       "end": 325.22
     }
+  ],
+  "05:24.72": [
+    {
+      "word": "'Cause",
+      "start": 324.72,
+      "end": 325.07
+    },
+    {
+      "word": "this",
+      "start": 325.07,
+      "end": 325.42
+    },
+    {
+      "word": "is",
+      "start": 325.42,
+      "end": 325.77
+    },
+    {
+      "word": "where",
+      "start": 325.77,
+      "end": 326.12
+    },
+    {
+      "word": "your",
+      "start": 326.12,
+      "end": 326.47
+    },
+    {
+      "word": "love",
+      "start": 326.47,
+      "end": 326.82
+    },
+    {
+      "word": "is",
+      "start": 326.82,
+      "end": 327.17
+    },
+    {
+      "word": "supposed",
+      "start": 327.17,
+      "end": 327.52
+    },
+    {
+      "word": "to",
+      "start": 327.52,
+      "end": 327.87
+    },
+    {
+      "word": "be",
+      "start": 327.87,
+      "end": 328.22
+    },
+    {
+      "word": "(tell",
+      "start": 328.22,
+      "end": 328.57
+    },
+    {
+      "word": "'em)",
+      "start": 328.57,
+      "end": 328.92
+    }
   ]
 }
