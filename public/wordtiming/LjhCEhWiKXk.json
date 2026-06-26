@@ -1152,62 +1152,6 @@
       "score": 0.454
     }
   ],
-  "03:35.32": [
-    {
-      "word": "The",
-      "start": 215.32,
-      "end": 215.38,
-      "score": 0.003
-    },
-    {
-      "word": "whole",
-      "start": 215.42,
-      "end": 215.681,
-      "score": 0.474
-    },
-    {
-      "word": "world",
-      "start": 215.741,
-      "end": 215.901,
-      "score": 0.247
-    },
-    {
-      "word": "stops",
-      "start": 215.921,
-      "end": 216.423,
-      "score": 0.188
-    },
-    {
-      "word": "and",
-      "start": 216.483,
-      "end": 216.703,
-      "score": 0.706
-    },
-    {
-      "word": "stares",
-      "start": 216.723,
-      "end": 217.205,
-      "score": 0.43
-    },
-    {
-      "word": "for",
-      "start": 217.285,
-      "end": 217.586,
-      "score": 0.629
-    },
-    {
-      "word": "a",
-      "start": 217.666,
-      "end": 217.846,
-      "score": 0.636
-    },
-    {
-      "word": "while",
-      "start": 217.906,
-      "end": 218.087,
-      "score": 0.289
-    }
-  ],
   "03:39.37": [
     {
       "word": "'Cause,",
