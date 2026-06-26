@@ -200,13 +200,22 @@ export default function YouTubeScreen({ navigation, route }: any) {
   // native title attribute (react-native-web doesn't forward `title` to
   // the DOM), so this tracks the hovered button's own label + cursor
   // position and renders one small floating bubble that follows it.
-  const [tooltip, setTooltip] = useState<{ label: string; x: number; y: number } | null>(null);
+  const [tooltip, setTooltip] = useState<{ label: string; left: number; top: number } | null>(null);
   function showTip(e: any, label: string) {
     if (Platform.OS !== 'web') return;
     const target = e?.currentTarget;
     const rect = target?.getBoundingClientRect?.();
     if (!rect) return;
-    setTooltip({ label, x: rect.left + rect.width / 2, y: rect.top });
+    // Estimate the bubble's own size from the label so it can be centered
+    // numerically (left/top math) instead of relying on a CSS percentage
+    // transform, which react-native-web doesn't reliably apply.
+    const width = Math.min(220, label.length * 6.5 + 16);
+    const height = 26;
+    setTooltip({
+      label,
+      left: rect.left + rect.width / 2 - width / 2,
+      top: rect.top - 8 - height,
+    });
   }
   function hideTip() {
     setTooltip(null);
@@ -1333,7 +1342,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
         <View
           style={[
             styles.hoverTooltip,
-            { left: tooltip.x, top: tooltip.y - 8, transform: [{ translateX: '-50%' }, { translateY: '-100%' }] as any },
+            { left: tooltip.left, top: tooltip.top },
           ]}
           pointerEvents="none"
         >
