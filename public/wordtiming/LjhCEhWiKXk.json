@@ -1747,43 +1747,43 @@
   "00:37.16": [
     {
       "word": "When",
-      "start": 37.16,
-      "end": 37.51
+      "start": 37.01,
+      "end": 37.36
     },
     {
       "word": "I",
-      "start": 37.51,
-      "end": 37.86
+      "start": 37.36,
+      "end": 37.71
     },
     {
       "word": "compliment",
-      "start": 37.86,
-      "end": 38.21
+      "start": 37.71,
+      "end": 38.06
     },
     {
       "word": "her,",
-      "start": 38.21,
-      "end": 38.56
+      "start": 38.06,
+      "end": 38.410000000000004
     },
     {
       "word": "she",
-      "start": 38.56,
-      "end": 38.91
+      "start": 38.410000000000004,
+      "end": 38.76
     },
     {
       "word": "won't",
-      "start": 38.91,
-      "end": 39.26
+      "start": 38.76,
+      "end": 39.11
     },
     {
       "word": "believe",
-      "start": 39.26,
-      "end": 39.61
+      "start": 39.11,
+      "end": 39.46
     },
     {
       "word": "me",
-      "start": 39.61,
-      "end": 39.96
+      "start": 39.46,
+      "end": 39.81
     }
   ]
 }
