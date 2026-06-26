@@ -738,6 +738,16 @@ export default function YouTubeScreen({ navigation, route }: any) {
       updated[i] = { ...updated[i], start: cursor, end: cursor + d };
       cursor += d;
     }
+    // ...and backward too, so the words before the changed one stay in
+    // the same relative order/spacing instead of overlapping it or being
+    // left stranded at their old positions.
+    cursor = updated[wordIdx].start;
+    for (let i = wordIdx - 1; i >= 0; i--) {
+      const d = updated[i].end - updated[i].start;
+      const start = Math.max(0, cursor - d);
+      updated[i] = { ...updated[i], start, end: start + d };
+      cursor = start;
+    }
   }
 
   async function markWordNow(tag: string, text: string, wordIdx: number) {
