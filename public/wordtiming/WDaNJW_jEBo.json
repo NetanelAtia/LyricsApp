@@ -5795,77 +5795,77 @@
       "end": 73.13
     }
   ],
-  "01:12.29": [
+  "01:12.79": [
     {
       "word": "Baby,",
-      "start": 72.733,
-      "end": 72.873,
+      "start": 73.233,
+      "end": 73.373,
       "score": 0.249
     },
     {
       "word": "if",
-      "start": 72.893,
-      "end": 72.954,
+      "start": 73.393,
+      "end": 73.454,
       "score": 0.243
     },
     {
       "word": "you",
-      "start": 72.974,
-      "end": 73.054,
+      "start": 73.474,
+      "end": 73.554,
       "score": 0.283
     },
     {
       "word": "give",
-      "start": 73.075,
-      "end": 73.235,
+      "start": 73.575,
+      "end": 73.735,
       "score": 0.408
     },
     {
       "word": "it",
-      "start": 73.256,
-      "end": 73.457,
+      "start": 73.756,
+      "end": 73.957,
       "score": 0.7
     },
     {
       "word": "to",
-      "start": 73.477,
-      "end": 73.557,
+      "start": 73.977,
+      "end": 74.057,
       "score": 0.472
     },
     {
       "word": "me,",
-      "start": 73.618,
-      "end": 73.819,
+      "start": 74.118,
+      "end": 74.319,
       "score": 0.534
     },
     {
       "word": "I'll",
-      "start": 73.899,
-      "end": 74,
+      "start": 74.399,
+      "end": 74.5,
       "score": 0.118
     },
     {
       "word": "give",
-      "start": 74.02,
-      "end": 74.241,
+      "start": 74.52,
+      "end": 74.741,
       "score": 0.566
     },
     {
       "word": "it",
-      "start": 74.342,
-      "end": 74.483,
+      "start": 74.842,
+      "end": 74.983,
       "score": 0.661
     },
     {
       "word": "to",
-      "start": 74.523,
-      "end": 74.865,
+      "start": 75.023,
+      "end": 75.365,
       "score": 0.784
     },
     {
       "word": "you",
-      "start": 74.985,
-      "end": 75.187,
+      "start": 75.485,
+      "end": 75.687,
       "score": 0.276
     }
   ]
