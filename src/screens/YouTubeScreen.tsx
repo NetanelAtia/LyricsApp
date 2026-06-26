@@ -616,6 +616,12 @@ export default function YouTubeScreen({ navigation, route }: any) {
   // Karaoke word-by-word highlight — on by default, can be turned off if
   // you'd rather just read the lyrics without the follow-along marking.
   const [karaokeOn, setKaraokeOn] = useState(true);
+  // Cap how long a line stays on screen when the gap to the next line is
+  // long (e.g. an instrumental break) — 0 means no cap, show it the whole gap.
+  const [maxLineDisplay, setMaxLineDisplay] = useState(0);
+  // A scrollable overview of every line at once, for adjusting timing
+  // without needing playback to actually reach each one.
+  const [allLinesOpen, setAllLinesOpen] = useState(false);
   // High-quality curated translations bundled with the app (time -> Hebrew).
   const [bundledTr, setBundledTr] = useState<Record<string, string>>({});
   // Real per-word timestamps from offline forced alignment, keyed by LRC
@@ -1039,6 +1045,12 @@ export default function YouTubeScreen({ navigation, route }: any) {
       for (let i = 0; i < lines.length; i++) {
         if (lines[i].time <= t) idx = i;
       }
+      // If a line's been on screen longer than the cap and the next one
+      // hasn't started yet (a long instrumental gap), drop back to nothing
+      // shown instead of leaving it lingering the whole gap.
+      if (maxLineDisplay > 0 && idx >= 0 && t - lines[idx].time > maxLineDisplay) {
+        idx = -1;
+      }
       setCurrentLine(idx);
       setIsPlaying(playerRef.current?.getPlayerState?.() === 1);
 
@@ -1095,7 +1107,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
       }
     }, 120);
     return () => clearInterval(id);
-  }, [lines, syncOffset, wordTiming]);
+  }, [lines, syncOffset, wordTiming, maxLineDisplay]);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -1220,6 +1232,52 @@ export default function YouTubeScreen({ navigation, route }: any) {
               {karaokeOn ? '🎤 מצב קריוקי פעיל' : '🎤 מצב קריוקי כבוי'}
             </Text>
           </TouchableOpacity></View>
+        )}
+        {lines.length > 0 && (
+          <View style={styles.maxDisplayRow}>
+            <Text style={styles.syncHint}>מקסימום הצגת שורה (0 = ללא הגבלה):</Text>
+            <TouchableOpacity
+              style={styles.offsetBtn}
+              onPress={() => setMaxLineDisplay((v) => Math.max(0, +(v - 1).toFixed(1)))}
+              hitSlop={6}
+            >
+              <Text style={styles.offsetBtnText}>−</Text>
+            </TouchableOpacity>
+            <Text style={styles.offsetLabel}>{maxLineDisplay}s</Text>
+            <TouchableOpacity
+              style={styles.offsetBtn}
+              onPress={() => setMaxLineDisplay((v) => +(v + 1).toFixed(1))}
+              hitSlop={6}
+            >
+              <Text style={styles.offsetBtnText}>+</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+        {canEditTranslations && lines.length > 0 && (
+          <TouchableOpacity
+            style={styles.calBtn}
+            onPress={() => setAllLinesOpen((v) => !v)}
+            activeOpacity={0.85}
+          >
+            <Text style={styles.calBtnText}>{allLinesOpen ? '✕ סגור תצוגת כל השורות' : '📋 הצג את כל השורות'}</Text>
+          </TouchableOpacity>
+        )}
+        {canEditTranslations && allLinesOpen && (
+          <View style={styles.allLinesBox}>
+            {lines.map((l, i) => (
+              <View key={l.tag} style={styles.allLinesRow}>
+                <TouchableOpacity onPress={() => shiftLineTime(i, -LINE_SHIFT_STEP)} hitSlop={6}>
+                  <MaterialIcons name="arrow-back" size={16} color={colors.primarySoft} />
+                </TouchableOpacity>
+                <Text style={styles.allLinesText} numberOfLines={1}>
+                  {l.tag} — {l.text || '♪'}
+                </Text>
+                <TouchableOpacity onPress={() => shiftLineTime(i, LINE_SHIFT_STEP)} hitSlop={6}>
+                  <MaterialIcons name="arrow-forward" size={16} color={colors.primarySoft} />
+                </TouchableOpacity>
+              </View>
+            ))}
+          </View>
         )}
         {/* Focused karaoke: only the current line (+ a peek at prev/next) */}
         {lines.length > 0 &&
@@ -1891,6 +1949,30 @@ const styles = StyleSheet.create({
   karaokeToggleActive: { borderColor: colors.primary, backgroundColor: colors.surfaceLight },
   karaokeToggleText: { color: colors.textFaint, fontSize: 12, fontWeight: '700' },
   karaokeToggleTextActive: { color: colors.primarySoft },
+  maxDisplayRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    marginTop: spacing.sm,
+  },
+  allLinesBox: {
+    width: '100%',
+    maxHeight: 260,
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+    padding: spacing.sm,
+    marginTop: spacing.sm,
+  },
+  allLinesRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    paddingVertical: 4,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.surfaceLight,
+  },
+  allLinesText: { flex: 1, color: colors.textMuted, fontSize: 12, textAlign: 'left' },
 
   // Focused karaoke view
   karaoke: { paddingHorizontal: spacing.lg, paddingTop: spacing.md, alignItems: 'center' },
