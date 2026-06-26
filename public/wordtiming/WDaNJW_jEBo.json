@@ -6091,51 +6091,51 @@
       "end": 68.513891
     }
   ],
-  "01:09.62": [
+  "01:09.37": [
     {
       "word": "Stuck",
-      "start": 69.62,
-      "end": 69.97
+      "start": 69.37,
+      "end": 69.72
     },
     {
       "word": "on",
-      "start": 69.97,
-      "end": 70.32
+      "start": 69.72,
+      "end": 70.07
     },
     {
       "word": "the",
-      "start": 70.32,
-      "end": 70.67
+      "start": 70.07,
+      "end": 70.42
     },
     {
       "word": "grind",
-      "start": 70.67,
-      "end": 71.02
+      "start": 70.42,
+      "end": 70.77
     },
     {
       "word": "tryin'",
-      "start": 71.02,
-      "end": 71.37
+      "start": 70.77,
+      "end": 71.12
     },
     {
       "word": "to",
-      "start": 71.37,
-      "end": 71.72
+      "start": 71.12,
+      "end": 71.47
     },
     {
       "word": "elevate",
-      "start": 71.72,
-      "end": 72.07
+      "start": 71.47,
+      "end": 71.82
     },
     {
       "word": "it",
-      "start": 72.07,
-      "end": 72.42
+      "start": 71.82,
+      "end": 72.17
     },
     {
       "word": "now",
-      "start": 72.42,
-      "end": 72.77
+      "start": 72.17,
+      "end": 72.52
     }
   ]
 }
