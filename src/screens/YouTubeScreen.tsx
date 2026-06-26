@@ -1277,7 +1277,26 @@ export default function YouTubeScreen({ navigation, route }: any) {
                 <MaterialIcons name="close" size={24} color={colors.text} />
               </TouchableOpacity>
             </View>
-            <ScrollView contentContainerStyle={{ padding: spacing.md }}>
+            {/* Top half: playback controls for the SAME player still running
+                underneath this modal — not a second video instance, which
+                would otherwise fight over playerRef and double the audio. */}
+            <View style={styles.allLinesPlayerHalf}>
+              <Text style={styles.allLinesNowPlaying} numberOfLines={1}>
+                {lines[currentLine]?.text || '♪'}
+              </Text>
+              <View style={styles.controlsRow}>
+                <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-2)} activeOpacity={0.8}>
+                  <Text style={styles.ctrlText}>⏪ 2</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
+                  <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(2)} activeOpacity={0.8}>
+                  <Text style={styles.ctrlText}>2 ⏩</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <ScrollView style={styles.allLinesScrollHalf} contentContainerStyle={{ padding: spacing.md }}>
               {lines.map((l, i) => {
                 const words = l.text ? l.text.split(/\s+/).filter(Boolean) : [];
                 const wt = wordTiming[l.tag];
@@ -2031,6 +2050,17 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.surfaceLight,
   },
   allLinesTitle: { color: colors.text, fontSize: 18, fontWeight: '800' },
+  allLinesPlayerHalf: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.md,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.surfaceLight,
+    padding: spacing.md,
+  },
+  allLinesNowPlaying: { color: colors.primarySoft, fontSize: 16, fontWeight: '700', textAlign: 'center' },
+  allLinesScrollHalf: { flex: 1 },
   allLinesRow: {
     paddingVertical: 8,
     borderBottomWidth: 1,
