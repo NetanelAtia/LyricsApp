@@ -734,6 +734,15 @@ export default function YouTubeScreen({ navigation, route }: any) {
     const duration = updated[wordIdx].end - updated[wordIdx].start;
     const start = Math.max(0, getTime() + syncOffset);
     updated[wordIdx] = { ...updated[wordIdx], start, end: start + duration };
+    // Re-fit every word AFTER this one too, spaced evenly from this new
+    // anchor — so marking just the first word of a line roughly times the
+    // rest of it too, instead of leaving them at their old/default spots.
+    let cursor = start + duration;
+    for (let i = wordIdx + 1; i < updated.length; i++) {
+      const d = updated[i].end - updated[i].start;
+      updated[i] = { ...updated[i], start: cursor, end: cursor + d };
+      cursor += d;
+    }
     await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
   }
 
