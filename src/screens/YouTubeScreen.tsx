@@ -1326,6 +1326,11 @@ export default function YouTubeScreen({ navigation, route }: any) {
                         <Text style={styles.allLinesText} numberOfLines={2}>
                           {l.tag} — {l.text || '♪'}
                         </Text>
+                        {!!l.text && (
+                          <Text style={styles.allLinesHeText} numberOfLines={2}>
+                            {lineHe(i)}
+                          </Text>
+                        )}
                       </TouchableOpacity>
                       <TouchableOpacity onPress={() => shiftLineTime(i, LINE_SHIFT_STEP)} hitSlop={6}>
                         <MaterialIcons name="arrow-forward" size={18} color={colors.primarySoft} />
@@ -2104,6 +2109,7 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.surfaceLight,
   },
   allLinesText: { flex: 1, color: colors.textMuted, fontSize: 13, textAlign: 'left' },
+  allLinesHeText: { color: colors.primarySoft, fontSize: 12, textAlign: 'right', marginTop: 2 },
   allLinesWordsRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
