@@ -412,58 +412,6 @@
       "end": 43.453509
     }
   ],
-  "00:52.37": [
-    {
-      "word": "Called",
-      "start": 52.37,
-      "end": 52.72
-    },
-    {
-      "word": "each",
-      "start": 52.72,
-      "end": 53.07
-    },
-    {
-      "word": "other",
-      "start": 53.07,
-      "end": 53.42
-    },
-    {
-      "word": "nicknames",
-      "start": 53.42,
-      "end": 53.77
-    },
-    {
-      "word": "like",
-      "start": 53.77,
-      "end": 54.12
-    },
-    {
-      "word": "Sugar",
-      "start": 54.12,
-      "end": 54.47
-    },
-    {
-      "word": "Plum",
-      "start": 54.47,
-      "end": 54.82
-    },
-    {
-      "word": "and",
-      "start": 54.82,
-      "end": 55.17
-    },
-    {
-      "word": "Poo",
-      "start": 55.17,
-      "end": 55.52
-    },
-    {
-      "word": "Bear",
-      "start": 55.52,
-      "end": 55.87
-    }
-  ],
   "00:55.37": [
     {
       "word": "I'm",
@@ -6139,6 +6087,58 @@
       "word": "tears",
       "start": 50.65235999999999,
       "end": 51.00235999999999
+    }
+  ],
+  "00:52.12": [
+    {
+      "word": "Called",
+      "start": 52.12,
+      "end": 52.47
+    },
+    {
+      "word": "each",
+      "start": 52.47,
+      "end": 52.82
+    },
+    {
+      "word": "other",
+      "start": 52.82,
+      "end": 53.17
+    },
+    {
+      "word": "nicknames",
+      "start": 53.17,
+      "end": 53.52
+    },
+    {
+      "word": "like",
+      "start": 53.52,
+      "end": 53.87
+    },
+    {
+      "word": "Sugar",
+      "start": 53.87,
+      "end": 54.22
+    },
+    {
+      "word": "Plum",
+      "start": 54.22,
+      "end": 54.57
+    },
+    {
+      "word": "and",
+      "start": 54.57,
+      "end": 54.92
+    },
+    {
+      "word": "Poo",
+      "start": 54.92,
+      "end": 55.27
+    },
+    {
+      "word": "Bear",
+      "start": 55.27,
+      "end": 55.62
     }
   ]
 }
