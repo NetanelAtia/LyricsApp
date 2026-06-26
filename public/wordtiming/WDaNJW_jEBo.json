@@ -147,62 +147,6 @@
       "score": 0.577
     }
   ],
-  "04:10.63": [
-    {
-      "word": "I",
-      "start": 250.65,
-      "end": 250.751,
-      "score": 0.797
-    },
-    {
-      "word": "appreciate",
-      "start": 250.872,
-      "end": 251.556,
-      "score": 0.473
-    },
-    {
-      "word": "the",
-      "start": 251.577,
-      "end": 252.181,
-      "score": 0.807
-    },
-    {
-      "word": "things",
-      "start": 252.241,
-      "end": 252.523,
-      "score": 0.478
-    },
-    {
-      "word": "you",
-      "start": 252.563,
-      "end": 252.745,
-      "score": 0.424
-    },
-    {
-      "word": "do",
-      "start": 252.765,
-      "end": 252.845,
-      "score": 0.281
-    },
-    {
-      "word": "to",
-      "start": 252.926,
-      "end": 253.067,
-      "score": 0.752
-    },
-    {
-      "word": "please",
-      "start": 253.107,
-      "end": 253.349,
-      "score": 0.3
-    },
-    {
-      "word": "me",
-      "start": 253.369,
-      "end": 253.429,
-      "score": 0.29
-    }
-  ],
   "04:13.53": [
     {
       "word": "Lookin'",
