@@ -5,5 +5,37 @@
       "start": 7.37,
       "end": 7.72
     }
+  ],
+  "00:10.37": [
+    {
+      "word": "Shawty,",
+      "start": 10.37,
+      "end": 10.72
+    },
+    {
+      "word": "I",
+      "start": 10.72,
+      "end": 11.07
+    },
+    {
+      "word": "know",
+      "start": 11.07,
+      "end": 11.42
+    },
+    {
+      "word": "what",
+      "start": 11.42,
+      "end": 11.77
+    },
+    {
+      "word": "you",
+      "start": 11.77,
+      "end": 12.12
+    },
+    {
+      "word": "need",
+      "start": 12.12,
+      "end": 12.47
+    }
   ]
 }
