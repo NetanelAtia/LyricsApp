@@ -975,5 +975,52 @@
       "start": 70.52,
       "end": 70.87
     }
+  ],
+  "01:10.37": [
+    {
+      "word": "Stuck",
+      "start": 70.37,
+      "end": 70.72
+    },
+    {
+      "word": "on",
+      "start": 70.72,
+      "end": 71.07
+    },
+    {
+      "word": "the",
+      "start": 71.07,
+      "end": 71.42
+    },
+    {
+      "word": "grind",
+      "start": 71.42,
+      "end": 71.77
+    },
+    {
+      "word": "tryin'",
+      "start": 71.77,
+      "end": 72.12
+    },
+    {
+      "word": "to",
+      "start": 72.12,
+      "end": 72.47
+    },
+    {
+      "word": "elevate",
+      "start": 72.47,
+      "end": 72.82
+    },
+    {
+      "word": "it",
+      "start": 72.82,
+      "end": 73.17
+    },
+    {
+      "word": "now",
+      "start": 73.17,
+      "end": 73.52
+    }
   ]
 }
