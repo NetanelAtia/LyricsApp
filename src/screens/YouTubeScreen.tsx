@@ -224,7 +224,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
   async function saveNewLine() {
     const text = addLineText.trim();
     if (!text) return;
-    const t = Math.max(0, getTime() - syncOffset);
+    const t = Math.max(0, getTime() + syncOffset);
     const mm = String(Math.floor(t / 60)).padStart(2, '0');
     const ss = (t % 60).toFixed(2).padStart(5, '0');
     const tag = `${mm}:${ss}`;
@@ -403,7 +403,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
     if (!cur || !cur.text) return;
     const words = cur.text.split(/\s+/).filter(Boolean);
     if (!words.length) return;
-    const elapsed = Math.max(0.3, getTime() - syncOffset - cur.time);
+    const elapsed = Math.max(0.3, getTime() + syncOffset - cur.time);
     const perWord = elapsed / words.length;
     const generated = words.map((word, i) => ({
       word,
