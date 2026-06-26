@@ -746,12 +746,28 @@ export default function YouTubeScreen({ navigation, route }: any) {
     await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
   }
 
-  // Type the exact second directly under a word, shown/typed in raw
-  // YouTube player time (matching the video's own progress bar) and
+  // "1:23.45" or a bare "83.45" — both accepted, since typing just seconds
+  // is still convenient for short gaps.
+  function parseMmSs(value: string): number | null {
+    const v = value.trim().replace(',', '.');
+    const m = v.match(/^(\d+):(\d+(?:\.\d+)?)$/);
+    if (m) return parseInt(m[1], 10) * 60 + parseFloat(m[2]);
+    const n = parseFloat(v);
+    return Number.isFinite(n) ? n : null;
+  }
+  function formatMmSs(seconds: number): string {
+    const s = Math.max(0, seconds);
+    const mm = Math.floor(s / 60);
+    const ss = (s % 60).toFixed(2).padStart(5, '0');
+    return `${mm}:${ss}`;
+  }
+
+  // Type the exact moment directly under a word, shown/typed in raw
+  // YouTube player time (matching the video's own progress bar, mm:ss) and
   // converted to the videoTime + syncOffset scale used everywhere else.
   async function setWordStartTime(tag: string, text: string, wordIdx: number, value: string) {
-    const typed = parseFloat(value.replace(',', '.'));
-    if (!Number.isFinite(typed) || typed < 0) return;
+    const typed = parseMmSs(value);
+    if (typed === null || typed < 0) return;
     const start = Math.max(0, typed + syncOffset);
     const base = getOrCreateWordTiming(tag, text);
     const updated = [...base];
@@ -1285,10 +1301,10 @@ export default function YouTubeScreen({ navigation, route }: any) {
                                         style={styles.wordTimeInput}
                                         defaultValue={
                                           wordTiming[cur.tag]?.[myWi]
-                                            ? (wordTiming[cur.tag][myWi].start - syncOffset).toFixed(2)
+                                            ? formatMmSs(wordTiming[cur.tag][myWi].start - syncOffset)
                                             : ''
                                         }
-                                        placeholder={(cur.time + myWi * DEFAULT_WORD_DURATION - syncOffset).toFixed(2)}
+                                        placeholder={formatMmSs(cur.time + myWi * DEFAULT_WORD_DURATION - syncOffset)}
                                         placeholderTextColor={colors.textFaint}
                                         keyboardType="numbers-and-punctuation"
                                         onSubmitEditing={(e) =>
