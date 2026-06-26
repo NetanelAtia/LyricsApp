@@ -1065,5 +1065,47 @@
       "start": 163.07,
       "end": 163.42
     }
+  ],
+  "02:44.32": [
+    {
+      "word": "You",
+      "start": 164.32,
+      "end": 164.67
+    },
+    {
+      "word": "stuck",
+      "start": 164.67,
+      "end": 165.02
+    },
+    {
+      "word": "with",
+      "start": 165.02,
+      "end": 165.37
+    },
+    {
+      "word": "me",
+      "start": 165.37,
+      "end": 165.72
+    },
+    {
+      "word": "through",
+      "start": 165.72,
+      "end": 166.07
+    },
+    {
+      "word": "my",
+      "start": 166.07,
+      "end": 166.42
+    },
+    {
+      "word": "whole",
+      "start": 166.42,
+      "end": 166.77
+    },
+    {
+      "word": "struggle",
+      "start": 166.77,
+      "end": 167.12
+    }
   ]
 }
