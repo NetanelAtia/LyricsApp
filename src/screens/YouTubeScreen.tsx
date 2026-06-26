@@ -505,6 +505,29 @@ export default function YouTubeScreen({ navigation, route }: any) {
     await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
   }
 
+  // Type the exact second directly under a word instead of nudging by a
+  // fixed step. Starts from whatever timing already exists (or the same
+  // rough default used elsewhere) and lets you override any single word.
+  async function setWordStartTime(tag: string, text: string, wordIdx: number, value: string) {
+    const start = parseFloat(value.replace(',', '.'));
+    if (!Number.isFinite(start) || start < 0) return;
+    const words = text.split(/\s+/).filter(Boolean);
+    const lineStart = lines.find((l) => l.tag === tag)?.time ?? 0;
+    const existing = wordTiming[tag];
+    const base =
+      existing && existing.length === words.length
+        ? existing
+        : words.map((word, i) => ({
+            word,
+            start: +(lineStart + i * DEFAULT_WORD_DURATION).toFixed(3),
+            end: +(lineStart + (i + 1) * DEFAULT_WORD_DURATION).toFixed(3),
+          }));
+    const updated = [...base];
+    const duration = updated[wordIdx].end - updated[wordIdx].start;
+    updated[wordIdx] = { ...updated[wordIdx], start, end: start + duration };
+    await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
+  }
+
   async function saveLineTranslation(tag: string, text: string) {
     setEditStatus('saving');
     try {
@@ -1130,22 +1153,6 @@ export default function YouTubeScreen({ navigation, route }: any) {
                                           <TouchableOpacity onPress={toggleSaveWord} hitSlop={8}>
                                             <Text style={styles.bubbleStar}>{selectedSaved ? '★' : '☆'}</Text>
                                           </TouchableOpacity>
-                                          {canEditTranslations && !!wordTiming[cur.tag]?.[myWi] && (
-                                            <>
-                                              <TouchableOpacity
-                                                onPress={() => nudgeSingleWord(cur.tag, cur.text, myWi, -1)}
-                                                hitSlop={8}
-                                              >
-                                                <MaterialIcons name="fast-forward" size={16} color="#fff" />
-                                              </TouchableOpacity>
-                                              <TouchableOpacity
-                                                onPress={() => nudgeSingleWord(cur.tag, cur.text, myWi, 1)}
-                                                hitSlop={8}
-                                              >
-                                                <MaterialIcons name="fast-rewind" size={16} color="#fff" />
-                                              </TouchableOpacity>
-                                            </>
-                                          )}
                                         </View>
                                         <View style={styles.bubbleArrow} />
                                       </View>
@@ -1153,6 +1160,26 @@ export default function YouTubeScreen({ navigation, route }: any) {
                                     <TouchableOpacity onPress={() => onWordPress(key, w)} activeOpacity={0.7}>
                                       <Text style={[styles.currentWord, isActiveWord && styles.activeWord]}>{w}</Text>
                                     </TouchableOpacity>
+                                    {canEditTranslations && (
+                                      <TextInput
+                                        key={`${cur.tag}-${myWi}-${wordTiming[cur.tag]?.[myWi]?.start ?? ''}`}
+                                        style={styles.wordTimeInput}
+                                        defaultValue={
+                                          wordTiming[cur.tag]?.[myWi]
+                                            ? wordTiming[cur.tag][myWi].start.toFixed(2)
+                                            : ''
+                                        }
+                                        placeholder={(cur.time + myWi * DEFAULT_WORD_DURATION).toFixed(2)}
+                                        placeholderTextColor={colors.textFaint}
+                                        keyboardType="numbers-and-punctuation"
+                                        onSubmitEditing={(e) =>
+                                          setWordStartTime(cur.tag, cur.text, myWi, e.nativeEvent.text)
+                                        }
+                                        onBlur={(e: any) =>
+                                          setWordStartTime(cur.tag, cur.text, myWi, e.nativeEvent.text ?? e.target?.value ?? '')
+                                        }
+                                      />
+                                    )}
                                   </View>
                                 );
                               })}
@@ -1746,6 +1773,16 @@ const styles = StyleSheet.create({
   lineActionBtn: { padding: 4 },
   lineActionIcon: { fontSize: 26, color: colors.textFaint },
   lineActionIconActive: { color: colors.primarySoft },
+  wordTimeInput: {
+    width: 44,
+    fontSize: 10,
+    color: colors.textFaint,
+    backgroundColor: colors.surfaceLight,
+    borderRadius: 4,
+    textAlign: 'center',
+    marginTop: 2,
+    paddingVertical: 1,
+  },
 
   // Translation bubble above a tapped word.
   bubbleContainer: {
