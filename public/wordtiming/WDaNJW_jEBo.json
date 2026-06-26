@@ -2609,5 +2609,57 @@
       "start": 195.82,
       "end": 196.17
     }
+  ],
+  "03:16.37": [
+    {
+      "word": "Mad",
+      "start": 196.37,
+      "end": 196.72
+    },
+    {
+      "word": "years",
+      "start": 196.72,
+      "end": 197.07
+    },
+    {
+      "word": "passed",
+      "start": 197.07,
+      "end": 197.42
+    },
+    {
+      "word": "still",
+      "start": 197.42,
+      "end": 197.77
+    },
+    {
+      "word": "got",
+      "start": 197.77,
+      "end": 198.12
+    },
+    {
+      "word": "each",
+      "start": 198.12,
+      "end": 198.47
+    },
+    {
+      "word": "other",
+      "start": 198.47,
+      "end": 198.82
+    },
+    {
+      "word": "back",
+      "start": 198.82,
+      "end": 199.17
+    },
+    {
+      "word": "(oh,",
+      "start": 199.17,
+      "end": 199.52
+    },
+    {
+      "word": "yeah)",
+      "start": 199.52,
+      "end": 199.87
+    }
   ]
 }
