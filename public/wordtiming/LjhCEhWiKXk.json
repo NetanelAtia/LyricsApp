@@ -1718,5 +1718,57 @@
       "start": 41.33,
       "end": 41.68
     }
+  ],
+  "00:44.39": [
+    {
+      "word": "But",
+      "start": 44.39,
+      "end": 44.74
+    },
+    {
+      "word": "every",
+      "start": 44.74,
+      "end": 45.09
+    },
+    {
+      "word": "time",
+      "start": 45.09,
+      "end": 45.44
+    },
+    {
+      "word": "she",
+      "start": 45.44,
+      "end": 45.79
+    },
+    {
+      "word": "asks",
+      "start": 45.79,
+      "end": 46.14
+    },
+    {
+      "word": "me,",
+      "start": 46.14,
+      "end": 46.49
+    },
+    {
+      "word": "\"Do",
+      "start": 46.49,
+      "end": 46.84
+    },
+    {
+      "word": "I",
+      "start": 46.84,
+      "end": 47.19
+    },
+    {
+      "word": "look",
+      "start": 47.19,
+      "end": 47.54
+    },
+    {
+      "word": "okay?\"",
+      "start": 47.54,
+      "end": 47.89
+    }
   ]
 }
