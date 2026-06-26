@@ -505,25 +505,41 @@ export default function YouTubeScreen({ navigation, route }: any) {
     await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
   }
 
-  // Type the exact second directly under a word instead of nudging by a
-  // fixed step. Starts from whatever timing already exists (or the same
-  // rough default used elsewhere) and lets you override any single word.
-  async function setWordStartTime(tag: string, text: string, wordIdx: number, value: string) {
-    const start = parseFloat(value.replace(',', '.'));
-    if (!Number.isFinite(start) || start < 0) return;
+  // Shared starting point for either editing a word's time directly or
+  // bumping it by a step: whatever timing already exists for the line, or
+  // the same rough evenly-spaced default used elsewhere if there's none yet.
+  function getOrCreateWordTiming(tag: string, text: string) {
     const words = text.split(/\s+/).filter(Boolean);
     const lineStart = lines.find((l) => l.tag === tag)?.time ?? 0;
     const existing = wordTiming[tag];
-    const base =
-      existing && existing.length === words.length
-        ? existing
-        : words.map((word, i) => ({
-            word,
-            start: +(lineStart + i * DEFAULT_WORD_DURATION).toFixed(3),
-            end: +(lineStart + (i + 1) * DEFAULT_WORD_DURATION).toFixed(3),
-          }));
+    return existing && existing.length === words.length
+      ? existing
+      : words.map((word, i) => ({
+          word,
+          start: +(lineStart + i * DEFAULT_WORD_DURATION).toFixed(3),
+          end: +(lineStart + (i + 1) * DEFAULT_WORD_DURATION).toFixed(3),
+        }));
+  }
+
+  // Type the exact second directly under a word instead of nudging by a
+  // fixed step.
+  async function setWordStartTime(tag: string, text: string, wordIdx: number, value: string) {
+    const start = parseFloat(value.replace(',', '.'));
+    if (!Number.isFinite(start) || start < 0) return;
+    const base = getOrCreateWordTiming(tag, text);
     const updated = [...base];
     const duration = updated[wordIdx].end - updated[wordIdx].start;
+    updated[wordIdx] = { ...updated[wordIdx], start, end: start + duration };
+    await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
+  }
+
+  // Small +/- step buttons under the same field, for nudging without typing.
+  const WORD_TIME_STEP = 0.1;
+  async function bumpWordTime(tag: string, text: string, wordIdx: number, delta: number) {
+    const base = getOrCreateWordTiming(tag, text);
+    const updated = [...base];
+    const duration = updated[wordIdx].end - updated[wordIdx].start;
+    const start = Math.max(0, updated[wordIdx].start + delta);
     updated[wordIdx] = { ...updated[wordIdx], start, end: start + duration };
     await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
   }
@@ -1180,6 +1196,24 @@ export default function YouTubeScreen({ navigation, route }: any) {
                                         }
                                       />
                                     )}
+                                    {canEditTranslations && (
+                                      <View style={styles.wordTimeStepRow}>
+                                        <TouchableOpacity
+                                          style={styles.wordTimeStepBtn}
+                                          onPress={() => bumpWordTime(cur.tag, cur.text, myWi, -WORD_TIME_STEP)}
+                                          hitSlop={4}
+                                        >
+                                          <Text style={styles.wordTimeStepText}>−</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity
+                                          style={styles.wordTimeStepBtn}
+                                          onPress={() => bumpWordTime(cur.tag, cur.text, myWi, WORD_TIME_STEP)}
+                                          hitSlop={4}
+                                        >
+                                          <Text style={styles.wordTimeStepText}>+</Text>
+                                        </TouchableOpacity>
+                                      </View>
+                                    )}
                                   </View>
                                 );
                               })}
@@ -1783,6 +1817,16 @@ const styles = StyleSheet.create({
     marginTop: 2,
     paddingVertical: 1,
   },
+  wordTimeStepRow: { flexDirection: 'row', gap: 2, marginTop: 1 },
+  wordTimeStepBtn: {
+    width: 20,
+    height: 16,
+    borderRadius: 3,
+    backgroundColor: colors.surfaceLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  wordTimeStepText: { color: colors.textFaint, fontSize: 11, lineHeight: 13 },
 
   // Translation bubble above a tapped word.
   bubbleContainer: {
