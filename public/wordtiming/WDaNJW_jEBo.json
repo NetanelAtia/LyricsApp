@@ -6140,5 +6140,27 @@
       "start": 67.62,
       "end": 67.97
     }
+  ],
+  "01:02.00": [
+    {
+      "word": "Ya",
+      "start": 62,
+      "end": 62.35
+    },
+    {
+      "word": "patience",
+      "start": 62.35,
+      "end": 62.7
+    },
+    {
+      "word": "gettin'",
+      "start": 62.7,
+      "end": 63.05
+    },
+    {
+      "word": "short",
+      "start": 63.05,
+      "end": 63.4
+    }
   ]
 }
