@@ -499,62 +499,6 @@
       "score": 0.554
     }
   ],
-  "00:23.59": [
-    {
-      "word": "You",
-      "start": 23.59,
-      "end": 23.752,
-      "score": 0.473
-    },
-    {
-      "word": "the",
-      "start": 23.833,
-      "end": 23.914,
-      "score": 0.47
-    },
-    {
-      "word": "only",
-      "start": 24.137,
-      "end": 24.602,
-      "score": 0.612
-    },
-    {
-      "word": "man",
-      "start": 24.622,
-      "end": 24.683,
-      "score": 0.19
-    },
-    {
-      "word": "I",
-      "start": 24.703,
-      "end": 24.724,
-      "score": 0
-    },
-    {
-      "word": "trust,",
-      "start": 24.744,
-      "end": 24.865,
-      "score": 0.095
-    },
-    {
-      "word": "you",
-      "start": 24.886,
-      "end": 24.946,
-      "score": 0.048
-    },
-    {
-      "word": "know",
-      "start": 24.967,
-      "end": 25.108,
-      "score": 0.285
-    },
-    {
-      "word": "that.",
-      "start": 25.129,
-      "end": 25.23,
-      "score": 0.268
-    }
-  ],
   "03:39.63": [
     {
       "word": "And",
