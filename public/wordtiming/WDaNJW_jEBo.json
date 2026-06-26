@@ -2137,5 +2137,37 @@
       "start": 234.87,
       "end": 235.22
     }
+  ],
+  "03:54.72": [
+    {
+      "word": "Puttin'",
+      "start": 234.72,
+      "end": 235.07
+    },
+    {
+      "word": "you",
+      "start": 235.07,
+      "end": 235.42
+    },
+    {
+      "word": "through",
+      "start": 235.42,
+      "end": 235.77
+    },
+    {
+      "word": "the",
+      "start": 235.77,
+      "end": 236.12
+    },
+    {
+      "word": "unnecessary",
+      "start": 236.12,
+      "end": 236.47
+    },
+    {
+      "word": "rigmarole",
+      "start": 236.47,
+      "end": 236.82
+    }
   ]
 }
