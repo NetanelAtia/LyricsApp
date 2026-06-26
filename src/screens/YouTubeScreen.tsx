@@ -487,6 +487,41 @@ export default function YouTubeScreen({ navigation, route }: any) {
     await saveLyricLineEdits([{ tag: cur.tag, text: cur.text }], { [cur.tag]: generated });
   }
 
+  // Manual word-by-word timing: tap a button once per word, right as the
+  // singer says it, instead of one bulk calibration for the whole line.
+  // Each tap captures the current moment as that word's start; the
+  // previous word's end is set to the same moment, and the line saves
+  // automatically once every word has been tapped.
+  const [wordTapTag, setWordTapTag] = useState<string | null>(null);
+  const [wordTapTimes, setWordTapTimes] = useState<number[]>([]);
+  function startWordTap(tag: string) {
+    setWordTapTag(tag);
+    setWordTapTimes([]);
+  }
+  function cancelWordTap() {
+    setWordTapTag(null);
+    setWordTapTimes([]);
+  }
+  async function tapWord(idx: number) {
+    const cur = lines[idx];
+    if (!cur || !cur.text) return;
+    const words = cur.text.split(/\s+/).filter(Boolean);
+    const t = Math.max(0, getTime() + syncOffset);
+    const next = [...wordTapTimes, t];
+    if (next.length >= words.length) {
+      const generated = words.map((word, i) => ({
+        word,
+        start: +next[i].toFixed(3),
+        end: +((i < words.length - 1 ? next[i + 1] : next[i] + DEFAULT_WORD_DURATION)).toFixed(3),
+      }));
+      await saveLyricLineEdits([{ tag: cur.tag, text: cur.text }], { [cur.tag]: generated });
+      setWordTapTag(null);
+      setWordTapTimes([]);
+    } else {
+      setWordTapTimes(next);
+    }
+  }
+
   async function saveLineTranslation(tag: string, text: string) {
     setEditStatus('saving');
     try {
@@ -1054,7 +1089,22 @@ export default function YouTubeScreen({ navigation, route }: any) {
                 <View style={styles.currentBlock}>
                   {displayMode !== 'he' && (
                     <View style={styles.wordsArea}>
-                      {canEditTranslations && editingEnTag === cur.tag ? (
+                      {wordTapTag === cur.tag ? (
+                        <View style={styles.editRow}>
+                          <Text style={styles.syncHint}>
+                            מילה {wordTapTimes.length + 1} מ-{cur.text.split(/\s+/).filter(Boolean).length} —
+                            לחץ "סמן" ברגע שהמילה נשמעת
+                          </Text>
+                          <View style={styles.editBtnRow}>
+                            <TouchableOpacity style={[styles.calBtn, { marginTop: spacing.sm }]} onPress={() => tapWord(idx)}>
+                              <Text style={styles.calBtnText}>● סמן</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.editBtn} onPress={cancelWordTap}>
+                              <MaterialIcons name="close" size={20} color={colors.textFaint} />
+                            </TouchableOpacity>
+                          </View>
+                        </View>
+                      ) : canEditTranslations && editingEnTag === cur.tag ? (
                         <View style={styles.editRow}>
                           <View style={styles.editInputRow}>
                             <TextInput
@@ -1243,13 +1293,22 @@ export default function YouTubeScreen({ navigation, route }: any) {
                         <MaterialIcons name="fast-rewind" size={18} color={colors.primarySoft} />
                       </TouchableOpacity></View>
                     )}
-                    {canEditTranslations && !!cur.text && !wordTiming[cur.tag]?.length && editingTag !== cur.tag && (
+                    {canEditTranslations && !!cur.text && !wordTiming[cur.tag]?.length && editingTag !== cur.tag && wordTapTag !== cur.tag && (
                       <View {...({ onMouseEnter: (e: any) => showTip(e, 'קבע תזמון מילים — לחץ ברגע שהשורה מסתיימת'), onMouseLeave: hideTip } as any)}><TouchableOpacity
                         style={styles.lineActionBtn}
                         onPress={() => calibrateLineSpeed(idx)}
-                        activeOpacity={0.7} 
+                        activeOpacity={0.7}
                       >
                         <MaterialIcons name="timer" size={18} color={colors.primarySoft} />
+                      </TouchableOpacity></View>
+                    )}
+                    {canEditTranslations && !!cur.text && editingTag !== cur.tag && wordTapTag !== cur.tag && (
+                      <View {...({ onMouseEnter: (e: any) => showTip(e, 'תזמן מילה-מילה — לחץ פעם בכל מילה שנשמעת'), onMouseLeave: hideTip } as any)}><TouchableOpacity
+                        style={styles.lineActionBtn}
+                        onPress={() => startWordTap(cur.tag)}
+                        activeOpacity={0.7}
+                      >
+                        <MaterialIcons name="touch-app" size={18} color={colors.primarySoft} />
                       </TouchableOpacity></View>
                     )}
                     {canEditTranslations && !!cur.text && editingTag !== cur.tag && editingEnTag !== cur.tag && (
