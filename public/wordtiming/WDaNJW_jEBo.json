@@ -1271,50 +1271,6 @@
       "score": 0.405
     }
   ],
-  "01:28.98": [
-    {
-      "word": "I",
-      "start": 89.04,
-      "end": 89.1,
-      "score": 0.663
-    },
-    {
-      "word": "know",
-      "start": 89.121,
-      "end": 89.321,
-      "score": 0.661
-    },
-    {
-      "word": "you",
-      "start": 89.361,
-      "end": 89.442,
-      "score": 0.164
-    },
-    {
-      "word": "aggravated,",
-      "start": 89.663,
-      "end": 90.465,
-      "score": 0.569
-    },
-    {
-      "word": "walk",
-      "start": 90.546,
-      "end": 90.807,
-      "score": 0.698
-    },
-    {
-      "word": "around",
-      "start": 90.847,
-      "end": 91.128,
-      "score": 0.404
-    },
-    {
-      "word": "frustrated",
-      "start": 91.148,
-      "end": 91.469,
-      "score": 0.19
-    }
-  ],
   "01:31.69": [
     {
       "word": "Patience",
@@ -5867,6 +5823,50 @@
       "start": 75.485,
       "end": 75.687,
       "score": 0.276
+    }
+  ],
+  "01:29.48": [
+    {
+      "word": "I",
+      "start": 89.54,
+      "end": 89.6,
+      "score": 0.663
+    },
+    {
+      "word": "know",
+      "start": 89.621,
+      "end": 89.821,
+      "score": 0.661
+    },
+    {
+      "word": "you",
+      "start": 89.861,
+      "end": 89.942,
+      "score": 0.164
+    },
+    {
+      "word": "aggravated,",
+      "start": 90.163,
+      "end": 90.965,
+      "score": 0.569
+    },
+    {
+      "word": "walk",
+      "start": 91.046,
+      "end": 91.307,
+      "score": 0.698
+    },
+    {
+      "word": "around",
+      "start": 91.347,
+      "end": 91.628,
+      "score": 0.404
+    },
+    {
+      "word": "frustrated",
+      "start": 91.648,
+      "end": 91.969,
+      "score": 0.19
     }
   ]
 }
