@@ -443,62 +443,6 @@
       "score": 0.162
     }
   ],
-  "00:21.58": [
-    {
-      "word": "I",
-      "start": 21.62,
-      "end": 21.66,
-      "score": 0.522
-    },
-    {
-      "word": "need",
-      "start": 21.68,
-      "end": 21.761,
-      "score": 0.008
-    },
-    {
-      "word": "you",
-      "start": 21.801,
-      "end": 21.861,
-      "score": 0.001
-    },
-    {
-      "word": "to",
-      "start": 21.942,
-      "end": 21.982,
-      "score": 0.14
-    },
-    {
-      "word": "look",
-      "start": 22.022,
-      "end": 22.103,
-      "score": 0.022
-    },
-    {
-      "word": "after",
-      "start": 22.123,
-      "end": 22.263,
-      "score": 0.265
-    },
-    {
-      "word": "wifey",
-      "start": 22.826,
-      "end": 23.027,
-      "score": 0.189
-    },
-    {
-      "word": "for",
-      "start": 23.047,
-      "end": 23.168,
-      "score": 0.291
-    },
-    {
-      "word": "me.",
-      "start": 23.188,
-      "end": 23.288,
-      "score": 0.554
-    }
-  ],
   "03:42.46": [
     {
       "word": "I",
