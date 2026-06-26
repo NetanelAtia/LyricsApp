@@ -1747,50 +1747,50 @@
   "00:38.08": [
     {
       "word": "When",
-      "start": 38.33,
-      "end": 38.591,
+      "start": 38.18,
+      "end": 38.441,
       "score": 0.401
     },
     {
       "word": "I",
-      "start": 38.692,
-      "end": 38.772,
+      "start": 38.542,
+      "end": 38.622,
       "score": 0.738
     },
     {
       "word": "compliment",
-      "start": 39.153,
-      "end": 39.795,
+      "start": 39.003,
+      "end": 39.645,
       "score": 0.329
     },
     {
       "word": "her",
-      "start": 39.976,
-      "end": 40.096,
+      "start": 39.826,
+      "end": 39.946,
       "score": 0.811
     },
     {
       "word": "she",
-      "start": 40.257,
-      "end": 40.538,
+      "start": 40.107,
+      "end": 40.388,
       "score": 0.421
     },
     {
       "word": "won't",
-      "start": 40.558,
-      "end": 40.698,
+      "start": 40.408,
+      "end": 40.548,
       "score": 0.128
     },
     {
       "word": "believe",
-      "start": 40.759,
-      "end": 40.979,
+      "start": 40.609,
+      "end": 40.829,
       "score": 0.245
     },
     {
       "word": "me",
-      "start": 41.04,
-      "end": 41.1,
+      "start": 40.89,
+      "end": 40.95,
       "score": 0.25
     }
   ],
