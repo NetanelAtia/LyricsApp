@@ -412,63 +412,6 @@
       "end": 43.453509
     }
   ],
-  "00:49.37": [
-    {
-      "word": "We",
-      "start": 49.37,
-      "end": 49.72
-    },
-    {
-      "word": "been",
-      "start": 49.72,
-      "end": 50.07
-    },
-    {
-      "word": "together",
-      "start": 50.07,
-      "end": 50.42
-    },
-    {
-      "word": "for",
-      "start": 50.42,
-      "end": 50.77
-    },
-    {
-      "word": "a",
-      "start": 50.77,
-      "end": 51.12
-    },
-    {
-      "word": "few",
-      "start": 51.12,
-      "end": 51.47
-    },
-    {
-      "word": "years,",
-      "start": 51.47,
-      "end": 51.82
-    },
-    {
-      "word": "shared",
-      "start": 51.82,
-      "end": 52.17
-    },
-    {
-      "word": "a",
-      "start": 52.17,
-      "end": 52.52
-    },
-    {
-      "word": "few",
-      "start": 52.52,
-      "end": 52.87
-    },
-    {
-      "word": "tears",
-      "start": 52.87,
-      "end": 53.22
-    }
-  ],
   "00:52.37": [
     {
       "word": "Called",
@@ -6139,6 +6082,63 @@
       "word": "it",
       "start": 48.630061,
       "end": 48.98006099999999
+    }
+  ],
+  "00:49.12": [
+    {
+      "word": "We",
+      "start": 49.12,
+      "end": 49.47
+    },
+    {
+      "word": "been",
+      "start": 49.47,
+      "end": 49.82
+    },
+    {
+      "word": "together",
+      "start": 49.82,
+      "end": 50.17
+    },
+    {
+      "word": "for",
+      "start": 50.17,
+      "end": 50.52
+    },
+    {
+      "word": "a",
+      "start": 50.52,
+      "end": 50.87
+    },
+    {
+      "word": "few",
+      "start": 50.87,
+      "end": 51.22
+    },
+    {
+      "word": "years,",
+      "start": 51.22,
+      "end": 51.57
+    },
+    {
+      "word": "shared",
+      "start": 51.57,
+      "end": 51.92
+    },
+    {
+      "word": "a",
+      "start": 51.92,
+      "end": 52.27
+    },
+    {
+      "word": "few",
+      "start": 52.27,
+      "end": 52.62
+    },
+    {
+      "word": "tears",
+      "start": 52.62,
+      "end": 52.97
     }
   ]
 }
