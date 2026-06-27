@@ -16,6 +16,7 @@ export const defaultOffsets: Record<string, number> = {
   'LjhCEhWiKXk': -15.7, // Bruno Mars – Just the Way You Are
   'fLexgOxsZu0': -3.0, // Bruno Mars – The Lazy Song
   'Xg72z08aTXY': -0.5, // Måneskin – Beggin'
+  'gl1aHhXnN1k': -38.3, // Ariana Grande – thank u, next (video has a ~46s spoken intro before the song starts; lyrics source is timed to the song-only audio)
   'C7dPqrmDWxs': -0.3, // Pharrell Williams – Happy
   'WDaNJW_jEBo': -0.5, // Busta Rhymes ft. Mariah Carey – I Know What You Want
 };
