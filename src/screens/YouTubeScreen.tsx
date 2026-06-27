@@ -620,6 +620,11 @@ export default function YouTubeScreen({ navigation, route }: any) {
   // Cap how long a line stays on screen when the gap to the next line is
   // long (e.g. an instrumental break) — 0 means no cap, show it the whole gap.
   const [maxLineDisplay, setMaxLineDisplay] = useState(0);
+  // When editing a word's timing, whether the change should push every
+  // other word in the line along with it (cascade) or just move that one
+  // word on its own, leaving its neighbors where they were. Off by default
+  // so a single-word fix doesn't silently reshuffle the whole line.
+  const [cascadeWordEdits, setCascadeWordEdits] = useState(false);
   // A scrollable overview of every line at once, for adjusting timing
   // without needing playback to actually reach each one.
   const [allLinesOpen, setAllLinesOpen] = useState(false);
@@ -772,7 +777,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
     const duration = updated[wordIdx].end - updated[wordIdx].start;
     const start = Math.max(0, getTime() + syncOffset);
     updated[wordIdx] = { ...updated[wordIdx], start, end: start + duration };
-    cascadeAfter(updated, wordIdx);
+    if (cascadeWordEdits) cascadeAfter(updated, wordIdx);
     await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
   }
 
@@ -803,7 +808,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
     const updated = [...base];
     const duration = updated[wordIdx].end - updated[wordIdx].start;
     updated[wordIdx] = { ...updated[wordIdx], start, end: start + duration };
-    cascadeAfter(updated, wordIdx);
+    if (cascadeWordEdits) cascadeAfter(updated, wordIdx);
     await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
   }
 
@@ -815,7 +820,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
     const duration = updated[wordIdx].end - updated[wordIdx].start;
     const start = Math.max(0, updated[wordIdx].start + delta);
     updated[wordIdx] = { ...updated[wordIdx], start, end: start + duration };
-    cascadeAfter(updated, wordIdx);
+    if (cascadeWordEdits) cascadeAfter(updated, wordIdx);
     await saveLyricLineEdits([{ tag, text }], { [tag]: updated });
   }
 
@@ -1245,6 +1250,27 @@ export default function YouTubeScreen({ navigation, route }: any) {
               {karaokeOn ? '🎤 מצב קריוקי פעיל' : '🎤 מצב קריוקי כבוי'}
             </Text>
           </TouchableOpacity></View>
+        )}
+        {/* Editing a word's time normally only moves that one word. Turn
+            this on to also push every other word in the line along with
+            it, keeping their relative spacing. */}
+        {canEditTranslations && lines.length > 0 && (
+          <View
+            {...({
+              onMouseEnter: (e: any) => showTip(e, 'שינוי תזמון של מילה ישפיע גם על המילים שלפניה ואחריה באותה שורה'),
+              onMouseLeave: hideTip,
+            } as any)}
+          >
+            <TouchableOpacity
+              style={[styles.karaokeToggle, cascadeWordEdits && styles.karaokeToggleActive]}
+              onPress={() => setCascadeWordEdits((v) => !v)}
+              activeOpacity={0.85}
+            >
+              <Text style={[styles.karaokeToggleText, cascadeWordEdits && styles.karaokeToggleTextActive]}>
+                {cascadeWordEdits ? '🔗 גרירת מילים שכנות פעיל' : '🔗 גרירת מילים שכנות כבוי'}
+              </Text>
+            </TouchableOpacity>
+          </View>
         )}
         {lines.length > 0 && (
           <View style={styles.maxDisplayRow}>
