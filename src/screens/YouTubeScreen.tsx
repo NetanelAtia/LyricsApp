@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import {
   ActivityIndicator,
-  Modal,
   Platform,
   ScrollView,
   StyleSheet,
@@ -626,26 +625,11 @@ export default function YouTubeScreen({ navigation, route }: any) {
   // Karaoke word-by-word highlight — on by default, can be turned off if
   // you'd rather just read the lyrics without the follow-along marking.
   const [karaokeOn, setKaraokeOn] = useState(true);
-  // Cap how long a line stays on screen when the gap to the next line is
-  // long (e.g. an instrumental break) — 0 means no cap, show it the whole gap.
-  const [maxLineDisplay, setMaxLineDisplay] = useState(0);
   // When editing a word's timing, whether the change should push every
   // other word in the line along with it (cascade) or just move that one
   // word on its own, leaving its neighbors where they were. Off by default
   // so a single-word fix doesn't silently reshuffle the whole line.
   const [cascadeWordEdits, setCascadeWordEdits] = useState(false);
-  // A scrollable overview of every line at once, for adjusting timing
-  // without needing playback to actually reach each one.
-  const [allLinesOpen, setAllLinesOpen] = useState(false);
-  const [expandedLineTag, setExpandedLineTag] = useState<string | null>(null);
-  // While the modal is open, keep whichever line is actually playing
-  // expanded automatically, so the live word-highlight is visible without
-  // having to manually tap the right line first.
-  useEffect(() => {
-    if (allLinesOpen && currentLine >= 0 && lines[currentLine]) {
-      setExpandedLineTag(lines[currentLine].tag);
-    }
-  }, [allLinesOpen, currentLine]);
   // High-quality curated translations bundled with the app (time -> Hebrew).
   const [bundledTr, setBundledTr] = useState<Record<string, string>>({});
   // Real per-word timestamps from offline forced alignment, keyed by LRC
@@ -1063,12 +1047,6 @@ export default function YouTubeScreen({ navigation, route }: any) {
       for (let i = 0; i < lines.length; i++) {
         if (lines[i].time <= t) idx = i;
       }
-      // If a line's been on screen longer than the cap and the next one
-      // hasn't started yet (a long instrumental gap), drop back to nothing
-      // shown instead of leaving it lingering the whole gap.
-      if (maxLineDisplay > 0 && idx >= 0 && t - lines[idx].time > maxLineDisplay) {
-        idx = -1;
-      }
       setCurrentLine(idx);
       setIsPlaying(playerRef.current?.getPlayerState?.() === 1);
 
@@ -1125,7 +1103,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
       }
     }, 120);
     return () => clearInterval(id);
-  }, [lines, syncOffset, wordTiming, maxLineDisplay]);
+  }, [lines, syncOffset, wordTiming]);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -1178,11 +1156,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
         )}
         {error ? <Text style={styles.error}>{error}</Text> : null}
 
-        {/* Player — not rendered here while the all-lines modal is open,
-            since that modal renders its own copy instead. Same component
-            and onReady callback either way, so playerRef always points at
-            whichever one is actually mounted. */}
-        {videoId && !allLinesOpen && (
+        {videoId && (
           <View style={styles.playerWrap}>
             {(artist || track) && (
               <Text style={styles.nowPlaying} numberOfLines={1}>
@@ -1288,187 +1262,6 @@ export default function YouTubeScreen({ navigation, route }: any) {
             </TouchableOpacity>
           </View>
         )}
-        {lines.length > 0 && (
-          <View style={styles.maxDisplayRow}>
-            <Text style={styles.syncHint}>מקסימום הצגת שורה (0 = ללא הגבלה):</Text>
-            <TouchableOpacity
-              style={styles.offsetBtn}
-              onPress={() => setMaxLineDisplay((v) => Math.max(0, +(v - 1).toFixed(1)))}
-              hitSlop={6}
-            >
-              <Text style={styles.offsetBtnText}>−</Text>
-            </TouchableOpacity>
-            <Text style={styles.offsetLabel}>{maxLineDisplay}s</Text>
-            <TouchableOpacity
-              style={styles.offsetBtn}
-              onPress={() => setMaxLineDisplay((v) => +(v + 1).toFixed(1))}
-              hitSlop={6}
-            >
-              <Text style={styles.offsetBtnText}>+</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-        {canEditTranslations && lines.length > 0 && (
-          <TouchableOpacity
-            style={styles.calBtn}
-            onPress={() => setAllLinesOpen((v) => !v)}
-            activeOpacity={0.85}
-          >
-            <Text style={styles.calBtnText}>{allLinesOpen ? '✕ סגור תצוגת כל השורות' : '📋 הצג את כל השורות'}</Text>
-          </TouchableOpacity>
-        )}
-        <Modal
-          visible={allLinesOpen}
-          transparent={false}
-          animationType="slide"
-          onRequestClose={() => setAllLinesOpen(false)}
-        >
-          <SafeAreaView style={styles.allLinesModal}>
-            <View style={styles.allLinesHeader}>
-              <Text style={styles.allLinesTitle}>כל השורות</Text>
-              <TouchableOpacity onPress={() => setAllLinesOpen(false)} hitSlop={8}>
-                <MaterialIcons name="close" size={24} color={colors.text} />
-              </TouchableOpacity>
-            </View>
-            {/* Top half: playback controls for the SAME player still running
-                underneath this modal — not a second video instance, which
-                would otherwise fight over playerRef and double the audio. */}
-            <View style={styles.allLinesPlayerHalf}>
-              {videoId && allLinesOpen && <YouTubePlayer videoId={videoId} onReady={onPlayerReady} />}
-              <Text style={styles.allLinesNowPlaying} numberOfLines={1}>
-                {lines[currentLine]?.text || '♪'}
-              </Text>
-              <View style={styles.controlsRow}>
-                <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(-2)} activeOpacity={0.8}>
-                  <Text style={styles.ctrlText}>⏪ 2</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={[styles.ctrlBtn, styles.playBtn]} onPress={togglePlay} activeOpacity={0.8}>
-                  <Text style={styles.ctrlText}>{isPlaying ? '⏸  עצור' : '▶  נגן'}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.ctrlBtn} onPress={() => seek(2)} activeOpacity={0.8}>
-                  <Text style={styles.ctrlText}>2 ⏩</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-            <ScrollView style={styles.allLinesScrollHalf} contentContainerStyle={{ padding: spacing.md }}>
-              {lines.map((l, i) => {
-                const words = l.text ? l.text.split(/\s+/).filter(Boolean) : [];
-                const wt = wordTiming[l.tag];
-                const isExpanded = expandedLineTag === l.tag;
-                return (
-                  <View key={l.tag} style={styles.allLinesRow}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.sm }}>
-                      <TouchableOpacity onPress={() => shiftLineTime(i, -LINE_SHIFT_STEP)} hitSlop={6}>
-                        <MaterialIcons name="arrow-back" size={18} color={colors.primarySoft} />
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                        style={{ flex: 1 }}
-                        onPress={() => setExpandedLineTag(isExpanded ? null : l.tag)}
-                      >
-                        <Text style={styles.allLinesText} numberOfLines={2}>
-                          {l.tag} — {l.text || '♪'}
-                        </Text>
-                        {!!l.text && (
-                          <Text style={styles.allLinesHeText} numberOfLines={2}>
-                            {lineHe(i)}
-                          </Text>
-                        )}
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => shiftLineTime(i, LINE_SHIFT_STEP)} hitSlop={6}>
-                        <MaterialIcons name="arrow-forward" size={18} color={colors.primarySoft} />
-                      </TouchableOpacity>
-                      {!!wt?.length && (
-                        <>
-                          <TouchableOpacity onPress={() => nudgeCurrentLineTiming(i, -1)} hitSlop={6}>
-                            <MaterialIcons name="fast-forward" size={18} color={colors.primarySoft} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => nudgeCurrentLineTiming(i, 1)} hitSlop={6}>
-                            <MaterialIcons name="fast-rewind" size={18} color={colors.primarySoft} />
-                          </TouchableOpacity>
-                        </>
-                      )}
-                      {!!l.text && (
-                        <TouchableOpacity onPress={() => startEditingEnLine(l.tag, l.text)} hitSlop={6}>
-                          <MaterialIcons name="text-fields" size={18} color={colors.primarySoft} />
-                        </TouchableOpacity>
-                      )}
-                      {!!l.text && (
-                        <TouchableOpacity onPress={() => startEditingLine(l.tag, lineHe(i))} hitSlop={6}>
-                          <MaterialIcons name="edit" size={18} color={colors.warning} />
-                        </TouchableOpacity>
-                      )}
-                      <TouchableOpacity onPress={() => deleteLine(l.tag)} hitSlop={6}>
-                        <MaterialIcons name="delete-outline" size={18} color={colors.danger} />
-                      </TouchableOpacity>
-                    </View>
-                    {isExpanded && !!words.length && (
-                      <View style={styles.allLinesWordsRow}>
-                        {words.map((w, wi) => {
-                          const isActiveWord = karaokeOn && i === currentLine && wi === currentWord;
-                          const key = `${i}-${wi}`;
-                          const isSel = selected === key;
-                          return (
-                          <View key={wi} style={styles.allLinesWordCol}>
-                            {isSel && (
-                              <View style={styles.bubbleContainer} pointerEvents="box-none">
-                                <View style={styles.bubble}>
-                                  <TouchableOpacity onPress={closeBubble} activeOpacity={0.85}>
-                                    <Text style={styles.bubbleText}>{wordTranslation}</Text>
-                                  </TouchableOpacity>
-                                  <TouchableOpacity onPress={toggleSaveWord} hitSlop={8}>
-                                    <Text style={styles.bubbleStar}>{selectedSaved ? '★' : '☆'}</Text>
-                                  </TouchableOpacity>
-                                  {canEditTranslations && (
-                                    <TouchableOpacity onPress={() => markWordNow(l.tag, l.text, wi)} hitSlop={8}>
-                                      <MaterialIcons name="my-location" size={16} color="#fff" />
-                                    </TouchableOpacity>
-                                  )}
-                                </View>
-                                <View style={styles.bubbleArrow} />
-                              </View>
-                            )}
-                            <TouchableOpacity onPress={() => onWordPress(key, w)} activeOpacity={0.7}>
-                              <Text style={[styles.allLinesWordText, isActiveWord && styles.activeWord]}>{w}</Text>
-                            </TouchableOpacity>
-                            <TextInput
-                              key={`${l.tag}-${wi}-${wt?.[wi]?.start ?? ''}`}
-                              style={styles.wordTimeInput}
-                              defaultValue={wt?.[wi] ? formatMmSs(wt[wi].start - syncOffset) : ''}
-                              placeholder={formatMmSs(l.time + wi * DEFAULT_WORD_DURATION - syncOffset)}
-                              placeholderTextColor={colors.textFaint}
-                              keyboardType="numbers-and-punctuation"
-                              onSubmitEditing={(e) => setWordStartTime(l.tag, l.text, wi, e.nativeEvent.text)}
-                              onBlur={(e: any) =>
-                                setWordStartTime(l.tag, l.text, wi, e.nativeEvent.text ?? e.target?.value ?? '')
-                              }
-                            />
-                            <View style={styles.wordTimeStepRow}>
-                              <TouchableOpacity
-                                style={styles.wordTimeStepBtn}
-                                onPress={() => bumpWordTime(l.tag, l.text, wi, -WORD_TIME_STEP)}
-                                hitSlop={4}
-                              >
-                                <Text style={styles.wordTimeStepText}>−</Text>
-                              </TouchableOpacity>
-                              <TouchableOpacity
-                                style={styles.wordTimeStepBtn}
-                                onPress={() => bumpWordTime(l.tag, l.text, wi, WORD_TIME_STEP)}
-                                hitSlop={4}
-                              >
-                                <Text style={styles.wordTimeStepText}>+</Text>
-                              </TouchableOpacity>
-                            </View>
-                          </View>
-                          );
-                        })}
-                      </View>
-                    )}
-                  </View>
-                );
-              })}
-            </ScrollView>
-          </SafeAreaView>
-        </Modal>
         {/* Focused karaoke: only the current line (+ a peek at prev/next) */}
         {lines.length > 0 &&
           (() => {
@@ -1689,7 +1482,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
                   </View>
 
                   {/* Running song timer, just under the Hebrew subtitle. */}
-                  <Text style={styles.songTimer}>{formatMmSs(displayTime)}</Text>
+                  {canEditTranslations && <Text style={styles.songTimer}>{formatMmSs(displayTime)}</Text>}
 
                   {/* Always mounted at a fixed height, lyrics or not, so the
                       controls below never shift between sung lines and
@@ -2142,50 +1935,6 @@ const styles = StyleSheet.create({
   karaokeToggleActive: { borderColor: colors.primary, backgroundColor: colors.surfaceLight },
   karaokeToggleText: { color: colors.textFaint, fontSize: 12, fontWeight: '700' },
   karaokeToggleTextActive: { color: colors.primarySoft },
-  maxDisplayRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    marginTop: spacing.sm,
-  },
-  allLinesModal: { flex: 1, backgroundColor: colors.background },
-  allLinesHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.md,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.surfaceLight,
-  },
-  allLinesTitle: { color: colors.text, fontSize: 18, fontWeight: '800' },
-  allLinesPlayerHalf: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.surfaceLight,
-    paddingVertical: spacing.sm,
-  },
-  allLinesNowPlaying: { color: colors.primarySoft, fontSize: 16, fontWeight: '700', textAlign: 'center' },
-  allLinesScrollHalf: { flex: 1 },
-  allLinesRow: {
-    paddingVertical: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.surfaceLight,
-  },
-  allLinesText: { flex: 1, color: colors.primarySoft, fontSize: 13, textAlign: 'left', fontWeight: '700' },
-  allLinesHeText: { color: colors.textMuted, fontSize: 12, textAlign: 'left', marginTop: 2 },
-  allLinesWordsRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-    marginTop: spacing.sm,
-    paddingStart: 24,
-  },
-  allLinesWordCol: { alignItems: 'center' },
-  allLinesWordText: { color: colors.primarySoft, fontSize: 12, fontWeight: '700', marginBottom: 2 },
 
   // Focused karaoke view
   karaoke: { paddingHorizontal: spacing.lg, paddingTop: spacing.md, alignItems: 'center' },
