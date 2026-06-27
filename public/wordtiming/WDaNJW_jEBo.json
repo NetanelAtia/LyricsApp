@@ -3,7 +3,7 @@
     {
       "word": "Yeah",
       "start": 37.1,
-      "end": 37.45
+      "end": 39.78
     }
   ],
   "00:39.78": [
@@ -74,36 +74,38 @@
     {
       "word": "promise",
       "start": 47.69,
-      "end": 48.26
+      "end": 48.27
     },
     {
       "word": "I",
-      "start": 48.26,
-      "end": 48.34
+      "start": 48.27,
+      "end": 48.36
     },
     {
       "word": "ain't",
-      "start": 48.34,
-      "end": 48.74
-    },
+      "start": 48.36,
+      "end": 48.77
+    }
+  ],
+  "00:48.77": [
     {
       "word": "gonna",
-      "start": 48.74,
-      "end": 49.15
+      "start": 48.77,
+      "end": 49.17
     },
     {
       "word": "hold",
-      "start": 49.15,
-      "end": 49.47
+      "start": 49.17,
+      "end": 49.49
     },
     {
       "word": "out",
-      "start": 49.47,
-      "end": 49.71
+      "start": 49.49,
+      "end": 49.72
     },
     {
       "word": "neither",
-      "start": 49.71,
+      "start": 49.72,
       "end": 50.28
     }
   ],
@@ -173,65 +175,65 @@
   ],
   "00:55.00": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 55,
-      "end": 55.41
+      "end": 55.48
     },
     {
       "word": "if",
-      "start": 55.41,
-      "end": 55.62
+      "start": 55.48,
+      "end": 55.67
     },
     {
       "word": "you",
-      "start": 55.62,
-      "end": 55.93
+      "start": 55.67,
+      "end": 55.96
     },
     {
       "word": "give",
-      "start": 55.93,
+      "start": 55.96,
       "end": 56.35
     },
     {
       "word": "it",
       "start": 56.35,
-      "end": 56.55
+      "end": 56.54
     },
     {
       "word": "to",
-      "start": 56.55,
-      "end": 56.76
-    },
-    {
-      "word": "me",
-      "start": 56.76,
-      "end": 56.97
+      "start": 56.54,
+      "end": 56.73
     }
   ],
-  "00:56.97": [
+  "00:56.73": [
+    {
+      "word": "me,",
+      "start": 56.73,
+      "end": 57.02
+    },
     {
       "word": "I'll",
-      "start": 56.97,
-      "end": 57.37
+      "start": 57.02,
+      "end": 57.41
     },
     {
       "word": "give",
-      "start": 57.37,
-      "end": 57.77
+      "start": 57.41,
+      "end": 57.79
     },
     {
       "word": "it",
-      "start": 57.77,
-      "end": 57.97
+      "start": 57.79,
+      "end": 57.98
     },
     {
       "word": "to",
-      "start": 57.97,
-      "end": 58.17
+      "start": 57.98,
+      "end": 58.18
     },
     {
       "word": "you",
-      "start": 58.17,
+      "start": 58.18,
       "end": 58.47
     }
   ],
@@ -244,112 +246,112 @@
     {
       "word": "know",
       "start": 58.54,
-      "end": 58.84
+      "end": 58.83
     },
     {
       "word": "what",
-      "start": 58.84,
-      "end": 59.15
+      "start": 58.83,
+      "end": 59.12
     },
     {
       "word": "you",
-      "start": 59.15,
-      "end": 59.38
+      "start": 59.12,
+      "end": 59.34
     },
     {
-      "word": "want",
-      "start": 59.38,
-      "end": 59.68
+      "word": "want,",
+      "start": 59.34,
+      "end": 59.71
     }
   ],
-  "00:59.68": [
+  "00:59.71": [
     {
-      "word": "You",
-      "start": 59.68,
-      "end": 59.92
+      "word": "you",
+      "start": 59.71,
+      "end": 59.94
     },
     {
       "word": "know",
-      "start": 59.92,
-      "end": 60.24
+      "start": 59.94,
+      "end": 60.25
     },
     {
       "word": "I",
-      "start": 60.24,
-      "end": 60.31
+      "start": 60.25,
+      "end": 60.33
     },
     {
       "word": "got",
-      "start": 60.31,
-      "end": 60.55
+      "start": 60.33,
+      "end": 60.56
     },
     {
       "word": "it",
-      "start": 60.55,
+      "start": 60.56,
       "end": 60.71
     }
   ],
   "01:00.71": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 60.71,
-      "end": 61.1
+      "end": 61.16
     },
     {
       "word": "if",
-      "start": 61.1,
-      "end": 61.29
+      "start": 61.16,
+      "end": 61.34
     },
     {
       "word": "you",
-      "start": 61.29,
-      "end": 61.58
+      "start": 61.34,
+      "end": 61.61
     },
     {
       "word": "give",
-      "start": 61.58,
+      "start": 61.61,
       "end": 61.97
     },
     {
       "word": "it",
       "start": 61.97,
-      "end": 62.16
+      "end": 62.15
     },
     {
       "word": "to",
-      "start": 62.16,
-      "end": 62.36
-    },
-    {
-      "word": "me",
-      "start": 62.36,
-      "end": 62.55
+      "start": 62.15,
+      "end": 62.33
     }
   ],
-  "01:02.55": [
+  "01:02.33": [
+    {
+      "word": "me,",
+      "start": 62.33,
+      "end": 62.6
+    },
     {
       "word": "I'll",
-      "start": 62.55,
-      "end": 62.93
+      "start": 62.6,
+      "end": 62.96
     },
     {
       "word": "give",
-      "start": 62.93,
-      "end": 63.3
+      "start": 62.96,
+      "end": 63.32
     },
     {
       "word": "it",
-      "start": 63.3,
-      "end": 63.48
+      "start": 63.32,
+      "end": 63.5
     },
     {
       "word": "to",
-      "start": 63.48,
-      "end": 63.67
+      "start": 63.5,
+      "end": 63.68
     },
     {
       "word": "you",
-      "start": 63.67,
+      "start": 63.68,
       "end": 63.95
     }
   ],
@@ -357,48 +359,46 @@
     {
       "word": "As",
       "start": 63.95,
-      "end": 64.12
+      "end": 64.11
     },
     {
       "word": "long",
-      "start": 64.12,
-      "end": 64.45
+      "start": 64.11,
+      "end": 64.44
     },
     {
       "word": "as",
-      "start": 64.45,
-      "end": 64.61
+      "start": 64.44,
+      "end": 64.6
     },
     {
       "word": "you",
-      "start": 64.61,
-      "end": 64.86
+      "start": 64.6,
+      "end": 64.84
     },
     {
-      "word": "want",
-      "start": 64.86,
-      "end": 65.19
-    }
-  ],
-  "01:05.19": [
+      "word": "want,",
+      "start": 64.84,
+      "end": 65.24
+    },
     {
-      "word": "You",
-      "start": 65.19,
-      "end": 65.44
+      "word": "you",
+      "start": 65.24,
+      "end": 65.49
     },
     {
       "word": "know",
-      "start": 65.44,
-      "end": 65.78
+      "start": 65.49,
+      "end": 65.81
     },
     {
       "word": "I",
-      "start": 65.78,
-      "end": 65.87
+      "start": 65.81,
+      "end": 65.89
     },
     {
       "word": "got",
-      "start": 65.87,
+      "start": 65.89,
       "end": 66.13
     },
     {
@@ -409,65 +409,65 @@
   ],
   "01:06.30": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 66.3,
-      "end": 66.69
+      "end": 66.75
     },
     {
       "word": "if",
-      "start": 66.69,
-      "end": 66.89
+      "start": 66.75,
+      "end": 66.94
     },
     {
       "word": "you",
-      "start": 66.89,
-      "end": 67.18
+      "start": 66.94,
+      "end": 67.21
     },
     {
       "word": "give",
-      "start": 67.18,
+      "start": 67.21,
       "end": 67.58
     },
     {
       "word": "it",
       "start": 67.58,
-      "end": 67.78
+      "end": 67.76
     },
     {
       "word": "to",
-      "start": 67.78,
-      "end": 67.98
-    },
-    {
-      "word": "me",
-      "start": 67.98,
-      "end": 68.17
+      "start": 67.76,
+      "end": 67.95
     }
   ],
-  "01:08.17": [
+  "01:07.95": [
+    {
+      "word": "me,",
+      "start": 67.95,
+      "end": 68.22
+    },
     {
       "word": "I'll",
-      "start": 68.17,
-      "end": 68.55
+      "start": 68.22,
+      "end": 68.59
     },
     {
       "word": "give",
-      "start": 68.55,
-      "end": 68.93
+      "start": 68.59,
+      "end": 68.96
     },
     {
       "word": "it",
-      "start": 68.93,
-      "end": 69.12
+      "start": 68.96,
+      "end": 69.14
     },
     {
       "word": "to",
-      "start": 69.12,
-      "end": 69.31
+      "start": 69.14,
+      "end": 69.32
     },
     {
       "word": "you",
-      "start": 69.31,
+      "start": 69.32,
       "end": 69.6
     }
   ],
@@ -480,43 +480,43 @@
     {
       "word": "know",
       "start": 69.67,
-      "end": 69.97
+      "end": 69.96
     },
     {
       "word": "what",
-      "start": 69.97,
-      "end": 70.27
+      "start": 69.96,
+      "end": 70.24
     },
     {
       "word": "you",
-      "start": 70.27,
-      "end": 70.49
+      "start": 70.24,
+      "end": 70.45
     },
     {
-      "word": "want",
-      "start": 70.49,
-      "end": 70.78
+      "word": "want,",
+      "start": 70.45,
+      "end": 70.81
     }
   ],
-  "01:10.78": [
+  "01:10.81": [
     {
-      "word": "You",
-      "start": 70.78,
-      "end": 71.02
+      "word": "you",
+      "start": 70.81,
+      "end": 71.04
     },
     {
       "word": "know",
-      "start": 71.02,
-      "end": 71.33
+      "start": 71.04,
+      "end": 71.34
     },
     {
       "word": "I",
-      "start": 71.33,
-      "end": 71.4
+      "start": 71.34,
+      "end": 71.41
     },
     {
       "word": "got",
-      "start": 71.4,
+      "start": 71.41,
       "end": 71.64
     },
     {
@@ -527,65 +527,65 @@
   ],
   "01:11.79": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 71.79,
-      "end": 72.21
+      "end": 72.28
     },
     {
       "word": "if",
-      "start": 72.21,
-      "end": 72.42
+      "start": 72.28,
+      "end": 72.47
     },
     {
       "word": "you",
-      "start": 72.42,
-      "end": 72.73
+      "start": 72.47,
+      "end": 72.76
     },
     {
       "word": "give",
-      "start": 72.73,
+      "start": 72.76,
       "end": 73.14
     },
     {
       "word": "it",
       "start": 73.14,
-      "end": 73.35
+      "end": 73.34
     },
     {
       "word": "to",
-      "start": 73.35,
-      "end": 73.56
-    },
-    {
-      "word": "me",
-      "start": 73.56,
-      "end": 73.77
+      "start": 73.34,
+      "end": 73.53
     }
   ],
-  "01:13.77": [
+  "01:13.53": [
+    {
+      "word": "me,",
+      "start": 73.53,
+      "end": 73.82
+    },
     {
       "word": "I'll",
-      "start": 73.77,
-      "end": 74.17
+      "start": 73.82,
+      "end": 74.21
     },
     {
       "word": "give",
-      "start": 74.17,
-      "end": 74.57
+      "start": 74.21,
+      "end": 74.59
     },
     {
       "word": "it",
-      "start": 74.57,
-      "end": 74.77
+      "start": 74.59,
+      "end": 74.79
     },
     {
       "word": "to",
-      "start": 74.77,
-      "end": 74.97
+      "start": 74.79,
+      "end": 74.98
     },
     {
       "word": "you",
-      "start": 74.97,
+      "start": 74.98,
       "end": 75.27
     }
   ],
@@ -598,48 +598,46 @@
     {
       "word": "long",
       "start": 75.42,
-      "end": 75.72
+      "end": 75.71
     },
     {
       "word": "as",
-      "start": 75.72,
-      "end": 75.87
+      "start": 75.71,
+      "end": 75.86
     },
     {
       "word": "you",
-      "start": 75.87,
-      "end": 76.09
+      "start": 75.86,
+      "end": 76.08
     },
     {
-      "word": "want",
-      "start": 76.09,
-      "end": 76.39
-    }
-  ],
-  "01:16.39": [
+      "word": "want,",
+      "start": 76.08,
+      "end": 76.45
+    },
     {
-      "word": "You",
-      "start": 76.39,
-      "end": 76.63
+      "word": "you",
+      "start": 76.45,
+      "end": 76.67
     },
     {
       "word": "know",
-      "start": 76.63,
-      "end": 76.94
+      "start": 76.67,
+      "end": 76.96
     },
     {
       "word": "I",
-      "start": 76.94,
-      "end": 77.01
+      "start": 76.96,
+      "end": 77.03
     },
     {
       "word": "got",
-      "start": 77.01,
-      "end": 77.24
+      "start": 77.03,
+      "end": 77.25
     },
     {
       "word": "it",
-      "start": 77.24,
+      "start": 77.25,
       "end": 77.4
     }
   ],
@@ -657,46 +655,48 @@
     {
       "word": "together",
       "start": 77.83,
-      "end": 78.39
+      "end": 78.41
     },
     {
       "word": "for",
-      "start": 78.39,
-      "end": 78.61
+      "start": 78.41,
+      "end": 78.63
     },
     {
       "word": "a",
-      "start": 78.61,
-      "end": 78.68
+      "start": 78.63,
+      "end": 78.7
     },
     {
       "word": "few",
-      "start": 78.68,
-      "end": 78.89
-    },
+      "start": 78.7,
+      "end": 78.92
+    }
+  ],
+  "01:18.92": [
     {
       "word": "years,",
-      "start": 78.89,
-      "end": 79.32
+      "start": 78.92,
+      "end": 79.34
     },
     {
       "word": "shared",
-      "start": 79.32,
-      "end": 79.75
+      "start": 79.34,
+      "end": 79.76
     },
     {
       "word": "a",
-      "start": 79.75,
-      "end": 79.82
+      "start": 79.76,
+      "end": 79.83
     },
     {
       "word": "few",
-      "start": 79.82,
-      "end": 80.03
+      "start": 79.83,
+      "end": 80.04
     },
     {
       "word": "tears",
-      "start": 80.03,
+      "start": 80.04,
       "end": 80.39
     }
   ],
@@ -704,51 +704,53 @@
     {
       "word": "Called",
       "start": 80.39,
-      "end": 80.73
+      "end": 80.72
     },
     {
       "word": "each",
-      "start": 80.73,
-      "end": 80.97
+      "start": 80.72,
+      "end": 80.94
     },
     {
       "word": "other",
-      "start": 80.97,
-      "end": 81.26
+      "start": 80.94,
+      "end": 81.22
     },
     {
       "word": "nicknames",
-      "start": 81.26,
-      "end": 81.78
-    },
+      "start": 81.22,
+      "end": 81.73
+    }
+  ],
+  "01:21.73": [
     {
       "word": "like",
-      "start": 81.78,
-      "end": 82.02
+      "start": 81.73,
+      "end": 81.97
     },
     {
       "word": "Sugar",
-      "start": 82.02,
-      "end": 82.31
+      "start": 81.97,
+      "end": 82.27
     },
     {
       "word": "Plum",
-      "start": 82.31,
-      "end": 82.54
+      "start": 82.27,
+      "end": 82.52
     },
     {
       "word": "and",
-      "start": 82.54,
-      "end": 82.71
+      "start": 82.52,
+      "end": 82.7
     },
     {
       "word": "Poo",
-      "start": 82.71,
-      "end": 82.89
+      "start": 82.7,
+      "end": 82.88
     },
     {
       "word": "Bear",
-      "start": 82.89,
+      "start": 82.88,
       "end": 83.12
     }
   ],
@@ -756,41 +758,43 @@
     {
       "word": "I'm",
       "start": 83.12,
-      "end": 83.35
+      "end": 83.36
     },
     {
       "word": "always",
-      "start": 83.35,
-      "end": 83.82
+      "start": 83.36,
+      "end": 83.84
     },
     {
       "word": "on",
-      "start": 83.82,
-      "end": 83.97
+      "start": 83.84,
+      "end": 84
     },
     {
       "word": "the",
-      "start": 83.97,
-      "end": 84.21
-    },
+      "start": 84,
+      "end": 84.24
+    }
+  ],
+  "01:24.24": [
     {
       "word": "road,",
-      "start": 84.21,
-      "end": 84.59
+      "start": 84.24,
+      "end": 84.62
     },
     {
       "word": "hardly",
-      "start": 84.59,
-      "end": 85.06
+      "start": 84.62,
+      "end": 85.07
     },
     {
       "word": "ever",
-      "start": 85.06,
-      "end": 85.37
+      "start": 85.07,
+      "end": 85.38
     },
     {
       "word": "home",
-      "start": 85.37,
+      "start": 85.38,
       "end": 85.68
     }
   ],
@@ -798,51 +802,53 @@
     {
       "word": "Always",
       "start": 85.68,
-      "end": 86.16
+      "end": 86.13
     },
     {
       "word": "busy",
-      "start": 86.16,
-      "end": 86.48
+      "start": 86.13,
+      "end": 86.43
     },
     {
-      "word": "this",
-      "start": 86.48,
-      "end": 86.8
+      "word": "this,",
+      "start": 86.43,
+      "end": 86.81
     },
     {
       "word": "busy",
-      "start": 86.8,
-      "end": 87.13
+      "start": 86.81,
+      "end": 87.11
     },
     {
-      "word": "that",
-      "start": 87.13,
-      "end": 87.45
-    },
+      "word": "that,",
+      "start": 87.11,
+      "end": 87.49
+    }
+  ],
+  "01:27.49": [
     {
       "word": "can't",
-      "start": 87.45,
-      "end": 87.85
+      "start": 87.49,
+      "end": 87.88
     },
     {
       "word": "talk",
-      "start": 87.85,
-      "end": 88.17
+      "start": 87.88,
+      "end": 88.19
     },
     {
       "word": "on",
-      "start": 88.17,
-      "end": 88.33
+      "start": 88.19,
+      "end": 88.35
     },
     {
       "word": "the",
-      "start": 88.33,
-      "end": 88.57
+      "start": 88.35,
+      "end": 88.58
     },
     {
       "word": "phone",
-      "start": 88.57,
+      "start": 88.58,
       "end": 88.98
     }
   ],
@@ -855,83 +861,82 @@
     {
       "word": "know",
       "start": 89.05,
-      "end": 89.32
+      "end": 89.33
     },
     {
       "word": "you",
-      "start": 89.32,
-      "end": 89.53
+      "start": 89.33,
+      "end": 89.55
     },
     {
       "word": "aggravated,",
-      "start": 89.53,
-      "end": 90.3
-    },
+      "start": 89.55,
+      "end": 90.33
+    }
+  ],
+  "01:30.33": [
     {
       "word": "walk",
-      "start": 90.3,
-      "end": 90.58
+      "start": 90.33,
+      "end": 90.61
     },
     {
       "word": "around",
-      "start": 90.58,
-      "end": 91
+      "start": 90.61,
+      "end": 91.01
     },
     {
       "word": "frustrated",
-      "start": 91,
+      "start": 91.01,
       "end": 91.69
     }
   ],
   "01:31.69": [
     {
-      "word": "Ya",
+      "word": "Patience",
       "start": 91.69,
-      "end": 91.81
-    },
-    {
-      "word": "patience",
-      "start": 91.81,
-      "end": 92.3
+      "end": 92.19
     },
     {
       "word": "gettin'",
-      "start": 92.3,
-      "end": 92.72
+      "start": 92.19,
+      "end": 92.62
     },
     {
       "word": "short,",
-      "start": 92.72,
-      "end": 93.09
+      "start": 92.62,
+      "end": 92.99
     },
     {
       "word": "how",
-      "start": 93.09,
-      "end": 93.27
-    },
+      "start": 92.99,
+      "end": 93.17
+    }
+  ],
+  "01:33.17": [
     {
       "word": "longer",
-      "start": 93.27,
-      "end": 93.63
+      "start": 93.17,
+      "end": 93.56
     },
     {
       "word": "can",
-      "start": 93.63,
-      "end": 93.81
+      "start": 93.56,
+      "end": 93.76
     },
     {
       "word": "you",
-      "start": 93.81,
-      "end": 93.99
+      "start": 93.76,
+      "end": 93.95
     },
     {
       "word": "tolerate",
-      "start": 93.99,
-      "end": 94.48
+      "start": 93.95,
+      "end": 94.47
     },
     {
       "word": "it",
-      "start": 94.48,
+      "start": 94.47,
       "end": 94.6
     }
   ],
@@ -939,31 +944,33 @@
     {
       "word": "Listen",
       "start": 94.6,
-      "end": 95.11
+      "end": 95.1
     },
     {
       "word": "ma",
-      "start": 95.11,
-      "end": 95.28
+      "start": 95.1,
+      "end": 95.27
     },
     {
       "word": "I'm",
-      "start": 95.28,
-      "end": 95.53
+      "start": 95.27,
+      "end": 95.52
     },
     {
       "word": "just",
-      "start": 95.53,
-      "end": 95.87
-    },
+      "start": 95.52,
+      "end": 95.85
+    }
+  ],
+  "01:35.85": [
     {
       "word": "motivated,",
-      "start": 95.87,
-      "end": 96.72
+      "start": 95.85,
+      "end": 96.71
     },
     {
       "word": "I",
-      "start": 96.72,
+      "start": 96.71,
       "end": 96.8
     },
     {
@@ -979,11 +986,11 @@
     {
       "word": "for",
       "start": 97.31,
-      "end": 97.57
+      "end": 97.56
     },
     {
       "word": "us",
-      "start": 97.57,
+      "start": 97.56,
       "end": 97.74
     }
   ],
@@ -991,31 +998,33 @@
     {
       "word": "Step",
       "start": 97.74,
-      "end": 97.98
+      "end": 97.99
     },
     {
       "word": "on",
-      "start": 97.98,
+      "start": 97.99,
       "end": 98.11
     },
     {
       "word": "the",
       "start": 98.11,
-      "end": 98.29
+      "end": 98.3
     },
     {
       "word": "grind",
-      "start": 98.29,
-      "end": 98.6
-    },
+      "start": 98.3,
+      "end": 98.61
+    }
+  ],
+  "01:38.61": [
     {
       "word": "tryin'",
-      "start": 98.6,
-      "end": 98.97
+      "start": 98.61,
+      "end": 98.98
     },
     {
       "word": "to",
-      "start": 98.97,
+      "start": 98.98,
       "end": 99.1
     },
     {
@@ -1075,36 +1084,38 @@
     {
       "word": "stuck",
       "start": 101.12,
-      "end": 101.38
+      "end": 101.4
     },
     {
       "word": "with",
-      "start": 101.38,
-      "end": 101.59
+      "start": 101.4,
+      "end": 101.62
     },
     {
       "word": "me",
-      "start": 101.59,
-      "end": 101.7
-    },
+      "start": 101.62,
+      "end": 101.73
+    }
+  ],
+  "01:41.73": [
     {
       "word": "through",
-      "start": 101.7,
-      "end": 102.07
+      "start": 101.73,
+      "end": 102.09
     },
     {
       "word": "my",
-      "start": 102.07,
-      "end": 102.17
+      "start": 102.09,
+      "end": 102.19
     },
     {
       "word": "whole",
-      "start": 102.17,
-      "end": 102.44
+      "start": 102.19,
+      "end": 102.45
     },
     {
       "word": "struggle",
-      "start": 102.44,
+      "start": 102.45,
       "end": 102.86
     }
   ],
@@ -1171,41 +1182,41 @@
     {
       "word": "I'ma",
       "start": 105.75,
-      "end": 106.09
+      "end": 106.08
     },
     {
       "word": "stand",
-      "start": 106.09,
-      "end": 106.51
+      "start": 106.08,
+      "end": 106.49
     },
     {
       "word": "as",
-      "start": 106.51,
-      "end": 106.68
+      "start": 106.49,
+      "end": 106.65
     },
     {
       "word": "a",
-      "start": 106.68,
-      "end": 106.77
+      "start": 106.65,
+      "end": 106.73
     },
     {
-      "word": "man",
-      "start": 106.77,
-      "end": 107.02
+      "word": "man,",
+      "start": 106.73,
+      "end": 107.06
     },
     {
       "word": "never",
-      "start": 107.02,
-      "end": 107.45
+      "start": 107.06,
+      "end": 107.47
     },
     {
       "word": "above",
-      "start": 107.45,
-      "end": 107.87
+      "start": 107.47,
+      "end": 107.88
     },
     {
       "word": "ya",
-      "start": 107.87,
+      "start": 107.88,
       "end": 108.04
     }
   ],
@@ -1218,36 +1229,38 @@
     {
       "word": "can",
       "start": 108.1,
-      "end": 108.27
+      "end": 108.28
     },
     {
       "word": "tell",
-      "start": 108.27,
-      "end": 108.5
+      "start": 108.28,
+      "end": 108.53
     },
     {
       "word": "that",
-      "start": 108.5,
-      "end": 108.73
+      "start": 108.53,
+      "end": 108.77
     },
     {
       "word": "you",
-      "start": 108.73,
-      "end": 108.9
-    },
+      "start": 108.77,
+      "end": 108.96
+    }
+  ],
+  "01:48.96": [
     {
       "word": "different",
-      "start": 108.9,
-      "end": 109.41
+      "start": 108.96,
+      "end": 109.44
     },
     {
       "word": "from",
-      "start": 109.41,
-      "end": 109.64
+      "start": 109.44,
+      "end": 109.66
     },
     {
       "word": "most",
-      "start": 109.64,
+      "start": 109.66,
       "end": 109.87
     }
   ],
@@ -1272,31 +1285,31 @@
     {
       "word": "And",
       "start": 110.97,
-      "end": 111.15
+      "end": 111.11
     },
     {
-      "word": "that",
-      "start": 111.15,
-      "end": 111.39
+      "word": "the",
+      "start": 111.11,
+      "end": 111.26
     },
     {
       "word": "ill",
-      "start": 111.39,
-      "end": 111.58
+      "start": 111.26,
+      "end": 111.41
     },
     {
-      "word": "shit",
-      "start": 111.58,
-      "end": 111.82
+      "word": "(censored)",
+      "start": 111.41,
+      "end": 111.91
     },
     {
       "word": "about",
-      "start": 111.82,
-      "end": 112.13
+      "start": 111.91,
+      "end": 112.15
     },
     {
       "word": "it",
-      "start": 112.13,
+      "start": 112.15,
       "end": 112.25
     }
   ],
@@ -1331,31 +1344,31 @@
     {
       "word": "But",
       "start": 113.43,
-      "end": 113.67
+      "end": 113.66
     },
     {
       "word": "when",
-      "start": 113.67,
-      "end": 114
+      "start": 113.66,
+      "end": 113.97
     },
     {
       "word": "we",
-      "start": 114,
-      "end": 114.16
+      "start": 113.97,
+      "end": 114.12
     },
     {
-      "word": "sex",
-      "start": 114.16,
-      "end": 114.41
+      "word": "sex,",
+      "start": 114.12,
+      "end": 114.43
     },
     {
       "word": "we",
-      "start": 114.41,
-      "end": 114.57
+      "start": 114.43,
+      "end": 114.59
     },
     {
       "word": "tease",
-      "start": 114.57,
+      "start": 114.59,
       "end": 114.98
     }
   ],
@@ -1452,7 +1465,7 @@
       "end": 119.55
     },
     {
-      "word": "god",
+      "word": "God",
       "start": 119.55,
       "end": 119.72
     },
@@ -1471,112 +1484,110 @@
     {
       "word": "To",
       "start": 120.6,
-      "end": 120.76
+      "end": 120.75
     },
     {
       "word": "relax",
-      "start": 120.76,
-      "end": 121.17
+      "start": 120.75,
+      "end": 121.14
     },
     {
       "word": "for",
-      "start": 121.17,
-      "end": 121.42
+      "start": 121.14,
+      "end": 121.37
     },
     {
       "word": "the",
-      "start": 121.42,
-      "end": 121.67
+      "start": 121.37,
+      "end": 121.6
     },
     {
-      "word": "day",
-      "start": 121.67,
-      "end": 121.92
-    }
-  ],
-  "02:01.92": [
-    {
-      "word": "It's",
-      "start": 121.92,
-      "end": 122.25
+      "word": "day,",
+      "start": 121.6,
+      "end": 121.91
     },
     {
-      "word": "on",
-      "start": 122.25,
-      "end": 122.42
+      "word": "it's",
+      "start": 121.91,
+      "end": 122.22
+    },
+    {
+      "word": "all",
+      "start": 122.22,
+      "end": 122.46
     },
     {
       "word": "you",
-      "start": 122.42,
-      "end": 122.68
+      "start": 122.46,
+      "end": 122.69
     },
     {
       "word": "ma",
-      "start": 122.68,
+      "start": 122.69,
       "end": 122.84
     }
   ],
   "02:02.84": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 122.84,
-      "end": 123.16
+      "end": 123.21
     },
     {
       "word": "if",
-      "start": 123.16,
-      "end": 123.31
+      "start": 123.21,
+      "end": 123.35
     },
     {
       "word": "you",
-      "start": 123.31,
-      "end": 123.54
+      "start": 123.35,
+      "end": 123.57
     },
     {
       "word": "give",
-      "start": 123.54,
+      "start": 123.57,
       "end": 123.86
     },
     {
       "word": "it",
       "start": 123.86,
-      "end": 124.01
+      "end": 124
     },
     {
       "word": "to",
-      "start": 124.01,
-      "end": 124.17
-    },
-    {
-      "word": "me",
-      "start": 124.17,
-      "end": 124.32
+      "start": 124,
+      "end": 124.14
     }
   ],
-  "02:04.32": [
+  "02:04.14": [
+    {
+      "word": "me,",
+      "start": 124.15,
+      "end": 124.36
+    },
     {
       "word": "I'll",
-      "start": 124.32,
-      "end": 124.62
+      "start": 124.36,
+      "end": 124.65
     },
     {
       "word": "give",
-      "start": 124.62,
-      "end": 124.92
+      "start": 124.65,
+      "end": 124.94
     },
     {
       "word": "it",
-      "start": 124.92,
-      "end": 125.07
+      "start": 124.94,
+      "end": 125.08
     },
     {
       "word": "to",
-      "start": 125.07,
-      "end": 125.22
+      "start": 125.08,
+      "end": 125.23
     },
     {
       "word": "you",
-      "start": 125.22,
+      "start": 125.23,
       "end": 125.45
     }
   ],
@@ -1589,112 +1600,112 @@
     {
       "word": "know",
       "start": 125.52,
-      "end": 125.82
+      "end": 125.81
     },
     {
       "word": "what",
-      "start": 125.82,
-      "end": 126.13
+      "start": 125.81,
+      "end": 126.1
     },
     {
       "word": "you",
-      "start": 126.13,
-      "end": 126.35
+      "start": 126.1,
+      "end": 126.32
     },
     {
-      "word": "want",
-      "start": 126.35,
-      "end": 126.65
+      "word": "want,",
+      "start": 126.32,
+      "end": 126.68
     }
   ],
-  "02:06.65": [
+  "02:06.68": [
     {
-      "word": "You",
-      "start": 126.65,
-      "end": 126.89
+      "word": "you",
+      "start": 126.68,
+      "end": 126.91
     },
     {
       "word": "know",
-      "start": 126.89,
-      "end": 127.21
+      "start": 126.91,
+      "end": 127.22
     },
     {
       "word": "I",
-      "start": 127.21,
-      "end": 127.29
+      "start": 127.22,
+      "end": 127.3
     },
     {
       "word": "got",
-      "start": 127.29,
-      "end": 127.52
+      "start": 127.3,
+      "end": 127.53
     },
     {
       "word": "it",
-      "start": 127.52,
+      "start": 127.53,
       "end": 127.68
     }
   ],
   "02:07.68": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 127.68,
-      "end": 128.08
+      "end": 128.14
     },
     {
       "word": "if",
-      "start": 128.08,
-      "end": 128.28
+      "start": 128.14,
+      "end": 128.33
     },
     {
       "word": "you",
-      "start": 128.28,
-      "end": 128.57
+      "start": 128.33,
+      "end": 128.6
     },
     {
       "word": "give",
-      "start": 128.57,
+      "start": 128.6,
       "end": 128.97
     },
     {
       "word": "it",
       "start": 128.97,
-      "end": 129.17
+      "end": 129.15
     },
     {
       "word": "to",
-      "start": 129.17,
-      "end": 129.37
-    },
-    {
-      "word": "me",
-      "start": 129.37,
-      "end": 129.56
+      "start": 129.15,
+      "end": 129.34
     }
   ],
-  "02:09.56": [
+  "02:09.34": [
+    {
+      "word": "me,",
+      "start": 129.34,
+      "end": 129.61
+    },
     {
       "word": "I'll",
-      "start": 129.56,
-      "end": 129.95
+      "start": 129.61,
+      "end": 129.98
     },
     {
       "word": "give",
-      "start": 129.95,
-      "end": 130.33
+      "start": 129.98,
+      "end": 130.35
     },
     {
       "word": "it",
-      "start": 130.33,
-      "end": 130.52
+      "start": 130.35,
+      "end": 130.53
     },
     {
       "word": "to",
-      "start": 130.52,
-      "end": 130.71
+      "start": 130.53,
+      "end": 130.72
     },
     {
       "word": "you",
-      "start": 130.71,
+      "start": 130.72,
       "end": 131
     }
   ],
@@ -1707,112 +1718,110 @@
     {
       "word": "long",
       "start": 131.15,
-      "end": 131.47
+      "end": 131.46
     },
     {
       "word": "as",
-      "start": 131.47,
-      "end": 131.63
+      "start": 131.46,
+      "end": 131.62
     },
     {
       "word": "you",
-      "start": 131.63,
-      "end": 131.87
+      "start": 131.62,
+      "end": 131.85
     },
     {
-      "word": "want",
-      "start": 131.87,
-      "end": 132.19
-    }
-  ],
-  "02:12.19": [
+      "word": "want,",
+      "start": 131.85,
+      "end": 132.24
+    },
     {
-      "word": "You",
-      "start": 132.19,
-      "end": 132.43
+      "word": "you",
+      "start": 132.24,
+      "end": 132.47
     },
     {
       "word": "know",
-      "start": 132.43,
-      "end": 132.76
+      "start": 132.47,
+      "end": 132.78
     },
     {
       "word": "I",
-      "start": 132.76,
-      "end": 132.84
+      "start": 132.78,
+      "end": 132.86
     },
     {
       "word": "got",
-      "start": 132.84,
-      "end": 133.09
+      "start": 132.86,
+      "end": 133.1
     },
     {
       "word": "it",
-      "start": 133.09,
+      "start": 133.1,
       "end": 133.25
     }
   ],
   "02:13.25": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 133.25,
-      "end": 133.65
+      "end": 133.71
     },
     {
       "word": "if",
-      "start": 133.65,
-      "end": 133.84
+      "start": 133.71,
+      "end": 133.89
     },
     {
       "word": "you",
-      "start": 133.84,
-      "end": 134.14
+      "start": 133.89,
+      "end": 134.17
     },
     {
       "word": "give",
-      "start": 134.14,
+      "start": 134.17,
       "end": 134.53
     },
     {
       "word": "it",
       "start": 134.53,
-      "end": 134.73
+      "end": 134.72
     },
     {
       "word": "to",
-      "start": 134.73,
-      "end": 134.93
-    },
-    {
-      "word": "me",
-      "start": 134.93,
-      "end": 135.12
+      "start": 134.72,
+      "end": 134.9
     }
   ],
-  "02:15.12": [
+  "02:14.90": [
+    {
+      "word": "me,",
+      "start": 134.9,
+      "end": 135.17
+    },
     {
       "word": "I'll",
-      "start": 135.12,
-      "end": 135.5
+      "start": 135.17,
+      "end": 135.54
     },
     {
       "word": "give",
-      "start": 135.5,
-      "end": 135.88
+      "start": 135.54,
+      "end": 135.91
     },
     {
       "word": "it",
-      "start": 135.88,
-      "end": 136.07
+      "start": 135.91,
+      "end": 136.09
     },
     {
       "word": "to",
-      "start": 136.07,
-      "end": 136.26
+      "start": 136.09,
+      "end": 136.27
     },
     {
       "word": "you",
-      "start": 136.26,
+      "start": 136.27,
       "end": 136.55
     }
   ],
@@ -1820,117 +1829,117 @@
     {
       "word": "I",
       "start": 136.55,
-      "end": 136.63
+      "end": 136.62
     },
     {
       "word": "know",
-      "start": 136.63,
-      "end": 136.93
+      "start": 136.62,
+      "end": 136.92
     },
     {
       "word": "what",
-      "start": 136.93,
-      "end": 137.23
+      "start": 136.92,
+      "end": 137.21
     },
     {
       "word": "you",
-      "start": 137.23,
-      "end": 137.46
+      "start": 137.21,
+      "end": 137.43
     },
     {
-      "word": "want",
-      "start": 137.46,
-      "end": 137.77
+      "word": "want,",
+      "start": 137.43,
+      "end": 137.79
     }
   ],
-  "02:17.77": [
+  "02:17.79": [
     {
-      "word": "You",
-      "start": 137.77,
-      "end": 138.01
+      "word": "you",
+      "start": 137.79,
+      "end": 138.03
     },
     {
       "word": "know",
-      "start": 138.01,
-      "end": 138.33
+      "start": 138.03,
+      "end": 138.34
     },
     {
       "word": "I",
-      "start": 138.33,
-      "end": 138.4
+      "start": 138.34,
+      "end": 138.42
     },
     {
       "word": "got",
-      "start": 138.4,
-      "end": 138.64
+      "start": 138.42,
+      "end": 138.65
     },
     {
       "word": "it",
-      "start": 138.64,
+      "start": 138.65,
       "end": 138.8
     }
   ],
   "02:18.80": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 138.8,
-      "end": 139.2
+      "end": 139.27
     },
     {
       "word": "if",
-      "start": 139.2,
-      "end": 139.4
+      "start": 139.27,
+      "end": 139.45
     },
     {
       "word": "you",
-      "start": 139.4,
-      "end": 139.7
+      "start": 139.45,
+      "end": 139.73
     },
     {
       "word": "give",
-      "start": 139.7,
+      "start": 139.73,
       "end": 140.1
     },
     {
       "word": "it",
       "start": 140.1,
-      "end": 140.3
+      "end": 140.29
     },
     {
       "word": "to",
-      "start": 140.3,
-      "end": 140.5
-    },
-    {
-      "word": "me",
-      "start": 140.5,
-      "end": 140.7
+      "start": 140.29,
+      "end": 140.47
     }
   ],
-  "02:20.70": [
+  "02:20.47": [
+    {
+      "word": "me,",
+      "start": 140.47,
+      "end": 140.75
+    },
     {
       "word": "I'll",
-      "start": 140.7,
-      "end": 141.08
+      "start": 140.75,
+      "end": 141.12
     },
     {
       "word": "give",
-      "start": 141.08,
-      "end": 141.47
+      "start": 141.12,
+      "end": 141.49
     },
     {
       "word": "it",
-      "start": 141.47,
-      "end": 141.66
+      "start": 141.49,
+      "end": 141.68
     },
     {
       "word": "to",
-      "start": 141.66,
-      "end": 141.85
+      "start": 141.68,
+      "end": 141.86
     },
     {
       "word": "you",
-      "start": 141.85,
+      "start": 141.86,
       "end": 142.14
     }
   ],
@@ -1938,53 +1947,26 @@
     {
       "word": "As",
       "start": 142.14,
-      "end": 142.18
+      "end": 142.32
     },
     {
       "word": "long",
-      "start": 142.18,
-      "end": 142.26
+      "start": 142.32,
+      "end": 142.67
     },
     {
       "word": "as",
-      "start": 142.26,
-      "end": 142.3
+      "start": 142.67,
+      "end": 142.85
     },
     {
       "word": "you",
-      "start": 142.3,
-      "end": 142.36
+      "start": 142.85,
+      "end": 143.11
     },
     {
       "word": "want",
-      "start": 142.36,
-      "end": 142.44
-    }
-  ],
-  "02:22.80": [
-    {
-      "word": "You",
-      "start": 142.19,
-      "end": 142.48
-    },
-    {
-      "word": "know",
-      "start": 142.48,
-      "end": 142.88
-    },
-    {
-      "word": "I",
-      "start": 142.88,
-      "end": 142.98
-    },
-    {
-      "word": "got",
-      "start": 142.98,
-      "end": 143.27
-    },
-    {
-      "word": "it",
-      "start": 143.27,
+      "start": 143.11,
       "end": 143.47
     }
   ],
@@ -2044,7 +2026,7 @@
   ],
   "02:25.99": [
     {
-      "word": "And",
+      "word": "and",
       "start": 145.99,
       "end": 146.2
     },
@@ -2108,7 +2090,7 @@
   ],
   "02:29.08": [
     {
-      "word": "To",
+      "word": "to",
       "start": 149.08,
       "end": 149.21
     },
@@ -2140,23 +2122,23 @@
   ],
   "02:30.34": [
     {
-      "word": "(Listen)",
+      "word": "Listen,",
       "start": 150.34,
-      "end": 150.78
+      "end": 150.72
     },
     {
       "word": "I'm",
-      "start": 150.78,
-      "end": 150.94
+      "start": 150.72,
+      "end": 150.89
     },
     {
       "word": "never",
-      "start": 150.94,
-      "end": 151.22
+      "start": 150.89,
+      "end": 151.16
     },
     {
-      "word": "home",
-      "start": 151.22,
+      "word": "home,",
+      "start": 151.16,
       "end": 151.44
     }
   ],
@@ -2196,31 +2178,33 @@
     {
       "word": "Puttin'",
       "start": 152.49,
-      "end": 153.05
+      "end": 153.11
     },
     {
       "word": "you",
-      "start": 153.05,
-      "end": 153.3
+      "start": 153.11,
+      "end": 153.37
     },
     {
       "word": "through",
-      "start": 153.3,
-      "end": 153.86
+      "start": 153.37,
+      "end": 153.99
     },
     {
       "word": "the",
-      "start": 153.86,
-      "end": 154.1
-    },
+      "start": 153.99,
+      "end": 154.26
+    }
+  ],
+  "02:34.26": [
     {
       "word": "unnecessary",
-      "start": 154.1,
-      "end": 154.98
+      "start": 154.26,
+      "end": 155.14
     },
     {
-      "word": "rigga-ma-ro",
-      "start": 154.98,
+      "word": "rigmarole",
+      "start": 155.14,
       "end": 155.87
     }
   ],
@@ -2297,58 +2281,68 @@
     {
       "word": "I",
       "start": 158.2,
-      "end": 158.28
+      "end": 158.27
     },
     {
       "word": "love",
-      "start": 158.28,
-      "end": 158.59
+      "start": 158.27,
+      "end": 158.54
     },
     {
       "word": "the",
-      "start": 158.59,
-      "end": 158.83
+      "start": 158.54,
+      "end": 158.75
     },
     {
       "word": "way",
-      "start": 158.83,
-      "end": 159.07
+      "start": 158.75,
+      "end": 158.96
     },
     {
       "word": "we",
-      "start": 159.07,
-      "end": 159.23
+      "start": 158.96,
+      "end": 159.1
     },
     {
       "word": "sleep",
-      "start": 159.23,
-      "end": 159.62
+      "start": 159.1,
+      "end": 159.44
+    },
+    {
+      "word": "and",
+      "start": 159.44,
+      "end": 159.65
     }
   ],
-  "02:39.62": [
+  "02:39.65": [
     {
-      "word": "And",
-      "start": 159.62,
-      "end": 159.84
+      "word": "how",
+      "start": 159.65,
+      "end": 159.85
+    },
+    {
+      "word": "we",
+      "start": 159.85,
+      "end": 159.98
     },
     {
       "word": "always",
-      "start": 159.84,
-      "end": 160.29
+      "start": 159.98,
+      "end": 160.38
     },
     {
       "word": "cuddle",
-      "start": 160.29,
-      "end": 160.74
+      "start": 160.38,
+      "end": 160.78
     },
     {
       "word": "in",
-      "start": 160.74,
-      "end": 160.89
+      "start": 160.78,
+      "end": 160.91
     },
     {
       "word": "bed",
-      "start": 160.89,
+      "start": 160.91,
       "end": 161.11
     }
   ],
@@ -2415,48 +2409,48 @@
     {
       "word": "I",
       "start": 164.31,
-      "end": 164.38
+      "end": 164.37
     },
     {
       "word": "ask",
-      "start": 164.38,
-      "end": 164.58
+      "start": 164.37,
+      "end": 164.56
     },
     {
       "word": "you",
-      "start": 164.58,
-      "end": 164.78
+      "start": 164.56,
+      "end": 164.75
     },
     {
       "word": "my",
-      "start": 164.78,
-      "end": 164.91
+      "start": 164.75,
+      "end": 164.88
     },
     {
-      "word": "mami",
-      "start": 164.91,
-      "end": 165.18
+      "word": "mami,",
+      "start": 164.88,
+      "end": 165.19
+    },
+    {
+      "word": "please",
+      "start": 165.19,
+      "end": 165.57
     }
   ],
-  "02:45.18": [
-    {
-      "word": "Please",
-      "start": 165.18,
-      "end": 165.55
-    },
+  "02:45.57": [
     {
       "word": "continue",
-      "start": 165.55,
-      "end": 166.04
+      "start": 165.57,
+      "end": 166.05
     },
     {
       "word": "to",
-      "start": 166.04,
-      "end": 166.16
+      "start": 166.05,
+      "end": 166.17
     },
     {
       "word": "bear",
-      "start": 166.16,
+      "start": 166.17,
       "end": 166.41
     },
     {
@@ -2474,43 +2468,43 @@
     {
       "word": "We",
       "start": 166.78,
-      "end": 166.94
+      "end": 166.93
     },
     {
       "word": "started",
-      "start": 166.94,
-      "end": 167.52
+      "start": 166.93,
+      "end": 167.49
     },
     {
       "word": "out",
-      "start": 167.52,
-      "end": 167.76
+      "start": 167.49,
+      "end": 167.73
     },
     {
-      "word": "broke",
-      "start": 167.76,
-      "end": 168.17
+      "word": "broke,",
+      "start": 167.73,
+      "end": 168.21
     }
   ],
-  "02:48.17": [
+  "02:48.21": [
     {
-      "word": "Constantly",
-      "start": 168.17,
-      "end": 169
+      "word": "constantly",
+      "start": 168.21,
+      "end": 169.01
     },
     {
       "word": "on",
-      "start": 169,
-      "end": 169.16
+      "start": 169.01,
+      "end": 169.17
     },
     {
       "word": "a",
-      "start": 169.16,
-      "end": 169.24
+      "start": 169.17,
+      "end": 169.25
     },
     {
       "word": "roll",
-      "start": 169.24,
+      "start": 169.25,
       "end": 169.57
     }
   ],
@@ -2518,56 +2512,58 @@
     {
       "word": "Cuttin'",
       "start": 169.57,
-      "end": 170.03
+      "end": 170.02
     },
     {
       "word": "up",
-      "start": 170.03,
-      "end": 170.16
+      "start": 170.02,
+      "end": 170.15
     },
     {
       "word": "in",
-      "start": 170.16,
-      "end": 170.29
+      "start": 170.15,
+      "end": 170.28
     },
     {
       "word": "the",
-      "start": 170.29,
-      "end": 170.49
+      "start": 170.28,
+      "end": 170.47
     },
     {
       "word": "streets",
-      "start": 170.49,
-      "end": 170.94
-    },
+      "start": 170.47,
+      "end": 170.92
+    }
+  ],
+  "02:50.92": [
     {
       "word": "like",
-      "start": 170.94,
-      "end": 171.21
+      "start": 170.92,
+      "end": 171.19
     },
     {
       "word": "we",
-      "start": 171.21,
-      "end": 171.34
+      "start": 171.19,
+      "end": 171.32
     },
     {
       "word": "would",
-      "start": 171.34,
-      "end": 171.66
+      "start": 171.32,
+      "end": 171.65
     },
     {
       "word": "never",
-      "start": 171.66,
-      "end": 171.99
+      "start": 171.65,
+      "end": 171.98
     },
     {
       "word": "get",
-      "start": 171.99,
-      "end": 172.19
+      "start": 171.98,
+      "end": 172.18
     },
     {
       "word": "old",
-      "start": 172.19,
+      "start": 172.18,
       "end": 172.38
     }
   ],
@@ -2575,46 +2571,48 @@
     {
       "word": "Went",
       "start": 172.38,
-      "end": 172.67
+      "end": 172.68
     },
     {
       "word": "from",
-      "start": 172.67,
-      "end": 172.95
+      "start": 172.68,
+      "end": 172.99
     },
     {
       "word": "looseys",
-      "start": 172.95,
-      "end": 173.46
+      "start": 172.99,
+      "end": 173.52
     },
     {
       "word": "and",
-      "start": 173.46,
-      "end": 173.67
-    },
+      "start": 173.52,
+      "end": 173.75
+    }
+  ],
+  "02:53.75": [
     {
       "word": "buses",
-      "start": 173.67,
-      "end": 174.03
+      "start": 173.75,
+      "end": 174.14
     },
     {
       "word": "to",
-      "start": 174.03,
-      "end": 174.17
+      "start": 174.14,
+      "end": 174.3
     },
     {
-      "word": "fifty",
-      "start": 174.17,
-      "end": 174.53
+      "word": "50",
+      "start": 174.3,
+      "end": 174.46
     },
     {
       "word": "cent",
-      "start": 174.53,
-      "end": 174.82
+      "start": 174.46,
+      "end": 174.78
     },
     {
       "word": "sodas",
-      "start": 174.82,
+      "start": 174.78,
       "end": 175.18
     }
   ],
@@ -2664,53 +2662,43 @@
     {
       "word": "Mad",
       "start": 178.15,
-      "end": 178.31
+      "end": 178.35
     },
     {
       "word": "years",
-      "start": 178.31,
-      "end": 178.59
+      "start": 178.35,
+      "end": 178.69
     },
     {
-      "word": "passed",
-      "start": 178.59,
-      "end": 178.93
+      "word": "passed,",
+      "start": 178.69,
+      "end": 179.17
+    },
+    {
+      "word": "still",
+      "start": 179.17,
+      "end": 179.51
     }
   ],
-  "02:58.93": [
-    {
-      "word": "Still",
-      "start": 178.93,
-      "end": 179.22
-    },
+  "02:59.50": [
     {
       "word": "got",
-      "start": 179.22,
-      "end": 179.39
+      "start": 179.51,
+      "end": 179.72
     },
     {
       "word": "each",
-      "start": 179.39,
-      "end": 179.63
+      "start": 179.72,
+      "end": 180
     },
     {
       "word": "other",
-      "start": 179.63,
-      "end": 179.92
+      "start": 180,
+      "end": 180.35
     },
     {
       "word": "back",
-      "start": 179.92,
-      "end": 180.16
-    },
-    {
-      "word": "(oh",
-      "start": 180.16,
-      "end": 180.33
-    },
-    {
-      "word": "yeah)",
-      "start": 180.33,
+      "start": 180.35,
       "end": 180.63
     }
   ],
@@ -2723,51 +2711,53 @@
     {
       "word": "is",
       "start": 180.88,
-      "end": 181
+      "end": 181.01
     },
     {
-      "word": "bond",
-      "start": 181,
-      "end": 181.25
+      "word": "bond,",
+      "start": 181.01,
+      "end": 181.32
     },
     {
       "word": "never",
-      "start": 181.25,
-      "end": 181.56
+      "start": 181.32,
+      "end": 181.64
     },
     {
       "word": "screw",
-      "start": 181.56,
-      "end": 181.88
+      "start": 181.64,
+      "end": 181.95
     },
     {
       "word": "none",
-      "start": 181.88,
-      "end": 182.13
-    },
+      "start": 181.95,
+      "end": 182.21
+    }
+  ],
+  "03:02.21": [
     {
       "word": "of",
-      "start": 182.13,
-      "end": 182.25
+      "start": 182.21,
+      "end": 182.33
     },
     {
       "word": "these",
-      "start": 182.25,
-      "end": 182.56
+      "start": 182.33,
+      "end": 182.64
     },
     {
       "word": "industry",
-      "start": 182.56,
-      "end": 183.07
+      "start": 182.64,
+      "end": 183.13
     },
     {
-      "word": "cats",
-      "start": 183.07,
-      "end": 183.32
+      "word": "cats,",
+      "start": 183.13,
+      "end": 183.44
     },
     {
-      "word": "(boy)",
-      "start": 183.32,
+      "word": "boy",
+      "start": 183.44,
       "end": 183.63
     }
   ],
@@ -2824,31 +2814,33 @@
     {
       "word": "Milkin'",
       "start": 186.4,
-      "end": 186.85
+      "end": 186.84
     },
     {
       "word": "this",
-      "start": 186.85,
-      "end": 187.11
+      "start": 186.84,
+      "end": 187.09
     },
     {
-      "word": "game",
-      "start": 187.11,
-      "end": 187.37
+      "word": "game,",
+      "start": 187.09,
+      "end": 187.4
     },
     {
       "word": "watchin'",
-      "start": 187.37,
-      "end": 187.89
-    },
+      "start": 187.4,
+      "end": 187.9
+    }
+  ],
+  "03:07.90": [
     {
       "word": "our",
-      "start": 187.89,
-      "end": 188.08
+      "start": 187.9,
+      "end": 188.09
     },
     {
       "word": "seeds",
-      "start": 188.08,
+      "start": 188.09,
       "end": 188.41
     },
     {
@@ -2864,85 +2856,65 @@
   ],
   "03:09.18": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 189.18,
-      "end": 189.46
+      "end": 189.62
     },
     {
       "word": "if",
-      "start": 189.46,
-      "end": 189.59
+      "start": 189.62,
+      "end": 189.79
     },
     {
       "word": "you",
-      "start": 189.59,
-      "end": 189.8
+      "start": 189.79,
+      "end": 190.05
     },
     {
       "word": "give",
-      "start": 189.8,
-      "end": 190.08
+      "start": 190.05,
+      "end": 190.4
     },
     {
       "word": "it",
-      "start": 190.08,
-      "end": 190.21
+      "start": 190.4,
+      "end": 190.58
     },
     {
       "word": "to",
-      "start": 190.21,
-      "end": 190.35
-    },
-    {
-      "word": "me",
-      "start": 190.35,
-      "end": 190.49
+      "start": 190.58,
+      "end": 190.75
     }
   ],
-  "03:10.49": [
+  "03:10.75": [
+    {
+      "word": "me,",
+      "start": 190.75,
+      "end": 191.01
+    },
     {
       "word": "I'll",
-      "start": 190.49,
-      "end": 190.76
+      "start": 191.01,
+      "end": 191.36
     },
     {
       "word": "give",
-      "start": 190.76,
-      "end": 191.03
+      "start": 191.36,
+      "end": 191.71
     },
     {
       "word": "it",
-      "start": 191.03,
-      "end": 191.17
+      "start": 191.71,
+      "end": 191.89
     },
     {
       "word": "to",
-      "start": 191.17,
-      "end": 191.31
+      "start": 191.89,
+      "end": 192.06
     },
     {
       "word": "you",
-      "start": 191.31,
-      "end": 191.51
-    },
-    {
-      "word": "(give",
-      "start": 191.51,
-      "end": 191.85
-    },
-    {
-      "word": "it",
-      "start": 191.85,
-      "end": 191.98
-    },
-    {
-      "word": "to",
-      "start": 191.98,
-      "end": 192.12
-    },
-    {
-      "word": "me)",
-      "start": 192.12,
+      "start": 192.06,
       "end": 192.32
     }
   ],
@@ -2955,43 +2927,43 @@
     {
       "word": "know",
       "start": 192.4,
-      "end": 192.7
+      "end": 192.69
     },
     {
       "word": "what",
-      "start": 192.7,
-      "end": 193
+      "start": 192.69,
+      "end": 192.98
     },
     {
       "word": "you",
-      "start": 193,
-      "end": 193.23
+      "start": 192.98,
+      "end": 193.2
     },
     {
-      "word": "want",
-      "start": 193.23,
-      "end": 193.53
+      "word": "want,",
+      "start": 193.2,
+      "end": 193.56
     }
   ],
-  "03:13.53": [
+  "03:13.56": [
     {
-      "word": "You",
-      "start": 193.53,
-      "end": 193.77
+      "word": "you",
+      "start": 193.56,
+      "end": 193.79
     },
     {
       "word": "know",
-      "start": 193.77,
-      "end": 194.08
+      "start": 193.79,
+      "end": 194.1
     },
     {
       "word": "I",
-      "start": 194.08,
-      "end": 194.16
+      "start": 194.1,
+      "end": 194.17
     },
     {
       "word": "got",
-      "start": 194.16,
+      "start": 194.17,
       "end": 194.4
     },
     {
@@ -3002,65 +2974,65 @@
   ],
   "03:14.56": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 194.56,
-      "end": 194.96
+      "end": 195.03
     },
     {
       "word": "if",
-      "start": 194.96,
-      "end": 195.17
+      "start": 195.03,
+      "end": 195.22
     },
     {
       "word": "you",
-      "start": 195.17,
-      "end": 195.47
+      "start": 195.22,
+      "end": 195.5
     },
     {
       "word": "give",
-      "start": 195.47,
+      "start": 195.5,
       "end": 195.88
     },
     {
       "word": "it",
       "start": 195.88,
-      "end": 196.08
+      "end": 196.07
     },
     {
       "word": "to",
-      "start": 196.08,
-      "end": 196.28
-    },
-    {
-      "word": "me",
-      "start": 196.28,
-      "end": 196.49
+      "start": 196.07,
+      "end": 196.26
     }
   ],
-  "03:16.49": [
+  "03:16.26": [
+    {
+      "word": "me,",
+      "start": 196.26,
+      "end": 196.54
+    },
     {
       "word": "I'll",
-      "start": 196.49,
-      "end": 196.88
+      "start": 196.54,
+      "end": 196.92
     },
     {
       "word": "give",
-      "start": 196.88,
-      "end": 197.27
+      "start": 196.92,
+      "end": 197.29
     },
     {
       "word": "it",
-      "start": 197.27,
-      "end": 197.47
+      "start": 197.29,
+      "end": 197.48
     },
     {
       "word": "to",
-      "start": 197.47,
-      "end": 197.66
+      "start": 197.48,
+      "end": 197.67
     },
     {
       "word": "you",
-      "start": 197.66,
+      "start": 197.67,
       "end": 197.95
     }
   ],
@@ -3073,112 +3045,110 @@
     {
       "word": "long",
       "start": 198.11,
-      "end": 198.43
+      "end": 198.42
     },
     {
       "word": "as",
-      "start": 198.43,
-      "end": 198.59
+      "start": 198.42,
+      "end": 198.58
     },
     {
       "word": "you",
-      "start": 198.59,
-      "end": 198.83
+      "start": 198.58,
+      "end": 198.82
     },
     {
-      "word": "want",
-      "start": 198.83,
-      "end": 199.16
-    }
-  ],
-  "03:19.16": [
+      "word": "want,",
+      "start": 198.82,
+      "end": 199.21
+    },
     {
-      "word": "You",
-      "start": 199.16,
-      "end": 199.4
+      "word": "you",
+      "start": 199.21,
+      "end": 199.45
     },
     {
       "word": "know",
-      "start": 199.4,
-      "end": 199.73
+      "start": 199.45,
+      "end": 199.76
     },
     {
       "word": "I",
-      "start": 199.73,
-      "end": 199.82
+      "start": 199.76,
+      "end": 199.84
     },
     {
       "word": "got",
-      "start": 199.82,
-      "end": 200.06
+      "start": 199.84,
+      "end": 200.07
     },
     {
       "word": "it",
-      "start": 200.06,
+      "start": 200.07,
       "end": 200.23
     }
   ],
   "03:20.23": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 200.23,
-      "end": 200.62
+      "end": 200.69
     },
     {
       "word": "if",
-      "start": 200.62,
-      "end": 200.82
+      "start": 200.69,
+      "end": 200.87
     },
     {
       "word": "you",
-      "start": 200.82,
-      "end": 201.12
+      "start": 200.87,
+      "end": 201.15
     },
     {
       "word": "give",
-      "start": 201.12,
+      "start": 201.15,
       "end": 201.51
     },
     {
       "word": "it",
       "start": 201.51,
-      "end": 201.71
+      "end": 201.69
     },
     {
       "word": "to",
-      "start": 201.71,
-      "end": 201.91
-    },
-    {
-      "word": "me",
-      "start": 201.91,
-      "end": 202.1
+      "start": 201.69,
+      "end": 201.88
     }
   ],
-  "03:22.10": [
+  "03:21.88": [
+    {
+      "word": "me,",
+      "start": 201.88,
+      "end": 202.15
+    },
     {
       "word": "I'll",
-      "start": 202.1,
-      "end": 202.48
+      "start": 202.15,
+      "end": 202.52
     },
     {
       "word": "give",
-      "start": 202.48,
-      "end": 202.86
+      "start": 202.52,
+      "end": 202.88
     },
     {
       "word": "it",
-      "start": 202.86,
-      "end": 203.05
+      "start": 202.88,
+      "end": 203.07
     },
     {
       "word": "to",
-      "start": 203.05,
-      "end": 203.24
+      "start": 203.07,
+      "end": 203.25
     },
     {
       "word": "you",
-      "start": 203.24,
+      "start": 203.25,
       "end": 203.53
     }
   ],
@@ -3191,43 +3161,43 @@
     {
       "word": "know",
       "start": 203.6,
-      "end": 203.91
+      "end": 203.89
     },
     {
       "word": "what",
-      "start": 203.91,
-      "end": 204.21
+      "start": 203.89,
+      "end": 204.19
     },
     {
       "word": "you",
-      "start": 204.21,
-      "end": 204.44
+      "start": 204.19,
+      "end": 204.41
     },
     {
-      "word": "want",
-      "start": 204.44,
-      "end": 204.75
+      "word": "want,",
+      "start": 204.41,
+      "end": 204.78
     }
   ],
-  "03:24.75": [
+  "03:24.78": [
     {
-      "word": "You",
-      "start": 204.75,
-      "end": 204.99
+      "word": "you",
+      "start": 204.78,
+      "end": 205.01
     },
     {
       "word": "know",
-      "start": 204.99,
-      "end": 205.31
+      "start": 205.01,
+      "end": 205.32
     },
     {
       "word": "I",
-      "start": 205.31,
-      "end": 205.39
+      "start": 205.32,
+      "end": 205.4
     },
     {
       "word": "got",
-      "start": 205.39,
+      "start": 205.4,
       "end": 205.63
     },
     {
@@ -3238,65 +3208,65 @@
   ],
   "03:25.79": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 205.79,
-      "end": 206.17
+      "end": 206.24
     },
     {
       "word": "if",
-      "start": 206.17,
-      "end": 206.37
+      "start": 206.24,
+      "end": 206.42
     },
     {
       "word": "you",
-      "start": 206.37,
-      "end": 206.66
+      "start": 206.42,
+      "end": 206.68
     },
     {
       "word": "give",
-      "start": 206.66,
+      "start": 206.68,
       "end": 207.04
     },
     {
       "word": "it",
       "start": 207.04,
-      "end": 207.24
+      "end": 207.22
     },
     {
       "word": "to",
-      "start": 207.24,
-      "end": 207.43
-    },
-    {
-      "word": "me",
-      "start": 207.43,
-      "end": 207.62
+      "start": 207.22,
+      "end": 207.4
     }
   ],
-  "03:27.62": [
+  "03:27.40": [
+    {
+      "word": "me,",
+      "start": 207.4,
+      "end": 207.67
+    },
     {
       "word": "I'll",
-      "start": 207.62,
-      "end": 207.99
+      "start": 207.67,
+      "end": 208.03
     },
     {
       "word": "give",
-      "start": 207.99,
-      "end": 208.36
+      "start": 208.03,
+      "end": 208.39
     },
     {
       "word": "it",
-      "start": 208.36,
-      "end": 208.55
+      "start": 208.39,
+      "end": 208.57
     },
     {
       "word": "to",
-      "start": 208.55,
-      "end": 208.73
+      "start": 208.57,
+      "end": 208.74
     },
     {
       "word": "you",
-      "start": 208.73,
+      "start": 208.74,
       "end": 209.01
     }
   ],
@@ -3309,48 +3279,46 @@
     {
       "word": "long",
       "start": 209.18,
-      "end": 209.51
+      "end": 209.5
     },
     {
       "word": "as",
-      "start": 209.51,
-      "end": 209.68
+      "start": 209.5,
+      "end": 209.67
     },
     {
       "word": "you",
-      "start": 209.68,
-      "end": 209.93
+      "start": 209.67,
+      "end": 209.91
     },
     {
-      "word": "want",
-      "start": 209.93,
-      "end": 210.26
-    }
-  ],
-  "03:30.26": [
+      "word": "want,",
+      "start": 209.91,
+      "end": 210.32
+    },
     {
-      "word": "You",
-      "start": 210.26,
-      "end": 210.52
+      "word": "you",
+      "start": 210.32,
+      "end": 210.56
     },
     {
       "word": "know",
-      "start": 210.52,
-      "end": 210.86
+      "start": 210.56,
+      "end": 210.89
     },
     {
       "word": "I",
-      "start": 210.86,
-      "end": 210.95
+      "start": 210.89,
+      "end": 210.97
     },
     {
       "word": "got",
-      "start": 210.95,
-      "end": 211.21
+      "start": 210.97,
+      "end": 211.22
     },
     {
       "word": "it",
-      "start": 211.21,
+      "start": 211.22,
       "end": 211.38
     }
   ],
@@ -3395,36 +3363,36 @@
     {
       "word": "And",
       "start": 214.08,
-      "end": 214.44
-    },
-    {
-      "word": "ya",
-      "start": 214.44,
-      "end": 214.68
-    },
-    {
-      "word": "know",
-      "start": 214.68,
-      "end": 215.16
-    },
-    {
-      "word": "I'll",
-      "start": 215.16,
-      "end": 215.64
-    },
-    {
-      "word": "ride",
-      "start": 215.64,
-      "end": 216.12
-    },
-    {
-      "word": "with",
-      "start": 216.12,
-      "end": 216.6
+      "end": 214.42
     },
     {
       "word": "you",
-      "start": 216.6,
+      "start": 214.42,
+      "end": 214.77
+    },
+    {
+      "word": "know",
+      "start": 214.77,
+      "end": 215.23
+    },
+    {
+      "word": "I'll",
+      "start": 215.23,
+      "end": 215.69
+    },
+    {
+      "word": "ride",
+      "start": 215.69,
+      "end": 216.15
+    },
+    {
+      "word": "with",
+      "start": 216.15,
+      "end": 216.61
+    },
+    {
+      "word": "you",
+      "start": 216.61,
       "end": 216.96
     }
   ],
@@ -3511,36 +3479,31 @@
     {
       "word": "I",
       "start": 222.46,
-      "end": 222.57
+      "end": 222.58
     },
     {
       "word": "will",
-      "start": 222.57,
-      "end": 222.99
+      "start": 222.58,
+      "end": 223.06
     },
     {
       "word": "climb",
-      "start": 222.99,
-      "end": 223.51
+      "start": 223.06,
+      "end": 223.65
     },
     {
       "word": "a",
-      "start": 223.51,
-      "end": 223.62
+      "start": 223.65,
+      "end": 223.77
     },
     {
       "word": "mountain",
-      "start": 223.62,
-      "end": 224.46
+      "start": 223.77,
+      "end": 224.72
     },
     {
       "word": "high",
-      "start": 224.46,
-      "end": 224.88
-    },
-    {
-      "word": "aha",
-      "start": 224.88,
+      "start": 224.72,
       "end": 225.2
     }
   ],
@@ -3595,46 +3558,48 @@
     {
       "word": "baby",
       "start": 228.16,
-      "end": 228.5
+      "end": 228.51
     },
     {
       "word": "come",
-      "start": 228.5,
-      "end": 228.84
+      "start": 228.51,
+      "end": 228.86
     },
     {
       "word": "and",
-      "start": 228.84,
-      "end": 229.1
+      "start": 228.86,
+      "end": 229.13
     },
     {
       "word": "get",
-      "start": 229.1,
-      "end": 229.36
-    },
+      "start": 229.13,
+      "end": 229.39
+    }
+  ],
+  "03:49.39": [
     {
       "word": "more",
-      "start": 229.36,
-      "end": 229.7
+      "start": 229.39,
+      "end": 229.73
     },
     {
       "word": "close",
-      "start": 229.7,
-      "end": 230.13
+      "start": 229.73,
+      "end": 230.15
     },
     {
       "word": "to",
-      "start": 230.13,
-      "end": 230.3
+      "start": 230.15,
+      "end": 230.31
     },
     {
       "word": "me,",
-      "start": 230.3,
-      "end": 230.56
+      "start": 230.31,
+      "end": 230.57
     },
     {
       "word": "Mariah",
-      "start": 230.56,
+      "start": 230.57,
       "end": 231.07
     }
   ],
@@ -3642,46 +3607,48 @@
     {
       "word": "'Cause",
       "start": 231.07,
-      "end": 231.47
+      "end": 231.46
     },
     {
       "word": "this",
-      "start": 231.47,
+      "start": 231.46,
       "end": 231.73
     },
     {
       "word": "is",
       "start": 231.73,
-      "end": 231.87
+      "end": 231.86
     },
     {
       "word": "where",
-      "start": 231.87,
-      "end": 232.2
+      "start": 231.86,
+      "end": 232.19
     },
     {
       "word": "your",
-      "start": 232.2,
-      "end": 232.46
-    },
+      "start": 232.19,
+      "end": 232.45
+    }
+  ],
+  "03:52.45": [
     {
       "word": "love",
-      "start": 232.46,
-      "end": 232.73
+      "start": 232.45,
+      "end": 232.72
     },
     {
       "word": "is",
-      "start": 232.73,
-      "end": 232.86
+      "start": 232.72,
+      "end": 232.85
     },
     {
       "word": "supposed",
-      "start": 232.86,
-      "end": 233.4
+      "start": 232.85,
+      "end": 233.39
     },
     {
       "word": "to",
-      "start": 233.4,
+      "start": 233.39,
       "end": 233.53
     },
     {
@@ -3699,46 +3666,48 @@
     {
       "word": "pull",
       "start": 233.74,
-      "end": 234.04
+      "end": 234.07
     },
     {
       "word": "up",
-      "start": 234.04,
-      "end": 234.19
+      "start": 234.07,
+      "end": 234.23
     },
     {
       "word": "to",
-      "start": 234.19,
-      "end": 234.35
+      "start": 234.23,
+      "end": 234.39
     },
     {
       "word": "the",
-      "start": 234.35,
-      "end": 234.57
+      "start": 234.39,
+      "end": 234.63
     },
     {
       "word": "house",
-      "start": 234.57,
-      "end": 234.95
-    },
+      "start": 234.63,
+      "end": 235.04
+    }
+  ],
+  "03:55.04": [
     {
       "word": "in",
-      "start": 234.95,
-      "end": 235.11
-    },
-    {
-      "word": "a",
-      "start": 235.11,
+      "start": 235.04,
       "end": 235.18
     },
     {
-      "word": "yellow",
+      "word": "a",
       "start": 235.18,
-      "end": 235.64
+      "end": 235.25
+    },
+    {
+      "word": "yellow",
+      "start": 235.25,
+      "end": 235.68
     },
     {
       "word": "Lamborghini",
-      "start": 235.64,
+      "start": 235.68,
       "end": 236.48
     }
   ],
@@ -3751,41 +3720,43 @@
     {
       "word": "been",
       "start": 236.77,
-      "end": 237.07
+      "end": 237.06
     },
     {
       "word": "a",
-      "start": 237.07,
-      "end": 237.14
+      "start": 237.06,
+      "end": 237.13
     },
     {
       "word": "few",
-      "start": 237.14,
-      "end": 237.36
+      "start": 237.13,
+      "end": 237.35
     },
     {
       "word": "months",
-      "start": 237.36,
-      "end": 237.81
-    },
+      "start": 237.35,
+      "end": 237.79
+    }
+  ],
+  "03:57.79": [
     {
       "word": "in",
-      "start": 237.81,
-      "end": 237.95
+      "start": 237.79,
+      "end": 237.94
     },
     {
       "word": "PA",
-      "start": 237.95,
-      "end": 238.1
+      "start": 237.94,
+      "end": 238.09
     },
     {
       "word": "you",
-      "start": 238.1,
-      "end": 238.32
+      "start": 238.09,
+      "end": 238.31
     },
     {
       "word": "haven't",
-      "start": 238.32,
+      "start": 238.31,
       "end": 238.84
     },
     {
@@ -3840,31 +3811,31 @@
     {
       "word": "38",
       "start": 242.1,
-      "end": 242.32
+      "end": 242.31
     },
     {
-      "word": "carats",
-      "start": 242.32,
-      "end": 242.96
+      "word": "carats,",
+      "start": 242.31,
+      "end": 243.04
     },
     {
       "word": "ya",
-      "start": 242.96,
-      "end": 243.18
+      "start": 243.04,
+      "end": 243.24
     },
     {
       "word": "ring",
-      "start": 243.18,
-      "end": 243.61
+      "start": 243.24,
+      "end": 243.66
     },
     {
       "word": "lookin'",
-      "start": 243.61,
-      "end": 244.36
+      "start": 243.66,
+      "end": 244.39
     },
     {
       "word": "freezy",
-      "start": 244.36,
+      "start": 244.39,
       "end": 245.01
     }
   ],
@@ -3877,56 +3848,58 @@
     {
       "word": "matter",
       "start": 245.15,
-      "end": 245.56
+      "end": 245.57
     },
     {
       "word": "what",
-      "start": 245.56,
-      "end": 245.83
+      "start": 245.57,
+      "end": 245.85
     },
     {
       "word": "I",
-      "start": 245.83,
-      "end": 245.9
+      "start": 245.85,
+      "end": 245.92
     },
     {
       "word": "do",
-      "start": 245.9,
-      "end": 246.04
+      "start": 245.92,
+      "end": 246.06
     },
     {
       "word": "in",
-      "start": 246.04,
-      "end": 246.17
+      "start": 246.06,
+      "end": 246.2
     },
     {
       "word": "the",
-      "start": 246.17,
-      "end": 246.38
-    },
+      "start": 246.2,
+      "end": 246.4
+    }
+  ],
+  "04:06.40": [
     {
-      "word": "world",
-      "start": 246.38,
-      "end": 246.72
+      "word": "world,",
+      "start": 246.4,
+      "end": 246.79
     },
     {
       "word": "you",
-      "start": 246.72,
-      "end": 246.93
+      "start": 246.79,
+      "end": 246.98
     },
     {
       "word": "never",
-      "start": 246.93,
-      "end": 247.27
+      "start": 246.98,
+      "end": 247.3
     },
     {
       "word": "leave",
-      "start": 247.27,
-      "end": 247.61
+      "start": 247.3,
+      "end": 247.62
     },
     {
       "word": "me",
-      "start": 247.61,
+      "start": 247.62,
       "end": 247.75
     }
   ],
@@ -3934,41 +3907,43 @@
     {
       "word": "Fall",
       "start": 247.75,
-      "end": 248.1
+      "end": 248.09
     },
     {
       "word": "back",
-      "start": 248.1,
-      "end": 248.45
+      "start": 248.09,
+      "end": 248.44
     },
     {
-      "word": "ma",
-      "start": 248.45,
-      "end": 248.62
+      "word": "ma,",
+      "start": 248.44,
+      "end": 248.7
     },
     {
       "word": "I'll",
-      "start": 248.62,
-      "end": 248.97
-    },
+      "start": 248.7,
+      "end": 249.04
+    }
+  ],
+  "04:09.04": [
     {
       "word": "make",
-      "start": 248.97,
-      "end": 249.32
+      "start": 249.04,
+      "end": 249.38
     },
     {
       "word": "ya",
-      "start": 249.32,
-      "end": 249.49
+      "start": 249.38,
+      "end": 249.54
     },
     {
       "word": "lifestyle",
-      "start": 249.49,
-      "end": 250.28
+      "start": 249.54,
+      "end": 250.3
     },
     {
       "word": "easy",
-      "start": 250.28,
+      "start": 250.3,
       "end": 250.63
     }
   ],
@@ -3981,83 +3956,87 @@
     {
       "word": "appreciate",
       "start": 250.71,
-      "end": 251.57
+      "end": 251.5
     },
     {
       "word": "the",
-      "start": 251.57,
-      "end": 251.82
+      "start": 251.5,
+      "end": 251.74
     },
     {
       "word": "things",
-      "start": 251.82,
-      "end": 252.33
-    },
+      "start": 251.74,
+      "end": 252.21
+    }
+  ],
+  "04:12.21": [
     {
-      "word": "ya",
-      "start": 252.33,
-      "end": 252.5
+      "word": "you",
+      "start": 252.21,
+      "end": 252.48
     },
     {
       "word": "do",
-      "start": 252.5,
-      "end": 252.67
+      "start": 252.48,
+      "end": 252.65
     },
     {
       "word": "to",
-      "start": 252.67,
-      "end": 252.84
+      "start": 252.65,
+      "end": 252.83
     },
     {
       "word": "please",
-      "start": 252.84,
+      "start": 252.83,
       "end": 253.35
     },
     {
       "word": "me",
       "start": 253.35,
-      "end": 253.53
+      "end": 253.52
     }
   ],
   "04:13.53": [
     {
       "word": "Lookin'",
       "start": 253.53,
-      "end": 253.98
+      "end": 253.97
     },
     {
       "word": "at",
-      "start": 253.98,
-      "end": 254.12
+      "start": 253.97,
+      "end": 254.09
     },
     {
       "word": "my",
-      "start": 254.12,
-      "end": 254.25
+      "start": 254.09,
+      "end": 254.22
     },
     {
-      "word": "daughter",
-      "start": 254.25,
-      "end": 254.77
-    },
+      "word": "daughter,",
+      "start": 254.22,
+      "end": 254.78
+    }
+  ],
+  "04:14.78": [
     {
       "word": "you'll",
-      "start": 254.77,
+      "start": 254.78,
       "end": 255.17
     },
     {
       "word": "never",
       "start": 255.17,
-      "end": 255.49
+      "end": 255.5
     },
     {
       "word": "do",
-      "start": 255.49,
-      "end": 255.62
+      "start": 255.5,
+      "end": 255.63
     },
     {
       "word": "me",
-      "start": 255.62,
+      "start": 255.63,
       "end": 255.76
     },
     {
@@ -4068,65 +4047,65 @@
   ],
   "04:16.15": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 256.15,
-      "end": 256.53
+      "end": 256.59
     },
     {
       "word": "if",
-      "start": 256.53,
-      "end": 256.72
+      "start": 256.59,
+      "end": 256.77
     },
     {
       "word": "you",
-      "start": 256.72,
-      "end": 257.01
+      "start": 256.77,
+      "end": 257.04
     },
     {
       "word": "give",
-      "start": 257.01,
+      "start": 257.04,
       "end": 257.39
     },
     {
       "word": "it",
       "start": 257.39,
-      "end": 257.58
+      "end": 257.57
     },
     {
       "word": "to",
-      "start": 257.58,
-      "end": 257.78
-    },
-    {
-      "word": "me",
-      "start": 257.78,
-      "end": 257.97
+      "start": 257.57,
+      "end": 257.75
     }
   ],
-  "04:17.97": [
+  "04:17.75": [
+    {
+      "word": "me,",
+      "start": 257.75,
+      "end": 258.02
+    },
     {
       "word": "I'll",
-      "start": 257.97,
-      "end": 258.33
+      "start": 258.02,
+      "end": 258.37
     },
     {
       "word": "give",
-      "start": 258.33,
-      "end": 258.7
+      "start": 258.37,
+      "end": 258.73
     },
     {
       "word": "it",
-      "start": 258.7,
-      "end": 258.89
+      "start": 258.73,
+      "end": 258.9
     },
     {
       "word": "to",
-      "start": 258.89,
-      "end": 259.07
+      "start": 258.9,
+      "end": 259.08
     },
     {
       "word": "you",
-      "start": 259.07,
+      "start": 259.08,
       "end": 259.35
     }
   ],
@@ -4139,43 +4118,43 @@
     {
       "word": "know",
       "start": 259.42,
-      "end": 259.73
+      "end": 259.72
     },
     {
       "word": "what",
-      "start": 259.73,
-      "end": 260.03
+      "start": 259.72,
+      "end": 260.01
     },
     {
       "word": "you",
-      "start": 260.03,
-      "end": 260.26
+      "start": 260.01,
+      "end": 260.23
     },
     {
-      "word": "want",
-      "start": 260.26,
-      "end": 260.57
+      "word": "want,",
+      "start": 260.23,
+      "end": 260.6
     }
   ],
-  "04:20.57": [
+  "04:20.60": [
     {
-      "word": "You",
-      "start": 260.57,
-      "end": 260.81
+      "word": "you",
+      "start": 260.6,
+      "end": 260.83
     },
     {
       "word": "know",
-      "start": 260.81,
-      "end": 261.13
+      "start": 260.83,
+      "end": 261.14
     },
     {
       "word": "I",
-      "start": 261.13,
-      "end": 261.21
+      "start": 261.14,
+      "end": 261.22
     },
     {
       "word": "got",
-      "start": 261.21,
+      "start": 261.22,
       "end": 261.45
     },
     {
@@ -4186,65 +4165,65 @@
   ],
   "04:21.61": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 261.61,
-      "end": 262.01
+      "end": 262.08
     },
     {
       "word": "if",
-      "start": 262.01,
-      "end": 262.21
+      "start": 262.08,
+      "end": 262.26
     },
     {
       "word": "you",
-      "start": 262.21,
-      "end": 262.52
+      "start": 262.26,
+      "end": 262.55
     },
     {
       "word": "give",
-      "start": 262.52,
+      "start": 262.55,
       "end": 262.92
     },
     {
       "word": "it",
       "start": 262.92,
-      "end": 263.12
+      "end": 263.11
     },
     {
       "word": "to",
-      "start": 263.12,
-      "end": 263.33
-    },
-    {
-      "word": "me",
-      "start": 263.33,
-      "end": 263.53
+      "start": 263.11,
+      "end": 263.3
     }
   ],
-  "04:23.53": [
+  "04:23.30": [
+    {
+      "word": "me,",
+      "start": 263.3,
+      "end": 263.58
+    },
     {
       "word": "I'll",
-      "start": 263.53,
-      "end": 263.92
+      "start": 263.58,
+      "end": 263.96
     },
     {
       "word": "give",
-      "start": 263.92,
-      "end": 264.31
+      "start": 263.96,
+      "end": 264.33
     },
     {
       "word": "it",
-      "start": 264.31,
-      "end": 264.5
+      "start": 264.33,
+      "end": 264.52
     },
     {
       "word": "to",
-      "start": 264.5,
-      "end": 264.7
+      "start": 264.52,
+      "end": 264.71
     },
     {
       "word": "you",
-      "start": 264.7,
+      "start": 264.71,
       "end": 264.99
     }
   ],
@@ -4257,112 +4236,110 @@
     {
       "word": "long",
       "start": 265.14,
-      "end": 265.45
+      "end": 265.44
     },
     {
       "word": "as",
-      "start": 265.45,
-      "end": 265.6
+      "start": 265.44,
+      "end": 265.59
     },
     {
       "word": "you",
-      "start": 265.6,
-      "end": 265.83
+      "start": 265.59,
+      "end": 265.81
     },
     {
-      "word": "want",
-      "start": 265.83,
-      "end": 266.14
-    }
-  ],
-  "04:26.14": [
+      "word": "want,",
+      "start": 265.81,
+      "end": 266.19
+    },
     {
-      "word": "You",
-      "start": 266.14,
-      "end": 266.37
+      "word": "you",
+      "start": 266.19,
+      "end": 266.41
     },
     {
       "word": "know",
-      "start": 266.37,
-      "end": 266.69
+      "start": 266.41,
+      "end": 266.71
     },
     {
       "word": "I",
-      "start": 266.69,
-      "end": 266.77
+      "start": 266.71,
+      "end": 266.79
     },
     {
       "word": "got",
-      "start": 266.77,
-      "end": 267
+      "start": 266.79,
+      "end": 267.01
     },
     {
       "word": "it",
-      "start": 267,
+      "start": 267.01,
       "end": 267.16
     }
   ],
   "04:27.16": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 267.16,
-      "end": 267.57
+      "end": 267.63
     },
     {
       "word": "if",
-      "start": 267.57,
-      "end": 267.77
+      "start": 267.63,
+      "end": 267.82
     },
     {
       "word": "you",
-      "start": 267.77,
-      "end": 268.08
+      "start": 267.82,
+      "end": 268.11
     },
     {
       "word": "give",
-      "start": 268.08,
+      "start": 268.11,
       "end": 268.48
     },
     {
       "word": "it",
       "start": 268.48,
-      "end": 268.69
+      "end": 268.67
     },
     {
       "word": "to",
-      "start": 268.69,
-      "end": 268.89
-    },
-    {
-      "word": "me",
-      "start": 268.89,
-      "end": 269.09
+      "start": 268.67,
+      "end": 268.86
     }
   ],
-  "04:29.09": [
+  "04:28.86": [
+    {
+      "word": "me,",
+      "start": 268.86,
+      "end": 269.15
+    },
     {
       "word": "I'll",
-      "start": 269.09,
-      "end": 269.49
+      "start": 269.15,
+      "end": 269.52
     },
     {
       "word": "give",
-      "start": 269.49,
-      "end": 269.88
+      "start": 269.52,
+      "end": 269.9
     },
     {
       "word": "it",
-      "start": 269.88,
-      "end": 270.07
+      "start": 269.9,
+      "end": 270.09
     },
     {
       "word": "to",
-      "start": 270.07,
-      "end": 270.27
+      "start": 270.09,
+      "end": 270.28
     },
     {
       "word": "you",
-      "start": 270.27,
+      "start": 270.28,
       "end": 270.56
     }
   ],
@@ -4370,48 +4347,48 @@
     {
       "word": "I",
       "start": 270.56,
-      "end": 270.64
+      "end": 270.63
     },
     {
       "word": "know",
-      "start": 270.64,
-      "end": 270.93
+      "start": 270.63,
+      "end": 270.92
     },
     {
       "word": "what",
-      "start": 270.93,
-      "end": 271.22
+      "start": 270.92,
+      "end": 271.2
     },
     {
       "word": "you",
-      "start": 271.22,
-      "end": 271.44
+      "start": 271.2,
+      "end": 271.41
     },
     {
-      "word": "want",
-      "start": 271.44,
-      "end": 271.74
+      "word": "want,",
+      "start": 271.41,
+      "end": 271.76
     }
   ],
-  "04:31.74": [
+  "04:31.76": [
     {
-      "word": "You",
-      "start": 271.74,
-      "end": 271.97
+      "word": "you",
+      "start": 271.76,
+      "end": 271.99
     },
     {
       "word": "know",
-      "start": 271.97,
-      "end": 272.27
+      "start": 271.99,
+      "end": 272.28
     },
     {
       "word": "I",
-      "start": 272.27,
-      "end": 272.35
+      "start": 272.28,
+      "end": 272.36
     },
     {
       "word": "got",
-      "start": 272.35,
+      "start": 272.36,
       "end": 272.58
     },
     {
@@ -4422,65 +4399,65 @@
   ],
   "04:32.73": [
     {
-      "word": "Baby",
+      "word": "Baby,",
       "start": 272.73,
-      "end": 273.15
+      "end": 273.21
     },
     {
       "word": "if",
-      "start": 273.15,
-      "end": 273.35
+      "start": 273.21,
+      "end": 273.4
     },
     {
       "word": "you",
-      "start": 273.35,
-      "end": 273.66
+      "start": 273.4,
+      "end": 273.69
     },
     {
       "word": "give",
-      "start": 273.66,
+      "start": 273.69,
       "end": 274.07
     },
     {
       "word": "it",
       "start": 274.07,
-      "end": 274.28
+      "end": 274.27
     },
     {
       "word": "to",
-      "start": 274.28,
-      "end": 274.49
-    },
-    {
-      "word": "me",
-      "start": 274.49,
-      "end": 274.69
+      "start": 274.27,
+      "end": 274.46
     }
   ],
-  "04:34.69": [
+  "04:34.46": [
+    {
+      "word": "me,",
+      "start": 274.46,
+      "end": 274.74
+    },
     {
       "word": "I'll",
-      "start": 274.69,
-      "end": 275.09
+      "start": 274.74,
+      "end": 275.13
     },
     {
       "word": "give",
-      "start": 275.09,
-      "end": 275.49
+      "start": 275.13,
+      "end": 275.51
     },
     {
       "word": "it",
-      "start": 275.49,
-      "end": 275.68
+      "start": 275.51,
+      "end": 275.7
     },
     {
       "word": "to",
-      "start": 275.68,
-      "end": 275.88
+      "start": 275.7,
+      "end": 275.89
     },
     {
       "word": "you",
-      "start": 275.88,
+      "start": 275.89,
       "end": 276.18
     }
   ],
@@ -4493,70 +4470,68 @@
     {
       "word": "long",
       "start": 276.52,
-      "end": 277.21
+      "end": 277.19
     },
     {
       "word": "as",
-      "start": 277.21,
-      "end": 277.56
+      "start": 277.19,
+      "end": 277.53
     },
     {
       "word": "you",
-      "start": 277.56,
-      "end": 278.07
+      "start": 277.53,
+      "end": 278.03
     },
     {
-      "word": "want",
-      "start": 278.07,
-      "end": 278.76
-    }
-  ],
-  "04:38.76": [
+      "word": "want,",
+      "start": 278.03,
+      "end": 278.88
+    },
     {
-      "word": "You",
-      "start": 278.76,
-      "end": 278.83
+      "word": "you",
+      "start": 278.88,
+      "end": 279.38
     },
     {
       "word": "know",
-      "start": 278.83,
-      "end": 278.92
+      "start": 279.38,
+      "end": 280.06
     },
     {
       "word": "I",
-      "start": 278.92,
-      "end": 278.94
+      "start": 280.06,
+      "end": 280.22
     },
     {
       "word": "got",
-      "start": 278.94,
-      "end": 279.01
+      "start": 280.22,
+      "end": 280.73
     },
     {
       "word": "it",
-      "start": 279.01,
-      "end": 279.06
+      "start": 280.73,
+      "end": 281.07
     }
   ],
-  "04:40.50": [
+  "04:41.07": [
     {
       "word": "Flipmode",
-      "start": 278.81,
-      "end": 280.3
+      "start": 281.07,
+      "end": 281.8
     },
     {
       "word": "Records,",
-      "start": 280.3,
-      "end": 281.79
+      "start": 281.8,
+      "end": 282.54
     },
     {
       "word": "J",
-      "start": 281.79,
-      "end": 281.97
+      "start": 282.54,
+      "end": 282.63
     },
     {
       "word": "Records",
-      "start": 281.97,
+      "start": 282.63,
       "end": 283.28
     }
   ],
