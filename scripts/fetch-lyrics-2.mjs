@@ -6,6 +6,7 @@ const songs = [
   { videoId: 'xFYQQPAOz7Y', artist: 'Eminem', track: 'Lose Yourself' },
   { videoId: 'C7dPqrmDWxs', artist: 'Pharrell Williams', track: 'Happy' },
   { videoId: 'UXWFqxKU2qA', artist: 'Snoop Dogg', track: 'Vato' },
+  { videoId: 'gl1aHhXnN1k', artist: 'Ariana Grande', track: 'thank u, next' },
 ];
 
 const outDir = path.resolve('public/lyrics');

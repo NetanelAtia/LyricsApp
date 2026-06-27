@@ -76,6 +76,7 @@ export const readySongs = new Set<string>([
 ]);
 
 export const library: LibrarySong[] = [
+  { videoId: 'gl1aHhXnN1k', artist: 'Ariana Grande', track: 'thank u, next', emoji: '💅', accent: '#fd79a8' },
   { videoId: 'RBumgq5yVrA', artist: 'Passenger', track: 'Let Her Go', emoji: '🎸', accent: '#6c5ce7' },
   { videoId: 'GBSu_ltDu1w', artist: 'The Beatles', track: 'Blackbird', emoji: '🐦', accent: '#0984e3' },
   { videoId: 'L3wKzyIN1yk', artist: "Rag'n'Bone Man", track: 'Human', emoji: '✊', accent: '#00b894' },
