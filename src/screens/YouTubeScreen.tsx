@@ -138,7 +138,12 @@ export default function YouTubeScreen({ navigation, route }: any) {
   // bundled translation JSON on disk via a local helper server and commits
   // the change locally (never pushes — that stays a manual, reviewed step).
   // See scripts/dev-edit-server.mjs.
-  const canEditTranslations = __DEV__ && Platform.OS === 'web';
+  const isDevBuild = __DEV__ && Platform.OS === 'web';
+  // Lets you peek at the published-app view without all the dev edit
+  // controls (word-time inputs, calibration row, etc.) while still running
+  // the dev server — flip it back off to keep editing.
+  const [previewMode, setPreviewMode] = useState(false);
+  const canEditTranslations = isDevBuild && !previewMode;
   const [editingTag, setEditingTag] = useState<string | null>(null); // locks which line is being edited, so it can't drift if the song keeps playing
   const [editText, setEditText] = useState('');
   const [editStatus, setEditStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
@@ -1135,6 +1140,19 @@ export default function YouTubeScreen({ navigation, route }: any) {
             <Text style={styles.back}>🔄 שיר חדש</Text>
           </TouchableOpacity>
         )}
+        {isDevBuild && lines.length > 0 && (
+          <View
+            {...({
+              onMouseEnter: (e: any) =>
+                showTip(e, 'הסתר את כל כלי הפיתוח (ערכי תזמון, כייל, וכו׳) כדי לראות איך זה נראה אחרי שזה עולה לגיט'),
+              onMouseLeave: hideTip,
+            } as any)}
+          >
+            <TouchableOpacity onPress={() => setPreviewMode((v) => !v)} hitSlop={12}>
+              <Text style={styles.back}>{previewMode ? '🛠 חזרה לעריכה' : '👁 תצוגה מקדימה'}</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
 
       <ScrollView contentContainerStyle={{ paddingBottom: 12 }}>
@@ -1861,7 +1879,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
             {/* Calibration tools — shown ONLY in development (npm start), so
                 you can find the right offset and bake it into defaultOffsets.
                 Hidden for users in the published app. */}
-            {__DEV__ && (
+            {canEditTranslations && (
               <>
                 <Text style={styles.syncHint}>
                   [DEV] סנכרון: לחץ "כייל" כשהמילה הראשונה נשמעת — ערך: {syncOffset.toFixed(1)}s
