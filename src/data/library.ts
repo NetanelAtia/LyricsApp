@@ -17,6 +17,7 @@ export const defaultOffsets: Record<string, number> = {
   'fLexgOxsZu0': -3.0, // Bruno Mars – The Lazy Song
   'Xg72z08aTXY': -0.5, // Måneskin – Beggin'
   'C7dPqrmDWxs': -0.3, // Pharrell Williams – Happy
+  'WDaNJW_jEBo': -0.5, // Busta Rhymes ft. Mariah Carey – I Know What You Want
 };
 
 // videoIds whose lyrics + word-timing were pulled straight from that exact
@@ -30,6 +31,7 @@ export const youtubeSourcedLyrics = new Set<string>([
   'YQHsXMglC9A', // Adele – Hello
   'hLQl3WQQoQ0', // Adele – Someone Like You
   'EkHTsc9PU2A', // Jason Mraz – I'm Yours
+  'WDaNJW_jEBo', // Busta Rhymes ft. Mariah Carey – I Know What You Want
   'pfxyk1glEq4', // Chris Brown – Under The Influence
   '2Vv-BfVoq4g', // Ed Sheeran – Perfect
   'JGwWNGJdvx8', // Ed Sheeran – Shape of You
@@ -108,6 +110,7 @@ export const library: LibrarySong[] = [
   { videoId: 'xFYQQPAOz7Y', artist: 'Eminem', track: 'Lose Yourself', emoji: '🎤', accent: '#636e72' },
   { videoId: 'C7dPqrmDWxs', artist: 'Pharrell Williams', track: 'Happy', emoji: '😄', accent: '#fdcb6e' },
   { videoId: 'UXWFqxKU2qA', artist: 'Snoop Dogg', track: 'Vato', emoji: '😎', accent: '#00b894' },
+  { videoId: 'WDaNJW_jEBo', artist: 'Busta Rhymes ft. Mariah Carey', track: 'I Know What You Want', emoji: '💋', accent: '#e84393' },
   { videoId: 'pfxyk1glEq4', artist: 'Chris Brown', track: 'Under The Influence', emoji: '🌀', accent: '#6c5ce7' },
   { videoId: '8gyLR4NfMiI', artist: 'Chris Brown ft. Lil Wayne, Busta Rhymes', track: 'Look At Me Now', emoji: '🔥', accent: '#ff7675' },
   { videoId: 'QVXE1EzMrfw', artist: 'Ja Rule ft. R. Kelly, Ashanti', track: 'Wonderful', emoji: '✨', accent: '#fdcb6e' },
