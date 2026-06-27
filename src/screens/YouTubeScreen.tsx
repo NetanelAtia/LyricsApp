@@ -761,22 +761,15 @@ export default function YouTubeScreen({ navigation, route }: any) {
   // Re-fit every word AFTER wordIdx, spaced evenly starting right where it
   // ends — so retiming one word (the first, or any other) carries the rest
   // of the line along with it instead of leaving them at their old spots.
+  // Only pushes the words AFTER wordIdx along with it, each keeping its own
+  // original duration — the words before it are left exactly where they
+  // were, untouched.
   function cascadeAfter(updated: { word: string; start: number; end: number }[], wordIdx: number) {
     let cursor = updated[wordIdx].end;
     for (let i = wordIdx + 1; i < updated.length; i++) {
       const d = updated[i].end - updated[i].start;
       updated[i] = { ...updated[i], start: cursor, end: cursor + d };
       cursor += d;
-    }
-    // ...and backward too, so the words before the changed one stay in
-    // the same relative order/spacing instead of overlapping it or being
-    // left stranded at their old positions.
-    cursor = updated[wordIdx].start;
-    for (let i = wordIdx - 1; i >= 0; i--) {
-      const d = updated[i].end - updated[i].start;
-      const start = Math.max(0, cursor - d);
-      updated[i] = { ...updated[i], start, end: start + d };
-      cursor = start;
     }
   }
 
