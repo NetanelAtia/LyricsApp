@@ -950,7 +950,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
     //    Served from our own site — fast and reliable, no external network.
     if (videoId) {
       try {
-        const res = await fetch(`lyrics/${videoId}.lrc`);
+        const res = await fetch(`lyrics/${videoId}.lrc?v=${Date.now()}`, { cache: 'no-store' });
         if (res.ok) {
           const parsed = parseLrc(await res.text());
           if (parsed.length) {
@@ -1018,7 +1018,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
       return;
     }
     let alive = true;
-    fetch(`translations/${videoId}.json`)
+    fetch(`translations/${videoId}.json?v=${Date.now()}`, { cache: 'no-store' })
       .then((r) => (r.ok ? r.json() : {}))
       .then((j) => alive && setBundledTr(j || {}))
       .catch(() => alive && setBundledTr({}));
@@ -1037,7 +1037,7 @@ export default function YouTubeScreen({ navigation, route }: any) {
       return;
     }
     let alive = true;
-    fetch(`wordtiming/${videoId}.json`)
+    fetch(`wordtiming/${videoId}.json?v=${Date.now()}`, { cache: 'no-store' })
       .then((r) => (r.ok ? r.json() : {}))
       .then((j) => alive && setWordTiming(j || {}))
       .catch(() => alive && setWordTiming({}));
