@@ -1,0 +1,40 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#201e45"/>
+      <stop offset="0.55" stop-color="#14132e"/>
+      <stop offset="1" stop-color="#0f0f1a"/>
+    </linearGradient>
+    <!-- userSpaceOnUse: a bounding-box gradient collapses to nothing on the
+         perfectly vertical stem lines (zero-width bbox). -->
+    <linearGradient id="note" gradientUnits="userSpaceOnUse" x1="130" y1="120" x2="382" y2="380">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="0.5" stop-color="#e879f9"/>
+      <stop offset="1" stop-color="#fb7185"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#fb7185"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <rect width="512" height="512" fill="url(#glow)"/>
+
+  <!-- Beamed eighth notes -->
+  <g stroke="url(#note)" stroke-linecap="round" fill="none">
+    <path d="M202 168 L340 144" stroke-width="46"/>
+    <path d="M202 172 L202 338" stroke-width="20"/>
+    <path d="M340 148 L340 314" stroke-width="20"/>
+  </g>
+  <ellipse cx="174" cy="346" rx="42" ry="31" fill="url(#note)" transform="rotate(-18 174 346)"/>
+  <ellipse cx="312" cy="322" rx="42" ry="31" fill="url(#note)" transform="rotate(-18 312 322)"/>
+
+  <!-- Karaoke lyric line: highlighted word + dim rest -->
+  <rect x="128" y="418" width="168" height="30" rx="15" fill="url(#bar)"/>
+  <rect x="312" y="418" width="72" height="30" rx="15" fill="#ffffff" opacity="0.28"/>
+</svg>
