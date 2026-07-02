@@ -19,6 +19,7 @@ import YouTubeScreen from './src/screens/YouTubeScreen';
 import VocabScreen from './src/screens/VocabScreen';
 import ProgressScreen from './src/screens/ProgressScreen';
 import XpPopup from './src/components/XpPopup';
+import InstallPrompt from './src/components/InstallPrompt';
 import { colors } from './src/theme';
 
 // The Stack lets us move between screens (list -> song -> back).
@@ -92,6 +93,7 @@ function App() {
         </NavigationContainer>
         <StatusBarBackground />
         <XpPopup />
+        <InstallPrompt />
       </View>
     </SafeAreaProvider>
   );
