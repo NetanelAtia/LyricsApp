@@ -47,6 +47,7 @@ export default function InstallPrompt() {
     if (Platform.OS !== 'web') return;
     if (isStandalone()) return;
     if (isDismissed()) return;
+    if (window.innerWidth >= 700) return; // desktop — no install prompt
 
     const handler = (e: Event) => {
       e.preventDefault();
