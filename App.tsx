@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { ActivityIndicator, Platform, Text, TouchableOpacity, View } from 'react-native';
 import { NavigationContainerRef } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -62,15 +62,6 @@ function App() {
     SuezOne_400Regular,
   });
 
-  useEffect(() => {
-    const deepLink = getDeepLinkSong();
-    if (!deepLink) return;
-    const unsubscribe = navRef.current?.addListener('state', () => {
-      unsubscribe?.();
-      (navRef.current as any)?.navigate('YouTube', deepLink);
-    });
-  }, []);
-
   if (!fontsLoaded) {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.background }}>
@@ -82,7 +73,14 @@ function App() {
   return (
     <SafeAreaProvider>
       <View style={{ flex: 1 }}>
-        <NavigationContainer ref={navRef} documentTitle={{ formatter: () => 'LyricsApp' }}>
+        <NavigationContainer
+          ref={navRef}
+          documentTitle={{ formatter: () => 'LyricsApp' }}
+          onReady={() => {
+            const deepLink = getDeepLinkSong();
+            if (deepLink) (navRef.current as any)?.navigate('YouTube', deepLink);
+          }}
+        >
           <StatusBar style="light" />
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="SongsList" component={SongsListScreen} />
