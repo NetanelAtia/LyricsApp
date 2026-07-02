@@ -164,7 +164,6 @@ function SongCard({ song, number, onPress }: { song: LibrarySong; number: number
         <Text style={styles.songTitle}>{song.track}</Text>
         <Text style={styles.songArtist}>{song.artist}</Text>
       </View>
-      {readySongs.has(song.videoId) && <View style={styles.readyDot} />}
       <TouchableOpacity style={styles.shareBtn} onPress={handleShare} hitSlop={8}>
         <MaterialIcons name="share" size={18} color={colors.textFaint} />
       </TouchableOpacity>

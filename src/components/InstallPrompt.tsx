@@ -40,6 +40,7 @@ function dismiss() {
 export default function InstallPrompt() {
   const [visible, setVisible] = useState(false);
   const [ios] = useState(isIOS);
+  const [hasNativePrompt, setHasNativePrompt] = useState(false);
   const deferredPrompt = useRef<any>(null);
 
   useEffect(() => {
@@ -47,15 +48,18 @@ export default function InstallPrompt() {
     if (isStandalone()) return;
     if (isDismissed()) return;
 
-    // Android/Chrome: capture the native install event
     const handler = (e: Event) => {
       e.preventDefault();
       deferredPrompt.current = e;
+      setHasNativePrompt(true);
+      setVisible(true);
     };
     window.addEventListener('beforeinstallprompt', handler);
 
-    // Show after a short delay so the page loads first
-    const timer = setTimeout(() => setVisible(true), 1200);
+    // Fallback: show manual instructions after 2s if no native prompt arrived
+    const timer = setTimeout(() => {
+      if (!deferredPrompt.current) setVisible(true);
+    }, 2000);
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handler);
@@ -74,8 +78,6 @@ export default function InstallPrompt() {
         dismiss();
         setVisible(false);
       }
-    } else {
-      // iOS or browser without beforeinstallprompt — just close, user reads instructions
     }
   };
 
@@ -98,28 +100,23 @@ export default function InstallPrompt() {
             למד אנגלית דרך שירים — בחינם, בלי חנות אפליקציות
           </Text>
 
-          {ios ? (
+          {ios || !hasNativePrompt ? (
             <View style={styles.iosSteps}>
-              <Text style={styles.iosStep}>
-                <Text style={styles.iosStepNum}>1. </Text>
-                לחץ על <Text style={styles.iosBold}>שלוש הנקודות</Text> ⋯ בדפדפן
-              </Text>
-              <Text style={styles.iosStep}>
-                <Text style={styles.iosStepNum}>2. </Text>
-                לחץ על <Text style={styles.iosBold}>שיתוף</Text>
-              </Text>
-              <Text style={styles.iosStep}>
-                <Text style={styles.iosStepNum}>3. </Text>
-                לחץ על <Text style={styles.iosBold}>הצגת עוד</Text>
-              </Text>
-              <Text style={styles.iosStep}>
-                <Text style={styles.iosStepNum}>4. </Text>
-                גלול מטה ולחץ על <Text style={styles.iosBold}>הוסף למסך הבית</Text>
-              </Text>
-              <Text style={styles.iosStep}>
-                <Text style={styles.iosStepNum}>5. </Text>
-                לחץ <Text style={styles.iosBold}>הוספה</Text>
-              </Text>
+              {ios ? (
+                <>
+                  <Text style={styles.iosStep}><Text style={styles.iosStepNum}>1. </Text>לחץ על <Text style={styles.iosBold}>שלוש הנקודות</Text> ⋯ בדפדפן</Text>
+                  <Text style={styles.iosStep}><Text style={styles.iosStepNum}>2. </Text>לחץ על <Text style={styles.iosBold}>שיתוף</Text></Text>
+                  <Text style={styles.iosStep}><Text style={styles.iosStepNum}>3. </Text>לחץ על <Text style={styles.iosBold}>הצגת עוד</Text></Text>
+                  <Text style={styles.iosStep}><Text style={styles.iosStepNum}>4. </Text>גלול מטה ולחץ על <Text style={styles.iosBold}>הוסף למסך הבית</Text></Text>
+                  <Text style={styles.iosStep}><Text style={styles.iosStepNum}>5. </Text>לחץ <Text style={styles.iosBold}>הוספה</Text></Text>
+                </>
+              ) : (
+                <>
+                  <Text style={styles.iosStep}><Text style={styles.iosStepNum}>1. </Text>לחץ על <Text style={styles.iosBold}>שלוש הנקודות</Text> ⋮ בדפדפן</Text>
+                  <Text style={styles.iosStep}><Text style={styles.iosStepNum}>2. </Text>לחץ על <Text style={styles.iosBold}>הוסף למסך הבית</Text></Text>
+                  <Text style={styles.iosStep}><Text style={styles.iosStepNum}>3. </Text>לחץ <Text style={styles.iosBold}>הוסף</Text></Text>
+                </>
+              )}
             </View>
           ) : (
             <TouchableOpacity style={styles.installBtn} onPress={handleInstall} activeOpacity={0.85}>
@@ -128,7 +125,7 @@ export default function InstallPrompt() {
           )}
 
           <View style={styles.footer}>
-            {ios && (
+            {(ios || !hasNativePrompt) && (
               <TouchableOpacity onPress={handleClose} style={styles.footerBtn}>
                 <Text style={styles.footerBtnText}>סגור</Text>
               </TouchableOpacity>
