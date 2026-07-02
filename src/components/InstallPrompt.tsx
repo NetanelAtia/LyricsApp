@@ -102,18 +102,23 @@ export default function InstallPrompt() {
             <View style={styles.iosSteps}>
               <Text style={styles.iosStep}>
                 <Text style={styles.iosStepNum}>1. </Text>
-                לחץ על כפתור השיתוף{' '}
-                <Text style={styles.iosIcon}>{'⬆'}</Text>{' '}
-                בתחתית הדפדפן
+                לחץ על <Text style={styles.iosBold}>שלוש הנקודות</Text> ⋯ בדפדפן
               </Text>
               <Text style={styles.iosStep}>
                 <Text style={styles.iosStepNum}>2. </Text>
-                גלול מטה ובחר{' '}
-                <Text style={styles.iosBold}>Add to Home Screen</Text>
+                לחץ על <Text style={styles.iosBold}>שיתוף</Text>
               </Text>
               <Text style={styles.iosStep}>
                 <Text style={styles.iosStepNum}>3. </Text>
-                לחץ <Text style={styles.iosBold}>Add</Text> בפינה הימנית
+                לחץ על <Text style={styles.iosBold}>הצגת עוד</Text>
+              </Text>
+              <Text style={styles.iosStep}>
+                <Text style={styles.iosStepNum}>4. </Text>
+                גלול מטה ולחץ על <Text style={styles.iosBold}>הוסף למסך הבית</Text>
+              </Text>
+              <Text style={styles.iosStep}>
+                <Text style={styles.iosStepNum}>5. </Text>
+                לחץ <Text style={styles.iosBold}>הוספה</Text>
               </Text>
             </View>
           ) : (
