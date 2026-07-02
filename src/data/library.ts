@@ -16,7 +16,7 @@ export const defaultOffsets: Record<string, number> = {
   'LjhCEhWiKXk': -15.7, // Bruno Mars – Just the Way You Are
   'fLexgOxsZu0': -3.0, // Bruno Mars – The Lazy Song
   'Xg72z08aTXY': -0.5, // Måneskin – Beggin'
-  'gl1aHhXnN1k': -38.3, // Ariana Grande – thank u, next (video has a ~46s spoken intro before the song starts; lyrics source is timed to the song-only audio)
+  'gl1aHhXnN1k': 0, // Ariana Grande – Thank U, Next (rebuilt from YouTube captions — timing matches video directly)
   'C7dPqrmDWxs': -0.3, // Pharrell Williams – Happy
   'WDaNJW_jEBo': -0.5, // Busta Rhymes ft. Mariah Carey – I Know What You Want
 };
@@ -26,6 +26,7 @@ export const defaultOffsets: Record<string, number> = {
 // edit/version embedded in the app). Everything else came from a separate
 // lyrics database (LRCLIB) that was matched by song name/duration.
 export const youtubeSourcedLyrics = new Set<string>([
+  'gl1aHhXnN1k', // Ariana Grande – Thank U, Next
   'UXWFqxKU2qA', // Snoop Dogg – Vato
   'CaCSuzR4DwM', // Louis Armstrong – What A Wonderful World
   'kXYiU_JCYtU', // Linkin Park – Numb
