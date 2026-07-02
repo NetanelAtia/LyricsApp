@@ -62,14 +62,6 @@ function App() {
     SuezOne_400Regular,
   });
 
-  if (!fontsLoaded) {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.background }}>
-        <ActivityIndicator color={colors.primary} />
-      </View>
-    );
-  }
-
   useEffect(() => {
     const deepLink = getDeepLinkSong();
     if (!deepLink) return;
@@ -78,6 +70,14 @@ function App() {
       (navRef.current as any)?.navigate('YouTube', deepLink);
     });
   }, []);
+
+  if (!fontsLoaded) {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.background }}>
+        <ActivityIndicator color={colors.primary} />
+      </View>
+    );
+  }
 
   return (
     <SafeAreaProvider>
