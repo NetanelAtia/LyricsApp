@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Platform, Text, TouchableOpacity, View } from 'react-native';
+import { NavigationContainerRef } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -37,7 +38,22 @@ function StatusBarBackground() {
   );
 }
 
+function getDeepLinkSong(): { videoId: string; artist: string; track: string } | null {
+  if (Platform.OS !== 'web') return null;
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const videoId = params.get('song');
+    if (!videoId) return null;
+    const { library } = require('./src/data/library');
+    const song = library.find((s: any) => s.videoId === videoId);
+    return song ? { videoId: song.videoId, artist: song.artist, track: song.track } : { videoId, artist: '', track: '' };
+  } catch {
+    return null;
+  }
+}
+
 function App() {
+  const navRef = useRef<NavigationContainerRef<any>>(null);
   const [fontsLoaded] = useFonts({
     Rubik_400Regular,
     Rubik_500Medium,
@@ -54,10 +70,19 @@ function App() {
     );
   }
 
+  useEffect(() => {
+    const deepLink = getDeepLinkSong();
+    if (!deepLink) return;
+    const unsubscribe = navRef.current?.addListener('state', () => {
+      unsubscribe?.();
+      (navRef.current as any)?.navigate('YouTube', deepLink);
+    });
+  }, []);
+
   return (
     <SafeAreaProvider>
       <View style={{ flex: 1 }}>
-        <NavigationContainer documentTitle={{ formatter: () => 'LyricsApp' }}>
+        <NavigationContainer ref={navRef} documentTitle={{ formatter: () => 'LyricsApp' }}>
           <StatusBar style="light" />
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="SongsList" component={SongsListScreen} />

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, Share, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { colors, fonts, radius, spacing } from '../theme';
@@ -145,6 +145,14 @@ export default function SongsListScreen({ navigation }: any) {
 }
 
 function SongCard({ song, number, onPress }: { song: LibrarySong; number: number; onPress: () => void }) {
+  const handleShare = () => {
+    const appUrl = `https://netanelatia.github.io/LyricsApp/?song=${song.videoId}`;
+    Share.share({
+      message: `🎵 ${song.track} – ${song.artist}\n${appUrl}`,
+      url: appUrl,
+    });
+  };
+
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.8}>
       <Text style={styles.cardNumber}>{number}</Text>
@@ -157,6 +165,9 @@ function SongCard({ song, number, onPress }: { song: LibrarySong; number: number
         <Text style={styles.songArtist}>{song.artist}</Text>
       </View>
       {readySongs.has(song.videoId) && <View style={styles.readyDot} />}
+      <TouchableOpacity style={styles.shareBtn} onPress={handleShare} hitSlop={8}>
+        <MaterialIcons name="share" size={18} color={colors.textFaint} />
+      </TouchableOpacity>
       <View style={styles.playCol}>
         {youtubeSourcedLyrics.has(song.videoId) && (
           <MaterialIcons name="translate" size={14} color={colors.danger} style={styles.sourceBadge} />
@@ -235,6 +246,7 @@ const styles = StyleSheet.create({
   playCol: { alignItems: 'center', paddingHorizontal: spacing.md },
   sourceBadge: { marginBottom: 2 },
   readyDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.success },
+  shareBtn: { padding: 6, marginHorizontal: 4 },
   play: { color: colors.primarySoft, fontSize: 20 },
 
   pager: {
